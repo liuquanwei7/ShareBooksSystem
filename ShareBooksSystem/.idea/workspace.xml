@@ -7,16 +7,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="907029ce-925c-4f6c-adc6-b56af8b556fe" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/web/bookManagement/manage_login.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ShareBooksSystem.iml" beforeDir="false" afterPath="$PROJECT_DIR$/ShareBooksSystem.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/sharebookssystem/model/Book.hbm.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/sharebookssystem/model/Book.hbm.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/sharebookssystem/model/BorrowHistoryItem.hbm.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/sharebookssystem/model/BorrowHistoryItem.hbm.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/sharebookssystem/model/CollectCarItem.hbm.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/sharebookssystem/model/CollectCarItem.hbm.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/sharebookssystem/model/CommentItem.hbm.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/sharebookssystem/model/CommentItem.hbm.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/sharebookssystem/model/Manager.hbm.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/sharebookssystem/model/Manager.hbm.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/sharebookssystem/model/PersonalBook.hbm.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/sharebookssystem/model/PersonalBook.hbm.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/sharebookssystem/model/User.hbm.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/sharebookssystem/model/User.hbm.xml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -62,16 +53,16 @@
         <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/ff5954ce-da3b-46ba-a00c-17da23d2def8/console.sql">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="24">
-              <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="1" />
+              <caret line="1" selection-start-line="1" selection-end-line="1" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="manage_login.jsp" pinned="false" current-in-tab="true">
+      <file leaf-file-name="manage_login.jsp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/web/bookManagement/manage_login.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="600">
-              <caret line="25" column="2" lean-forward="true" selection-start-line="25" selection-start-column="2" selection-end-line="25" selection-end-column="2" />
+            <state relative-caret-position="336">
+              <caret line="14" selection-start-line="14" selection-end-line="14" />
             </state>
           </provider>
         </entry>
@@ -130,11 +121,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="PersonalBook.hbm.xml" pinned="false" current-in-tab="false">
+      <file leaf-file-name="PersonalBook.hbm.xml" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/sharebookssystem/model/PersonalBook.hbm.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="144">
-              <caret line="6" column="98" selection-start-line="6" selection-start-column="98" selection-end-line="6" selection-end-column="98" />
+            <state relative-caret-position="456">
+              <caret line="19" column="12" lean-forward="true" selection-start-line="19" selection-start-column="12" selection-end-line="19" selection-end-column="12" />
             </state>
           </provider>
         </entry>
@@ -404,7 +395,7 @@
       <updated>1528166603226</updated>
       <workItem from="1528166605462" duration="2006000" />
       <workItem from="1528173246718" duration="5156000" />
-      <workItem from="1528183026230" duration="3819000" />
+      <workItem from="1528183026230" duration="4715000" />
     </task>
     <task id="LOCAL-00001" summary="只有model包的基础包">
       <created>1528181964636</created>
@@ -417,7 +408,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="10981000" />
+    <option name="totallyTimeSpent" value="11877000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-4" y="-4" width="1928" height="1048" extended-state="6" />
@@ -531,7 +522,7 @@
     <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/ff5954ce-da3b-46ba-a00c-17da23d2def8/console.sql">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="24">
-          <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="1" />
+          <caret line="1" selection-start-line="1" selection-end-line="1" />
         </state>
       </provider>
     </entry>
@@ -584,17 +575,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/sharebookssystem/model/PersonalBook.hbm.xml">
+    <entry file="file://$PROJECT_DIR$/web/bookManagement/manage_login.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="6" column="98" selection-start-line="6" selection-start-column="98" selection-end-line="6" selection-end-column="98" />
+        <state relative-caret-position="336">
+          <caret line="14" selection-start-line="14" selection-end-line="14" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/bookManagement/manage_login.jsp">
+    <entry file="file://$PROJECT_DIR$/src/com/sharebookssystem/model/PersonalBook.hbm.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="600">
-          <caret line="25" column="2" lean-forward="true" selection-start-line="25" selection-start-column="2" selection-end-line="25" selection-end-column="2" />
+        <state relative-caret-position="456">
+          <caret line="19" column="12" lean-forward="true" selection-start-line="19" selection-start-column="12" selection-end-line="19" selection-end-column="12" />
         </state>
       </provider>
     </entry>
