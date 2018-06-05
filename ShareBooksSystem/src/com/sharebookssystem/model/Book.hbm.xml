@@ -1,0 +1,17 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="com.sharebookssystem.model.Book" table="bookinfo" schema="sharebookssystem">
+        <id name="bookId" column="bookId">
+            <generator class="increment"/>
+        </id>
+        <property name="bookName" column="bookName" not-null="true" length="20" unique="true"/>
+        <property name="bookAuthor" column="bookAuthor" not-null="true" length="20"/>
+        <property name="bookPublish" column="bookPublish" not-null="true" length="20"/>
+        <property name="bookPrice" column="bookPrice" not-null="true"/>
+        <property name="bookCategory" column="bookCategory" not-null="true" length="20"/>
+    </class>
+</hibernate-mapping>

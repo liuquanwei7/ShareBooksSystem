@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="
+       http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+       http://www.springframework.org/schema/aop
+       http://www.springframework.org/schema/aop/spring-aop-2.5.xsd
+       http://www.springframework.org/schema/tx
+       http://www.springframework.org/schema/tx/spring-tx-2.5.xsd
+       http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/context/spring-context-2.5.xsd">
+
+
+    <context:component-scan base-package="com.sharebookssystem.pan.*" />
+    <context:component-scan base-package="com.sharebookssystem.model" />
+
+    <bean id="con" class="org.apache.commons.dbcp2.BasicDataSource" destroy-method="close" >
+        <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
+
+        <property name="url" value="jdbc:mysql://localhost:3306/ShareBooksSystem?characterEncoding=utf8"/>
+
+        <property name="username" value="root"/>
+        <property name="password" value="12345"/>
+
+        <!-- 最大连接数量 -->
+        <property name="maxTotal" value="70" />
+        <!-- 最小空闲连接 -->
+        <property name="minIdle" value="5" />
+        <!-- 最大空闲连接 -->
+        <property name="maxIdle" value="20" />
+        <!-- 初始化连接数量 -->
+        <property name="initialSize" value="30" />
+        <!-- 连接被泄露时是否打印 -->
+        <property name="logAbandoned" value="true" />
+        <!-- 是否自动回收超时连接 -->
+        <property name="removeAbandonedOnBorrow" value="true" />
+        <property name="removeAbandonedOnMaintenance" value="true"/>
+        <!-- 超时等待时间(以秒为单位) -->
+        <property name="removeAbandonedTimeout" value="20" />
+        <property name="maxWaitMillis" value="10000"/>
+    </bean>
+
+    <bean id="sessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+        <!-- 设置注入 -->
+        <property name="dataSource">
+            <ref bean="con" />
+        </property>
+        <property name="hibernateProperties">
+            <props>
+                <prop key="hibernate.dialect"> <!-- 数据库方言 -->
+                    org.hibernate.dialect.MySQL5Dialect
+                </prop>
+                <prop key="hibernate.show_sql">true</prop>
+            </props>
+        </property>
+        <!-- 说明持久化类映射文件 -->
+        <property name="mappingResources">
+            <list>
+                <value>com/sharebookssystem/model/Book.hbm.xml</value>
+                <value>com/sharebookssystem/model/BorrowHistoryItem.hbm.xml</value>
+                <value>com/sharebookssystem/model/CollectCarItem.hbm.xml</value>
+                <value>com/sharebookssystem/model/CommentItem.hbm.xml</value>
+                <value>com/sharebookssystem/model/Manager.hbm.xml</value>
+                <value>com/sharebookssystem/model/PersonalBook.hbm.xml</value>
+                <value>com/sharebookssystem/model/User.hbm.xml</value>
+            </list>
+        </property>
+    </bean>
+</beans>
