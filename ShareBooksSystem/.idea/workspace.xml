@@ -382,7 +382,7 @@
       <workItem from="1528166605462" duration="2006000" />
       <workItem from="1528173246718" duration="5156000" />
       <workItem from="1528183026230" duration="4715000" />
-      <workItem from="1528208251129" duration="563000" />
+      <workItem from="1528208251129" duration="886000" />
     </task>
     <task id="LOCAL-00001" summary="只有model包的基础包">
       <created>1528181964636</created>
@@ -395,7 +395,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="12440000" />
+    <option name="totallyTimeSpent" value="12763000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="934" extended-state="6" />
