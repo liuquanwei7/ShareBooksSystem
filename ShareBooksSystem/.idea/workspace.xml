@@ -6,7 +6,9 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="907029ce-925c-4f6c-adc6-b56af8b556fe" name="Default" comment="" />
+    <list default="true" id="907029ce-925c-4f6c-adc6-b56af8b556fe" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -47,65 +49,122 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="web.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web/WEB-INF/web.xml">
+      <file leaf-file-name="console.sql" pinned="false" current-in-tab="false">
+        <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/ff5954ce-da3b-46ba-a00c-17da23d2def8/console.sql">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="95">
-              <caret line="5" selection-start-line="5" selection-end-line="5" />
+            <state relative-caret-position="24">
+              <caret line="1" selection-start-line="1" selection-end-line="1" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="applicationContext-commons.xml" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/web/WEB-INF/applicationContext-commons.xml">
+      <file leaf-file-name="manage_login.jsp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/web/bookManagement/manage_login.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="17" lean-forward="true" selection-start-line="17" selection-end-line="17" />
+            <state relative-caret-position="336">
+              <caret line="14" selection-start-line="14" selection-end-line="14" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="PageFormat.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/sharebookssystem/pan/myinterface/PageFormat.java">
+      <file leaf-file-name="BorrowHistoryItem.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/sharebookssystem/model/BorrowHistoryItem.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="38">
-              <caret line="2" column="29" selection-start-line="2" selection-start-column="29" selection-end-line="2" selection-end-column="29" />
+            <state relative-caret-position="96">
+              <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="QueryUserPage.jsp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web/WEB-INF/QueryUserPage.jsp">
+      <file leaf-file-name="BorrowHistoryItem.hbm.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/sharebookssystem/model/BorrowHistoryItem.hbm.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="228">
-              <caret line="12" column="47" selection-start-line="12" selection-start-column="47" selection-end-line="12" selection-end-column="47" />
+            <state relative-caret-position="144">
+              <caret line="6" column="108" selection-start-line="6" selection-start-column="108" selection-end-line="6" selection-end-column="108" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="struts.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/struts.xml">
-          <provider editor-type-id="com.intellij.struts2.graph.fileEditor.Struts2GraphFileEditorProvider" />
+      <file leaf-file-name="Book.hbm.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/sharebookssystem/model/Book.hbm.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="533">
-              <caret line="30" column="17" selection-start-line="30" selection-start-column="17" selection-end-line="30" selection-end-column="17" />
+            <state relative-caret-position="144">
+              <caret line="6" column="86" selection-start-line="6" selection-start-column="86" selection-end-line="6" selection-end-column="86" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CollectCarItem.hbm.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/sharebookssystem/model/CollectCarItem.hbm.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="144">
+              <caret line="6" column="78" selection-start-line="6" selection-start-column="78" selection-end-line="6" selection-end-column="78" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CommentItem.hbm.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/sharebookssystem/model/CommentItem.hbm.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="144">
+              <caret line="6" column="82" selection-start-line="6" selection-start-column="82" selection-end-line="6" selection-end-column="82" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Manager.hbm.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/sharebookssystem/model/Manager.hbm.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="144">
+              <caret line="6" column="92" selection-start-line="6" selection-start-column="92" selection-end-line="6" selection-end-column="92" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PersonalBook.hbm.xml" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/com/sharebookssystem/model/PersonalBook.hbm.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="456">
+              <caret line="19" column="12" lean-forward="true" selection-start-line="19" selection-start-column="12" selection-end-line="19" selection-end-column="12" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="User.hbm.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/sharebookssystem/model/User.hbm.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="144">
+              <caret line="6" column="85" selection-start-line="6" selection-start-column="85" selection-end-line="6" selection-end-column="85" />
             </state>
           </provider>
         </entry>
       </file>
     </leaf>
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Jsp File" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/com/sharebookssystem/pan/myinterface/UserDao.java" />
-        <option value="$PROJECT_DIR$/web/WEB-INF/applicationContext-commons.xml" />
         <option value="$PROJECT_DIR$/src/struts.xml" />
-        <option value="$PROJECT_DIR$/src/com/sharebookssystem/pan/myinterface/PageFormat.java" />
-        <option value="$PROJECT_DIR$/web/WEB-INF/QueryUserPage.jsp" />
+        <option value="$PROJECT_DIR$/web/WEB-INF/applicationContext-commons.xml" />
+        <option value="$APPLICATION_CONFIG_DIR$/consoles/db/ff5954ce-da3b-46ba-a00c-17da23d2def8/console.sql" />
+        <option value="$PROJECT_DIR$/src/com/sharebookssystem/model/BorrowHistoryItem.hbm.xml" />
+        <option value="$PROJECT_DIR$/src/com/sharebookssystem/model/Book.hbm.xml" />
+        <option value="$PROJECT_DIR$/src/com/sharebookssystem/model/CommentItem.hbm.xml" />
+        <option value="$PROJECT_DIR$/src/com/sharebookssystem/model/Manager.hbm.xml" />
+        <option value="$PROJECT_DIR$/src/com/sharebookssystem/model/PersonalBook.hbm.xml" />
+        <option value="$PROJECT_DIR$/src/com/sharebookssystem/model/User.hbm.xml" />
+        <option value="$PROJECT_DIR$/src/com/sharebookssystem/model/CollectCarItem.hbm.xml" />
+        <option value="$PROJECT_DIR$/web/bookManagement/manage_login.jsp" />
       </list>
     </option>
   </component>
@@ -123,10 +182,10 @@
     <option name="CUSTOM_FILTER" />
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="416" />
-    <option name="y" value="11" />
+    <option name="x" value="236" />
+    <option name="y" value="17" />
     <option name="width" value="1400" />
-    <option name="height" value="970" />
+    <option name="height" value="1000" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -145,11 +204,6 @@
             <path>
               <item name="ShareBooksSystem" type="b2602c69:ProjectViewProjectNode" />
               <item name="ShareBooksSystem" type="462c0819:PsiDirectoryNode" />
-              <item name=".idea" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ShareBooksSystem" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ShareBooksSystem" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -171,43 +225,7 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="com" type="462c0819:PsiDirectoryNode" />
               <item name="sharebookssystem" type="462c0819:PsiDirectoryNode" />
-              <item name="pan" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ShareBooksSystem" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ShareBooksSystem" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-              <item name="sharebookssystem" type="462c0819:PsiDirectoryNode" />
-              <item name="pan" type="462c0819:PsiDirectoryNode" />
-              <item name="action" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ShareBooksSystem" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ShareBooksSystem" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-              <item name="sharebookssystem" type="462c0819:PsiDirectoryNode" />
-              <item name="pan" type="462c0819:PsiDirectoryNode" />
-              <item name="dao" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ShareBooksSystem" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ShareBooksSystem" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-              <item name="sharebookssystem" type="462c0819:PsiDirectoryNode" />
-              <item name="pan" type="462c0819:PsiDirectoryNode" />
-              <item name="myinterface" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ShareBooksSystem" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ShareBooksSystem" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-              <item name="sharebookssystem" type="462c0819:PsiDirectoryNode" />
-              <item name="pan" type="462c0819:PsiDirectoryNode" />
-              <item name="Service" type="462c0819:PsiDirectoryNode" />
+              <item name="model" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="ShareBooksSystem" type="b2602c69:ProjectViewProjectNode" />
@@ -218,32 +236,27 @@
               <item name="ShareBooksSystem" type="b2602c69:ProjectViewProjectNode" />
               <item name="ShareBooksSystem" type="462c0819:PsiDirectoryNode" />
               <item name="web" type="462c0819:PsiDirectoryNode" />
-              <item name="WEB-INF" type="462c0819:PsiDirectoryNode" />
+              <item name="bookManagement" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
       <pane id="AndroidView" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="com.intellij.database.dataSource.DataSourceTemplate" value="MySQL" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../共享图书jar包/struts2Required" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.1360492" />
     <property name="project.structure.side.proportion" value="0.25543007" />
-  </component>
-  <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\ideaWorkBench\ShareBooksSystem\ShareBooksSystem\web\WEB-INF" />
-      <recent name="D:\ideaWorkBench\ShareBooksSystem\ShareBooksSystem\src\com\sharebookssystem" />
-    </key>
+    <property name="settings.editor.selected.configurable" value="fileTemplates" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -381,8 +394,8 @@
       <option name="presentableId" value="Default" />
       <updated>1528166603226</updated>
       <workItem from="1528166605462" duration="2006000" />
-      <workItem from="1528173246718" duration="4469000" />
-      <workItem from="1528183080356" duration="728000" />
+      <workItem from="1528173246718" duration="5156000" />
+      <workItem from="1528183026230" duration="4715000" />
     </task>
     <task id="LOCAL-00001" summary="只有model包的基础包">
       <created>1528181964636</created>
@@ -395,43 +408,44 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="7203000" />
+    <option name="totallyTimeSpent" value="11877000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1696" height="1026" extended-state="6" />
+    <frame x="-4" y="-4" width="1928" height="1048" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
-      <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="right" id="Palette&#9;" order="3" />
-      <window_info anchor="bottom" id="Java Enterprise" order="7" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
-      <window_info anchor="bottom" id="Application Servers" order="7" weight="0.3295838" />
+      <window_info anchor="bottom" id="Application Servers" order="7" weight="0.32882884" />
       <window_info anchor="right" id="Maven Projects" order="3" />
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.32882884" />
-      <window_info anchor="bottom" id="Version Control" order="7" weight="0.32995495" />
-      <window_info anchor="bottom" id="Spring" order="7" />
-      <window_info anchor="bottom" id="Terminal" order="7" visible="true" weight="0.31170335" />
-      <window_info id="Persistence" order="2" side_tool="true" />
+      <window_info id="Capture Tool" order="2" />
       <window_info id="Designer" order="2" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.18520783" />
-      <window_info id="Web" order="2" side_tool="true" />
-      <window_info anchor="right" id="Database" order="3" weight="0.3299356" />
+      <window_info anchor="right" id="Database" order="3" visible="true" weight="0.13948497" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info id="UI Designer" order="2" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
-      <window_info id="Favorites" order="2" side_tool="true" />
-      <window_info anchor="right" id="Capture Analysis" order="3" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info id="Image Layers" order="2" />
-      <window_info anchor="bottom" id="Database Console" order="8" weight="0.32995495" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info id="Capture Tool" order="2" />
+      <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Messages" order="7" />
-      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="right" id="Palette&#9;" order="3" />
+      <window_info id="Image Layers" order="2" />
+      <window_info anchor="bottom" id="Java Enterprise" order="7" />
+      <window_info anchor="right" id="Capture Analysis" order="3" />
+      <window_info anchor="bottom" id="Version Control" order="7" weight="0.32995495" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.32882884" />
+      <window_info anchor="bottom" id="Spring" order="7" />
+      <window_info anchor="bottom" id="Terminal" order="7" weight="0.31193694" />
+      <window_info id="Persistence" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Database Console" order="8" weight="0.32995495" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.20708154" />
+      <window_info id="Web" order="2" side_tool="true" />
       <window_info anchor="right" id="Theme Preview" order="3" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Find" order="1" />
     </layout>
@@ -449,14 +463,14 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/web/WEB-INF/web.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="95">
+        <state relative-caret-position="120">
           <caret line="5" selection-start-line="5" selection-end-line="5" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/web/WEB-INF/applicationContext-commons.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="266">
+        <state relative-caret-position="336">
           <caret line="14" column="57" selection-start-line="14" selection-start-column="57" selection-end-line="14" selection-end-column="57" />
         </state>
       </provider>
@@ -468,7 +482,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../../MyShareBooksSystem/src/com/sharebookssystem/pan/dao/UserDaoImpl.java" />
+    <entry file="file://$PROJECT_DIR$/src/com/sharebookssystem/pan/dao/UserDaoImpl.java" />
     <entry file="das://ff5954ce-da3b-46ba-a00c-17da23d2def8/schema/shareBooksSystem/table/BookInfo">
       <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
         <state>
@@ -477,58 +491,101 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/hibernate.cfg.xml" />
+    <entry file="file://$PROJECT_DIR$/web/WEB-INF/applicationContext-commons.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="14" column="57" selection-start-line="14" selection-start-column="57" selection-end-line="14" selection-end-column="57" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/web/WEB-INF/web.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="95">
+        <state relative-caret-position="120">
           <caret line="5" selection-start-line="5" selection-end-line="5" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/sharebookssystem/pan/myinterface/UserService.java">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/sharebookssystem/pan/action/UserPageAction.java">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/sharebookssystem/pan/myinterface/UserDao.java">
+    <entry file="das://ff5954ce-da3b-46ba-a00c-17da23d2def8/schema/shareBooksSystem/table/BorrowHistoryItem.sql">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="171">
-          <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
+        <state relative-caret-position="24">
+          <caret line="1" column="13" selection-start-line="1" selection-start-column="13" selection-end-line="1" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/sharebookssystem/pan/dao/UserDaoImpl.java">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/sharebookssystem/pan/Service/UserPageService.java">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/sharebookssystem/pan/myinterface/PageFormat.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="38">
-          <caret line="2" column="29" selection-start-line="2" selection-start-column="29" selection-end-line="2" selection-end-column="29" />
+    <entry file="das://ff5954ce-da3b-46ba-a00c-17da23d2def8/schema/shareBooksSystem/table/BorrowHistoryItem">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/WEB-INF/QueryUserPage.jsp">
+    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/ff5954ce-da3b-46ba-a00c-17da23d2def8/console.sql">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="228">
-          <caret line="12" column="47" selection-start-line="12" selection-start-column="47" selection-end-line="12" selection-end-column="47" />
+        <state relative-caret-position="24">
+          <caret line="1" selection-start-line="1" selection-end-line="1" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/struts.xml">
-      <provider editor-type-id="com.intellij.struts2.graph.fileEditor.Struts2GraphFileEditorProvider" />
+    <entry file="file://$PROJECT_DIR$/src/com/sharebookssystem/model/BorrowHistoryItem.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="533">
-          <caret line="30" column="17" selection-start-line="30" selection-start-column="17" selection-end-line="30" selection-end-column="17" />
+        <state relative-caret-position="96">
+          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/WEB-INF/applicationContext-commons.xml">
+    <entry file="file://$PROJECT_DIR$/src/com/sharebookssystem/model/CommentItem.hbm.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="17" lean-forward="true" selection-start-line="17" selection-end-line="17" />
+        <state relative-caret-position="144">
+          <caret line="6" column="82" selection-start-line="6" selection-start-column="82" selection-end-line="6" selection-end-column="82" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/sharebookssystem/model/User.hbm.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="144">
+          <caret line="6" column="85" selection-start-line="6" selection-start-column="85" selection-end-line="6" selection-end-column="85" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/sharebookssystem/model/CollectCarItem.hbm.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="144">
+          <caret line="6" column="78" selection-start-line="6" selection-start-column="78" selection-end-line="6" selection-end-column="78" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/sharebookssystem/model/BorrowHistoryItem.hbm.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="144">
+          <caret line="6" column="108" selection-start-line="6" selection-start-column="108" selection-end-line="6" selection-end-column="108" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/sharebookssystem/model/Book.hbm.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="144">
+          <caret line="6" column="86" selection-start-line="6" selection-start-column="86" selection-end-line="6" selection-end-column="86" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/sharebookssystem/model/Manager.hbm.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="144">
+          <caret line="6" column="92" selection-start-line="6" selection-start-column="92" selection-end-line="6" selection-end-column="92" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/bookManagement/manage_login.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="336">
+          <caret line="14" selection-start-line="14" selection-end-line="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/sharebookssystem/model/PersonalBook.hbm.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="456">
+          <caret line="19" column="12" lean-forward="true" selection-start-line="19" selection-start-column="12" selection-end-line="19" selection-end-column="12" />
         </state>
       </provider>
     </entry>
@@ -538,7 +595,7 @@
       <state key="ArtifactsStructureConfigurable.UI">
         <settings>
           <artifact-editor />
-          <last-edited />
+          <last-edited>ShareBooksSystem:war exploded</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
@@ -551,7 +608,7 @@
       </state>
       <state key="FacetStructureConfigurable.UI">
         <settings>
-          <last-edited />
+          <last-edited>Struts 2 (ShareBooksSystem)|Struts 2</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
