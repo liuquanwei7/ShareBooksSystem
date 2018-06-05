@@ -145,6 +145,11 @@
             <path>
               <item name="ShareBooksSystem" type="b2602c69:ProjectViewProjectNode" />
               <item name="ShareBooksSystem" type="462c0819:PsiDirectoryNode" />
+              <item name=".idea" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ShareBooksSystem" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ShareBooksSystem" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -230,9 +235,15 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
-    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.1360492" />
     <property name="project.structure.side.proportion" value="0.25543007" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\ideaWorkBench\ShareBooksSystem\ShareBooksSystem\web\WEB-INF" />
+      <recent name="D:\ideaWorkBench\ShareBooksSystem\ShareBooksSystem\src\com\sharebookssystem" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -371,7 +382,7 @@
       <updated>1528166603226</updated>
       <workItem from="1528166605462" duration="2006000" />
       <workItem from="1528173246718" duration="4469000" />
-      <workItem from="1528183080356" duration="454000" />
+      <workItem from="1528183080356" duration="728000" />
     </task>
     <task id="LOCAL-00001" summary="只有model包的基础包">
       <created>1528181964636</created>
@@ -384,11 +395,10 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="6929000" />
+    <option name="totallyTimeSpent" value="7203000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1696" height="1026" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -528,7 +538,7 @@
       <state key="ArtifactsStructureConfigurable.UI">
         <settings>
           <artifact-editor />
-          <last-edited>ShareBooksSystem:war exploded</last-edited>
+          <last-edited />
           <splitter-proportions>
             <option name="proportions">
               <list>
@@ -541,7 +551,7 @@
       </state>
       <state key="FacetStructureConfigurable.UI">
         <settings>
-          <last-edited>Struts 2 (ShareBooksSystem)|Struts 2</last-edited>
+          <last-edited />
           <splitter-proportions>
             <option name="proportions">
               <list>
