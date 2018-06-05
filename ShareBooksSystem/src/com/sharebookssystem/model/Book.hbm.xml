@@ -4,7 +4,7 @@
     "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
 
-    <class name="com.sharebookssystem.model.Book" table="bookinfo" schema="sharebookssystem">
+    <class name="com.sharebookssystem.model.Book" table="BookInfo" schema="shareBooksSystem">
         <id name="bookId" column="bookId">
             <generator class="increment"/>
         </id>

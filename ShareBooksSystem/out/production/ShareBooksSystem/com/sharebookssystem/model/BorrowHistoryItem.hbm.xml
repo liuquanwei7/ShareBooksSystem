@@ -4,7 +4,7 @@
     "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
 
-    <class name="com.sharebookssystem.model.BorrowHistoryItem" table="borrowhistoryitem" schema="sharebookssystem">
+    <class name="com.sharebookssystem.model.BorrowHistoryItem" table="BorrowHistoryItem" schema="shareBooksSystem">
         <id name="borrowHistoryItemId" column="borrowHistoryItemId">
             <generator class="increment"/>
         </id>

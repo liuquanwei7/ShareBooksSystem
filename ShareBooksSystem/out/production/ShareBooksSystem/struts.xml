@@ -9,8 +9,6 @@
     <constant name="struts.objectFactory" value="spring" />
     
     <package name="default" extends="struts-default">
-        <action name="firstUserPage" class="userPageAction" method="firstPage">
-            <result name="success">QueryUserPage.jsp</result>
-        </action>
+
     </package>
 </struts>
