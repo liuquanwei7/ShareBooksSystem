@@ -7,12 +7,24 @@
 <struts>
     <constant name="struts.objectFactory" value="spring" />
     <package name="BookUser" extends="struts-default">
-        <interceptors>
-            <interceptor name="loginInterceptor" class="com.sharebookssystem.bin.interceptor.LoginInterceptor"/>
-        </interceptors>
+        <!--<interceptors>-->
+            <!--<interceptor name="loginInterceptor" class="com.sharebookssystem.bin.interceptor.LoginInterceptor"/>-->
+        <!--</interceptors>-->
+
+        <action name="getCheckBookAction" class="getCheckBookAction">
+            <!--登录拦截-->
+            <!--<interceptor-ref name="loginInterceptor"/>-->
+            <!--默认拦截-->
+            <interceptor-ref name="defaultStack"/>
+            <result type="redirectAction" name="success">checkBookAction</result>
+            <result name="input">bookUser/checkBooks.jsp</result>
+        </action>
 
         <action name="checkBookAction" class="checkBookAction">
-
+            <!--<interceptor-ref name="loginInterceptor"/>-->
+            <interceptor-ref name="defaultStack"/>
+            <result name="success">showBooks.jsp</result>
+            <result name="input">checkBooks.jsp</result>
         </action>
     </package>
 </struts>

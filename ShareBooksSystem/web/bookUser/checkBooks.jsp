@@ -15,9 +15,9 @@
     <script src="js/bootstrap.min.js"></script>
 </head>
 <body>
-<form class="form-inline my-2 my-lg-0" action="checkBookAction" method="post">
+<form class="form-inline my-2 my-lg-0" action="getCheckBookAction" method="post">
     <input class="form-control mr-sm-2" type="search" placeholder="书名/作者"
-           aria-label="Search" name="query_data">
+           aria-label="Search" name="check_data">
     <button class="btn btn-outline-success my-2 my-sm-0" type="submit">
         搜索
     </button>
