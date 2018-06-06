@@ -42,6 +42,8 @@ public class UserBooks_DPageAction implements PageFormat {
         //获取经过处理的查询结果
         List list = borrowsDataService.service(user, 0);
 
+        System.out.println(list.size());
+
         if (list == null){
             session.put("userBooksData", null);
             return "success";
@@ -51,18 +53,50 @@ public class UserBooks_DPageAction implements PageFormat {
             session.put("userBooks_DLastPage", true);
         }
         else session.put("userBooks_DLastPage", false);
+        session.put("userBooksData", list);
 
         return "success";
     }
 
     @Override
     public String nextPage() {
-        return null;
+        session = ActionContext.getContext().getSession();
+        int page = (int)session.get("userBooks_DPage");
+        page++;
+        session.put("userBooks_DPage", page);
+        session.put("userBooks_DFirstPage", false);
+        User user = (User) session.get("queryBooks_DByUserId");
+
+        List list = borrowsDataService.service(user, page);
+        if (list == null) {
+            session.put("userBooksData", null);
+            session.put("userBooks_DLastPage", true);
+            return "success";
+        }else session.put("userBooksData", list);
+
+        if (list.size() < 10) session.put("userBooks_DLastPage", true);
+
+        return "success";
+
     }
 
     @Override
     public String formPage() {
-        return null;
+        session = ActionContext.getContext().getSession();
+        int page = (int)session.get("userBooks_DPage");
+        page--;
+        session.put("userBooks_DPage", page);
+        session.put("userBooks_DLastPage", false);
+        User user = (User) session.get("queryBooks_DByUserId");
+
+        //根据session取出的user进行查询
+        List list = borrowsDataService.service(user, page);
+        session.put("userBooksData", list);
+
+
+        if (page == 0) session.put("userBooks_DFirstPage", true);
+
+        return "success";
     }
 
     @Override

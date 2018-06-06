@@ -20,17 +20,18 @@ public class CBorrowDataDaoImpl implements CBorrowDataDao {
     public List queryB_BBYUID(int userId, int page) {
         Session session = null;
         //连接三个表，统计一个用户的书籍被借次数
-        String hql = "select bi.bookName, bi.bookAuthor, bi.bookPublish, book.Price, bi.bookCategory, count(pb.personalBookId) " +
-                "from BorrowHistoryItem as bhi, PersonalBook as pb, BookInfo as bi " +
-                "where bhi.personalBook.personalBookId = pb.personalBookId and pb.user.userId = ? " +
+        String hql = "select b.bookName, b.bookAuthor, b.bookPublish, b.bookPrice, b.bookCategory, count(pb.personalBookId) " +
+                "from BorrowHistoryItem as bhi, PersonalBook as pb, Book as b " +
+                "where bhi.personalBook.personalBookId = pb.personalBookId and pb.user.userId = ? and pb.book.bookId = b.bookId " +
                 "group by pb.personalBookId "
-                + "order by desc";
+                + "order by count(pb.personalBookId) desc";
 
         try{
             session = sessionFactory.openSession();
             Transaction transaction = session.beginTransaction();
 
             Query query = session.createQuery(hql);
+            query.setParameter(0, userId);
             page = page * 10;
             query.setFirstResult(page);
             query.setMaxResults(10);

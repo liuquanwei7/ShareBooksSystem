@@ -16,7 +16,38 @@
 <body>
 <% List list = (List)session.getAttribute("userBooksData"); %>
 
-<% if (session.getAttribute("userBooksData") == null) { %>
+<% if (session.getAttribute("userBooksData") == null && (boolean)session.getAttribute("userBooks_DLastPage")){ %>
+<div style="color: blue; font-weight: bold">已是最后一页</div>
+<div>
+    <table>
+        <tr>
+            <td><% if ((boolean)session.getAttribute("userBooks_DFirstPage")){ %>
+                <span>&nbsp;</span>
+                <% }else{ %>
+                <a href="firstUserBooks_DPage.action">首页</a>
+                <% } %>
+            </td>
+            <td>
+                <% if ((boolean)session.getAttribute("userBooks_DLastPage")){ %>
+                <span>&nbsp;</span>
+                <% }else{ %>
+                <a href="nextUserBooks_DPage.action">下一页</a>
+                <% } %>
+            </td>
+            <td>
+                第<%= (int)session.getAttribute("userBooks_DPage") + 1%>页
+            </td>
+            <td>
+                <% if ((boolean)session.getAttribute("userBooks_DFirstPage")){ %>
+                <span>&nbsp;</span>
+                <% }else {%>
+                <a href="formUserBooks_DPage.action">上一页</a>
+                <% } %>
+            </td>
+        </tr>
+    </table>
+</div>
+<% }else if (session.getAttribute("userBooksData") == null) { %>
 <div style="color: blue; font-weight: bold">你所查询的用户不存在借出记录，无法计算其书籍的借出情况</div>
 <% }else {%>
 <div>
@@ -52,10 +83,10 @@
                 <% } %>
             </td>
             <td>
-                <% if ((boolean)session.getAttribute("userBooks_DLatsPage")){ %>
+                <% if ((boolean)session.getAttribute("userBooks_DLastPage")){ %>
                 <span>&nbsp;</span>
                 <% }else{ %>
-                <a href="nextUserPage.action">下一页</a>
+                <a href="nextUserBooks_DPage.action">下一页</a>
                 <% } %>
             </td>
             <td>
@@ -65,7 +96,7 @@
                 <% if ((boolean)session.getAttribute("userBooks_DFirstPage")){ %>
                 <span>&nbsp;</span>
                 <% }else {%>
-                <a href="formUserPage.action">上一页</a>
+                <a href="formUserBooks_DPage.action">上一页</a>
                 <% } %>
             </td>
         </tr>

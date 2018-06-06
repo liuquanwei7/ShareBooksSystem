@@ -27,7 +27,38 @@
     </div>
     <% if (session.getAttribute("queryUsers") == null && (int)session.getAttribute("userPage") == 0){ %>
     <div style="color: blue; font-weight: bold">用户不存在</div>
-    <% }else {%>
+    <% }else if (session.getAttribute("queryUsers") == null && (boolean)session.getAttribute("userLastPage")){ %>
+    <div style="color: blue; font-weight: bold">已是最后一页</div>
+    <div>
+        <table>
+            <tr>
+                <td><% if ((boolean)session.getAttribute("userFirstPage")){ %>
+                    <span>&nbsp;</span>
+                    <% }else{ %>
+                    <a href="firstUserPage.action">首页</a>
+                    <% } %>
+                </td>
+                <td>
+                    <% if ((boolean)session.getAttribute("userLastPage")){ %>
+                    <span>&nbsp;</span>
+                    <% }else{ %>
+                    <a href="nextUserPage.action">下一页</a>
+                    <% } %>
+                </td>
+                <td>
+                    第<%= (int)session.getAttribute("userPage") + 1%>页
+                </td>
+                <td>
+                    <% if ((boolean)session.getAttribute("userFirstPage")){ %>
+                    <span>&nbsp;</span>
+                    <% }else {%>
+                    <a href="formUserPage.action">上一页</a>
+                    <% } %>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <% }else { %>
         <% if (session.getAttribute("queryUsers") != null){ %>
         <div>
             <table border="1">

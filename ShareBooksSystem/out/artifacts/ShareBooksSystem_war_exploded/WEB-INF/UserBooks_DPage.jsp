@@ -52,7 +52,7 @@
                 <% } %>
             </td>
             <td>
-                <% if ((boolean)session.getAttribute("userBooks_DLatsPage")){ %>
+                <% if ((boolean)session.getAttribute("userBooks_DLastPage")){ %>
                 <span>&nbsp;</span>
                 <% }else{ %>
                 <a href="nextUserPage.action">下一页</a>
