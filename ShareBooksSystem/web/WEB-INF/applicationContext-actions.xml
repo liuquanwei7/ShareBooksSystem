@@ -5,7 +5,7 @@
 
     <bean id="checkBookAction" class="com.sharebookssystem.bin.actions.CheckBookAction">
         <property name="bd">
-            <ref bean="userDao"></ref>
+            <ref bean="bookDao"></ref>
         </property>
     </bean>
 </beans>
