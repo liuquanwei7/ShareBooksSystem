@@ -17,7 +17,7 @@ public class CBorrowDataDaoImpl implements CBorrowDataDao {
     private SessionFactory sessionFactory;
 
     @Override
-    public List queryB_BBYUID(int userId) {
+    public List queryB_BBYUID(int userId, int page) {
         Session session = null;
         //连接三个表，统计一个用户的书籍被借次数
         String hql = "select bi.bookName, bi.bookAuthor, bi.bookPublish, book.Price, bi.bookCategory, count(pb.personalBookId) " +
@@ -31,6 +31,10 @@ public class CBorrowDataDaoImpl implements CBorrowDataDao {
             Transaction transaction = session.beginTransaction();
 
             Query query = session.createQuery(hql);
+            page = page * 10;
+            query.setFirstResult(page);
+            query.setMaxResults(10);
+
             List list = query.list();
 
             transaction.commit();

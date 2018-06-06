@@ -16,8 +16,8 @@ public class UserBooks_DService implements BorrowsDataService {
     private CBorrowDataDao cBorrowDataDao;
 
     @Override
-    public List service(User user) {
-        List list = cBorrowDataDao.queryB_BBYUID(user.getUserId());
+    public List service(User user, int page) {
+        List list = cBorrowDataDao.queryB_BBYUID(user.getUserId(), page);
         if (list == null) return null;
 
         List<List> info = new ArrayList<List>();

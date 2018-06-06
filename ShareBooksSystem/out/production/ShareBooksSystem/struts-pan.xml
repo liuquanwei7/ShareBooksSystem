@@ -29,5 +29,13 @@
             <result name="noResult" type="chain">queryUserInUserPage</result>
             <result name="success">/WEB-INF/QueryUserPage.jsp</result>
         </action>
+
+        <action name="initUserBooks_DPage" class="userBooks_DPageAction" method="execute">
+            <result name="success" type="chain">firstUserBooks_DPage</result>
+        </action>
+
+        <action name="firstUserBooks_DPage" class="userBooks_DPageAction" method="firstPage">
+            <result name="success">/WEB-INF/UserBooks_DPage.jsp</result>
+        </action>
     </package>
 </struts>

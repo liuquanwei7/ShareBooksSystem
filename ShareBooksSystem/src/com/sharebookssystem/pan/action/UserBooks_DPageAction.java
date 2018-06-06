@@ -26,14 +26,33 @@ public class UserBooks_DPageAction implements PageFormat {
         List<User> getUserList = (List<User>) session.get("queryUsers");
         User user = getUserList.get(which);
 
-        borrowsDataService.service(user);
+        session.put("queryBooks_DByUserId", user);
 
-        return null;
+        return "success";
     }
 
     @Override
     public String firstPage() {
-        return null;
+        //初始化当前页所需要的一些判断依据，取出用来执行查询的user
+        session = ActionContext.getContext().getSession();
+        User user = (User)session.get("queryBooks_DByUserId");
+        session.put("userBooks_DPage", 0);
+        session.put("userBooks_DFirstPage", true);
+
+        //获取经过处理的查询结果
+        List list = borrowsDataService.service(user, 0);
+
+        if (list == null){
+            session.put("userBooksData", null);
+            return "success";
+        }
+
+        if (list.size() < 10){
+            session.put("userBooks_DLastPage", true);
+        }
+        else session.put("userBooks_DLastPage", false);
+
+        return "success";
     }
 
     @Override
