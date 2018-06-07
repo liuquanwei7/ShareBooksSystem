@@ -5,9 +5,9 @@ import com.opensymphony.xwork2.ActionSupport;
 
 import java.util.Map;
 
-public class getCheckBookAction extends ActionSupport {
+public class GetCheckBookAction extends ActionSupport {
     String check_data;
-    public getCheckBookAction(){
+    public GetCheckBookAction(){
 
     }
 

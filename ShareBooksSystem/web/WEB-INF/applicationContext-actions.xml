@@ -8,7 +8,10 @@
             <ref bean="bookDao"></ref>
         </property>
     </bean>
-    <bean id="getCheckBookAction" class="com.sharebookssystem.bin.actions.getCheckBookAction">
+    <bean id="getCheckBookAction" class="com.sharebookssystem.bin.actions.GetCheckBookAction">
+
+    </bean>
+    <bean id="addBookAction" class="com.sharebookssystem.bin.actions.AddBookAction">
 
     </bean>
 </beans>

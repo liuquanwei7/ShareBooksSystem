@@ -54,6 +54,7 @@ public class CheckBookAction extends ActionSupport {
     public String execute(){
         Map map=ActionContext.getContext().getSession();
         check_data=(String) map.get("check_data");
+        map.put("check_data",null);
         user=(User) map.get("user");
         books=bd.checkBook(check_data);
         System.out.println(books.toString());

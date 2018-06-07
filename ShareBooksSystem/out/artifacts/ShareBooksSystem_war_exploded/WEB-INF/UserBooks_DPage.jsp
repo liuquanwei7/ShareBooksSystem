@@ -10,7 +10,7 @@
 <%@ page import="java.util.List" %>
 <html>
 <head>
-    <title>管理用户信息</title>
+    <title>查看用户书籍借出情况</title>
     <meta content="text/html" charset="UTF-8"/>
 </head>
 <body>

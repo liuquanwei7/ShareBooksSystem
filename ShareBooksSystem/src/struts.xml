@@ -7,7 +7,7 @@
 <struts>
     <constant name="struts.i18n.encoding" value="UTF-8"/>
     <constant name="struts.objectFactory" value="spring" />
-    <include file="BookUserStruts.xml"/>
+    <include file="struts-bookUser.xml"/>
     <include file="struts-bookManagement.xml"/>
     <include file="struts-pan.xml"></include>
 </struts>
