@@ -12,9 +12,9 @@ import javax.annotation.Resource;
  * 2018/6/5
  */
 
-@Service
+
 public class BookManagementServiceImpl implements BookManagementService {
-    @Resource
+
     private BookManagementDaoImpl dao;
 
     public BookManagementServiceImpl() {

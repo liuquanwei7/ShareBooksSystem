@@ -17,16 +17,10 @@ import java.util.Map;
  * 管理员登陆
  * 2018/6/5
  */
-@Namespace("/bookManagement")
-@ParentPackage("convention-default")
-@Action(value = "managerLoginAction",
-        results = { @Result(name = "success", location = "test.jsp"),
-                    @Result(name = "input", location = "test.jsp") })
 
 public class ManagerLoginAction extends ActionSupport {
     private Manager manager;
 
-    @Resource
     private BookManagementServiceImpl service;
 
     public ManagerLoginAction(){

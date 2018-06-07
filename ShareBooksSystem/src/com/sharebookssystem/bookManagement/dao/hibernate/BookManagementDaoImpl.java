@@ -19,7 +19,7 @@ import java.util.Map;
 
 @Repository("bookManagementDao")
 public class BookManagementDaoImpl implements BookManagementDao {
-    @Resource
+
     private SessionFactory sessionFactory;
 
     public BookManagementDaoImpl(){
