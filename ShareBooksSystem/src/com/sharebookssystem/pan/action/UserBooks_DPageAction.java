@@ -42,8 +42,6 @@ public class UserBooks_DPageAction implements PageFormat {
         //获取经过处理的查询结果
         List list = borrowsDataService.service(user, 0);
 
-        System.out.println(list.size());
-
         if (list == null){
             session.put("userBooksData", null);
             return "success";

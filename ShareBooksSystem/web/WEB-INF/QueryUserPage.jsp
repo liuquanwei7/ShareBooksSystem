@@ -76,17 +76,18 @@
                     <% int i = 0; %>
                 <s:iterator value="#session.queryUsers" status="st" var="user">
                 <tr>
-                    <td><a href="initUserBooks_DPage.action?which = <%= i %>"><s:property value="#user.userName"/></a></td>
+                    <td><a href="initUserBooks_DPage?which=<%=i%>"><s:property value="#user.userName"/></a></td>
                     <td><s:property value="#user.userAccount"/></td>
                     <td><s:property value="#user.userPassword"/></td>
                     <td><s:property value="#user.userIdentity"/></td>
                     <td><s:property value="#user.userGender"/></td>
                     <td><s:property value="#user.userAge"/></td>
                     <td><s:property value="#user.userPermission"/></td>
-                    <td><a href = "readyToChange?which = <%= i%>">修改</a></td>
-                    <td><a href = "deleteBooking?which = <%= i%>">删除</a></td>
-                    <% i++; %>
+                    <td><a href = "readyToChange?which = <%=i%>">修改</a></td>
+                    <td><a href = "deleteBooking?which = <%=i%>">删除</a></td>
+
                 </tr>
+                    <% i++; %>
                 </s:iterator>
             </table>
         </div>

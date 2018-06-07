@@ -37,5 +37,13 @@
         <action name="firstUserBooks_DPage" class="userBooks_DPageAction" method="firstPage">
             <result name="success">/WEB-INF/UserBooks_DPage.jsp</result>
         </action>
+
+        <action name="nextUserBooks_DPage" class="userBooks_DPageAction" method="nextPage">
+            <result name="success">/WEB-INF/UserBooks_DPage.jsp</result>
+        </action>
+
+        <action name="formUserBooks_DPage" class="userBooks_DPageAction" method="formPage">
+            <result name="success">/WEB-INF/UserBooks_DPage.jsp</result>
+        </action>
     </package>
 </struts>

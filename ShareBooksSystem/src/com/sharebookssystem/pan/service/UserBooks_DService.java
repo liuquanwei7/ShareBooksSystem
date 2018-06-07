@@ -28,8 +28,6 @@ public class UserBooks_DService implements BorrowsDataService {
             List line = new ArrayList();
             String bookName = o[0].toString();
 
-            System.out.println(bookName);
-
             line.add(bookName);
             String bookAuthor = o[1].toString();
             line.add(bookAuthor);

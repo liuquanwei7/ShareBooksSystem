@@ -14,6 +14,7 @@
     <meta content="text/html" charset="UTF-8"/>
 </head>
 <body>
+<div><a href="nowUserPage.action"><--返回</a></div>
 <% List list = (List)session.getAttribute("userBooksData"); %>
 
 <% if (session.getAttribute("userBooksData") == null && (boolean)session.getAttribute("userBooks_DLastPage")){ %>
@@ -63,6 +64,7 @@
         <% for (int i = 0; i < list.size(); i++) {%>
             <% List line = (List) list.get(i); %>
             <tr>
+                <%--把每一列的值取出来并显示--%>
                 <td><%= line.get(0) %></td>
                 <td><%= line.get(1) %></td>
                 <td><%= line.get(2) %></td>
