@@ -17,7 +17,9 @@
 <div><a href="nowUserPage.action"><--返回</a></div>
 <% List list = (List)session.getAttribute("userBooksData"); %>
 
-<% if (session.getAttribute("userBooksData") == null && (boolean)session.getAttribute("userBooks_DLastPage")){ %>
+<% if (session.getAttribute("userBooksData") == null && (int)session.getAttribute("userBooks_DPage") == 0){ %>
+<div style="color: blue; font-weight: bold">该用户没有书籍借出记录</div>
+<% }else if (session.getAttribute("userBooksData") == null && (boolean)session.getAttribute("userBooks_DLastPage")){ %>
 <div style="color: blue; font-weight: bold">已是最后一页</div>
 <div>
     <table>
