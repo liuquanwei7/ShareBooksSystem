@@ -7,13 +7,8 @@
 <struts>
     <constant name="struts.i18n.encoding" value="UTF-8"/>
     <constant name="struts.objectFactory" value="spring" />
-<<<<<<< HEAD
-    <constant name="struts.convention.package.locators" value="action,actions,struts,struts2,api,controller" />
-    <constant name="struts.convention.default.parent.package" value="convention-default" />
-    
-=======
     <include file="BookUserStruts.xml"/>
->>>>>>> 4fe5e73aee6c11cea435855ec89da0ed94d32f75
+    <include file="struts-bookManagement.xml"/>
     <package name="default" extends="struts-default">
 
         <action name="queryUserInUserPage" class="userPageAction" method="execute">
