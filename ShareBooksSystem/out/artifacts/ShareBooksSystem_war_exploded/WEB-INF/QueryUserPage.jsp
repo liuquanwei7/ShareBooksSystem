@@ -27,7 +27,38 @@
     </div>
     <% if (session.getAttribute("queryUsers") == null && (int)session.getAttribute("userPage") == 0){ %>
     <div style="color: blue; font-weight: bold">用户不存在</div>
-    <% }else {%>
+    <% }else if (session.getAttribute("queryUsers") == null && (boolean)session.getAttribute("userLastPage")){ %>
+    <div style="color: blue; font-weight: bold">已是最后一页</div>
+    <div>
+        <table>
+            <tr>
+                <td><% if ((boolean)session.getAttribute("userFirstPage")){ %>
+                    <span>&nbsp;</span>
+                    <% }else{ %>
+                    <a href="firstUserPage.action">首页</a>
+                    <% } %>
+                </td>
+                <td>
+                    <% if ((boolean)session.getAttribute("userLastPage")){ %>
+                    <span>&nbsp;</span>
+                    <% }else{ %>
+                    <a href="nextUserPage.action">下一页</a>
+                    <% } %>
+                </td>
+                <td>
+                    第<%= (int)session.getAttribute("userPage") + 1%>页
+                </td>
+                <td>
+                    <% if ((boolean)session.getAttribute("userFirstPage")){ %>
+                    <span>&nbsp;</span>
+                    <% }else {%>
+                    <a href="formUserPage.action">上一页</a>
+                    <% } %>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <% }else { %>
         <% if (session.getAttribute("queryUsers") != null){ %>
         <div>
             <table border="1">
@@ -45,17 +76,18 @@
                     <% int i = 0; %>
                 <s:iterator value="#session.queryUsers" status="st" var="user">
                 <tr>
-                    <td><s:property value="#user.userName"/></td>
+                    <td><a href="initUserBooks_DPage?which=<%=i%>"><s:property value="#user.userName"/></a></td>
                     <td><s:property value="#user.userAccount"/></td>
                     <td><s:property value="#user.userPassword"/></td>
                     <td><s:property value="#user.userIdentity"/></td>
                     <td><s:property value="#user.userGender"/></td>
                     <td><s:property value="#user.userAge"/></td>
                     <td><s:property value="#user.userPermission"/></td>
-                    <td><a href = "readyToChange?which = <%= i%>">修改</a></td>
-                    <td><a href = "deleteBooking?which = <%= i%>">删除</a></td>
-                    <% i++; %>
+                    <td><a href = "readyToChange?which = <%=i%>">修改</a></td>
+                    <td><a href = "deleteBooking?which = <%=i%>">删除</a></td>
+
                 </tr>
+                    <% i++; %>
                 </s:iterator>
             </table>
         </div>

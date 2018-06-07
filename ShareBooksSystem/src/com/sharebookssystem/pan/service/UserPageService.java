@@ -1,4 +1,4 @@
-package com.sharebookssystem.pan.Service;
+package com.sharebookssystem.pan.service;
 
 import com.sharebookssystem.model.User;
 import com.sharebookssystem.pan.myinterface.UserDao;
