@@ -7,6 +7,8 @@
 <struts>
     <constant name="struts.i18n.encoding" value="UTF-8"/>
     <constant name="struts.objectFactory" value="spring" />
+    <constant name="struts.convention.package.locators" value="action,actions,struts,struts2,api,controller" />
+    <constant name="struts.convention.default.parent.package" value="convention-default" />
     
     <package name="default" extends="struts-default">
         <action name="queryUserInUserPage" class="userPageAction" method="execute">
