@@ -43,7 +43,7 @@ public class ManagerLoginAction extends ActionSupport {
         this.service = service;
     }
 
-    public String excute() throws Exception{
+    public String login() throws Exception{
         Map s = ActionContext.getContext().getSession();
         //验证登陆
         if(service.isExistManager(manager)){

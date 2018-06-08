@@ -49,9 +49,11 @@ public class BookManagementDaoImpl implements BookManagementDao {
             query.setParameter(1,manager.getManagerPassword());
             List<Manager> list = query.list();
             Map s = ActionContext.getContext().getSession();
-            s.put("managerId",list.get(0).getManagerId());
             if(list.size()==0){
                 flag = false;
+            }else{
+                s.put("managerId",list.get(0).getManagerId());
+                System.out.println("managerId="+s.get("managerId"));
             }
             return flag;
         }catch (Exception e){
