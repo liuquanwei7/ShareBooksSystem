@@ -8,19 +8,20 @@ import org.springframework.stereotype.Service;
 import javax.annotation.Resource;
 import java.util.List;
 
-@Service("userPageService")
-public class UserPageService implements UserService {
+@Service("managerAddUserService")
+public class ManagerAddUserService implements UserService {
     @Resource(name = "userDaoImpl")
     private UserDao userDao;
 
     @Override
-    public List service(User user, int page) {
-        return userDao.queryUserByN_I_P(user, page);
+    public boolean service(User user) {
+        if (userDao.saveByUser(user) != 0) return true;
+        else return false;
     }
 
     @Override
-    public boolean service(User user) {
-        return false;
+    public List service(User user, int page) {
+        return null;
     }
 
     public UserDao getUserDao() {

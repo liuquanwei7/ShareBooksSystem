@@ -6,4 +6,5 @@ import java.util.List;
 
 public interface UserService {
     public List service(User user, int page);
+    public boolean service(User user);
 }
