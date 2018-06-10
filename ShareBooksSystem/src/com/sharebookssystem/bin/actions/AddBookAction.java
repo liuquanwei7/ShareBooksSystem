@@ -1,11 +1,19 @@
 package com.sharebookssystem.bin.actions;
 
+import com.fasterxml.jackson.databind.util.JSONPObject;
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 import com.sharebookssystem.bin.dao.BookDao;
 import com.sharebookssystem.model.Book;
 import com.sharebookssystem.model.User;
 
+import net.sf.json.JSONArray;
+import net.sf.json.JSONObject;
+import org.apache.struts2.ServletActionContext;
+
+import javax.servlet.http.HttpServletRequest;
+import java.lang.reflect.Array;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -15,6 +23,50 @@ public class AddBookAction extends ActionSupport{
     User user;
     List<Book> books;
     String check_ISBN;
+    String mybook;
+    String bookAuthor;
+    String bookName;
+
+    public String getBookAuthor() {
+        return bookAuthor;
+    }
+
+    public void setBookAuthor(String bookAuthor) {
+        this.bookAuthor = bookAuthor;
+    }
+
+    public String getBookName() {
+        return bookName;
+    }
+
+    public void setBookName(String bookName) {
+        this.bookName = bookName;
+    }
+    //    String bookName;
+
+//    public String getBookName() {
+//        return bookName;
+//    }
+//
+//    public void setBookName(String bookName) {
+//        this.bookName = bookName;
+//    }
+
+//    public String[] getMybook() {
+//        return mybook;
+//    }
+//
+//    public void setMybook(String[] mybook) {
+//        this.mybook = mybook;
+//    }
+
+    public String getMybook() {
+        return mybook;
+    }
+
+    public void setMybook(String mybook) {
+        this.mybook = mybook;
+    }
 
     public AddBookAction(){}
 
@@ -50,14 +102,34 @@ public class AddBookAction extends ActionSupport{
         this.bd = bd;
     }
 
+    public void getJson(){
+        System.out.println(mybook);
+    }
+
     public String execute(){
-        Map map=ActionContext.getContext().getSession();
+        System.out.println("this is test");
+        System.out.println(mybook);
+        String []mybookdata=mybook.split(",");
+        System.out.println(mybookdata[2]);
+//        mybook=mybook.get(0).split(",");
+//        System.out.println(bookAuthor);
+//        String jsondata=Request
+//        HttpServletRequest request= ServletActionContext.getRequest();
+//        JSONObject json;
+//        json=JSONObject.fromObject(request.getParameter("mybook"));
+//        System.out.println(json);
+//        JSONArray jsonArray = JSONArray.fromObject(mybook);
+//        this.updValRecords = (List<ValRecordModel>)JSONArray.toList(jsonArray, ValRecordModel.class);
+//        System.out.println(bookName);
+//        Map map=ActionContext.getContext().getSession();
 //        check_ISBN=(String) map.get("check_data");
 //        map.put("check_data",null);
-        user=(User) map.get("user");
-        books=bd.checkBook(check_ISBN);
-        System.out.println(books.toString());
-        System.out.println(books.get(0).getBookName());
+
+//        user=(User) map.get("user");
+//        books=bd.checkBook(check_ISBN);
+//        System.out.println(books.toString());
+//        System.out.println(books.get(0).getBookName());
+//        books=(List<Book>)mybook;
         if (books!=null){
             return SUCCESS;
         }else {

@@ -13,5 +13,6 @@
         <property name="bookPublish" column="bookPublish" not-null="true" length="20"/>
         <property name="bookPrice" column="bookPrice" not-null="true"/>
         <property name="bookCategory" column="bookCategory" not-null="true" length="20"/>
+        <property name="bookPicture" column="bookPicture" not-null="true" length="50"/>
     </class>
 </hibernate-mapping>

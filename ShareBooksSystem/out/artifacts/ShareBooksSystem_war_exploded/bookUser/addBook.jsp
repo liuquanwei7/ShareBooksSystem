@@ -17,7 +17,7 @@
 </head>
 <body>
 
-    <form class="form-inline my-2 my-lg-0" action="addBookAction" method="post">
+    <form class="form-inline my-2 my-lg-0" >
         <input id="isbndata" class="form-control mr-sm-2" type="search" placeholder="输入书籍条形码上ISBN码（纯数字）"
                aria-label="Search" name="check_data">
         <button class="btn btn-outline-success my-2 my-sm-0" type="button" onclick="getBookInfo()">
