@@ -44,8 +44,10 @@
         </action>
         <action name="ensureAddBookAction" class="ensureAddBookAction">
             <!--<interceptor-ref name="loginInterceptor"/>-->
-            <result name="success">ensureBookSuccess.jsp</result>
-            <result name="input">addBook.jsp</result>
+            <result name="success" type="json">
+                <param name="root">jsonMap</param>
+            </result>
+            <!--<result name="input">addBook.jsp</result>-->
         </action>
     </package>
 </struts>

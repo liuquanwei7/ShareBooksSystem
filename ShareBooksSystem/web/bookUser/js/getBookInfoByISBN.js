@@ -1,11 +1,13 @@
 function getBookInfo() {
     // var ISBNData=document.getElementById("isbndata");
     // var mybook;
+    var ISBN=document.getElementById("isbndata").value;
+    console.log(ISBN);
     $.ajax({
         type:"POST",
         dataType:'JSONP',
         // contentType:"application/json;charset=utf-8",
-        url:"https://api.douban.com/v2/book/isbn/9787115275790",
+        url:"https://api.douban.com/v2/book/isbn/"+ISBN,
         // url:"https://api.douban.com/v2/book/isbn/9787115226266",
         success:function (msg) {
             // msg=eval("("+msg+")");
@@ -28,7 +30,7 @@ function getBookInfo() {
             var b=['大鹏1','b','c'];
             // var c=new Array(msg.title,author,msg.image,msg.publisher,msg.price,msg.tags[7].name);
             var c=msg.title+","+author+","+msg.image+","+msg.publisher
-                +","+msg.price+","+msg.tags[7].name;
+                +","+msg.price+","+msg.tags[0].name;
             // c=JSON.stringify(c);
             console.log(c);
             console.log(typeof c);
@@ -41,8 +43,8 @@ function getBookInfo() {
             console.log(msg.publisher);
             console.log(msg.tags[7].name);
             console.log(msg.price);
-
-            sessionStorage.isbn="9787115275790";
+            debugger
+            sessionStorage.isbn=ISBN;
             // encodeURI(encodeURI(author));
             console.log(typeof author);
             console.log(author);

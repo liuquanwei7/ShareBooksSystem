@@ -9,8 +9,15 @@
 <html>
 <head>
     <title>ensureBookSuccess</title>
+    <script type="text/javascript">
+        window.ready=function () {
+            shareCode=sessionStorage.shareCode;
+            document.getElementById("showCode").value=shareCode;
+        }
+    </script>
 </head>
 <body>
-
+<h3>添加图书成功！！！</h3>
+<p id="showCode"></p>
 </body>
 </html>

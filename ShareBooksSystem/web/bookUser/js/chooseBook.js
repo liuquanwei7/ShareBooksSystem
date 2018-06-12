@@ -23,8 +23,8 @@ function chooseBook(ensureBook){
                     "book.bookPicture": msg.image,
                     "book.bookPublish": msg.publisher,
                     "book.bookPrice": msg.price,
-                    "book.bookCategory": msg.tags[7].name,
-            }
+                    "book.bookCategory": msg.tags[0].name,
+            };
 
             //     book.bookName:msg.title,
             // book.bookAuthor:author,
@@ -70,13 +70,23 @@ function chooseBook(ensureBook){
             console.log(book);
             $.ajax({
                 type:"POST",
-                url:"http://localhost:8080/bookUser/ensureAddBookAction",
+                url:"ensureAddBookAction",
                 data:book,
                 async:false,
                 // contentType:"application/json",
                 // dataType:"json",
                 success:function (msg) {
-                    console.log("success");
+                    // msg=eval("("+msg+")");
+                    // console.log()
+                    console.log(msg);
+                    console.log(msg.result);
+                    sessionStorage.shareCode=msg.shareCode;
+                    if(msg.result=="YES"){
+                        location.href="ensureBookSuccess.jsp"
+                    }else{
+                        location.href="addBook.jsp";
+                    }
+
                 },
                 error:function (errmsg) {
                     console.log(errmsg);
