@@ -5,11 +5,20 @@ import java.util.Objects;
 
 public class PersonalBook {
     private int personalBookId;
-    private String bookStatus;
-    private int numberOfTimes;
-    private Date uploadDate;
+    private String bookStatus;//图书状态
+    private int numberOfTimes;//借出次数
+    private Date uploadDate;//上传日期
     private User user;
     private Book book;
+    private int shareCode;
+
+    public int getShareCode() {
+        return shareCode;
+    }
+
+    public void setShareCode(int shareCode) {
+        this.shareCode = shareCode;
+    }
 
     public int getPersonalBookId() {
         return personalBookId;
