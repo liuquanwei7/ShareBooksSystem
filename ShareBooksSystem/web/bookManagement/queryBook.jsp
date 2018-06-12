@@ -26,29 +26,69 @@
 <body>
     <div class="container">
         <div class="container" id="queryBook_title">
-            <h3 class="display-3">查询图书系统</h3>
+            <h3 class="display-5">查询图书系统</h3>
         </div>
         <div class="container" id="queryBook_main">
-            <form method="post" action="managerLoginAction" namespace="/bookManagement">
-                <div class="form-inline">
-                    <label>图书编号:</label>
-                    <input type="text" class="form-control" id="bookId">
+            <form method="post" action="queryBookAction" namespace="/bookManagement">
+                <div class="row">
+                    <div class="col">
+                        <label for="bookId">图书编号:</label>
+                        <input type="text" class="form-control" id="bookId" name="book.bookId">
+                    </div>
+                    <div class="col">
+                        <label for="bookName">书名:</label>
+                        <input type="text" class="form-control" id="bookName" name="book.bookName">
+                    </div>
+                    <div class="col">
+                        <label for="bookAuthor">作者:</label>
+                        <input type="text" class="form-control" id="bookAuthor" name="book.bookAuthor">
+                    </div>
+                    <div class="col">
+                        <label for="bookPublish">出版社:</label>
+                        <input type="text" class="form-control" id="bookPublish" name="book.bookPublish">
+                    </div>
+                    <div class="col">
+                        <label for="bookPrice">价格:</label>
+                        <input type="number" class="form-control" id="bookPrice" name="book.bookPrice">
+                    </div>
+                    <div class="col">
+                        <label for="bookCategory">图书类型:</label>
+                        <select class="form-control" id="bookCategory" name="book.bookCategory">
+                            <option>教材</option>
+                            <option>计算机</option>
+                            <option></option>
+                            <option></option>
+                        </select>
+                    </div>
                 </div>
-                <div class="form-inline">
-                    <label>书名:</label>
-                    <input type="text" class="form-control" id="bookName">
+                <div class="col">
+                    <button type="submit" class="btn btn-primary" id="query">查询</button>
                 </div>
-                <div class="form-inline">
-                    <label>作者:</label>
-                    <input type="text" class="form-control" id="bookAuthor">
-                </div>
-                <div class="form-inline">
-                    <label>出版社:</label>
-                    <input type="text" class="form-control" id="bookPublish">
-                </div>
-                <button type="submit" class="btn btn-primary" id="login">查询</button>
             </form>
         </div>
+        <div>
+            <table class="table table-bordered table-hover" >
+                <tr>
+                    <th>id</th><th>图书名称</th><th>作者</th><th>出版社</th><th>价格</th><th>图书类型</th><th>操作</th>
+                </tr>
+                <s:iterator value="#session.books" status="st" var="book" >
+                    <tr>
+                        <td><s:property value="#book.bookId"/></td>
+                        <td><s:property value="#book.bookName"/></td>
+                        <td><s:property value="#book.bookAuthor"/></td>
+                        <td><s:property value="#book.bookPublish"/></td>
+                        <td><s:property value="#book.bookPrice"/></td>
+                        <td><s:property value="#book.bookCategory"/></td>
+                        <td>
+                            <a href="javascript:addBooking()">添加</a>
+                            <a href="javascript:changeBooking('<s:property value="id"/>')">修改</a>
+                            <a href="javascript:deleteBooking('<s:property value="id"/>')">删除</a>
+                        </td>
+                    </tr>
+                </s:iterator>
+            </table>
+        </div>
     </div>
+    <% session.removeAttribute("books"); %>
 </body>
 </html>

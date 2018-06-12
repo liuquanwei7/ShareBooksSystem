@@ -55,6 +55,12 @@
             </div>
 
         </div>
+
+        <div>
+            <%@ include file="/bookManagement/queryBook.jsp" %>
+        </div>
+
+
     </div>
 </body>
 </html>
