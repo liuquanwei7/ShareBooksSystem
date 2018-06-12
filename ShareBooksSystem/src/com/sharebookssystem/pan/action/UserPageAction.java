@@ -115,15 +115,20 @@ public class UserPageAction implements PageFormat {
 
     @Override
     public String nowPage() {
-        session = ActionContext.getContext().getSession();
-        if (session.get("queryUser") == null) return "noResult";
-
-        int page = (int)session.get("userPage");
-        User queryUser = (User) session.get("queryUser");
-
-        //根据session取出的user进行查询
-        List<User> resultUsers = userService.service(queryUser, page);
-        session.put("queryUsers", resultUsers);
+//        session = ActionContext.getContext().getSession();
+//        if (session.get("queryUser") == null) return "noResult";
+//
+//        int page = (int)session.get("userPage");
+//        User queryUser = (User) session.get("queryUser");
+//
+//        System.out.println(userService == null);
+//
+//        System.out.println("111");
+//        //根据session取出的user进行查询
+//        List<User> resultUsers = userService.service(queryUser, page);
+//        System.out.println("222");
+//        session.put("queryUsers", resultUsers);
+//        System.out.println("333");
 
         return "success";
     }

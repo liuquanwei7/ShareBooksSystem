@@ -20,13 +20,15 @@ public class UserDaoImpl implements UserDao {
     public List queryUserByN_I_P(User user, int page) {
         Session session = null;
         String hql = "from User as u where u.userName like ? and u.userIdentity like ? and " +
-                "u.userPermission between ? and ?";
+                "u.userPermission between ? and ? " +
+                "order by u.userId desc";
 
         try {
             session = sessionFactory.openSession();
 
             Transaction transaction = session.beginTransaction();
             Query query = session.createQuery(hql);
+
 
             //设置HQL中查询语句的参数
             if (user.getUserName() == null) query.setParameter(0, "%");
@@ -43,8 +45,12 @@ public class UserDaoImpl implements UserDao {
             query.setMaxResults(10);
 
             List<User> list = query.list();
+
             transaction.commit();
             session.close();
+
+            System.out.println("执行了一次查询");
+
             if (list.size() == 0) return null;
             else return list;
         }catch (Exception e){
@@ -57,13 +63,47 @@ public class UserDaoImpl implements UserDao {
 
     @Override
     public int updateByUser(User user) {
-        return 0;
+        Session session = null;
+
+        try{
+            session = sessionFactory.openSession();
+            Transaction transaction = session.beginTransaction();
+
+            session.update(user);
+
+            transaction.commit();
+            session.close();
+            return 1;
+        }catch (Exception e){
+            e.printStackTrace();
+            System.out.println("更新用户失败");
+            session.close();
+            return 0;
+        }
     }
 
     @Override
     public int saveByUser(User user) {
-        return 0;
+        Session session = null;
+        int sure = 0;
+
+        try{
+            session = sessionFactory.openSession();
+            Transaction transaction = session.beginTransaction();
+
+            sure = (int)session.save(user);
+
+            transaction.commit();
+            session.close();
+            return sure;
+        }catch (Exception e){
+            e.printStackTrace();
+            System.out.println("新增用户失败");
+            session.close();
+            return sure;
+        }
     }
+
 
     public SessionFactory getSessionFactory() {
         return sessionFactory;

@@ -8,19 +8,23 @@ import org.springframework.stereotype.Service;
 import javax.annotation.Resource;
 import java.util.List;
 
-@Service("userPageService")
-public class UserPageService implements UserService {
+@Service("mChangeUserInfoService")
+public class MChangeUserIfoService implements UserService {
     @Resource(name = "userDaoImpl")
-    private UserDao userDao;
-
-    @Override
-    public List service(User user, int page) {
-        return userDao.queryUserByN_I_P(user, page);
-    }
+    UserDao userDao;
 
     @Override
     public boolean service(User user) {
-        return false;
+        if (userDao.updateByUser(user) == 1) return true;
+        else return false;
+    }
+
+    @Override
+    public List service(User user, int page) {
+        return null;
+    }
+
+    public MChangeUserIfoService() {
     }
 
     public UserDao getUserDao() {
