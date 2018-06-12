@@ -14,4 +14,9 @@
     <bean id="addBookAction" class="com.sharebookssystem.bin.actions.AddBookAction">
 
     </bean>
+    <bean id="ensureAddBookAction" class="com.sharebookssystem.bin.actions.EnsureAddBookAction" scope="prototype">
+        <property name="bd">
+            <ref bean="bookDao"></ref>
+        </property>
+    </bean>
 </beans>

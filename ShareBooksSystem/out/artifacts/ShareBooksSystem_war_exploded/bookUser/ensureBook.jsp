@@ -15,6 +15,7 @@
     <script src="js/jquery-3.3.1.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="js/bootstrap.min.js"></script>
+    <script src="js/chooseBook.js"></script>
 
 </head>
 <body>
@@ -26,17 +27,31 @@
 
     </aside>
     <div>
-        <s:iterator value="mybooks" status="st" var="book">
+        <s:iterator value="book" status="st" var="mybook">
             <div class="card" style="width:18rem;" >
-                <a href="javascript:chooseBook('<s:property value="#book"/>')">
-                    <img src="" class="card-img-top">
+                <a href="javascript:chooseBook('<s:property value="#mybook"/>')">
+                <%--<a href="ensureAddBookAction?book=+<s:property value='#mybook'/>">--%>
+                    <img src="<s:property value="#mybook.bookPicture"/>" class="card-img-top">
                     <div class="card-body">
-                        <p class="card-text"><s:property value="#book.bookName"/></p>
+                        <p class="card-text"><s:property value="#mybook.bookName"/></p>
+                        <p class="card-text"><s:property value="#mybook.bookAuthor"/></p>
+                        <p class="card-text"><s:property value="#mybook.bookCategory"/></p>
+                        <p class="card-text"><s:property value="#mybook.bookPublish"/></p>
+                        <p class="card-text"><s:property value="#mybook.bookPrice"/>元</p>
 
                     </div>
                 </a>
             </div>
         </s:iterator>
+            <%--<div class="card" style="width:18rem;" >--%>
+            <%--<a href="javascript:chooseBook('<s:property value="#book"/>')">--%>
+            <%--<img src="" class="card-img-top">--%>
+            <%--<div class="card-body">--%>
+            <%--<p class="card-text"><s:property value="#book.bookName"/></p>--%>
+
+            <%--</div>--%>
+            <%--</a>--%>
+            <%--</div>--%>
     </div>
 
 </div>

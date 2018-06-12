@@ -5,8 +5,18 @@
         "http://struts.apache.org/dtds/struts-2.5.dtd">
 
 <struts>
+    <!--开发阶段用到的常量设置 ，开发阶段结束后必须注释 -->
+    <!-- 重新加载struts.xml文件 -->
+    <constant name="struts.configuration.xml.reload" value="true" />
+    <!-- 打印更多的错误信息，便于查找错原因 -->
+    <constant name="strusts.devMode" value="true" />
+    <!-- 关闭静态态缓冲 -->
+    <constant name="strusts.serve.static.browserCache" value="false" />
+    <!-- 结束 -->
+    <constant name="struts.i18n.encoding" value="UTF-8"/>
+
     <constant name="struts.objectFactory" value="spring" />
-    <package name="BookUser" extends="struts-default">
+    <package name="BookUser" extends="json-default,struts-default" namespace="/bookUser">
         <!--<interceptors>-->
             <!--<interceptor name="loginInterceptor" class="com.sharebookssystem.bin.interceptor.LoginInterceptor"/>-->
         <!--</interceptors>-->
@@ -17,7 +27,7 @@
             <!--默认拦截-->
             <interceptor-ref name="defaultStack"/>
             <result type="redirectAction" name="success">checkBookAction</result>
-            <result name="input">bookUser/checkBooks.jsp</result>
+            <result name="input">checkBooks.jsp</result>
         </action>
 
         <action name="checkBookAction" class="checkBookAction">
@@ -30,6 +40,11 @@
             <!--<interceptor-ref name="loginInterceptor"/>-->
             <interceptor-ref name="defaultStack"/>
             <result name="success">ensureBook.jsp</result>
+            <result name="input">addBook.jsp</result>
+        </action>
+        <action name="ensureAddBookAction" class="ensureAddBookAction">
+            <!--<interceptor-ref name="loginInterceptor"/>-->
+            <result name="success">ensureBookSuccess.jsp</result>
             <result name="input">addBook.jsp</result>
         </action>
     </package>

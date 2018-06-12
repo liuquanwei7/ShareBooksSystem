@@ -13,7 +13,7 @@ function getBookInfo() {
             if(msg.translator.length>0){
                 author=author.substring(3);
             }
-            // var mybook={
+            // var book={
             //     'bookName':msg.title,
             // 'bookAuthor':author,
             // 'bookPicture':msg.image,
@@ -26,7 +26,7 @@ function getBookInfo() {
             // console.log(typeof mybook+"aa");
             var a="大鹏";
             var b=['大鹏1','b','c'];
-            var c=new Array(msg.title,author,msg.image,msg.publisher,msg.price,msg.tags[7].name);
+            // var c=new Array(msg.title,author,msg.image,msg.publisher,msg.price,msg.tags[7].name);
             var c=msg.title+","+author+","+msg.image+","+msg.publisher
                 +","+msg.price+","+msg.tags[7].name;
             // c=JSON.stringify(c);
@@ -42,7 +42,7 @@ function getBookInfo() {
             console.log(msg.tags[7].name);
             console.log(msg.price);
 
-
+            sessionStorage.isbn="9787115275790";
             // encodeURI(encodeURI(author));
             console.log(typeof author);
             console.log(author);
