@@ -23,8 +23,8 @@
         <action name="checkBookAction" class="checkBookAction">
             <!--<interceptor-ref name="loginInterceptor"/>-->
             <interceptor-ref name="defaultStack"/>
-            <result name="success">showBooks.jsp</result>
-            <result name="input">checkBooks.jsp</result>
+            <result name="success">bookUser/showBooks.jsp</result>
+            <result name="input">bookUser/checkBooks.jsp</result>
         </action>
     </package>
 </struts>
