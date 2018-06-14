@@ -11,7 +11,7 @@ public class User {
     private String userGender;
     private int userAge;
     private int userPermission;
-
+    private String userEmail;
     public int getUserId() {
         return userId;
     }
@@ -76,26 +76,14 @@ public class User {
         this.userPermission = userPermission;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        User user = (User) o;
-        return userId == user.userId &&
-                userAge == user.userAge &&
-                userPermission == user.userPermission &&
-                Objects.equals(userName, user.userName) &&
-                Objects.equals(userAccount, user.userAccount) &&
-                Objects.equals(userPassword, user.userPassword) &&
-                Objects.equals(userIdentity, user.userIdentity) &&
-                Objects.equals(userGender, user.userGender);
+    public String getUserEmail() {
+        return userEmail;
     }
 
-    @Override
-    public int hashCode() {
-
-        return Objects.hash(userId, userName, userAccount, userPassword, userIdentity, userGender, userAge, userPermission);
+    public void setUserEmail(String userEmail) {
+        this.userEmail = userEmail;
     }
+
 
     public User() {
     }
