@@ -1,0 +1,24 @@
+#container{
+    margin: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    position: relative;
+}
+#container_re_left{
+  margin: 0;
+    top: 0;
+    width: 50%;
+    float: left;
+}
+#container_re_left img{
+    height: 100%;
+    width: 100%;
+}
+#container_re_right{
+    margin: 0;
+    top: 0;
+    float: right;
+    width: 50%;
+    margin-top: 8%;
+}
