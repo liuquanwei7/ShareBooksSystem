@@ -21,6 +21,7 @@
                     <td>学号：<input type="text" name="userIdentity"/></td>
                     <td>用户权限：<input type="number" max="4" min="-1" value="-1" name="userPermission"></td>
                     <td><input type="submit" value="查询"></td>
+                    <td><a href="goToManagerAddUser.action">增加用户</a></td>
                 </tr>
             </table>
         </form>
@@ -70,8 +71,7 @@
                     <td>性别</td>
                     <td>年龄</td>
                     <td>权限</td>
-                    <td style="border-right: 0px">操</td>
-                    <td style="border-left: 0px">作</td>
+                    <td>修改</td>
                 </tr>
                     <% int i = 0; %>
                 <s:iterator value="#session.queryUsers" status="st" var="user">
@@ -83,9 +83,7 @@
                     <td><s:property value="#user.userGender"/></td>
                     <td><s:property value="#user.userAge"/></td>
                     <td><s:property value="#user.userPermission"/></td>
-                    <td><a href = "readyToChange?which = <%=i%>">修改</a></td>
-                    <td><a href = "deleteBooking?which = <%=i%>">删除</a></td>
-
+                    <td><a href = "managerChooseUser.action?which=<%=i%>">修改</a></td>
                 </tr>
                     <% i++; %>
                 </s:iterator>

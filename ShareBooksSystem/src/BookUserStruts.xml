@@ -8,7 +8,7 @@
     <constant name="struts.objectFactory" value="spring" />
     <package name="BookUser" extends="struts-default">
         <!--<interceptors>-->
-            <!--<interceptor name="loginInterceptor" class="com.sharebookssystem.bin.interceptor.LoginInterceptor"/>-->
+        <!--<interceptor name="loginInterceptor" class="com.sharebookssystem.bin.interceptor.LoginInterceptor"/>-->
         <!--</interceptors>-->
 
         <action name="getCheckBookAction" class="getCheckBookAction">

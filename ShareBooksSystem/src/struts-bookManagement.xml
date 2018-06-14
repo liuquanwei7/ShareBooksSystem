@@ -5,10 +5,19 @@
         "http://struts.apache.org/dtds/struts-2.5.dtd">
 
 <struts>
-    <package name="bookManagement" namespace="/bookManagement" extends="struts-default">
-        <action name="managerLoginAction" class="managerLoginAction">
-            <result name="success">test.jsp</result>
-            <result name="login">test.jsp</result>
+    <constant name="struts.objectFactory" value="spring" />
+    <package name="bookManagement" extends="struts-default">
+
+        <!-- 管理员登陆 -->
+        <action name="managerLoginAction" class="bkLoginAction" method="login">
+            <result name="success">/bookManagement/manage_main.jsp</result>
+            <result name="input">/bookManagement/test.jsp</result>
+        </action>
+
+        <!-- 查询书籍 -->
+        <action name="queryBookAction" class="queryBookAction" method="queryBook">
+            <result name="success">/bookManagement/queryBook.jsp</result>
+            <result name="input">/bookManagement/queryBook.jsp</result>
         </action>
     </package>
 </struts>

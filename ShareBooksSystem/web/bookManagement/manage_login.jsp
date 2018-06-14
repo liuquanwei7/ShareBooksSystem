@@ -40,7 +40,7 @@
                     <input type="password" class="form-control" id="password" name = "manager.managerPassword">
                 </div>
                 <button type="submit" class="btn btn-primary" id="login">登陆</button>
-            </form>
+            </form>+
         </div>
     </div>
 
