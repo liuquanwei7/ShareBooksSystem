@@ -124,9 +124,7 @@
 	</div>
 	<hr color="#306255" size="0.3">
 	<div id="foot_main">
-
 		<div id="foot_main_title">北理珠621徒步浪科技有限公司</div>
-
 		<div class="foot_txt"> <img  src="img/phone.png" width="20px" height="20px"/> 咨询热线:110101010101</div>
 		<div class="foot_txt"><img  src="img/phone.png" width="20px" height="20px"/> 合作电话:111111111111</div>
 		<div class="foot_txt"><img  src="img/email.png" width="20px" height="20px"/> 邮箱:sssssssss@163.com</div>

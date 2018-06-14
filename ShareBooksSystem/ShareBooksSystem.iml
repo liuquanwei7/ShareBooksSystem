@@ -6,9 +6,11 @@
         <fileset id="fileset" name="Spring Application Context" removed="false">
           <file>file://$MODULE_DIR$/web/WEB-INF/applicationContext-commons.xml</file>
           <file>file://$MODULE_DIR$/web/WEB-INF/applicationContext-actions.xml</file>
+          <file>file://$MODULE_DIR$/web/WEB-INF/applicationContext-actionY.xml</file>
           <file>file://$MODULE_DIR$/web/WEB-INF/applicationContext-beans.xml</file>
           <file>file://$MODULE_DIR$/web/WEB-INF/applicationContext-actions-manager.xml</file>
           <file>file://$MODULE_DIR$/web/WEB-INF/applicationContext-beans-manager.xml</file>
+          <file>file://$MODULE_DIR$/web/WEB-INF/applicationContext-beanY.xml</file>
         </fileset>
       </configuration>
     </facet>
@@ -37,6 +39,7 @@
             <file>jar://$MODULE_DIR$/../共享图书jar包/struts2Required/struts2-core-2.5.13.jar!/struts-default.xml</file>
             <file>file://$MODULE_DIR$/src/BookUserStruts.xml</file>
             <file>file://$MODULE_DIR$/src/struts-bookManagement.xml</file>
+            <file>file://$MODULE_DIR$/src/struts-y.xml</file>
           </fileset>
           <propertiesKeys disabled="false" />
         </configuration>

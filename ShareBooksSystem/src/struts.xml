@@ -10,4 +10,5 @@
     <include file="BookUserStruts.xml"/>
     <include file="struts-bookManagement.xml"/>
     <include file="struts-pan.xml"></include>
+    <include file="struts-y.xml"></include>
 </struts>

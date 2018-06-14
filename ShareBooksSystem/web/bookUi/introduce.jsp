@@ -6,16 +6,25 @@
     <title>产品体验</title>
     <link rel="stylesheet" type="text/css" href="css/style.css">
 
-
-    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/fixed.css" />
     <link rel="stylesheet" href="css/container_introduce.css" />
 </head>
-<body>
+<body >
+<script>
+    var strSession = "<%=session.getAttribute("error") %>".toString();
+    if( strSession == ""||strSession=="null") {
+    }
+    else {
+        alert(strSession);
+        <%  session.removeAttribute("error");     session.removeAttribute("user");%>
+    }
+</script>
 
 <script src="js/jquery-3.2.1.js"></script>
 <script type="text/javascript" src="js/bootstrap.min.js" ></script>
 <script src="js/homepage.js"></script>
+
 <div id="naver">
 
     <img src="img/logo.png"/>
@@ -30,7 +39,7 @@
 
 <!-- 模态框（Modal） -->
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-backdrop="true">
-    <div class="modal-dialog">
+    <div class="modal-dialog" style="margin:10% auto;width: 35%">
         <div class="modal-content">
             <!--登陆框头部-->
             <div class="modal-header">
@@ -43,19 +52,19 @@
             </div>
             <!--登陆框中间部分(from表单)-->
             <div class="modal-body">
-                <form class="form-horizontal" method="logins" role="form">
+                <form class="form-horizontal" action="userLoginAction"  namespace="/bookUi" method="post" role="form">
                     <!--用户框-->
                     <div class="form-group">
                         <label for="username" class="col-sm-2 control-label">用户名</label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" id="username" placeholder="username" required="required">
+                            <input type="text" class="form-control" name="user.userAccount" id="username" placeholder="username" required="required">
                         </div>
                     </div>
                     <!--密码框-->
                     <div class="form-group">
                         <label for="password" class="col-sm-2 control-label" >密码</label>
                         <div class="col-sm-10">
-                            <input type="password" class="form-control" id="password" placeholder="password" required="required">
+                            <input type="password" class="form-control" name="user.userPassword" id="password" placeholder="password" required="required">
                         </div>
                     </div>
                     <!--记住密码-->
@@ -69,10 +78,13 @@
                         </div>
                     </div>
                     <!--登陆按钮-->
-                    <div class="form-group">
-                        <div class="col-sm-offset-2 col-sm-10">
-                            <button type="submit" class="btn btn-default">登录</button>
-                        </div>
+                    <!--登陆按钮-->
+                    <div class="modal-footer" id="btn_gp">
+                        <button type="submit" class="btn btn-default">登录</button>
+
+                        <button type="button" class="btn btn-default" onclick="window.location.href='register.jsp'">注册</button>
+
+
                     </div>
                 </form>
             </div>
