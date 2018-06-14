@@ -58,7 +58,7 @@ public class CheckBookAction extends ActionSupport {
         user=(User) map.get("user");
         books=bd.checkBook(check_data);
         System.out.println(books.toString());
-        System.out.println(books.get(0).getBookName());
+//        System.out.println(books.get(0).getBookName());
         if (books!=null){
             return SUCCESS;
         }else {
