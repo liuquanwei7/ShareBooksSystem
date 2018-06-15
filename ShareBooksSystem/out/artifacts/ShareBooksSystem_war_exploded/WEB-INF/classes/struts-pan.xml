@@ -45,5 +45,114 @@
         <action name="formUserBooks_DPage" class="userBooks_DPageAction" method="formPage">
             <result name="success">/WEB-INF/UserBooks_DPage.jsp</result>
         </action>
+
+        <action name="managerAddUser" class="managerAddUserAction" method="execute">
+            <result name="success" type="chain">nowUserPage</result>
+            <result name="input">/WEB-INF/ManagerAddUser.jsp</result>
+        </action>
+
+        <action name="goToManagerAddUser">
+            <result name="success">/WEB-INF/ManagerAddUser.jsp</result>
+        </action>
+
+        <action name="managerChooseUser" class="managerChooseUserAction" method="execute">
+            <result name="success">/WEB-INF/ManagerChangeUserInfo.jsp</result>
+        </action>
+
+        <action name="managerChangeUserInfo" class="managerChangeUserInfoAction" method="execute">
+            <result name="success" type="chain">nowUserPage</result>
+            <result name="input">/WEB-INF/ManagerChangeUserInfo.jsp</result>
+        </action>
+
+        <action name="initTopFtBPage" class="topFtBPageAction" method="execute">
+            <result name="success" type="chain">firstTopFtBPage</result>
+            <result name="input">/WEB-INF/TopFtBPage.jsp</result>
+        </action>
+
+        <action name="firstTopFtBPage" class="topFtBPageAction" method="firstPage">
+            <result name="success">/WEB-INF/TopFtBPage.jsp</result>
+        </action>
+
+        <action name="nextTopFtBPage" class="topFtBPageAction" method="nextPage">
+            <result name="success">/WEB-INF/TopFtBPage.jsp</result>
+        </action>
+
+        <action name="formTopFtBPage" class="topFtBPageAction" method="formPage">
+            <result name="success">/WEB-INF/TopFtBPage.jsp</result>
+        </action>
+
+        <action name="nowTopFtBPage" class="topFtBPageAction" method="nowPage">
+            <result name="success">/WEB-INF/TopFtBPage.jsp</result>
+            <result name="noInit" type="chain">initTopFtBPage</result>
+        </action>
+
+        <action name="initUserBooks_DPageT" class="userBooks_DPageActionT" method="execute">
+            <result name="success" type="chain">firstUserBooks_DPageT</result>
+        </action>
+
+        <action name="firstUserBooks_DPageT" class="userBooks_DPageActionT" method="firstPage">
+            <result name="success">/WEB-INF/UserBooks_DPageT.jsp</result>
+        </action>
+
+        <action name="nextUserBooks_DPageT" class="userBooks_DPageActionT" method="nextPage">
+            <result name="success">/WEB-INF/UserBooks_DPageT.jsp</result>
+        </action>
+
+        <action name="formUserBooks_DPageT" class="userBooks_DPageActionT" method="formPage">
+            <result name="success">/WEB-INF/UserBooks_DPageT.jsp</result>
+        </action>
+
+        <action name="initSameBook_BPage" class="sameBook_BDPageAction" method="execute">
+            <result name="success" type="chain">firstSameBook_BPage</result>
+        </action>
+
+        <action name="firstSameBook_BPage" class="sameBook_BDPageAction" method="firstPage">
+            <result name="success">/WEB-INF/SameBook_BDPage.jsp</result>
+        </action>
+
+        <action name="nextSameBook_BPage" class="sameBook_BDPageAction" method="nextPage">
+            <result name="success">/WEB-INF/SameBook_BDPage.jsp</result>
+        </action>
+
+        <action name="formSameBook_BPage" class="sameBook_BDPageAction" method="formPage">
+            <result name="success">/WEB-INF/SameBook_BDPage.jsp</result>
+        </action>
+
+        <action name="initTopCategoryPage" class="topCategoryPageAction" method="execute">
+            <result name="success" type="chain">firstTopCategoryPage</result>
+        </action>
+
+        <action name="firstTopCategoryPage" class="topCategoryPageAction" method="firstPage">
+            <result name="success">/WEB-INF/TopCategoryPage.jsp</result>
+        </action>
+
+        <action name="nextTopCategoryPage" class="topCategoryPageAction" method="nextPage">
+            <result name="success">/WEB-INF/TopCategoryPage.jsp</result>
+        </action>
+
+        <action name="formTopCategoryPage" class="topCategoryPageAction" method="formPage">
+            <result name="success">/WEB-INF/TopCategoryPage.jsp</result>
+        </action>
+
+        <action name="nowTopCategoryPage" class="topCategoryPageAction" method="nowPage">
+            <result name="noInit" type="chain">initTopCategoryPage</result>
+            <result name="success">/WEB-INF/TopCategoryPage.jsp</result>
+        </action>
+
+        <action name="initSameCategoryBDPage" class="sameCategoryDBPage" method="execute">
+            <result name="success" type="chain">firstSameCategoryBDPage</result>
+        </action>
+
+        <action name="firstSameCategoryBDPage" class="sameCategoryDBPage" method="firstPage">
+            <result name="success">/WEB-INF/SameCategoryBDPage.jsp</result>
+        </action>
+
+        <action name="nextSameCategoryBDPage" class="sameCategoryDBPage" method="nextPage">
+            <result name="success">/WEB-INF/SameCategoryBDPage.jsp</result>
+        </action>
+
+        <action name="formSameCategoryBDPage" class="sameCategoryDBPage" method="formPage">
+            <result name="success">/WEB-INF/SameCategoryBDPage.jsp</result>
+        </action>
     </package>
 </struts>
