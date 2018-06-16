@@ -57,7 +57,8 @@ public class UserPageAction implements PageFormat {
         session.put("userFirstPage", true);
 
         //取出所查询到的user列表,判断是否查询到
-        List<User> resultUsers = userService.service(queryUser, 0);
+        List resultUsers = userService.service(queryUser, 0);
+
         if (resultUsers == null) {
             session.put("queryUsers", null);
             return "success";
@@ -80,7 +81,7 @@ public class UserPageAction implements PageFormat {
         session.put("userFirstPage", false);
         User queryUser = (User) session.get("queryUser");
 
-        List<User> resultUsers = userService.service(queryUser, page);
+        List resultUsers = userService.service(queryUser, page);
         if (resultUsers == null) {
             session.put("queryUsers", null);
             session.put("userLastPage", true);
@@ -104,7 +105,7 @@ public class UserPageAction implements PageFormat {
         User queryUser = (User) session.get("queryUser");
 
         //根据session取出的user进行查询
-        List<User> resultUsers = userService.service(queryUser, page);
+        List resultUsers = userService.service(queryUser, page);
         session.put("queryUsers", resultUsers);
 
         //判断是否到了首页
@@ -115,20 +116,18 @@ public class UserPageAction implements PageFormat {
 
     @Override
     public String nowPage() {
-//        session = ActionContext.getContext().getSession();
-//        if (session.get("queryUser") == null) return "noResult";
+        session = ActionContext.getContext().getSession();
+        if (session.get("queryUser") == null) return "noResult";
+
+//        System.out.println("返回了success");
 //
 //        int page = (int)session.get("userPage");
 //        User queryUser = (User) session.get("queryUser");
 //
-//        System.out.println(userService == null);
-//
-//        System.out.println("111");
 //        //根据session取出的user进行查询
-//        List<User> resultUsers = userService.service(queryUser, page);
-//        System.out.println("222");
+//        List resultUsers = userService.service(queryUser, page);
+//        System.out.println(resultUsers);
 //        session.put("queryUsers", resultUsers);
-//        System.out.println("333");
 
         return "success";
     }

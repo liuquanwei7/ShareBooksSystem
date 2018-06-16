@@ -11,6 +11,7 @@ public class User {
     private String userGender;
     private int userAge;
     private int userPermission;
+    private String userEmail;
 
     public int getUserId() {
         return userId;
@@ -74,6 +75,14 @@ public class User {
 
     public void setUserPermission(int userPermission) {
         this.userPermission = userPermission;
+    }
+
+    public String getUserEmail() {
+        return userEmail;
+    }
+
+    public void setUserEmail(String userEmail) {
+        this.userEmail = userEmail;
     }
 
     @Override

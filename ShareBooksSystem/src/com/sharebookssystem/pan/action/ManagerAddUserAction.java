@@ -1,6 +1,7 @@
 package com.sharebookssystem.pan.action;
 
 
+import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 import com.sharebookssystem.model.User;
 import com.sharebookssystem.pan.myinterface.UserService;
@@ -8,6 +9,9 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 
 import javax.annotation.Resource;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
 
 @Controller("managerAddUserAction")
 @Scope("prototype")
@@ -20,6 +24,7 @@ public class ManagerAddUserAction extends ActionSupport {
     private String userGender;
     private int userAge;
     private int userPermission;
+    private String userEmail;
     @Resource(name = "managerAddUserService")
     private UserService userService;
 
@@ -33,8 +38,14 @@ public class ManagerAddUserAction extends ActionSupport {
         user.setUserGender(userGender);
         user.setUserAge(userAge);
         user.setUserPermission(userPermission);
+        user.setUserEmail(userEmail);
 
         if (userService.service(user)){
+            Map session = ActionContext.getContext().getSession();
+            if ((boolean)session.get("userFirstPage")) {
+                List list = (List) session.get("queryUsers");
+                list.add(0, user);
+            }
             return SUCCESS;
         }else {
             addFieldError("managerAddUserFailError", "新增用户失败");
@@ -64,6 +75,10 @@ public class ManagerAddUserAction extends ActionSupport {
         }
         if (s_Password.equals("") || s_Password == null){
             addFieldError("managerAddUserFailError", "确认密码是必填的");
+            return;
+        }
+        if (userEmail.equals("") || userEmail == null){
+            addFieldError("managerAddUserFailError", "邮件是必填的");
             return;
         }
         if (userIdentity.equals("") || userIdentity == null){
@@ -156,5 +171,13 @@ public class ManagerAddUserAction extends ActionSupport {
 
     public void setS_Password(String s_Password) {
         this.s_Password = s_Password;
+    }
+
+    public String getUserEmail() {
+        return userEmail;
+    }
+
+    public void setUserEmail(String userEmail) {
+        this.userEmail = userEmail;
     }
 }
