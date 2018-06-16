@@ -45,6 +45,7 @@ function getBookInfo() {
                 console.log(msg.tags[7].name);
                 console.log(msg.price);
                 debugger
+                // document.getElementById("test").innerHTML=msg.catalog;
                 sessionStorage.isbn = ISBN;
                 // encodeURI(encodeURI(author));
                 console.log(typeof author);

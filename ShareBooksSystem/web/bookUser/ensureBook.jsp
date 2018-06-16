@@ -31,7 +31,8 @@
             <div class="card" style="width:300px;height: 600px" >
                 <a href="javascript:chooseBook('<s:property value="#mybook"/>')">
                 <%--<a href="ensureAddBookAction?book=+<s:property value='#mybook'/>">--%>
-                    <img referrerpolicy ="no-referrer" alt="网络错误" src="<s:property value="#mybook.bookPicture"/>" class="card-img-top" style="width: 300px;height: 300px">
+                    <img referrerpolicy ="no-referrer" alt="网络错误" src="<s:property value="#mybook.bookPicture"/>"
+                         class="card-img-top" style="width: 300px;height: 300px">
                     <div class="card-body">
                         <p class="card-text"><s:property value="#mybook.bookName"/></p>
                         <p class="card-text"><s:property value="#mybook.bookAuthor"/></p>

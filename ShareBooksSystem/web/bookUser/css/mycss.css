@@ -1,0 +1,37 @@
+.mycard{
+    width: 990px;
+    height: 232px;
+    padding-top: 20px;
+    padding-left: 20px;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    position: relative;
+    flex-direction: row;
+    display: block;
+}
+.bookImg{
+    width: 144px;
+    height: 192px;
+    display: inline;
+    float: left;
+    /*position: relative;*/
+    /*overflow: hidden;*/
+
+}
+.bookImg img{
+    box-shadow: 0 1px 6px rgba(0,0,0,.35), 0 0 5px #f9f2e9 inset;
+    margin: 0;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: inline;
+    padding: 0;
+    overflow: hidden;
+}
+.bookInfo{
+    position: relative;
+    float: left;
+    width: 560px;
+    /*margin-top: 20px;*/
+}
+
