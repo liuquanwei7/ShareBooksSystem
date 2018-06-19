@@ -8,6 +8,7 @@ import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 import java.util.Queue;
 
@@ -22,20 +23,33 @@ public class BookDao {
         this.sessionFactory = sessionFactory;
     }
 
-    public List<Book> checkBook(String check_data){
+    public Collection checkBook(String check_data){
         Session session=null;
         Transaction transaction=null;
         try {
             session=sessionFactory.openSession();
-            String queryString="from Book where bookName like '%"+check_data+
-                    "%' or bookAuthor like '%"+check_data+"%'";
+            String queryString="from Book bk,PersonalBook pk where bk.bookId=pk.book and bk.bookName " +
+                    "like '%"+check_data+
+                    "%' or bk.bookAuthor like '%"+check_data+"%'";
             Query query=session.createQuery(queryString);
             //设置获取的数据数量
 //            query.setFirstResult()
-            List<Book> books = query.list();
+            System.out.print("adsfasdfdas");
+            Collection books = query.list();//获取结果
+            System.out.print("adsfasdfdas");
 
-
-            return books;
+//            System.out.println(books);
+//            for (int i=0;i<books.size();i++){
+//                Object[] o = (Object[])books.get(i);
+//
+//                System.out.print(o[0] + ",");
+//                System.out.print(o[1] + ",");
+//                System.out.print(o[0].getClass() + ",");
+//                System.out.print(o[1] + ",");
+////                System.out.print(o[2] + ",");
+////                System.out.println(o[3]);
+//            }
+            return books;//返回Collection对象
         }catch (Exception ex){
             ex.printStackTrace();
             return null;

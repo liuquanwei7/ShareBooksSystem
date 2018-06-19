@@ -49,5 +49,12 @@
             </result>
             <!--<result name="input">addBook.jsp</result>-->
         </action>
+        <action name="showBookInfoAction" class="showBookInfoAction">
+            <!--<interceptor-ref name="loginInterceptor"/>-->
+            <interceptor-ref name="defaultStack"/>
+            <result name="success">bookInfo.jsp</result>
+            <result name="input">showBooks.jsp</result>
+            <!--<result name="input">addBook.jsp</result>-->
+        </action>
     </package>
 </struts>

@@ -19,4 +19,9 @@
             <ref bean="bookDao"></ref>
         </property>
     </bean>
+    <bean id="showBookInfoAction" class="com.sharebookssystem.bin.actions.ShowBookInfoAction" scope="prototype">
+        <property name="bd">
+            <ref bean="bookDao"></ref>
+        </property>
+    </bean>
 </beans>

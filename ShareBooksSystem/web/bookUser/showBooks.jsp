@@ -15,6 +15,7 @@
     <script src="js/jquery-3.3.1.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="js/bootstrap.min.js"></script>
+    <script src="js/showInfo.js"></script>
 </head>
 <body>
     <header>
@@ -26,12 +27,15 @@
         </aside>
         <div>
             <s:iterator value="books" status="st" var="mybook">
+                <%--<s:iterator value="personalbooks" status="st" var="thebook">--%>
+                    <%--<s:hidden value=""/>--%>
+                <%--</s:iterator>--%>
                 <div class="card" style="width:300px;height: 600px" >
-                    <a href="#">
+                    <a href="javascript:showbookinfo('<s:property value="#mybook.bookId"/>')">
                             <%--<a href="ensureAddBookAction?book=+<s:property value='#mybook'/>">--%>
                         <img referrerpolicy ="no-referrer" alt="网络错误" src="<s:property value="#mybook.bookPicture"/>" class="card-img-top" style="width: 300px;height: 300px">
                         <div class="card-body">
-                            <s:property value="#mybook.bookPicture"/>
+                            <%--<s:property value="#mybook.bookPicture"/>--%>
                             <p class="card-text"><s:property value="#mybook.bookName"/></p>
                             <p class="card-text"><s:property value="#mybook.bookAuthor"/></p>
                             <p class="card-text"><s:property value="#mybook.bookCategory"/></p>
