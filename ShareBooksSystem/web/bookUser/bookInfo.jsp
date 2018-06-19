@@ -14,6 +14,7 @@
     <script src="js/jquery-3.3.1.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="js/bootstrap.min.js"></script>
+    <script src="js/borrowBook.js"></script>
     <link href="css/mycss.css" rel="stylesheet">
 </head>
 <body>
@@ -37,7 +38,7 @@
                     <p>出版社:<s:property value="#book.bookPublish"/></p>
                     <p>在库状态：<s:property value="#personalbook.bookStatus"/></p>
                     <p class="bookTodo">
-                        <a href="" class="borrowBook">借阅</a>
+                        <a href="javascript:borrowBook('<s:property value="#personalbook.personalBookId"/>')" class="borrowBook">借阅</a>
                         <a href="" class="addInCar">加入借阅车</a>
 
                     </p>

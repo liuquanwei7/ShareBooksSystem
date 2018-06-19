@@ -24,4 +24,9 @@
             <ref bean="bookDao"></ref>
         </property>
     </bean>
+    <bean id="borrowBookAction" class="com.sharebookssystem.bin.actions.BorrowBookAction" scope="prototype">
+        <property name="bd">
+            <ref bean="bookDao"></ref>
+        </property>
+    </bean>
 </beans>

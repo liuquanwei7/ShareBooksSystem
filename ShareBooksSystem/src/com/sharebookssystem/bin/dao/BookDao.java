@@ -1,6 +1,7 @@
 package com.sharebookssystem.bin.dao;
 
 import com.sharebookssystem.model.Book;
+import com.sharebookssystem.model.BorrowHistoryItem;
 import com.sharebookssystem.model.PersonalBook;
 import org.hibernate.Query;
 import org.hibernate.Session;
@@ -86,6 +87,26 @@ public class BookDao {
             session=sessionFactory.openSession();
             transaction=session.beginTransaction();
             num=Integer.parseInt(session.save(book).toString());
+            System.out.println("show hql");
+            transaction.commit(); //写入数据库，
+        }catch (Exception e) {
+            e.printStackTrace();
+            num=0;
+        }finally{//关闭session
+            session.close();
+//            HibernateSessionFactory.closeSession();//调用HibernateSessionFactory的静态方法关闭Session
+        }
+        return num;
+    }
+
+    public int borrowBook(BorrowHistoryItem borrowHistoryItem){
+        int num=0;
+        Session session=null;
+        Transaction transaction=null;
+        try{
+            session=sessionFactory.openSession();
+            transaction=session.beginTransaction();
+            num=Integer.parseInt(session.save(borrowHistoryItem).toString());
             System.out.println("show hql");
             transaction.commit(); //写入数据库，
         }catch (Exception e) {
