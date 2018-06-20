@@ -11,35 +11,36 @@ import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
 
-
-@Service("userBooks_DService")
-public class UserBooks_DService implements BorrowsDataService {
+@Service("sameCategoryBDService")
+public class SameCategoryBDService implements BorrowsDataService {
     @Resource(name = "cBorrowDataDaoImpl")
     private CBorrowDataDao cBorrowDataDao;
 
     @Override
-    public List service(User user, int page) {
-        List list = cBorrowDataDao.queryB_BBYUID(user.getUserId(), page);
+    public List service(String category, int page) {
+        List list = cBorrowDataDao.queryBookBDByCategory(category, page);
         if (list == null) return null;
 
-        List<List> info = new ArrayList<List>();
+        List info = new ArrayList();
 
         for (int i = 0; i < list.size(); i++){
             Object[] o = (Object[])list.get(i);
 
             List line = new ArrayList();
 
-            String bookName = o[0].toString();
+            String userName = o[0].toString();
+            line.add(userName);
+            String bookName = o[1].toString();
             line.add(bookName);
-            String bookAuthor = o[1].toString();
+            String bookAuthor = o[2].toString();
             line.add(bookAuthor);
-            String bookPublish = o[2].toString();
+            String bookPublish = o[3].toString();
             line.add(bookPublish);
-            String bookPrice = o[3].toString();
+            String bookPrice = o[4].toString();
             line.add(bookPrice);
-            String bookCategory = o[4].toString();
+            String bookCategory = o[5].toString();
             line.add(bookCategory);
-            int times = Integer.parseInt(o[5].toString());
+            int times = Integer.parseInt(o[6].toString());
             line.add(times);
 
             info.add(line);
@@ -49,12 +50,7 @@ public class UserBooks_DService implements BorrowsDataService {
     }
 
     @Override
-    public List service(String category, int page) {
-        return null;
-    }
-
-    @Override
-    public List service(Book book, int page) {
+    public List service(User user, int page) {
         return null;
     }
 
@@ -63,7 +59,12 @@ public class UserBooks_DService implements BorrowsDataService {
         return null;
     }
 
-    public UserBooks_DService() {
+    @Override
+    public List service(Book book, int page) {
+        return null;
+    }
+
+    public SameCategoryBDService() {
     }
 
     public CBorrowDataDao getcBorrowDataDao() {

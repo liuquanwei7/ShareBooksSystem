@@ -32,6 +32,10 @@
                 <td><input type="text" name="userPassword" value="<%=user.getUserPassword()%>"/></td>
             </tr>
             <tr>
+                <td>邮件:</td>
+                <td><input type="email" name="userEmail" value="<%=user.getUserEmail()%>"/></td>
+            </tr>
+            <tr>
                 <td>学号:</td>
                 <td><input type="text" name="userIdentity" value="<%=user.getUserIdentity()%>"/></td>
             </tr>

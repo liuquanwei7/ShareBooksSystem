@@ -35,6 +35,10 @@
                 <td><input type="password" name="s_Password"/></td>
             </tr>
             <tr>
+                <td>邮件:</td>
+                <td><input type="email" name="userEmail"/></td>
+            </tr>
+            <tr>
                 <td>学号:</td>
                 <td><input type="text" name="userIdentity"/></td>
             </tr>
