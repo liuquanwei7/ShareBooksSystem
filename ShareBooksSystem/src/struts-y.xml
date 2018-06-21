@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+        "http://struts.apache.org/dtds/struts-2.5.dtd">
+
+<struts>
+    <constant name="struts.i18n.encoding" value="UTF-8"/>
+    <constant name="struts.objectFactory" value="spring" />
+    <package name="bookUi" namespace="/bookUi" extends="struts-default" >
+        <action name="userLoginAction" class="userLoginAction">
+            <result name="success">UserInfor.jsp</result>
+            <result name="input">introduce.jsp</result>
+        </action>
+        <action name="userRegisterAction" class="userRegisterAction">
+            <result name="success">registerCheck.jsp</result>
+            <result name="input">register.jsp</result>
+        </action>
+        <action name="userRegisterCheckAction" class="userRegisterCheckAction">
+            <result name="success">UserInfor.jsp</result>
+            <result name="input">registerCheck.jsp</result>
+        </action>
+        <action name="userChangeAction" class="userChangeAction">
+            <result name="success">changeCheck.jsp</result>
+            <result name="input">ChangePerson.jsp</result>
+        </action>
+        <action name="changeCheckAction" class="changeCheckAction">
+            <result name="success">UserInfor.jsp</result>
+            <result name="input">changeCheck.jsp</result>
+        </action>
+
+        <action name="borrowShowAction" class="borrowShowAction">
+            <result name="success">BorrowAleady.jsp</result>
+        </action>
+
+        <action name="queryReturnAction" class="queryReturnAction">
+            <result name="input">borrows.jsp</result>
+            <result name="success">borrows.jsp</result>
+        </action>
+    </package>
+
+</struts>

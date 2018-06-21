@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- 得到LoginAction的对象 -->
+    <bean id="userLoginAction" class="com.sharebookssystem.bookUi.action.userLoginAction" >
+        <property name="ud">
+            <ref bean="userDaoY"></ref>
+        </property>
+    </bean>
+    <bean id="userRegisterAction" class="com.sharebookssystem.bookUi.action.userRegisterAction" >
+        <property name="ud">
+            <ref bean="userDaoY"></ref>
+        </property>
+    </bean>
+
+    <bean id="userRegisterCheckAction" class="com.sharebookssystem.bookUi.action.userRegisterCheckAction" >
+        <property name="ud">
+            <ref bean="userDaoY"></ref>
+        </property>
+    </bean>
+
+    <bean id="userChangeAction" class="com.sharebookssystem.bookUi.action.userChangeAction" >
+        <property name="ud">
+            <ref bean="userDaoY"></ref>
+        </property>
+    </bean>
+    <bean id="changeCheckAction" class="com.sharebookssystem.bookUi.action.changeCheckAction" >
+        <property name="ud">
+            <ref bean="userDaoY"></ref>
+        </property>
+    </bean>
+
+    <bean id="borrowShowAction" class="com.sharebookssystem.bookUi.action.borrowShowAction" >
+        <property name="pbd">
+            <ref bean="PersonalBookY"></ref>
+        </property>
+
+        <property name="bd">
+            <ref bean="bookDaoY"></ref>
+        </property>
+        <property name="bI">
+            <ref bean="BorrowHistoryItemDaoY"></ref>
+        </property>
+    </bean>
+
+
+    <bean id="queryReturnAction" class="com.sharebookssystem.bookUi.action.queryReturnActionById" >
+        <property name="bd">
+            <ref bean="bookDaoY"></ref>
+        </property>
+    </bean>
+</beans>
