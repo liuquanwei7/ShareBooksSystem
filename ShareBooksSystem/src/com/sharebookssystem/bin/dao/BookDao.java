@@ -8,6 +8,7 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 
+import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
@@ -24,19 +25,93 @@ public class BookDao {
         this.sessionFactory = sessionFactory;
     }
 
+
+    //查询个人图书
+    public List<PersonalBook> checkPersonalBookin(int check_have ){
+        Session session=null;
+        Transaction transaction=null;
+        try {
+            session=sessionFactory.openSession();
+            String queryString="from PersonalBook pk where pk.bookId " +
+                    "like '%"+check_have;
+            Query query=session.createQuery(queryString);
+            //设置获取的数据数量
+//            query.setFirstResult()
+            System.out.print("adsfasdfdas");
+            List res=query.list();
+            List<PersonalBook> book=res; //获取结果
+            System.out.print("adsfasdfdas");
+            if(res.size()>0){
+                book=res;
+            }else{
+                book=null;
+            }
+//            List<PersonalBook> book= query.list();//获取结果
+            System.out.print("adsfasdfdas");
+
+
+            return book;
+        }catch (Exception ex){
+            ex.printStackTrace();
+            return null;
+        }finally {
+            session.close();
+        }
+    }
+
+    //查询图书
+    public List<Book> checkBookin(String check_have){
+        Session session=null;
+        Transaction transaction=null;
+        try {
+            session=sessionFactory.openSession();
+            String queryString="from Book bk where bk.bookName " +
+                    "like '%"+check_have+
+                    "%' or bk.bookAuthor like '%"+check_have+"%'";
+            Query query=session.createQuery(queryString);
+            //设置获取的数据数量
+//            query.setFirstResult()
+            System.out.print("adsfasdfdas");
+            List res=query.list();
+            List<Book> book=res; //获取结果
+            System.out.print("adsfasdfdas");
+            if(res.size()>0){
+                book=res;
+            }else{
+                book=null;
+            }
+            System.out.println(book);
+
+            return book;
+        }catch (Exception ex){
+            ex.printStackTrace();
+            return null;
+        }finally {
+            session.close();
+        }
+    }
+//查询图书操作
     public Collection checkBook(String check_data){
         Session session=null;
         Transaction transaction=null;
         try {
             session=sessionFactory.openSession();
-            String queryString="from Book bk,PersonalBook pk where bk.bookId=pk.book and bk.bookName " +
+            String queryString="from Book bk,PersonalBook pk where bk.bookId=pk.book and ( bk.bookName " +
                     "like '%"+check_data+
-                    "%' or bk.bookAuthor like '%"+check_data+"%'";
+                    "%' or bk.bookAuthor like '%"+check_data+"%')";
             Query query=session.createQuery(queryString);
             //设置获取的数据数量
 //            query.setFirstResult()
             System.out.print("adsfasdfdas");
-            Collection books = query.list();//获取结果
+            List res=query.list();
+            Collection books=res; //获取结果
+            System.out.print("adsfasdfdas");
+            if(res.size()>0){
+                books=res;
+            }else{
+                books=null;
+            }
+//            Collection books = query.list();//获取结果
             System.out.print("adsfasdfdas");
 
 //            System.out.println(books);

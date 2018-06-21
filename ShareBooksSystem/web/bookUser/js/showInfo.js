@@ -1,3 +1,3 @@
-function showbookinfo(bookId) {
-    location.href="showBookInfoAction?bookId="+bookId;
+function showbookinfo(personalBookId) {
+    location.href="showBookInfoAction?personalBookId="+personalBookId;
 }

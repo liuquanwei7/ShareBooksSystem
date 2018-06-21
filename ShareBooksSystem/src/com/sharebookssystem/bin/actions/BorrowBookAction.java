@@ -113,10 +113,10 @@ public class BorrowBookAction extends ActionSupport {
         borrowHistoryItem.setBorrowStatus("请求借阅");
 
         System.out.println("this is personaltest11333");
-        System.out.println((int) ((Math.random() * 9 + 1) * 100000));
+//        System.out.println((int) ((Math.random() * 9 + 1) * 100000));
         int borrowCode=(int) ((Math.random() * 9 + 1) * 100000);
         map.put("borrowCode",borrowCode);
-        borrowHistoryItem.setBorrowCode((int) ((Math.random() * 9 + 1) * 100000));
+        borrowHistoryItem.setBorrowCode(borrowCode);
         if(bd.borrowBook(borrowHistoryItem)>0) {
 
             System.out.println("this is personaltest111");

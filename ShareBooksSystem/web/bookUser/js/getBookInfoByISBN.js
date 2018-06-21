@@ -16,6 +16,11 @@ function getBookInfo() {
                 if (msg.translator.length > 0) {
                     author = author.substring(3);
                 }
+                if(msg.subtitle.length>0) {
+                    msg.title = msg.title + " "+msg.subtitle;
+                }else{
+                    msg.title=msg.title;
+                }
                 // var book={
                 //     'bookName':msg.title,
                 // 'bookAuthor':author,
