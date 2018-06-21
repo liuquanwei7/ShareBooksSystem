@@ -43,7 +43,7 @@
 
                     </p>
 
-
+                
                 </div>
                 <div class="bookCommentSide">
                     <p><s:property value="personalBook.numberOfTimes"/></p>
