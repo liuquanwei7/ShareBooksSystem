@@ -15,6 +15,10 @@
         <property name="userGender" column="userGender" not-null="true" length="20"/>
         <property name="userAge" column="userAge" not-null="true"/>
         <property name="userPermission" column="userPermission" not-null="true"/>
+
+        <property name="userEmail" column="userEmail" not-null="true" length="30"/>
+
         <property name="userEmail" column="userEmail" not-null="true"/>
+
     </class>
 </hibernate-mapping>

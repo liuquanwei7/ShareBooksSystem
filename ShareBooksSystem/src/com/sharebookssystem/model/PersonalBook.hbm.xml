@@ -3,7 +3,6 @@
     "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
     "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
-
     <class name="com.sharebookssystem.model.PersonalBook" table="PersonalBook" schema="shareBooksSystem">
         <id name="personalBookId" column="personalBookId">
             <generator class="increment"/>
@@ -12,6 +11,7 @@
         <property name="numberOfTimes" column="numberOfTimes" not-null="true"/>
         <property name="uploadDate" column="uploadDate" not-null="false"/>
         <property name="shareCode" column="shareCode" />
+        <property name="returnCode" column="returnCode" />
         <many-to-one name="user" class="com.sharebookssystem.model.User" cascade="none">
             <column name="userId" not-null="true"/>
         </many-to-one>

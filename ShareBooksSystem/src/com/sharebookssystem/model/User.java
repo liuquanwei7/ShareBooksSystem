@@ -81,10 +81,6 @@ public class User {
         return userEmail;
     }
 
-    public void setUserEmail(String userEmail) {
-        this.userEmail = userEmail;
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -98,13 +94,13 @@ public class User {
                 Objects.equals(userPassword, user.userPassword) &&
                 Objects.equals(userIdentity, user.userIdentity) &&
                 Objects.equals(userGender, user.userGender);
+
     }
 
-    @Override
-    public int hashCode() {
-
-        return Objects.hash(userId, userName, userAccount, userPassword, userIdentity, userGender, userAge, userPermission);
+    public void setUserEmail(String userEmail) {
+        this.userEmail = userEmail;
     }
+
 
     public User() {
     }

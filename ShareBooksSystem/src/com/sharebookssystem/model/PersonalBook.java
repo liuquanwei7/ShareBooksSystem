@@ -11,6 +11,15 @@ public class PersonalBook {
     private User user;
     private Book book;
     private int shareCode;
+    private String returnCode;
+
+    public String getReturnCode() {
+        return returnCode;
+    }
+
+    public void setReturnCode(String returnCode) {
+        this.returnCode = returnCode;
+    }
 
     public int getShareCode() {
         return shareCode;
