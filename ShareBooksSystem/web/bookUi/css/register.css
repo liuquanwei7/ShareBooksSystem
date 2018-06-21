@@ -22,3 +22,12 @@
     width: 50%;
     margin-top: 8%;
 }
+.form-group span{
+    display: inline-block;
+    padding-top: 5px;
+    padding-right: 6px;
+    margin-left: 1px;
+    font-size: 11px;
+
+    color: #ff2125;
+}

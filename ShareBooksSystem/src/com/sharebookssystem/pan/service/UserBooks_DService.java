@@ -1,11 +1,13 @@
 package com.sharebookssystem.pan.service;
 
+import com.sharebookssystem.model.Book;
 import com.sharebookssystem.model.User;
 import com.sharebookssystem.pan.myinterface.BorrowsDataService;
 import com.sharebookssystem.pan.myinterface.CBorrowDataDao;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -26,8 +28,8 @@ public class UserBooks_DService implements BorrowsDataService {
             Object[] o = (Object[])list.get(i);
 
             List line = new ArrayList();
-            String bookName = o[0].toString();
 
+            String bookName = o[0].toString();
             line.add(bookName);
             String bookAuthor = o[1].toString();
             line.add(bookAuthor);
@@ -44,6 +46,21 @@ public class UserBooks_DService implements BorrowsDataService {
         }
 
         return info;
+    }
+
+    @Override
+    public List service(String category, int page) {
+        return null;
+    }
+
+    @Override
+    public List service(Book book, int page) {
+        return null;
+    }
+
+    @Override
+    public List service(Date startTime, Date endTime, int page) {
+        return null;
     }
 
     public UserBooks_DService() {

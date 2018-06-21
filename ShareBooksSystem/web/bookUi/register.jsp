@@ -33,10 +33,10 @@
     </ul>
 </div>
 <div id="container">
-        <div id="container_re_left">
-            <img src="img/bg_re.jpg">
-        </div>
-        <div id="container_re_right">
+    <div id="container_re_left">
+        <img src="img/bg_re.jpg">
+    </div>
+    <div id="container_re_right">
         <div class="modal-dialog" style="margin:0 auto;width: 70%" >
             <div class="modal-content">
                 <!--登陆框头部-->
@@ -51,60 +51,78 @@
                         <!--用户名框-->
                         <div class="form-group">
                             <label  for="userName" class="col-sm-2 control-label">姓名</label>
-                            <div class="col-sm-10">
-                                <input type="text" class="form-control" name="user.userName"  id="userName" placeholder="userName" required="required">
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control" name="user.userName"  id="userName" placeholder="姓名长度不大于20位" required="required">
                             </div>
+                            <span> <% if(session.getAttribute("userNameError")!=null){  %><%=session.getAttribute("userNameError") %><%session.removeAttribute("userNameError"); }%></span>
                         </div>
                         <!--用户框-->
                         <div class="form-group">
                             <label for="userAccount" class="col-sm-2 control-label">账号</label>
-                            <div class="col-sm-10">
-                                <input type="text" class="form-control" name="user.userAccount"  id="userAccount" placeholder="userAccount" required="required">
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control" name="user.userAccount"  id="userAccount" placeholder="账户长度大于10位小于6位" required="required">
                             </div>
+                            <span> <% if(session.getAttribute("userAccountError")!=null){  %><%=session.getAttribute("userAccountError") %><%session.removeAttribute("userAccountError"); }%></span>
+
                         </div>
                         <!--密码框-->
                         <div class="form-group">
                             <label for="password" class="col-sm-2 control-label" >密码</label>
-                            <div class="col-sm-10">
-                                <input type="text" class="form-control" name="user.userPassword" id="password" placeholder="password" required="required">
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control" name="user.userPassword" id="password" placeholder="密码长度大于6位小于10位" required="required">
                             </div>
+                            <span> <% if(session.getAttribute("userPasswordError")!=null){  %><%=session.getAttribute("userPasswordError") %><%session.removeAttribute("userPasswordError"); }%></span>
+
                         </div>
                         <div class="form-group">
                             <label for="Identity" class="col-sm-2 control-label" >学号</label>
-                            <div class="col-sm-10">
-                                <input type="text" class="form-control" name="user.userIdentity" id="Identity" placeholder="Identity" required="required">
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control" name="user.userIdentity" id="Identity" placeholder="学号长度小于20位" required="required">
                             </div>
+                            <span> <% if(session.getAttribute("userIdentityError")!=null){  %><%=session.getAttribute("userIdentityError") %><%session.removeAttribute("userIdentityError"); }%></span>
+
                         </div>
                         <div class="form-group">
                             <label for="Email" class="col-sm-2 control-label" >邮箱</label>
-                            <div class="col-sm-10">
-                                <input type="text" class="form-control" name="user.userEmail" id="Email" placeholder="Email" required="required">
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control" name="user.userEmail" id="Email" placeholder="邮箱" required="required">
                             </div>
+                            <span> <% if(session.getAttribute("userEmailError")!=null){  %><%=session.getAttribute("userEmailError") %><%session.removeAttribute("userEmailError"); }%></span>
+
                         </div>
                         <div class="form-group">
                             <label for="Identity" class="col-sm-2 control-label" >性别</label>
                             <div class="col-sm-2">
-                                <input type="radio" name="userGender" value="男"/>
-                                <input type="radio" name="userGender" value="女"/>
+                                <input type="radio" name="user.userGender" value="男"/>
+                                <input type="radio" name="user.userGender" value="女"/>
+                                <input type="hidden" name="user.userGender" value=""/>
                             </div>
+                            <span> <% if(session.getAttribute("userGenderError")!=null){  %><%=session.getAttribute("userGenderError") %><%session.removeAttribute("userGenderError"); }%></span>
+
                         </div>
 
                         <div class="form-group">
                             <label for="userAge" class="col-sm-2 control-label" >年龄</label>
-                            <div class="col-sm-10">
-                                <input type="text" class="form-control" name="user.userAge" id="userAge" placeholder="userAge" required="required">
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control" name="userAge" id="userAge" placeholder="年龄必须小于200" required="required">
                             </div>
+                            <span> <% if(session.getAttribute("userAgeError")!=null){  %><%=session.getAttribute("userAgeError") %><%session.removeAttribute("userAgeError"); }%></span>
+
+                        </div>
+                        <div class="modal-footer" id="btn_gp">
+                            <button type="submit" style="margin: 0 auto" class="btn btn-default col-sm-5">注册</button>
+
                         </div>
 
-                        <div class="modal-footer" id="btn_gp">
-                            <button type="submit" class="btn btn-default">注册</button>
-                        </div>
                     </form>
                 </div>
             </div>
         </div>
-        </div>
+    </div>
 </div>
+<script>
+
+</script>
 <div id="foot">
     <div id="foot_title">
         联系我们

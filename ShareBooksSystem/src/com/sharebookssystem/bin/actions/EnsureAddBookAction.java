@@ -1,12 +1,20 @@
 package com.sharebookssystem.bin.actions;
 
+import com.fasterxml.jackson.databind.jsonFormatVisitors.JsonAnyFormatVisitor;
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 import com.sharebookssystem.bin.dao.BookDao;
 import com.sharebookssystem.model.Book;
 import com.sharebookssystem.model.PersonalBook;
 import com.sharebookssystem.model.User;
+//import net.sf.json.JSONObject;
+import net.sf.json.JSONObject;
+import org.apache.struts2.json.annotations.JSON;
+//import net.sf.json.JSON;
+//import net.sf.json.JSONObject;
 
+
+import java.util.HashMap;
 import java.util.Map;
 
 public class EnsureAddBookAction extends ActionSupport {
@@ -14,8 +22,19 @@ public class EnsureAddBookAction extends ActionSupport {
     BookDao bd;
     User user;
     PersonalBook mybook=new PersonalBook();
+    Map<String,Object>jsonMap;
+//    JSONObject theBook;
+
     public EnsureAddBookAction(){
 
+    }
+
+    public Map<String, Object> getJsonMap() {
+        return jsonMap;
+    }
+
+    public void setJsonMap(Map<String, Object> jsonMap) {
+        this.jsonMap = jsonMap;
     }
 
     public Book getBook() {
@@ -35,6 +54,7 @@ public class EnsureAddBookAction extends ActionSupport {
     }
 
     public String execute() throws Exception{
+//        book=(Book)JSONObject.toBean(theBook,Book.class);
 //        Map map=ActionContext.getContext().getSession();
         System.out.println("24323423");
 //        user=(User)map.get("user");
@@ -63,13 +83,21 @@ public class EnsureAddBookAction extends ActionSupport {
 
             //        mybook.setUploadDate("null");
             if (bd.addMyBook(mybook) > 0) {
+                jsonMap=new HashMap<String,Object>();
+                jsonMap.put("result","YES");
+                jsonMap.put("shareCode",mybook.getShareCode());
+
                 System.out.println("this is personaltest");
                 return SUCCESS;
             } else {
+                jsonMap=new HashMap<String,Object>();
+                jsonMap.put("result","NO");
                 System.out.println("this is personaltest22");
                 return INPUT;
             }
         }else{
+            jsonMap=new HashMap<String,Object>();
+            jsonMap.put("result","NO");
             return INPUT;
         }
     }

@@ -4,6 +4,31 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
     <bean id="userDaoY" class="com.sharebookssystem.bookUi.dao.UserDao" >
+    <property name="sessionFactory">
+        <ref bean="sessionFactory"></ref>
+    </property>
+</bean>
+
+    <!--<bean id="BookDaoY" class="com.sharebookssystem.bookUi.dao.BookDao" >-->
+        <!--<property name="sessionFactory">-->
+            <!--<ref bean="sessionFactory"></ref>-->
+        <!--</property>-->
+    <!--</bean>-->
+
+    <bean id="bookDaoY" class="com.sharebookssystem.bookUi.dao.BookDao">
+        <property name="sessionFactory">
+            <ref bean="sessionFactory"></ref>
+        </property>
+    </bean>
+
+    <bean id="BorrowHistoryItemDaoY" class="com.sharebookssystem.bookUi.dao.BorrowHistoryItemDao" >
+        <property name="sessionFactory">
+            <ref bean="sessionFactory"></ref>
+        </property>
+    </bean>
+
+
+    <bean id="PersonalBookY" class="com.sharebookssystem.bookUi.dao.PersonalBookDao" >
         <property name="sessionFactory">
             <ref bean="sessionFactory"></ref>
         </property>

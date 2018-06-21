@@ -14,4 +14,41 @@
             <ref bean="userDaoY"></ref>
         </property>
     </bean>
+
+    <bean id="userRegisterCheckAction" class="com.sharebookssystem.bookUi.action.userRegisterCheckAction" >
+        <property name="ud">
+            <ref bean="userDaoY"></ref>
+        </property>
+    </bean>
+
+    <bean id="userChangeAction" class="com.sharebookssystem.bookUi.action.userChangeAction" >
+        <property name="ud">
+            <ref bean="userDaoY"></ref>
+        </property>
+    </bean>
+    <bean id="changeCheckAction" class="com.sharebookssystem.bookUi.action.changeCheckAction" >
+        <property name="ud">
+            <ref bean="userDaoY"></ref>
+        </property>
+    </bean>
+
+    <bean id="borrowShowAction" class="com.sharebookssystem.bookUi.action.borrowShowAction" >
+        <property name="pbd">
+            <ref bean="PersonalBookY"></ref>
+        </property>
+
+        <property name="bd">
+            <ref bean="bookDaoY"></ref>
+        </property>
+        <property name="bI">
+            <ref bean="BorrowHistoryItemDaoY"></ref>
+        </property>
+    </bean>
+
+
+    <bean id="queryReturnAction" class="com.sharebookssystem.bookUi.action.queryReturnActionById" >
+        <property name="bd">
+            <ref bean="bookDaoY"></ref>
+        </property>
+    </bean>
 </beans>

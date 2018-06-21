@@ -16,7 +16,11 @@
     <script src="js/getBookInfoByISBN.js"></script>
 </head>
 <body>
+    <div>
+        <article id="test">
 
+        </article>
+    </div>
     <form class="form-inline my-2 my-lg-0" >
         <input id="isbndata" class="form-control mr-sm-2" type="search" placeholder="输入书籍条形码上ISBN码（纯数字）"
                aria-label="Search" name="check_data">

@@ -53,8 +53,8 @@ public class MailUitls {
             //设置收件人
             message.addRecipient(RecipientType.TO, new InternetAddress(to));
             //标题
-            message.setSubject("来自HIMB的验证码");
-            message.setContent("验证码为   "+code+"", "text/html;charset=UTF-8");
+            message.setSubject("来自HIMB的信息");
+            message.setContent("  "+code+"", "text/html;charset=UTF-8");
             // 3.发送邮件:
             Transport transport = session.getTransport();
             transport.connect(server, username, password);

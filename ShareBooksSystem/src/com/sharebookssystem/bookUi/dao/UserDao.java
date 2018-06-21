@@ -1,13 +1,18 @@
 package com.sharebookssystem.bookUi.dao;
 import java.util.List;
 import java.util.Map;
+import java.util.Random;
 
 import com.opensymphony.xwork2.ActionContext;
+import com.sharebookssystem.bookUi.utils.MailUitls;
 import com.sharebookssystem.model.User;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
 import org.springframework.beans.factory.annotation.Autowired;
+
+import javax.mail.SendFailedException;
 
 
 public class UserDao {
@@ -99,6 +104,132 @@ public class UserDao {
             session.close();
         }
     }
+    public String getStringRandom(int length) {
+
+        String val = "";
+        Random random = new Random();
+
+        //参数length，表示生成几位随机数
+        for(int i = 0; i < length; i++) {
+
+             String charOrNum = random.nextInt(2) % 2 == 0 ? "char" : "num";
+            //输出字母还是数字
+            if( "char".equalsIgnoreCase(charOrNum) ) {
+                //输出是大写字母还是小写字母
+                int temp = random.nextInt(2) % 2 == 0 ? 65 : 97;
+                val += (char)(random.nextInt(26) + temp);
+            } else if( "num".equalsIgnoreCase(charOrNum) ) {
+                val += String.valueOf(random.nextInt(10));
+            }
+        }
+        return val;
+    }
+
+    //注册用户
+    public int registerUser(User user){
+        int num=0;
+        //得到session
+        Session session=null;
+        Transaction transaction=null;
+        try{
+            session=sessionFactory.openSession();
+            transaction=session.beginTransaction();
+            num=Integer.parseInt(session.save(user).toString());
+            transaction.commit(); //写入数据库，
+        }catch (Exception e) {
+            e.printStackTrace();
+            num=0;
+        }finally{//关闭session
+            session.close();//调用HibernateSessionFactory的静态方法关闭Session
+        }
+        return num;
+    }
+
+    //注册用户
+    public boolean changeUser(User user){
+        int num=0;
+        Session session=null;
+        Transaction transaction=null;
+        try{
+            session=sessionFactory.openSession();
+            transaction=session.beginTransaction();
+
+             session.update(user);
+            transaction.commit(); //写入数据库，
+            return true;
+        }catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }finally{//关闭session
+            session.close();//调用HibernateSessionFactory的静态方法关闭Session
+        }
+
+    }
+
+    public boolean checkRegisterEmail(User user){
+        Session session = null;
+        try{
+            //调用HibernateSessionFactory获得session
+            session = sessionFactory.openSession();
+            //HQL语句, Users是持久化类
+            ActionContext ac=ActionContext.getContext();
+            //	Map map=ActionContext.getContext().getSession();
+            //得到Strust对HttpServletRequest对象进行了封装，封装为了一个Map
+            //拿到表示request对象 的map
+            Map<String, Object>  request=ac.getContextMap();
+            Map<String, Object> ss=ac.getSession();
+            ss.remove("checkPass");
+
+            String code=getStringRandom(5);
+
+            // 发送激活邮件;
+            System.out.println("尝试发送");
+            MailUitls.sendMail(user.getUserEmail(),code);
+            ss.put("code",code);
+            ss.put("user",user);
+           return true;
+        }catch(Exception ex){
+            System.out.println("888888888888444444444444444444");
+
+            ex.printStackTrace();
+            return false;
+        }finally{
+            //关闭session
+            session.close();
+        }
+    }
 
 
+    public boolean checkNewEmail(User user){
+        Session session = null;
+        try{
+            //调用HibernateSessionFactory获得session
+            session = sessionFactory.openSession();
+            //HQL语句, Users是持久化类
+            ActionContext ac=ActionContext.getContext();
+            //	Map map=ActionContext.getContext().getSession();
+            //得到Strust对HttpServletRequest对象进行了封装，封装为了一个Map
+            //拿到表示request对象 的map
+            Map<String, Object>  request=ac.getContextMap();
+            Map<String, Object> ss=ac.getSession();
+            ss.remove("checkPass");
+
+            String code=getStringRandom(5);
+
+            // 发送激活邮件;
+            System.out.println("尝试发送");
+            MailUitls.sendMail(user.getUserEmail(),"验证码"+code);
+            ss.put("code",code);
+            ss.put("newuser",user);
+            return true;
+        }catch(Exception ex){
+            System.out.println("888888888888444444444444444444");
+
+            ex.printStackTrace();
+            return false;
+        }finally{
+            //关闭session
+            session.close();
+        }
+    }
 }
