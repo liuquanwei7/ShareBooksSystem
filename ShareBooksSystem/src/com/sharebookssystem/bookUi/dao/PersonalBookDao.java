@@ -37,19 +37,19 @@ public class PersonalBookDao {
                         String hql="";
                         int[] a=new int[length];
                         a=(int[]) ss.get("a");
-                        System.out.println("length"+length);
+                        System.out.println("length(personalbook)"+length);
                         for(int i=0;i<length;i++){
                             hql=hql+a[i];
                             if((i+1)!=length){
                                 hql=hql+",";
                             }
                         }
-                        System.out.println(hql);
+
             System.out.println("检查hql");
-
-
+              System.out.println(hql);
             session = sessionFactory.openSession();
             String queryString="from PersonalBook where PersonalBookId in("+hql+")";
+            System.out.println(queryString);
             //创建查询
             Query queryObject=session.createQuery(queryString);
 

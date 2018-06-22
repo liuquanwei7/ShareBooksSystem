@@ -76,12 +76,17 @@ public class ShowBookInfoAction extends ActionSupport {
         for(int i=0;i<books.size();i++){
             if(bookId==books.get(i).getBookId()){
                 mybook=books.get(i);
+//                put入session里面bookName
+                map.put("myBookName",mybook.getBookName());
             }
         }
         //找出对应个人图书信息
         for(int i=0;i<personalBooks.size();i++){
             if(personalBooks.get(i).getBook().getBookId()==mybook.getBookId()){
                 personalBook=personalBooks.get(i);
+//               put 进session 里面bookid和personalbook
+                map.put("myPersonalBookid",personalBook.getPersonalBookId());
+                map.put("comPersonnalbook",personalBook);
             }
         }
         System.out.print(mybook.getBookCategory());

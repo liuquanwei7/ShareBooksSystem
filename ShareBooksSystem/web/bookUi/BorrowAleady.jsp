@@ -49,7 +49,7 @@
 </script>
 <div id="container">
     <div id="container_re_left" style="width: 40%">
-        <img src="img/bg_re.jpg">
+        <img src="img/bg_demo3.jpg">
     </div>
     <div id="container_re_right" style="width: 60%;">
         <div id="main_books" >

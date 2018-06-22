@@ -31,12 +31,29 @@
 
         <action name="borrowShowAction" class="borrowShowAction">
             <result name="success">BorrowAleady.jsp</result>
+            <result name="input">BorrowAleady.jsp</result>
         </action>
 
         <action name="queryReturnAction" class="queryReturnAction">
             <result name="input">borrows.jsp</result>
             <result name="success">borrows.jsp</result>
         </action>
+
+        <action name="showCommentsAction" class="showCommentsAction">
+            <result name="success">Comment.jsp</result>
+            <result name="input">Comment.jsp</result>
+        </action>
+
+        <action name="CommentPostAction" class="CommentPostAction">
+            <result name="success">aheadComment.jsp</result>
+            <result name="input">aheadComment.jsp</result>
+        </action>
+
+        <action name="deleteCommentAction" class="deleteCommentAction">
+            <result name="success">aheadComment.jsp</result>
+            <result name="input">aheadComment.jsp</result>
+        </action>
+
     </package>
 
 </struts>
