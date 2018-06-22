@@ -5,6 +5,7 @@ import java.util.Random;
 
 import com.opensymphony.xwork2.ActionContext;
 import com.sharebookssystem.bookUi.utils.MailUitls;
+import com.sharebookssystem.model.CommentItem;
 import com.sharebookssystem.model.User;
 import org.hibernate.Query;
 import org.hibernate.Session;
@@ -143,6 +144,57 @@ public class UserDao {
             session.close();//调用HibernateSessionFactory的静态方法关闭Session
         }
         return num;
+    }
+
+    public List<User> queryUsersById(User user){
+        Session session = null;
+        try{
+            //调用HibernateSessionFactory获得session
+            session = sessionFactory.openSession();
+
+            ActionContext ac=ActionContext.getContext();
+            //	Map map=ActionContext.getContext().getSession();
+            //得到Strust对HttpServletRequest对象进行了封装，封装为了一个Map
+            //拿到表示request对象 的map
+            Map<String, Object> request=ac.getContextMap();
+            Map<String, Object> ss=ac.getSession();
+            List<CommentItem> cts=(List<CommentItem>) ss.get("allComments");
+            System.out.println("review:"+cts.get(0).getReview());
+            String hql="";
+            int length=cts.size();
+            System.out.println("UserName:"+cts.get(0).getReviewer().getUserId());
+            System.out.println("length"+length);
+            for(int i=0;i<length;i++){
+                hql=hql+cts.get(i).getReviewer().getUserId();
+                if((i+1)!=length){
+                    hql=hql+",";
+                }
+            }
+
+            System.out.println("hql"+hql);
+
+            String queryString="from User where userId in("+hql+")";
+            //创建查询
+            Query queryObject=session.createQuery(queryString);
+
+
+            List<User> list=queryObject.list();
+
+//            System.out.println("hql"+list.get(3).getUserName());
+            System.out.println("查询成功");
+            //存储评论的user
+            ss.put("CommentUsername", list);
+            return list;
+
+        }catch(Exception ex){
+            System.out.println("888888888888444444444444444444");
+
+            ex.printStackTrace();
+            return null;
+        }finally{
+            //关闭session
+            session.close();
+        }
     }
 
     //注册用户

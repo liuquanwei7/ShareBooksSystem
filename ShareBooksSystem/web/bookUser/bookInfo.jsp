@@ -17,6 +17,21 @@
     <script src="js/borrowBook.js"></script>
     <script src="js/addInCar.js"></script>
     <link href="css/mycss.css" rel="stylesheet">
+    <style>
+        #a_comment{
+            display: inline-block;
+            border: 1px solid #3f5a93;
+            color: #3f5a93;
+            text-align: center;
+            width: 120px;
+            height: 34px;
+            text-decoration: none;
+            vertical-align: middle;
+            font-size: 14px;
+            line-height: 28px;
+            margin-right: 20px;
+        }
+    </style>
 </head>
 <body>
     <header></header>
@@ -41,13 +56,18 @@
                     <p id="storeStatus">在库状态：<s:property value="#personalbook.bookStatus"/></p>
                     <p class="bookTodo">
                         <a href="javascript:borrowBook('<s:property value="#personalbook.personalBookId"/>')" class="borrowBook">借阅</a>
+                        <a href="javascript:addInCar('<s:property value="#personalbook.personalBookId"/>')" class="addInCar">加入借阅车</a>
+                        <%--<a href="" class="addInCar">加入借阅车</a>--%>
+
+                        <a href="../bookUi/aheadComment.jsp" id="a_comment">查看评论</a>
+
                         <%--<a onclick="borrowBook(<s:property value="#personalbook.personalBookId"/>--%>
                         <%--','<s:property value="#personalbook.bookStatus"/>)" class="borrowBook">借阅</a>--%>
-                        <a href="javascript:addInCar('<s:property value="#personalbook.personalBookId"/>')" class="addInCar">加入借阅车</a>
+
+
 
                     </p>
 
-                
                 </div>
                 <div class="bookCommentSide">
                     <p><s:property value="personalBook.numberOfTimes"/></p>

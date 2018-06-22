@@ -126,14 +126,22 @@ public class borrowShowAction {
         Map<String, Object> session=ac.getSession();
         user=(User)session.get("user");
         userid=(Integer) user.getUserId();
-        bI.queryPersonalId(borrowHistoryItem,userid);
+        if(bI.queryPersonalId(borrowHistoryItem,userid)==null){
+           session.put("ReturnSuccess","没有借书记录");
+            return INPUT;
+        }
+        if(pbd.queryBookId(pb)==null){
+            session.put("ReturnSuccess","没有借书记录");
+            return INPUT;
 
+        }
 
-
-        pbd.queryBookId(pb);
-
-
+        if(bd.queryBooks(book)==null){
+            session.put("ReturnSuccess","没有借书记录");
+            return INPUT;
+        }
         books=bd.queryBooks(book);
+
         return SUCCESS;
 
     }

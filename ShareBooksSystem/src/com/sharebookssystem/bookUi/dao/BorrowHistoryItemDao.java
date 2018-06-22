@@ -56,6 +56,7 @@ public class BorrowHistoryItemDao {
             }
             ss.put("a",a);
             ss.put("mounts",mounts);
+            System.out.println("数量"+mounts);
             return bd;
 
         }catch(Exception ex){

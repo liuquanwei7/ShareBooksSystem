@@ -9,11 +9,11 @@
     </property>
 </bean>
 
-    <!--<bean id="BookDaoY" class="com.sharebookssystem.bookUi.dao.BookDao" >-->
-        <!--<property name="sessionFactory">-->
-            <!--<ref bean="sessionFactory"></ref>-->
-        <!--</property>-->
-    <!--</bean>-->
+    <bean id="commentsDaoY" class="com.sharebookssystem.bookUi.dao.CommentsDao" >
+        <property name="sessionFactory">
+            <ref bean="sessionFactory"></ref>
+        </property>
+    </bean>
 
     <bean id="bookDaoY" class="com.sharebookssystem.bookUi.dao.BookDao">
         <property name="sessionFactory">
