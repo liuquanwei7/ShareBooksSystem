@@ -40,7 +40,9 @@
                     <p>出版社:<s:property value="#book.bookPublish"/></p>
                     <p id="storeStatus">在库状态：<s:property value="#personalbook.bookStatus"/></p>
                     <p class="bookTodo">
-                        <a href="javascript:borrowBook('<s:property value="#personalbook.personalBookId"/>')" class="borrowBook">借阅</a>
+                        <%--<a href="javascript:borrowBook('<s:property value="#personalbook.personalBookId"/>')" class="borrowBook">借阅</a>--%>
+                        <a href="javascript:borrowBook(<s:property value="#personalbook.personalBookId"/>,'<s:property value="#personalbook.bookStatus"/>')" class="borrowBook">借阅</a>
+
                         <%--<a onclick="borrowBook(<s:property value="#personalbook.personalBookId"/>--%>
                         <%--','<s:property value="#personalbook.bookStatus"/>)" class="borrowBook">借阅</a>--%>
                         <a href="javascript:addInCar('<s:property value="#personalbook.personalBookId"/>')" class="addInCar">加入借阅车</a>

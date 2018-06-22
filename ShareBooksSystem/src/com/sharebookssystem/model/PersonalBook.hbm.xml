@@ -12,6 +12,7 @@
         <property name="uploadDate" column="uploadDate" not-null="false"/>
         <property name="shareCode" column="shareCode" />
         <property name="returnCode" column="returnCode" />
+        <property name="getBookCode" column="getBookCode" />
         <many-to-one name="user" class="com.sharebookssystem.model.User" cascade="none">
             <column name="userId" not-null="true"/>
         </many-to-one>

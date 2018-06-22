@@ -44,4 +44,19 @@
             <ref bean="carDao"></ref>
         </property>
     </bean>
+    <bean id="showMyBookAction" class="com.sharebookssystem.bin.actions.ShowMyBookAction" scope="prototype">
+        <property name="bd">
+            <ref bean="bookDao"></ref>
+        </property>
+    </bean>
+    <bean id="getMyBookAction" class="com.sharebookssystem.bin.actions.GetMyBookAction" scope="prototype">
+        <property name="bd">
+            <ref bean="bookDao"></ref>
+        </property>
+    </bean>
+    <bean id="beforeGetMyBookAction" class="com.sharebookssystem.bin.actions.BeforeGetMyBookAction" scope="prototype">
+        <property name="bd">
+            <ref bean="bookDao"></ref>
+        </property>
+    </bean>
 </beans>
