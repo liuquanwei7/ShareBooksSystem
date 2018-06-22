@@ -18,6 +18,7 @@ public class BeforeGetMyBookAction extends ActionSupport {
     List<User> users;
     List<Book>books;
     Book book;
+    User user;
 
     public BeforeGetMyBookAction(){
 
@@ -131,8 +132,8 @@ public class BeforeGetMyBookAction extends ActionSupport {
                 book=books.get(i);
             }
         }
-        String code="该书分享者急需您借阅的《"+book.getBookName()+"》请及时归还！！！";
-        MailUitls.sendMail(users.get(0).getUserEmail(),code);
+        String codeinfo="该书分享者急需您借阅的《"+book.getBookName()+"》请及时归还！！！";
+        MailUitls.sendMail(users.get(0).getUserEmail(),codeinfo);
         System.out.print(personalbook);
 //        System.out.println("this is personaltest22244");
 
@@ -144,7 +145,19 @@ public class BeforeGetMyBookAction extends ActionSupport {
         map.put("getBookCode",getBookCode);
         personalbook.setGetBookCode(getBookCode);
         if(bd.getMyBook(personalbook)) {
-
+            user=new User();
+            user.setUserName("徒步浪");
+            user.setUserPermission(2);
+            user.setUserIdentity("15020225");
+            user.setUserAccount("1239");
+            user.setUserAge(24);
+            user.setUserGender("男");
+            user.setUserId(6);
+            user.setUserPassword("1239");
+            user.setUserEmail("1053736438@qq.com");
+//            user=(User)map.get("user");
+            String code="您的索回码为："+personalbook.getGetBookCode()+";请等待图书归还在库后持改索回码找操作员拿回您的书籍";
+            MailUitls.sendMail(user.getUserEmail(),code);
             System.out.println("this is personaltest111");
             return SUCCESS;
         }else{

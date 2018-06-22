@@ -72,6 +72,7 @@ public class EnsureAddBookAction extends ActionSupport {
         user.setUserGender("男");
         user.setUserId(6);
         user.setUserPassword("1239");
+        user.setUserEmail("1053736438@qq.com");
         System.out.println("this is personaltest144");
         //如果book info没有
         if(bd.checkBookin(book.getBookName())==null) {
