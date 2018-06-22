@@ -18,7 +18,14 @@ function chooseBook(ensureBook){
                 }
                 // if()
                 var endIndex = msg.price.lastIndexOf("元");
-                msg.price = msg.price.substring(0, endIndex);
+                if(endIndex>0){
+                    msg.price = msg.price.substring(0, endIndex);
+                }
+                if(msg.subtitle.length>0) {
+                    msg.title = msg.title +" "+ msg.subtitle;
+                }else{
+                    msg.title=msg.title;
+                }
                 var book = {
                     "book.bookName": msg.title,
                     "book.bookAuthor": msg.author[0],
@@ -84,11 +91,13 @@ function chooseBook(ensureBook){
                         console.log(msg.result);
                         sessionStorage.shareCode = msg.shareCode;
                         console.log(sessionStorage.shareCode);
-                        debugger
+                        // debugger
                         if (msg.result == "YES") {
                             location.href = "ensureBookSuccess.jsp"
-                        } else {
+                        } else if (msg.result=="NO") {
                             location.href = "addBook.jsp";
+                        }else if(msg.result=="not"){
+                            alert("书籍已存在！！！");
                         }
 
                     },

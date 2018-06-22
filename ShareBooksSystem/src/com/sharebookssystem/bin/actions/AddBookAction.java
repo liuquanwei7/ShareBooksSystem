@@ -126,11 +126,16 @@ public class AddBookAction extends ActionSupport{
         book.setBookName(mybookdata[0]);
         book.setBookPicture(mybookdata[2]);
         book.setBookPublish(mybookdata[3]);
+        System.out.println(mybookdata[4]+"ggggsdfadsg");
         int endIndex = mybookdata[4].lastIndexOf("元");
-
-        book.setBookPrice(Float.parseFloat(mybookdata[4].substring(0,endIndex)));
+        if(endIndex>0) {
+            book.setBookPrice(Float.parseFloat(mybookdata[4].substring(0, endIndex)));
+        }else{
+            book.setBookPrice(Float.parseFloat(mybookdata[4]));
+        }
+        System.out.println(mybookdata[4]+"ggggg");
         book.setBookCategory(mybookdata[5]);
-
+        System.out.println(book.getBookPrice()+"fadsfadsggggg");
         System.out.println(book);
 //        mybook=mybook.get(0).split(",");
 //        System.out.println(bookAuthor);

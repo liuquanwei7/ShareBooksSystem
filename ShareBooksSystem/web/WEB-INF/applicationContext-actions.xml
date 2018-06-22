@@ -29,4 +29,19 @@
             <ref bean="bookDao"></ref>
         </property>
     </bean>
+    <bean id="addBookToCarAction" class="com.sharebookssystem.bin.actions.AddBookToCarAction" scope="prototype">
+        <property name="cd">
+            <ref bean="carDao"></ref>
+        </property>
+    </bean>
+    <bean id="showMyBorrowCarAction" class="com.sharebookssystem.bin.actions.ShowMyBorrowCarAction" scope="prototype">
+        <property name="cd">
+            <ref bean="carDao"></ref>
+        </property>
+    </bean>
+    <bean id="deleteBookFromCarAction" class="com.sharebookssystem.bin.actions.DeleteBookFromCarAction" scope="prototype">
+        <property name="cd">
+            <ref bean="carDao"></ref>
+        </property>
+    </bean>
 </beans>

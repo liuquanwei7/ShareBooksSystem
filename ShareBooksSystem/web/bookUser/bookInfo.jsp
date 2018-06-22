@@ -15,6 +15,7 @@
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="js/bootstrap.min.js"></script>
     <script src="js/borrowBook.js"></script>
+    <script src="js/addInCar.js"></script>
     <link href="css/mycss.css" rel="stylesheet">
     <style>
         #a_comment{
@@ -40,8 +41,9 @@
                 <s:iterator value="personalBook" status="st" var="personalbook">
                 <%--<img src="<s:property value="#book.bookPicture">" class="card-img">--%>
                 <div class="bookImg">
-                    <img referrerpolicy="no-referrer" src="https://img3.doubanio.com/view/subject/m/public/s5968156.jpg"
-                     >
+                    <%--<img referrerpolicy="no-referrer" src="https://img3.doubanio.com/view/subject/m/public/s5968156.jpg"--%>
+                     <%-->--%>
+                        <img referrerpolicy="no-referrer" src="<s:property value="#book.bookPicture"/>">
                 </div>
                 <div class="bookInfo">
 
@@ -51,11 +53,19 @@
                     </h1>
                     <p>计算机:<s:property value="#book.bookCategory"/></p>
                     <p>出版社:<s:property value="#book.bookPublish"/></p>
-                    <p>在库状态：<s:property value="#personalbook.bookStatus"/></p>
+                    <p id="storeStatus">在库状态：<s:property value="#personalbook.bookStatus"/></p>
                     <p class="bookTodo">
                         <a href="javascript:borrowBook('<s:property value="#personalbook.personalBookId"/>')" class="borrowBook">借阅</a>
-                        <a href="" class="addInCar">加入借阅车</a>
+                        <a href="javascript:addInCar('<s:property value="#personalbook.personalBookId"/>')" class="addInCar">加入借阅车</a>
+                        <%--<a href="" class="addInCar">加入借阅车</a>--%>
+
                         <a href="../bookUi/aheadComment.jsp" id="a_comment">查看评论</a>
+
+                        <%--<a onclick="borrowBook(<s:property value="#personalbook.personalBookId"/>--%>
+                        <%--','<s:property value="#personalbook.bookStatus"/>)" class="borrowBook">借阅</a>--%>
+
+
+
                     </p>
 
                 </div>
