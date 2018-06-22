@@ -15,7 +15,7 @@ public class ShowBookInfoAction extends ActionSupport {
     BookDao bd;
     List<PersonalBook> personalBooks;//session中的图书
     PersonalBook personalBook;//选中的图书
-    int bookId;
+    int personalBookId;
 
     public List<Book> getBooks() {
         return books;
@@ -25,12 +25,12 @@ public class ShowBookInfoAction extends ActionSupport {
         books = books;
     }
 
-    public int getBookId() {
-        return bookId;
+    public int getPersonalBookId() {
+        return personalBookId;
     }
 
-    public void setBookId(int bookId) {
-        this.bookId = bookId;
+    public void setPersonalBookId(int personalBookId) {
+        this.personalBookId = personalBookId;
     }
 
     public PersonalBook getPersonalBook() {
@@ -73,15 +73,15 @@ public class ShowBookInfoAction extends ActionSupport {
         Map map=ActionContext.getContext().getSession();
         personalBooks=(List<PersonalBook>)map.get("personalbooks");
         books=(List<Book>)map.get("books");
-        for(int i=0;i<books.size();i++){
-            if(bookId==books.get(i).getBookId()){
-                mybook=books.get(i);
+        for(int i=0;i<personalBooks.size();i++){
+            if(personalBookId==personalBooks.get(i).getPersonalBookId()){
+                personalBook=personalBooks.get(i);
             }
         }
         //找出对应个人图书信息
-        for(int i=0;i<personalBooks.size();i++){
-            if(personalBooks.get(i).getBook().getBookId()==mybook.getBookId()){
-                personalBook=personalBooks.get(i);
+        for(int i=0;i<books.size();i++){
+            if(personalBooks.get(i).getBook().getBookId()==books.get(i).getBookId()){
+                mybook=books.get(i);
             }
         }
         System.out.print(mybook.getBookCategory());

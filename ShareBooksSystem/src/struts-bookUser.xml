@@ -53,7 +53,7 @@
             <!--<interceptor-ref name="loginInterceptor"/>-->
             <interceptor-ref name="defaultStack"/>
             <result name="success">bookInfo.jsp</result>
-            <result name="input">showBooks.jsp</result>
+            <result name="input">checkBooks.jsp</result>
             <!--<result name="input">addBook.jsp</result>-->
         </action>
         <action name="borrowBookAction" class="borrowBookAction">
@@ -61,6 +61,27 @@
             <interceptor-ref name="defaultStack"/>
             <result name="success">borrowSuccess.jsp</result>
             <result name="input">borrowFalse.jsp</result>
+            <!--<result name="input">addBook.jsp</result>-->
+        </action>
+        <action name="addBookToCarAction" class="addBookToCarAction">
+            <!--<interceptor-ref name="loginInterceptor"/>-->
+            <interceptor-ref name="defaultStack"/>
+            <result name="success">addInCarSuccess.jsp</result>
+            <result name="input">addInCarFalse.jsp</result>
+            <!--<result name="input">addBook.jsp</result>-->
+        </action>
+        <action name="showMyBorrowCarAction" class="showMyBorrowCarAction">
+            <!--<interceptor-ref name="loginInterceptor"/>-->
+            <interceptor-ref name="defaultStack"/>
+            <result name="success">myBorrowCar.jsp</result>
+            <result name="input">showMyBorrowCarFalse.jsp</result>
+            <!--<result name="input">addBook.jsp</result>-->
+        </action>
+        <action name="deleteBookFromCarAction" class="deleteBookFromCarAction">
+            <!--<interceptor-ref name="loginInterceptor"/>-->
+            <interceptor-ref name="defaultStack"/>
+            <result name="success">myBorrowCar.jsp</result>
+            <result name="input">deleteBookFromCarFalse.jsp</result>
             <!--<result name="input">addBook.jsp</result>-->
         </action>
     </package>
