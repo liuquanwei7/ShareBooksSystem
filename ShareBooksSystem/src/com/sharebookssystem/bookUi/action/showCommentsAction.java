@@ -87,14 +87,14 @@ public class showCommentsAction {
         Map<String, Object> session=ac.getSession();
         commentItems=cd.queryComments(commentItem);
         if(commentItems==null){
-            session.put("succcessComment","没有书籍");
+            session.put("succcessComment","没有评论");
             return INPUT;
         }
         commentItems=(List<CommentItem>)session.get("allComments");
 //        System.out.println("UserName:"+commentItems.get(0).getReview());
 
         if(ud.queryUsersById(user)==null){
-            session.put("succcessComment","没有书籍");
+            session.put("succcessComment","没有评论");
             return INPUT;
         }
         users=(List<User>)session.get("CommentUsername");

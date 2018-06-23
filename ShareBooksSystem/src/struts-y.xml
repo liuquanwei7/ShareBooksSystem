@@ -9,7 +9,7 @@
     <constant name="struts.objectFactory" value="spring" />
     <package name="bookUi" namespace="/bookUi" extends="struts-default" >
         <action name="userLoginAction" class="userLoginAction">
-            <result name="success">UserInfor.jsp</result>
+            <result name="success">aheadhome.jsp</result>
             <result name="input">introduce.jsp</result>
         </action>
         <action name="userRegisterAction" class="userRegisterAction">
@@ -54,6 +54,9 @@
             <result name="input">aheadComment.jsp</result>
         </action>
 
+        <action name="homePageAction" class="homePageAction">
+            <result name="success">home.jsp</result>
+        </action>
     </package>
 
 </struts>

@@ -1,7 +1,9 @@
 package com.sharebookssystem.bookUi.dao;
 
 import com.opensymphony.xwork2.ActionContext;
+import com.sharebookssystem.model.Book;
 import com.sharebookssystem.model.BorrowHistoryItem;
+import com.sharebookssystem.model.PersonalBook;
 import com.sharebookssystem.model.User;
 import org.hibernate.Query;
 import org.hibernate.Session;
@@ -68,6 +70,135 @@ public class BorrowHistoryItemDao {
             //关闭session
             session.close();
         }
+    }
+
+    public boolean queryPages(){
+        Session session = null;
+        try{
+            //调用HibernateSessionFactory获得session
+            session = sessionFactory.openSession();
+            String queryString="from BorrowHistoryItem";
+            //创建查询
+            Query queryObject=session.createQuery(queryString);
+
+            ActionContext ac=ActionContext.getContext();
+            //	Map map=ActionContext.getContext().getSession();
+            //得到Strust对HttpServletRequest对象进行了封装，封装为了一个Map
+            //拿到表示request对象 的map
+            Map<String, Object> request=ac.getContextMap();
+            Map<String, Object> ss=ac.getSession();
+
+            List<BorrowHistoryItem> list=queryObject.list();
+
+            int[] a=new int[list.size()];
+            int mounts=0;
+            int x=0;
+            int co=0;
+            int pancou=0;
+            for(x=0,co=0;co<list.size();co++){
+                pancou=0;
+                for(int m=0;m<x;m++){
+                    if(a[m]==list.get(co).getPersonalBook().getPersonalBookId()){
+                        pancou=1;
+                        System.out.println("运行测试1");
+                        break;
+                    }
+                }
+                if(pancou==0){
+                    a[x]=list.get(co).getPersonalBook().getPersonalBookId();
+                    System.out.println("运行测试");
+                    x++;
+                }
+            }
+            mounts=x;
+
+
+            String hql="";
+            System.out.println("length(personalbook)"+mounts);
+            for(int i=0;i<mounts;i++){
+                hql=hql+a[i];
+                if((i+1)!=mounts){
+                    hql=hql+",";
+                }
+            }
+            String queryStrings="from PersonalBook where PersonalBookId in("+hql+")";
+            System.out.println(queryStrings);
+            //创建查询
+            Query queryObjects=session.createQuery(queryStrings);
+
+
+            List<PersonalBook> listPersons=queryObjects.list();
+            int []booksid=new int[3];
+            int bookmin=0;
+            for (int i=0;i<listPersons.size();i++){
+                if(i<3){
+                    booksid[i]=listPersons.get(i).getBook().getBookId();
+                }
+                else{
+                    for(int j=0;j<3;j++){
+                        if(listPersons.get(j).getNumberOfTimes()<listPersons.get(bookmin).getNumberOfTimes()){
+                            bookmin=j;
+                            break;
+                        }
+                    }
+                    for (int c=0;c<3;c++){
+
+
+                        if(listPersons.get(i).getNumberOfTimes()>listPersons.get(c).getNumberOfTimes()){
+                            booksid[bookmin]=listPersons.get(i).getBook().getBookId();
+                            break;
+                        }
+                    }
+                }
+
+            }
+
+            String hqls="";
+//            System.out.println("length(personalbook)"+mounts);
+            for(int i=0;i<3;i++){
+                hqls=hqls+booksid[i];
+                if((i+1)!=3){
+                    hqls=hqls+",";
+                }
+            }
+            String queryStringBooks="from Book where BookId in("+hqls+")";
+            System.out.println(queryStringBooks);
+            //创建查询
+            Query queryObjectBooks=session.createQuery(queryStringBooks);
+
+
+            List<Book> listBooks=queryObjectBooks.list();
+
+
+            ss.put("books",listBooks);
+
+            System.out.println("分界线");
+
+            String hqlnew="";
+            for(int i=0;i<3;i++){
+                hqlnew=hqlnew+booksid[i];
+                if((i+1)!=3){
+                    hqlnew=hqlnew+",";
+                }
+            }
+            String queryStringperBooksnew="from PersonalBook where BookId in("+hqlnew+")";
+            System.out.println("重新person"+queryStringperBooksnew);
+            //创建查询
+            Query queryObjectBooksNeW=session.createQuery(queryStringperBooksnew);
+
+
+            List<PersonalBook> listPersonsnew=queryObjectBooksNeW.list();
+            ss.put("personalbooks",listPersonsnew);
+        }catch(Exception ex){
+            System.out.println("888888888888444444444444444444");
+
+            ex.printStackTrace();
+            return false;
+        }finally{
+            //关闭session
+            session.close();
+        }
+        return true;
     }
 
 }
