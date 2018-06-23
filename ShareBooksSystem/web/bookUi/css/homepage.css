@@ -98,12 +98,13 @@ body{
 	margin: 0;
 	top: 0;
 	padding: 40px;
-	width: 87%;
-	height: 32%;
-	position: relative;	
-	margin-left: 12%;
-	margin-top: 10px;
-	color:dimgray;
+	width: 88%;
+	height: 30%;
+	position: relative;
+	margin-left: 3%;
+	margin-top: 44px;
+	color: dimgray;
+	/* background-image: url(../img/ad_bg.jpg); */
 /*	background-image: url(../img/ad_bg.jpg); */
 	
 	/*-webkit-background-size:cover;
@@ -118,7 +119,7 @@ body{
 }
 #container_advantage_left img{
 	width: 60%;
-	height: 80%;
+	height: 90%;
 }
 
 #container_advantage_right{

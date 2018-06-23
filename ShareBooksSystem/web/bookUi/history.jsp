@@ -14,6 +14,15 @@
 <script src="js/jquery-3.2.1.js"></script>
 <script type="text/javascript" src="js/bootstrap.min.js" ></script>
 <script src="js/homepage.js"></script>
+<script>
+    var strSession = "<%=session.getAttribute("error") %>".toString();
+    if( strSession == ""||strSession=="null") {
+    }
+    else {
+        alert(strSession);
+        <%  session.removeAttribute("error");     session.removeAttribute("user");%>
+    }
+</script>
 <div id="naver">
 
 	<img src="img/logo.png"/>
@@ -36,44 +45,43 @@
 					×
 				</button>
 				<h4 class="modal-title" id="myModalLabel">
-					欢迎登陆HIMB共享网站
+					欢迎登陆！
 				</h4>
 			</div>
 			<!--登陆框中间部分(from表单)-->
 			<div class="modal-body">
-				<form method="post"  action="logins" namespace="/" class="form-horizontal"  role="form">
+				<form class="form-horizontal" action="userLoginAction"  namespace="/bookUi" method="post" role="form">
 					<!--用户框-->
 					<div class="form-group">
 						<label for="username" class="col-sm-2 control-label">用户名</label>
 						<div class="col-sm-10">
-							<input type="text" class="form-control  user.userId" id="username" placeholder="username" required="required">
+							<input type="text" class="form-control" name="user.userAccount" id="username" placeholder="username" required="required">
 						</div>
 					</div>
 					<!--密码框-->
 					<div class="form-group">
 						<label for="password" class="col-sm-2 control-label" >密码</label>
 						<div class="col-sm-10">
-							<input type="password" class="form-control user.userPassword" id="password" placeholder="password" required="required">
+							<input type="password" class="form-control" name="user.userPassword" id="password" placeholder="password" required="required">
 						</div>
 					</div>
 					<!--记住密码-->
 					<div class="form-group">
-						<div id="fg_w" class="col-sm-offset-2 col-sm-10">
+						<div class="col-sm-offset-2 col-sm-10">
 							<div class="checkbox">
 								<label>
 									<input type="checkbox"> 记住密码
 								</label>
 							</div>
-							<div><a href="#">忘记密码</a></div>
 						</div>
 					</div>
 					<!--登陆按钮-->
+					<!--登陆按钮-->
 					<div class="modal-footer" id="btn_gp">
-
 						<button type="submit" class="btn btn-default">登录</button>
 
+						<button type="button" class="btn btn-default" onclick="window.location.href='register.jsp'">注册</button>
 
-						<button type="button" class="btn btn-default">注册</button>
 
 					</div>
 				</form>

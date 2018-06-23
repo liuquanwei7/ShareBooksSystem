@@ -51,4 +51,25 @@
             <ref bean="bookDaoY"></ref>
         </property>
     </bean>
+
+    <bean id="showCommentsAction" class="com.sharebookssystem.bookUi.action.showCommentsAction" >
+        <property name="cd">
+            <ref bean="commentsDaoY"></ref>
+        </property>
+        <property name="ud">
+            <ref bean="userDaoY"></ref>
+        </property>
+    </bean>
+
+    <bean id="CommentPostAction" class="com.sharebookssystem.bookUi.action.CommentPostAction" >
+        <property name="commentsDao">
+            <ref bean="commentsDaoY"></ref>
+        </property>
+    </bean>
+
+    <bean id="deleteCommentAction" class="com.sharebookssystem.bookUi.action.deleteCommentAction" >
+        <property name="commentsDao">
+            <ref bean="commentsDaoY"></ref>
+        </property>
+    </bean>
 </beans>

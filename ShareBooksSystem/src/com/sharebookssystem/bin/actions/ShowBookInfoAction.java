@@ -73,15 +73,22 @@ public class ShowBookInfoAction extends ActionSupport {
         Map map=ActionContext.getContext().getSession();
         personalBooks=(List<PersonalBook>)map.get("personalbooks");
         books=(List<Book>)map.get("books");
+
         for(int i=0;i<personalBooks.size();i++){
             if(personalBookId==personalBooks.get(i).getPersonalBookId()){
                 personalBook=personalBooks.get(i);
+                //               put 进session 里面bookid和personalbook
+                map.put("myPersonalBookid",personalBook.getPersonalBookId());
+                map.put("comPersonnalbook",personalBook);
             }
         }
         //找出对应个人图书信息
         for(int i=0;i<books.size();i++){
             if(personalBooks.get(i).getBook().getBookId()==books.get(i).getBookId()){
                 mybook=books.get(i);
+                //                put入session里面bookName
+                map.put("myBookName",mybook.getBookName());
+
             }
         }
         System.out.print(mybook.getBookCategory());
