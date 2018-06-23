@@ -121,6 +121,16 @@ public class userChangeAction extends ActionSupport {
             return INPUT;
         }
 
+        if(user.getUserPassword().equals("")||user.getUserPassword()==null){
+            session.put("userPasswordError","必填项");
+            return INPUT;
+        }
+        if(user.getUserPassword().length()>10||user.getUserPassword().length()<6){
+            session.put("userPasswordError","长度非法");
+            return INPUT;
+        }
+
+
          if(user.getUserIdentity().equals("")||user.getUserIdentity()==null){
             session.put("userIdentityError","必填项");
             return INPUT;
@@ -172,11 +182,11 @@ public class userChangeAction extends ActionSupport {
 
         User u=(User)session.get("user");
 
-        System.out.println("密码"+u.getUserPassword());
+//        System.out.println("密码"+u.getUserPassword());
 
         user.setUserPermission(u.getUserPermission());
         user.setUserId(u.getUserId());
-        user.setUserPassword(u.getUserPassword());
+//        user.setUserPassword(u.getUserPassword());
 
         if(ud.checkNewEmail(user)){
             System.out.println("存入");

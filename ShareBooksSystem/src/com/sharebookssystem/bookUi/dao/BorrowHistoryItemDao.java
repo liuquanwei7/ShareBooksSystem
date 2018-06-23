@@ -92,11 +92,25 @@ public class BorrowHistoryItemDao {
 
             int[] a=new int[list.size()];
             int mounts=0;
-
-            for(int i=0;i<list.size();i++){
-                a[i]=list.get(i).getPersonalBook().getPersonalBookId();
+            int x=0;
+            int co=0;
+            int pancou=0;
+            for(x=0,co=0;co<list.size();co++){
+                pancou=0;
+                for(int m=0;m<x;m++){
+                    if(a[m]==list.get(co).getPersonalBook().getPersonalBookId()){
+                        pancou=1;
+                        System.out.println("运行测试1");
+                        break;
+                    }
+                }
+                if(pancou==0){
+                    a[x]=list.get(co).getPersonalBook().getPersonalBookId();
+                    System.out.println("运行测试");
+                    x++;
+                }
             }
-            mounts=list.size();
+            mounts=x;
 
 
             String hql="";
@@ -115,15 +129,24 @@ public class BorrowHistoryItemDao {
 
             List<PersonalBook> listPersons=queryObjects.list();
             int []booksid=new int[3];
-
+            int bookmin=0;
             for (int i=0;i<listPersons.size();i++){
                 if(i<3){
                     booksid[i]=listPersons.get(i).getBook().getBookId();
                 }
                 else{
-                    for (int j=0;j<3;j++){
-                        if(listPersons.get(i).getNumberOfTimes()>listPersons.get(j).getNumberOfTimes()){
-                            booksid[j]=listPersons.get(i).getBook().getBookId();
+                    for(int j=0;j<3;j++){
+                        if(listPersons.get(j).getNumberOfTimes()<listPersons.get(bookmin).getNumberOfTimes()){
+                            bookmin=j;
+                            break;
+                        }
+                    }
+                    for (int c=0;c<3;c++){
+
+
+                        if(listPersons.get(i).getNumberOfTimes()>listPersons.get(c).getNumberOfTimes()){
+                            booksid[bookmin]=listPersons.get(i).getBook().getBookId();
+                            break;
                         }
                     }
                 }
@@ -146,9 +169,26 @@ public class BorrowHistoryItemDao {
 
             List<Book> listBooks=queryObjectBooks.list();
 
-            ss.put("personalbooks",listPersons);
+
             ss.put("books",listBooks);
 
+            System.out.println("分界线");
+
+            String hqlnew="";
+            for(int i=0;i<3;i++){
+                hqlnew=hqlnew+booksid[i];
+                if((i+1)!=3){
+                    hqlnew=hqlnew+",";
+                }
+            }
+            String queryStringperBooksnew="from PersonalBook where BookId in("+hqlnew+")";
+            System.out.println("重新person"+queryStringperBooksnew);
+            //创建查询
+            Query queryObjectBooksNeW=session.createQuery(queryStringperBooksnew);
+
+
+            List<PersonalBook> listPersonsnew=queryObjectBooksNeW.list();
+            ss.put("personalbooks",listPersonsnew);
         }catch(Exception ex){
             System.out.println("888888888888444444444444444444");
 
