@@ -3,6 +3,7 @@ package com.sharebookssystem.bin.actions;
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 import com.sharebookssystem.bin.dao.BookDao;
+import com.sharebookssystem.bookUi.utils.MailUitls;
 import com.sharebookssystem.model.Book;
 import com.sharebookssystem.model.BorrowHistoryItem;
 import com.sharebookssystem.model.PersonalBook;
@@ -107,7 +108,9 @@ public class BorrowBookAction extends ActionSupport {
         user.setUserGender("男");
         user.setUserId(6);
         user.setUserPassword("1239");
+        user.setUserEmail("1053736438@qq.com");
         System.out.println("this is personaltest144");
+        personalbook.setBookStatus("请求借阅");
         borrowHistoryItem.setPersonalBook(personalbook);
         borrowHistoryItem.setBorrower(user);
         borrowHistoryItem.setBorrowStatus("请求借阅");
@@ -118,7 +121,8 @@ public class BorrowBookAction extends ActionSupport {
         map.put("borrowCode",borrowCode);
         borrowHistoryItem.setBorrowCode(borrowCode);
         if(bd.borrowBook(borrowHistoryItem)>0) {
-
+            String code="您的借阅码为："+borrowHistoryItem.getBorrowCode()+";请持借阅码码找操作员借阅您选择的书籍";
+            MailUitls.sendMail(user.getUserEmail(),code);
             System.out.println("this is personaltest111");
             return SUCCESS;
         }else{

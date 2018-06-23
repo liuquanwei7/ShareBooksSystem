@@ -7,53 +7,14 @@ import com.sharebookssystem.model.Book;
 import com.sharebookssystem.model.BookAllInfo;
 import com.sharebookssystem.model.PersonalBook;
 import com.sharebookssystem.model.User;
-import org.hibernate.cache.spi.CacheKey;
 
-//import java.awt.print.Book;
 import java.util.*;
 
-public class CheckBookAction extends ActionSupport {
-    BookDao bd;
-    User user;
+public class ShowMyBookAction extends ActionSupport {
     List<Book> books;
     List<PersonalBook> personalbooks;
-    List oj;
-    String check_data;
-    BookAllInfo bookAllInfo;
-
-    public List<PersonalBook> getPersonalbooks() {
-        return personalbooks;
-    }
-
-    public void setPersonalbooks(List<PersonalBook> personalbooks) {
-        this.personalbooks = personalbooks;
-    }
-
-    public BookAllInfo getBookAllInfo() {
-        return bookAllInfo;
-    }
-
-    public void setBookAllInfo(BookAllInfo bookAllInfo) {
-        this.bookAllInfo = bookAllInfo;
-    }
-
-    public List<PersonalBook> getOwnbooks() {
-        return personalbooks;
-    }
-
-    public void setOwnbooks(List<PersonalBook> personalbooks) {
-        this.personalbooks = personalbooks;
-    }
-
-    public CheckBookAction(){}
-
-    public User getUser() {
-        return user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
-    }
+    User user;
+    BookDao bd;
 
     public List<Book> getBooks() {
         return books;
@@ -63,12 +24,20 @@ public class CheckBookAction extends ActionSupport {
         this.books = books;
     }
 
-    public String getCheck_data() {
-        return check_data;
+    public List<PersonalBook> getPersonalbooks() {
+        return personalbooks;
     }
 
-    public void setCheck_data(String check_data) {
-        this.check_data = check_data;
+    public void setPersonalbooks(List<PersonalBook> personalbooks) {
+        this.personalbooks = personalbooks;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 
     public BookDao getBd() {
@@ -79,25 +48,35 @@ public class CheckBookAction extends ActionSupport {
         this.bd = bd;
     }
 
+    public ShowMyBookAction(){
+
+    }
+
     public String execute(){
         Map map=ActionContext.getContext().getSession();
-        check_data=(String) map.get("check_data");
-        map.put("check_data",null);
+//        check_data=(String) map.get("check_data");
+//        map.put("check_data",null);
 //        check_data="java";
         books=new ArrayList<Book>();
         personalbooks=new ArrayList<PersonalBook>();
-        user=(User) map.get("user");
+//        user=(User) map.get("user");
+        user=new User();
+
+        user.setUserName("徒步浪");
+        user.setUserPermission(2);
+        user.setUserIdentity("15020225");
+        user.setUserAccount("1239");
+        user.setUserAge(24);
+        user.setUserGender("男");
+        user.setUserId(6);
+        user.setUserPassword("1239");
 //        books=bd.checkBook(check_data);
 //        System.out.println(books.toString());
 //        books.add((Book)bd.checkBook(check_data).get(0));
 //        books=bd.checkBook(check_data);
         Collection result=new ArrayList();
-        books=null;
-        personalbooks=null;
-        result=bd.checkBook(check_data);//获取Collection对象
+        result=bd.checkMyBook(user.getUserId());//获取Collection对象
         if(result!=null) {
-            books=new ArrayList<Book>();
-            personalbooks=new ArrayList<PersonalBook>();
             ArrayList sList = (ArrayList) result;//转换类型
             Iterator iterator1 = sList.iterator();
             //遍历获取对应类的对象值
@@ -108,9 +87,9 @@ public class CheckBookAction extends ActionSupport {
                 System.out.println("BookInfo-Title: " + books.get(0).getBookAuthor());
                 System.out.println("BookSelection-BookSelectionId: " + personalbooks.get(0).getBookStatus());
             }
-            bookAllInfo = new BookAllInfo();
-            bookAllInfo.setBooks(books);
-            bookAllInfo.setPersonalbooks(personalbooks);
+//            bookAllInfo = new BookAllInfo();
+//            bookAllInfo.setBooks(books);
+//            bookAllInfo.setPersonalbooks(personalbooks);
             map.put("books", books);
             map.put("personalbooks", personalbooks);
 
