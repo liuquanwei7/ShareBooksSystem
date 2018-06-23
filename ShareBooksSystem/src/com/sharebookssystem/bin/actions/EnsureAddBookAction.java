@@ -4,6 +4,7 @@ import com.fasterxml.jackson.databind.jsonFormatVisitors.JsonAnyFormatVisitor;
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 import com.sharebookssystem.bin.dao.BookDao;
+import com.sharebookssystem.bookUi.utils.MailUitls;
 import com.sharebookssystem.model.Book;
 import com.sharebookssystem.model.PersonalBook;
 import com.sharebookssystem.model.User;
@@ -72,6 +73,7 @@ public class EnsureAddBookAction extends ActionSupport {
         user.setUserGender("男");
         user.setUserId(6);
         user.setUserPassword("1239");
+        user.setUserEmail("1053736438@qq.com");
         System.out.println("this is personaltest144");
         //如果book info没有
         if(bd.checkBookin(book.getBookName())==null) {
@@ -92,7 +94,8 @@ public class EnsureAddBookAction extends ActionSupport {
                     jsonMap = new HashMap<String, Object>();
                     jsonMap.put("result", "YES");
                     jsonMap.put("shareCode", mybook.getShareCode());
-
+                    String code="您的分享码为："+mybook.getShareCode()+";请持分享码找操作员分享您的书籍";
+                    MailUitls.sendMail(user.getUserEmail(),code);
                     System.out.println("this is personaltest");
                     return SUCCESS;
                 } else {
@@ -110,7 +113,7 @@ public class EnsureAddBookAction extends ActionSupport {
         else if(bd.checkBookin(book.getBookName())!=null){
                 System.out.print(bd.checkBookin(book.getBookName()));
          //如果book info有personal book没有
-//            if((bd.checkPersonalBookin(book.getBookId())==null)) {
+            if((bd.checkPersonalBookin(book.getBookId())==null)) {
                 book = ((List<Book>) bd.checkBookin(book.getBookName())).get(0);
                 mybook.setBook(book);
                 mybook.setUser(user);
@@ -126,7 +129,8 @@ public class EnsureAddBookAction extends ActionSupport {
                     jsonMap = new HashMap<String, Object>();
                     jsonMap.put("result", "YES");
                     jsonMap.put("shareCode", mybook.getShareCode());
-
+                    String code="您的分享码为："+mybook.getShareCode()+";请持分享码找操作员分享您的书籍";
+                    MailUitls.sendMail(user.getUserEmail(),code);
                     System.out.println("this is personaltest");
                     return SUCCESS;
                 } else {
@@ -135,7 +139,11 @@ public class EnsureAddBookAction extends ActionSupport {
                     System.out.println("this is personaltest22");
                     return INPUT;
                 }
-//            }
+            }else {
+                jsonMap = new HashMap<String, Object>();
+                jsonMap.put("result","not");
+                return INPUT;
+            }
 //
 //        }
         }else{
