@@ -156,7 +156,7 @@ public class BeforeGetMyBookAction extends ActionSupport {
             user.setUserPassword("1239");
             user.setUserEmail("1053736438@qq.com");
 //            user=(User)map.get("user");
-            String code="您的索回码为："+personalbook.getGetBookCode()+";请等待图书归还在库后持改索回码找操作员拿回您的书籍";
+            String code="您的索回码为："+personalbook.getGetBookCode()+";请等待图书归还在库后持索回码找操作员拿回您的书籍";
             MailUitls.sendMail(user.getUserEmail(),code);
             System.out.println("this is personaltest111");
             return SUCCESS;

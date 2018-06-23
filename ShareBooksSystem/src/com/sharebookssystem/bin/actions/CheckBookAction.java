@@ -92,8 +92,12 @@ public class CheckBookAction extends ActionSupport {
 //        books.add((Book)bd.checkBook(check_data).get(0));
 //        books=bd.checkBook(check_data);
         Collection result=new ArrayList();
+        books=null;
+        personalbooks=null;
         result=bd.checkBook(check_data);//获取Collection对象
         if(result!=null) {
+            books=new ArrayList<Book>();
+            personalbooks=new ArrayList<PersonalBook>();
             ArrayList sList = (ArrayList) result;//转换类型
             Iterator iterator1 = sList.iterator();
             //遍历获取对应类的对象值
