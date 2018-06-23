@@ -91,7 +91,10 @@ public class ShowBookInfoAction extends ActionSupport {
 
             }
         }
-        System.out.print(mybook.getBookCategory());
+                System.out.println("测试1"+personalBooks.get(0).getBook().getBookId());
+        System.out.println("测试2"+books.get(0).getBookId());
+        System.out.println("book0AUTHOR"+books.get(0).getBookAuthor());
+//        System.out.println("catgory"+mybook.getBookCategory());
         if(personalBook!=null){
             return SUCCESS;
         }else{

@@ -27,10 +27,10 @@
     <img src="img/logo.png"/>
     <div id="logo_text"><span>HIMB</span></div>
     <ul id="flex_naver">
-        <li class="nr" onmouseover="nrselect(this)" onmouseleave="nrleave(this)"  ><a href="ChangePerson.jsp">修改信息</a></li>
-        <li class="nr" onmouseover="nrselect(this)" onmouseleave="nrleave(this)"><a href="introduce.jsp">产品体验</a></li>
-        <li class="nr" onmouseover="nrselect(this)" onmouseleave="nrleave(this)"><a href="history.jsp">关于我们</a></li>
-        <li class="nr" onmouseover="nrselect(this)" onmouseleave="nrleave(this)"><a data-toggle="modal" data-target="#myModal" href="#">登陆注册</a></li>
+        <li class="nr" onmouseover="nrselect(this)" onmouseleave="nrleave(this)"  ><a href="ChangePerson.jsp">管理个人信息</a></li>
+        <li class="nr" onmouseover="nrselect(this)" onmouseleave="nrleave(this)"><a href="aheadhome.jsp">主页</a></li>
+        <li class="nr" onmouseover="nrselect(this)" onmouseleave="nrleave(this)"><a href="borrows.jsp">查看已借书籍</a></li>
+        <li class="nr" onmouseover="nrselect(this)" onmouseleave="nrleave(this)"><a  href="../bookUser/checkBooks.jsp">查询书籍</a></li>
     </ul>
 </div>
 <% User u=(User) session.getAttribute("user"); %>
@@ -86,15 +86,15 @@
                             <span> <% if(session.getAttribute("userAccountError")!=null){  %><%=session.getAttribute("userAccountError") %><%session.removeAttribute("userAccountError"); }%></span>
 
                         </div>
-                        <%--<!--密码框-->--%>
-                        <%--<div class="form-group">--%>
-                            <%--<label for="password" class="col-sm-2 control-label" >密码</label>--%>
-                            <%--<div class="col-sm-8">--%>
-                                <%--<input type="text" class="form-control" name="user.userPassword" id="password" placeholder="密码长度大于6位小于10位" required="required">--%>
-                            <%--</div>--%>
-                            <%--<span> <% if(session.getAttribute("userPasswordError")!=null){  %><%=session.getAttribute("userPasswordError") %><%session.removeAttribute("userPasswordError"); }%></span>--%>
+                        <!--密码框-->
+                        <div class="form-group">
+                            <label for="password" class="col-sm-2 control-label" >密码</label>
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control" name="user.userPassword" id="password" value="<%=u.getUserPassword() %>" placeholder="密码长度大于5位小于10位" required="required">
+                            </div>
+                            <span> <% if(session.getAttribute("userPasswordError")!=null){  %><%=session.getAttribute("userPasswordError") %><%session.removeAttribute("userPasswordError"); }%></span>
 
-                        <%--</div>--%>
+                        </div>
                         <div class="form-group">
                             <label for="Identity" class="col-sm-2 control-label" >学号</label>
                             <div class="col-sm-8">

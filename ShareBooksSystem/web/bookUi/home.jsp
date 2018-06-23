@@ -23,6 +23,7 @@
     <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/fixed.css" />
     <link rel="stylesheet" href="css/UserInfor.css"/>
+    <link rel="stylesheet" href="css/home.css">
 <style type="text/css">
     #container{
         background:url("img/UserBg.jpg") center center fixed no-repeat;
@@ -47,6 +48,10 @@
         alert(strSession);
         <%  session.removeAttribute("succcessRegister");%>
     }
+
+    function showBookInfoAction(id){
+            location.href="../bookUser/showBookInfoAction?personalBookId="+id;
+    }
 </script>
 
 <div id="naver">
@@ -54,10 +59,12 @@
     <img src="img/logo.png"/>
     <div id="logo_text"><span>&nbsp;个人中心</span></div>
     <ul id="flex_naver">
-        <li class="nr" onmouseover="nrselect(this)" onmouseleave="nrleave(this)"  ><a href="ChangePerson.jsp">管理个人信息</a></li>
-        <li class="nr" onmouseover="nrselect(this)" onmouseleave="nrleave(this)"><a href="aheadhome.jsp">主页</a></li>
-        <li class="nr" onmouseover="nrselect(this)" onmouseleave="nrleave(this)"><a href="borrows.jsp">查看已借书籍</a></li>
-        <li class="nr" onmouseover="nrselect(this)" onmouseleave="nrleave(this)"><a  href="../bookUser/checkBooks.jsp">查询书籍</a></li>
+        <ul id="flex_naver">
+            <li class="nr" onmouseover="nrselect(this)" onmouseleave="nrleave(this)"  ><a href="ChangePerson.jsp">管理个人信息</a></li>
+            <li class="nr" onmouseover="nrselect(this)" onmouseleave="nrleave(this)"><a href="aheadhome.jsp">主页</a></li>
+            <li class="nr" onmouseover="nrselect(this)" onmouseleave="nrleave(this)"><a href="borrows.jsp">查看已借书籍</a></li>
+            <li class="nr" onmouseover="nrselect(this)" onmouseleave="nrleave(this)"><a  href="../bookUser/checkBooks.jsp">查询书籍</a></li>
+        </ul>
     </ul>
 </div>
 <div id="container">
@@ -72,25 +79,29 @@
 
         </div>
         <div id="container_main_info">
-            <div class="info_groups">
-                <div class="col-sm-3 info_group">
-                    <span class="g_title">用户名</span>
-                    <span><%=u.getUserAccount()%></span>
-                </div>
-                <div class="col-sm-3 info_group">  <span class="g_title">学号</span>
-                    <span><%=u.getUserIdentity()%></span></div>
-                <div class="col-sm-3 info_group">  <span class="g_title">性别</span>
-                    <span><%=u.getUserGender()%></span></div>
-            </div>
-            <div class="info_groups">
-                <div class="col-sm-3 info_group">
-                    <span class="g_title">年龄</span>
-                    <span><%=u.getUserAge()%></span>
-                </div>
-                <div class="col-sm-3 info_group">  <span class="g_title">权限</span>
-                    <span><%=u.getUserPermission()%></span></div>
-                <div class="col-sm-3 info_group">  <span class="g_title">邮箱</span>
-                    <span><%=u.getUserEmail()%></span></div>
+            <div id="container_books">
+                <div align="left" id="home_title"><h1>本周最热</h1></div>
+                            <div class="main_center">
+
+                                <s:iterator value="books" status="st1" var="book">
+                                    <s:iterator value="personalBooks" status="st2" var="personalBook">
+                                            <s:if test="#st1.count==#st2.count">
+                                            <div class="book_info"   align="center" >
+                                                <img referrerpolicy="no-referrer" src="<s:property value="#book.bookPicture"/>" width="150px" height="200px/">
+                                                <div><s:property value="#book.bookName"/></div>
+                                                <div style="display: flex;flex-direction: row">
+                                                    <div><s:property value="#book.bookAuthor"/></div>
+                                                    <div> <s:property value="#book.bookPublish"/></div>
+                                                </div>
+                                                <a href="javascript:showBookInfoAction('<s:property value="#personalBook.personalBookId"/>')">查看</a>
+                                                <div><span>价格&nbsp;</span><s:property value="#book.bookPrice"/>元</div>
+                                            </div>
+                                            </s:if>
+                                      </s:iterator>
+                                </s:iterator>
+
+                          </div>
+
             </div>
         </div>
     </div>
