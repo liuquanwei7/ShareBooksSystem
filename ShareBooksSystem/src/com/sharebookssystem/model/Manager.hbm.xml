@@ -10,5 +10,9 @@
         </id>
         <property name="managerAccount" column="managerAccount" unique="true" not-null="true" length="20"/>
         <property name="managerPassword" column="managerPassword" not-null="true" length="20"/>
+        <property name="managerAge" column="managerAge" />
+        <property name="managerGender" column="managerGender" />
+        <property name="managerName" column="managerName" />
+        <property name="managerPermission" column="managerPermission"/>
     </class>
 </hibernate-mapping>

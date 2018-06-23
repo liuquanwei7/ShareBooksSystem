@@ -1,0 +1,85 @@
+#defaultHide{
+    display: none;
+}
+
+#main{
+    position: fixed;
+    width: 80%;
+    height: 100%;
+    margin-top: 165px;
+    margin-left: 293px;
+}
+
+#left{
+    width: 20%;
+    height: 100%;
+    margin-top: 49px;
+}
+
+#all{
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    top:0;
+    margin: 0;
+    height: 100%;
+    width: 100%;
+}
+
+#top{
+    position: fixed;
+    z-index: 11;
+}
+
+#queryManager_title{
+    margin-top: -18px;
+    margin-left: 774px;
+}
+
+#manager{
+    margin-top: 10px;
+    margin-left: 60px;
+}
+
+#reset{
+    margin-top: 10px;
+    margin-left: 87px;
+}
+
+#query{
+    margin-top: 10px;
+    margin-left: 10px;
+}
+
+#mainContent{
+    margin-top: 43px;
+    margin-left: 230px;
+}
+
+#operator{
+    margin-top: 10px;
+    margin-left: 10px;
+}
+
+#show{
+    display: none;
+}
+
+#formShow{
+    margin-top: 10px;
+    margin-left: 490px;
+}
+
+#queryError{
+    margin-left: 65px;
+}
+
+#byPage{
+    margin-top: 10px;
+    margin-left: 496px;
+}
+
+#spanError{
+    margin-left: 564px;
+}

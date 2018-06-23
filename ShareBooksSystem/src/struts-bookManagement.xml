@@ -10,8 +10,39 @@
 
         <!-- 管理员登陆 -->
         <action name="managerLoginAction" class="bkLoginAction" method="login">
-            <result name="success">/bookManagement/manage_main.jsp</result>
-            <result name="input">/bookManagement/test.jsp</result>
+            <result name="success">/bookManagement/queryBook.jsp</result>
+            <result name="operator">/bookManagement/m</result>
+            <result name="input">/bookManagement/manage_login.jsp</result>
+        </action>
+
+        <!-- 管理员注册 -->
+        <action name="managerRegisterAction" class="managerRegisterAction" method="managerRegister">
+            <result name="success">/bookManagement/managerRegisterSuccess.jsp</result>
+            <result name="input">/bookManagement/manager_register.jsp</result>
+        </action>
+
+        <!-- 管理员信息查询 -->
+        <action name="queryManagerInfoAction" class="queryManagerInfoAction" method="queryManagerInfo">
+            <result name="success">/bookManagement/queryManagerInfo.jsp</result>
+            <result name="input">/bookManagement/queryManagerInfo.jsp</result>
+        </action>
+
+        <!-- 分页查询管理员 -->
+        <action name="queryManagerInfoByPageAction" class="queryManagerInfoByPageAction" method="queryManagerInfoByPage">
+            <result name="success">/bookManagement/queryManagerInfo.jsp</result>
+            <result name="input">/bookManagement/queryManagerInfo.jsp</result>
+        </action>
+
+        <!-- 修改查询管理员 -->
+        <action name="queryManagerInfoByIdAction" class="queryManagerInfoByIdAction" method="queryManagerInfoById">
+            <result name="success">/bookManagement/updateManagerInfo.jsp</result>
+            <result name="input">/bookManagement/queryManagerInfo.jsp</result>
+        </action>
+
+        <!-- 管理员修改 -->
+        <action name="updateManagerInfoAction" class="updateManagerInfoAction" method="updateManagerInfo">
+            <result name="success">/bookManagement/updateManagerInfoSuccess.jsp</result>
+            <result name="input">/bookManagement/updateManagerInfo.jsp</result>
         </action>
 
         <!-- 查询书籍 -->
@@ -19,5 +50,66 @@
             <result name="success">/bookManagement/queryBook.jsp</result>
             <result name="input">/bookManagement/queryBook.jsp</result>
         </action>
+
+        <!-- 查询书籍 -->
+        <action name="queryAllBookAction" class="queryAllBookAction" method="queryAllBook">
+            <result name="success">/bookManagement/queryBook.jsp</result>
+            <result name="input">/bookManagement/queryBook.jsp</result>
+        </action>
+
+        <!-- 分页查询书籍 -->
+        <action name="queryBookByPageAction" class="queryBookByPageAction" method="queryBookByPage">
+            <result name="success">/bookManagement/queryBook.jsp</result>
+            <result name="input">/bookManagement/queryBook.jsp</result>
+        </action>
+
+        <!-- id查询书籍 -->
+        <action name="queryBookByIdAction" class="queryBookByIdAction" method="queryBookById">
+            <result name="success">/bookManagement/updateBook.jsp</result>
+            <result name="input">/bookManagement/queryError.jsp</result>
+        </action>
+
+        <!-- 更新书籍 -->
+        <action name="updateBookAction" class="updateBookAction" method="updateBook">
+            <result name="success">/bookManagement/updateBookSuccess.jsp</result>
+            <result name="input">/bookManagement/updateBook.jsp</result>
+        </action>
+
+        <!-- 删除书籍 -->
+        <action name="deleteBookAction" class="deleteBookAction" method="deleteBook">
+            <result name="confirm">/bookManagement/confirmDeleteBook.jsp</result>
+            <result name="input">/bookManagement/confirmDeleteBook.jsp</result>
+        </action>
+
+        <!-- 确认删除书籍 -->
+        <action name="confirmDeleteBookAction" class="deleteBookAction" method="confirmDeleteBook">
+            <result name="success">/bookManagement/deleteBookSuccess.jsp</result>
+            <result name="input">/bookManagement/confirmDeleteBook.jsp</result>
+        </action>
+
+        <!-- 删除管理员信息 -->
+        <action name="deleteManagerInfoAction" class="deleteManagerInfoAction" method="deleteManagerInfo">
+            <result name="confirm">/bookManagement/confirmDeleteManagerInfo.jsp</result>
+            <result name="input">/bookManagement/confirmDeleteBook.jsp</result>
+        </action>
+
+        <!-- 确认删除管理员信息 -->
+        <action name="confirmDeleteManagerInfoAction" class="deleteManagerInfoAction" method="confirmDeleteManagerInfo">
+            <result name="success">/bookManagement/deleteBookSuccess.jsp</result>
+            <result name="input">/bookManagement/confirmDeleteBook.jsp</result>
+        </action>
+
+        <!-- 修改管理员密码 -->
+        <action name="changeManagerPassword" class="changeManagerPassword" method="changeManagerPassword">
+            <result name="success">/bookManagement/changeManagerPasswordSuccess.jsp</result>
+            <result name="input">/bookManagement/changeManagerPassword.jsp</result>
+        </action>
+
+        <!-- 管理员退出登陆 -->
+        <action name="managerExitLogin" class="managerExitLogin">
+            <result name="success">/bookManagement/manage_login.jsp</result>
+            <result name="input">/bookManagement/manage_login.jsp</result>
+        </action>
+
     </package>
 </struts>

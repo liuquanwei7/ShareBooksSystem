@@ -6,6 +6,13 @@ public class Manager {
     private int managerId;
     private String managerAccount;
     private String managerPassword;
+    private String managerName;
+    private String managerGender;
+    private int managerAge;
+    private int managerPermission;
+
+    public Manager() {
+    }
 
     public int getManagerId() {
         return managerId;
@@ -31,6 +38,38 @@ public class Manager {
         this.managerPassword = managerPassword;
     }
 
+    public String getManagerName() {
+        return managerName;
+    }
+
+    public void setManagerName(String managerName) {
+        this.managerName = managerName;
+    }
+
+    public String getManagerGender() {
+        return managerGender;
+    }
+
+    public void setManagerGender(String managerGender) {
+        this.managerGender = managerGender;
+    }
+
+    public int getManagerAge() {
+        return managerAge;
+    }
+
+    public void setManagerAge(int managerAge) {
+        this.managerAge = managerAge;
+    }
+
+    public int getManagerPermission() {
+        return managerPermission;
+    }
+
+    public void setManagerPermission(int managerPermission) {
+        this.managerPermission = managerPermission;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -47,6 +86,4 @@ public class Manager {
         return Objects.hash(managerId, managerAccount, managerPassword);
     }
 
-    public Manager() {
-    }
 }
