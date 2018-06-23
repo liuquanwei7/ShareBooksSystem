@@ -54,6 +54,9 @@
             <result name="input">aheadComment.jsp</result>
         </action>
 
+        <action name="homePageAction" class="homePageAction">
+            <result name="success">home.jsp</result>
+        </action>
     </package>
 
 </struts>

@@ -72,4 +72,16 @@
             <ref bean="commentsDaoY"></ref>
         </property>
     </bean>
+
+    <bean id="homePageAction" class="com.sharebookssystem.bookUi.action.homePageAction" >
+        <property name="bd">
+            <ref bean="bookDaoY"></ref>
+        </property>
+        <property name="borrowHistoryItemDao">
+            <ref bean="BorrowHistoryItemDaoY"></ref>
+        </property>
+        <property name="personalBookDao">
+            <ref bean="PersonalBookY"></ref>
+        </property>
+    </bean>
 </beans>
