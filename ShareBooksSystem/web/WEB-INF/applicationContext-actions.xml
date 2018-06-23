@@ -8,7 +8,55 @@
             <ref bean="bookDao"></ref>
         </property>
     </bean>
-    <bean id="getCheckBookAction" class="com.sharebookssystem.bin.actions.getCheckBookAction">
+    <bean id="getCheckBookAction" class="com.sharebookssystem.bin.actions.GetCheckBookAction">
 
+    </bean>
+    <bean id="addBookAction" class="com.sharebookssystem.bin.actions.AddBookAction">
+
+    </bean>
+    <bean id="ensureAddBookAction" class="com.sharebookssystem.bin.actions.EnsureAddBookAction" scope="prototype">
+        <property name="bd">
+            <ref bean="bookDao"></ref>
+        </property>
+    </bean>
+    <bean id="showBookInfoAction" class="com.sharebookssystem.bin.actions.ShowBookInfoAction" scope="prototype">
+        <property name="bd">
+            <ref bean="bookDao"></ref>
+        </property>
+    </bean>
+    <bean id="borrowBookAction" class="com.sharebookssystem.bin.actions.BorrowBookAction" scope="prototype">
+        <property name="bd">
+            <ref bean="bookDao"></ref>
+        </property>
+    </bean>
+    <bean id="addBookToCarAction" class="com.sharebookssystem.bin.actions.AddBookToCarAction" scope="prototype">
+        <property name="cd">
+            <ref bean="carDao"></ref>
+        </property>
+    </bean>
+    <bean id="showMyBorrowCarAction" class="com.sharebookssystem.bin.actions.ShowMyBorrowCarAction" scope="prototype">
+        <property name="cd">
+            <ref bean="carDao"></ref>
+        </property>
+    </bean>
+    <bean id="deleteBookFromCarAction" class="com.sharebookssystem.bin.actions.DeleteBookFromCarAction" scope="prototype">
+        <property name="cd">
+            <ref bean="carDao"></ref>
+        </property>
+    </bean>
+    <bean id="showMyBookAction" class="com.sharebookssystem.bin.actions.ShowMyBookAction" scope="prototype">
+        <property name="bd">
+            <ref bean="bookDao"></ref>
+        </property>
+    </bean>
+    <bean id="getMyBookAction" class="com.sharebookssystem.bin.actions.GetMyBookAction" scope="prototype">
+        <property name="bd">
+            <ref bean="bookDao"></ref>
+        </property>
+    </bean>
+    <bean id="beforeGetMyBookAction" class="com.sharebookssystem.bin.actions.BeforeGetMyBookAction" scope="prototype">
+        <property name="bd">
+            <ref bean="bookDao"></ref>
+        </property>
     </bean>
 </beans>

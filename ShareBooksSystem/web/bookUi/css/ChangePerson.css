@@ -1,0 +1,25 @@
+#container{
+    margin: 0;
+    top: 0;
+    height: 120%;
+    width: 100%;
+    z-index: -11;
+    /*background: url("img/logo.png") center center fixed no-repeat;*/
+    /*-webkit-background-size:cover;*/
+    /*background-attachment:fixed;*/
+    /*background-position: center center;*/
+    position: relative;
+}
+#naver{
+    z-index: 11;
+    opacity: 2;
+    position: absolute;
+}
+#container_main{
+    display: inline-block;
+    margin:80px auto;
+    background: white;
+    /*padding-top: 80px;*/
+    width: 60%;
+    height: 90%;
+}

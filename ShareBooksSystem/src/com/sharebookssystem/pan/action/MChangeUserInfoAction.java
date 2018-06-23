@@ -20,6 +20,7 @@ public class MChangeUserInfoAction extends ActionSupport {
     private String userGender;
     private int userAge;
     private int userPermission;
+    private String userEmail;
     private Map session;
     @Resource(name = "mChangeUserInfoService")
     private UserService userService;
@@ -36,6 +37,7 @@ public class MChangeUserInfoAction extends ActionSupport {
         user.setUserGender(userGender);
         user.setUserAge(userAge);
         user.setUserPermission(userPermission);
+        user.setUserEmail(userEmail);
 
         if (userService.service(user)){
             return SUCCESS;
@@ -63,6 +65,10 @@ public class MChangeUserInfoAction extends ActionSupport {
             return;
         }else if (userPassword.length() < 6 || userPassword.length() > 10){
             addFieldError("managerChangeUserFailError", "密码的长度必须在6-10之间");
+            return;
+        }
+        if (userEmail.equals("") || userEmail == null){
+            addFieldError("managerChangeUserFailError", "邮件不能为空");
             return;
         }
         if (userIdentity.equals("") || userIdentity == null){
@@ -144,5 +150,13 @@ public class MChangeUserInfoAction extends ActionSupport {
 
     public void setUserService(UserService userService) {
         this.userService = userService;
+    }
+
+    public String getUserEmail() {
+        return userEmail;
+    }
+
+    public void setUserEmail(String userEmail) {
+        this.userEmail = userEmail;
     }
 }

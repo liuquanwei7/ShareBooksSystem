@@ -3,18 +3,20 @@
     "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
     "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
-
     <class name="com.sharebookssystem.model.PersonalBook" table="PersonalBook" schema="shareBooksSystem">
         <id name="personalBookId" column="personalBookId">
             <generator class="increment"/>
         </id>
         <property name="bookStatus" column="bookStatus" not-null="true" length="20"/>
         <property name="numberOfTimes" column="numberOfTimes" not-null="true"/>
-        <property name="uploadDate" column="uploadDate" not-null="true"/>
-        <many-to-one name="user" class="com.sharebookssystem.model.User">
+        <property name="uploadDate" column="uploadDate" not-null="false"/>
+        <property name="shareCode" column="shareCode" />
+        <property name="returnCode" column="returnCode" />
+        <property name="getBookCode" column="getBookCode" />
+        <many-to-one name="user" class="com.sharebookssystem.model.User" cascade="none">
             <column name="userId" not-null="true"/>
         </many-to-one>
-        <many-to-one name="book" class="com.sharebookssystem.model.Book">
+        <many-to-one name="book" class="com.sharebookssystem.model.Book" cascade="none">
             <column name="bookId" not-null="true"/>
         </many-to-one>
     </class>

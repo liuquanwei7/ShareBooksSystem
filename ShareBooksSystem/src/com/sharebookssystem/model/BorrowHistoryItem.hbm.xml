@@ -8,10 +8,11 @@
         <id name="borrowHistoryItemId" column="borrowHistoryItemId">
             <generator class="increment"/>
         </id>
-        <property name="borrowDate" column="borrowDate" not-null="true"/>
-        <property name="shouldReturnDate" column="shouldReturnDate" not-null="true"/>
-        <property name="actualReturnDate" column="actualReturnDate" not-null="true"/>
+        <property name="borrowDate" column="borrowDate" />
+        <property name="shouldReturnDate" column="shouldReturnDate"/>
+        <property name="actualReturnDate" column="actualReturnDate" />
         <property name="borrowStatus" column="borrowStatus" not-null="true" length="20"/>
+        <property name="borrowCode" column="borrowCode" not-null="true" length="20"/>
         <many-to-one name="borrower" class="com.sharebookssystem.model.User">
             <column name="borrowerID" not-null="true"/>
         </many-to-one>

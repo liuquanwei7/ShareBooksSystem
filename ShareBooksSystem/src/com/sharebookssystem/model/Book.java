@@ -10,6 +10,15 @@ public class Book {
     private String bookPublish;
     private float bookPrice;
     private String bookCategory;
+    private String bookPicture;
+
+    public String getBookPicture() {
+        return bookPicture;
+    }
+
+    public void setBookPicture(String bookPicture) {
+        this.bookPicture = bookPicture;
+    }
 
     public int getBookId() {
         return bookId;

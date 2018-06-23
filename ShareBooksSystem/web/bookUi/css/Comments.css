@@ -1,0 +1,71 @@
+#container_re_right{
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+#container_re_left{
+
+    width: 30%;height: 115%;
+}
+#container_comments{
+    height: 60%;
+    margin:0 auto;
+    width: 80%;
+
+}
+#idda{
+    width: 100%;
+}
+#com_bookName{
+    width: 100%;
+    height: 10%;
+    margin-bottom: 20px;
+}
+.commets_name{
+    display: inline-block;
+    width: 30%;
+    text-align: left;
+    margin-right: 20px;
+    font-size: 20px;
+}
+.commets_text{
+    display: inline-block;
+    width: 70%;
+    text-align: left;
+    font-size: 15px;
+    color: dimgrey;
+}
+.com_hr{
+    width: 100%;
+    border-bottom: 1px solid #e6e6e6;
+    margin: 20px;
+}
+#idta2{
+    float: right;
+}
+#main_comPosts{
+    height: 10%;
+    /* text-align: center; */
+    margin: 10%;
+    width: 100%;
+
+
+}
+.com_form{
+    height: 10%;
+    /* text-align: center; */
+    margin: 10%;
+    width: 90%;
+
+}
+#com_submit{
+    display: inline-block;
+    width: 100%;
+    float: right;
+    /*width: 200px;*/
+    /*height: 100px;*/
+}
+#com_textarea{
+
+}

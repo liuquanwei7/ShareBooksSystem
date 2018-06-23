@@ -67,6 +67,7 @@
                     <td>姓名</td>
                     <td>登录账号</td>
                     <td>密码</td>
+                    <td>邮件</td>
                     <td>学号</td>
                     <td>性别</td>
                     <td>年龄</td>
@@ -79,6 +80,7 @@
                     <td><a href="initUserBooks_DPage?which=<%=i%>"><s:property value="#user.userName"/></a></td>
                     <td><s:property value="#user.userAccount"/></td>
                     <td><s:property value="#user.userPassword"/></td>
+                    <td><s:property value="#user.userEmail"/></td>
                     <td><s:property value="#user.userIdentity"/></td>
                     <td><s:property value="#user.userGender"/></td>
                     <td><s:property value="#user.userAge"/></td>
