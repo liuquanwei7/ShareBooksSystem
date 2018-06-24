@@ -1,8 +1,11 @@
 package com.sharebookssystem.bookManagement.controller;
 
+import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 import com.sharebookssystem.bookManagement.service.impl.BookManagementServiceImpl;
 import com.sharebookssystem.model.Book;
+
+import java.util.Map;
 
 /**
  * 修改图书
@@ -38,7 +41,40 @@ public class UpdateBookAction extends ActionSupport {
         if(service.updateBook(book)){
             return SUCCESS;
         }else{
+            Map m = ActionContext.getContext().getSession();
+            m.put("managerUpdateBookError","更新图书失败,请确认好信息后再更新");
             return INPUT;
         }
+    }
+
+
+    public void validateUpdateBook(){
+        Map s = ActionContext.getContext().getSession();
+        if(book.getBookName().trim().equals("")){
+            s.put("managerUpdateBookNameError","书名不能为空");
+            this.addFieldError("managerError","addErrorMessage");
+        }else if(book.getBookName().trim().length()>20){
+            s.put("managerUpdateBookNameError","书名长度不能超过20个字符");
+            this.addFieldError("managerError","addErrorMessage");
+        }else if(book.getBookAuthor().trim().equals("")){
+            s.put("managerUpdateBookAuthorError","作者不能为空");
+            this.addFieldError("managerError","addErrorMessage");
+        }else if(book.getBookAuthor().trim().length()>20){
+            s.put("managerUpdateBookAuthorError","作者长度不能超过20个字符");
+            this.addFieldError("managerError","addErrorMessage");
+        }else if(book.getBookPublish().trim().equals("")){
+            s.put("managerUpdateBookPublishError","出版社不能为空");
+            this.addFieldError("managerError","addErrorMessage");
+        }else if(book.getBookPublish().trim().length()>20){
+            s.put("managerUpdateBookPublishError","出版社长度不能超过20个字符");
+            this.addFieldError("managerError","addErrorMessage");
+        }else if(book.getBookPrice()<=0){
+            s.put("managerUpdateBookPriceError","价格不能小于0元");
+            this.addFieldError("managerError","addErrorMessage");
+        }
+
+
+
+
     }
 }

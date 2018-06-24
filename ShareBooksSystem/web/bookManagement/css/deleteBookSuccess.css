@@ -1,0 +1,29 @@
+#main{
+    position: fixed;
+    width: 80%;
+    height: 100%;
+    margin-top: 165px;
+    margin-left: 733px;
+}
+
+#left{
+    width: 20%;
+    height: 100%;
+    margin-top: 49px;
+}
+
+#all{
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    top:0;
+    margin: 0;
+    height: 100%;
+    width: 100%;
+}
+
+#top{
+    position: fixed;
+    z-index: 11;
+}

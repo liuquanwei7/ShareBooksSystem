@@ -1,0 +1,85 @@
+#main{
+    position: fixed;
+    width: 80%;
+    height: 100%;
+    margin-top: 165px;
+    margin-left: 596px;
+}
+
+#left{
+    width: 20%;
+    height: 100%;
+    margin-top: 49px;
+}
+
+#all{
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    top:0;
+    margin: 0;
+    height: 100%;
+    width: 100%;
+}
+
+#top{
+    position: fixed;
+    z-index: 11;
+}
+
+#registerTitle{
+    margin-top: 10px;
+    margin-left: 427px;
+}
+
+#male{
+    margin-top: 10px;
+    margin-left: 97px;
+}
+
+.queryError{
+    margin-bottom: 10px;
+    margin-left: 96px;
+}
+
+#female{
+    margin-top: 10px;
+    margin-left: 20px;
+}
+
+#manager{
+    margin-top: 10px;
+    margin-left: 72px;
+}
+
+#operator{
+    margin-top: 10px;
+    margin-left: 20px;
+}
+
+#mPosition{
+    margin-top: 10px;
+    margin-left: 2px;
+}
+
+#gender{
+    margin-top: 10px;
+    margin-left: 2px;
+}
+
+#mainContent{
+    margin-top: 70px;
+    margin-left: 400px;
+}
+
+#reset{
+    margin-top: 33px;
+    margin-left: 102px;
+}
+
+#register{
+    margin-top: 33px;
+    margin-left: 13px;
+}
+
