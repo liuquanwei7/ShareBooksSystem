@@ -1,21 +1,25 @@
 .mycard{
-    width: 990px;
-    height: 232px;
+    width: 954px;
+    height: 188px;
     padding-top: 20px;
-    padding-left: 20px;
-    margin-bottom: 20px;
-    padding-bottom: 20px;
+    /*padding-left: 20px;*/
+    /*margin-bottom: 20px;*/
+    /*padding-bottom: 20px;*/
     position: relative;
     flex-direction: row;
     display: flex;
-
+    margin: 0 auto;
+    border-top: 0;
+    border-left: 0;
+    border-right: 0;
 
 }
 .bookImg{
-    width: 144px;
-    height: 192px;
+    width: 102px;
+    height: 136px;
     display: inline;
     float: left;
+    overflow: hidden;
     /*position: relative;*/
     /*overflow: hidden;*/
 
@@ -29,6 +33,17 @@
     display: inline;
     padding: 0;
     overflow: hidden;
+    transition: all 0.5s;
+}
+.bookImg img:hover{
+    /*width: 110%;*/
+    /*height: 110%;*/
+    overflow: hidden;
+    /* margin: 0 auto; */
+    /*left: -5%;*/
+    /*top: -5%;*/
+    transform: scale(1.1);
+
 }
 .bookInfo{
     position: relative;
@@ -36,13 +51,15 @@
     width: 560px;
     display: flex;
     flex-direction: column;
+    padding-top: 0;
     left:20px;
     align-content: center;
     /*margin-top: 20px;*/
 }
 .bookTodo{
-    width: 560px;
-    /*height:36px;*/
+    width: 224px;
+    height: 167px;
+    margin-left: 67px;
 
 }
 .bookName{
@@ -55,49 +72,61 @@
     /*justify-content: flex-start;*/
     /*align-items: center;*/
     width: 560px;
-    height: 38px;
+    padding-top: 0;
+    height: 30px;
     /* padding-bottom: 5; */
 }
 .bookName em{
-    display: inline-block;
+    display: block;
+    margin-top: 0;
+    float: left;
+    font-style: normal;
     /* height:37px; */
     /*float: left;*/
-    line-height: 38px;
+    font-size: 18px;
+    line-height: 30px;
 }
 .bookName span{
-    display: inline-block;
+    display: block;
     text-align: center;
-    font-size: 18px;
+    font-size: 16px;
+    /* line-height: 19; */
+    /* position: relative; */
+    margin-top: 10px;
+    margin-left: 10px;
+    float: left;
 
     /*position: relative;*/
     /*margin : 20px;*/
 }
 /*.bookName h2{*/
-    /*!*display: inline-block;*!*/
-    /*!*height:30px ;*!*/
-    /*float: left;*/
-    /*text-align: center;*/
+/*!*display: inline-block;*!*/
+/*!*height:30px ;*!*/
+/*float: left;*/
+/*text-align: center;*/
 
 /*}*/
 /*.bookName p{*/
-    /*float: left;*/
-    /*text-align: center;*/
-    /*line-height: 20px;*/
- /*}*/
+/*float: left;*/
+/*text-align: center;*/
+/*line-height: 20px;*/
+/*}*/
 
 .borrowBook{
     display: inline-block;
     border: 1px solid #bf2c24;
     text-align: center;
-    background:#bf2c24;
+    background: #bf2c24;
     width: 120px;
     height: 34px;
     color: #fff;
     vertical-align: middle;
     font-size: 14px;
-    /*text-align: center;*/
+    /* text-align: center; */
     line-height: 28px;
-    margin-right:20px;
+    /* margin-right: 20px; */
+    float: right;
+    margin-top: 105px;
 }
 .borrowBook:hover{
     color: #fff;
@@ -122,10 +151,17 @@
     border-color: #2972cc;
     background:#f0f5ff;
 }
-
-/*.myPage{*/
-    /*border: 0px;*/
-/*}*/
+.myPage{
+    border: 0px;
+}
+.book-content{
+    margin: 0 auto;
+    width: 954px;
+}
+.myNavPage{
+    float: right;
+    margin-top: 10px;
+}
 /*.myPage li{*/
-    /*border: 0px;*/
+/*border: 0px;*/
 /*}*/

@@ -25,10 +25,35 @@ public class EnsureAddBookAction extends ActionSupport {
     User user;
     PersonalBook mybook=new PersonalBook();
     Map<String,Object>jsonMap;
+    List<Book>books;
 //    JSONObject theBook;
 
     public EnsureAddBookAction(){
 
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    public PersonalBook getMybook() {
+        return mybook;
+    }
+
+    public void setMybook(PersonalBook mybook) {
+        this.mybook = mybook;
+    }
+
+    public List<Book> getBooks() {
+        return books;
+    }
+
+    public void setBooks(List<Book> books) {
+        this.books = books;
     }
 
     public Map<String, Object> getJsonMap() {
@@ -111,6 +136,8 @@ public class EnsureAddBookAction extends ActionSupport {
             }
         }
         else if(bd.checkBookin(book.getBookName())!=null){
+            books=bd.checkBookin(book.getBookName());
+            book=books.get(0);
                 System.out.print(bd.checkBookin(book.getBookName()));
          //如果book info有personal book没有
             if((bd.checkPersonalBookin(book.getBookId())==null)) {

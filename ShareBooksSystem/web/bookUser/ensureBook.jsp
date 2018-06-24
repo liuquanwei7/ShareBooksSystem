@@ -26,10 +26,11 @@
     <aside>
 
     </aside>
-    <div>
-        <s:iterator value="book" status="st" var="mybook">
+    <div class="book-all">
+        <s:iterator value="#session.book" status="st" var="mybook">
             <div class="card" style="width:300px;height: 600px" >
-                <a href="javascript:chooseBook('<s:property value="#mybook"/>')">
+                <a href="javascript:chooseBook()">
+                    <%--'<s:property value="#mybook"/>'--%>
                 <%--<a href="ensureAddBookAction?book=+<s:property value='#mybook'/>">--%>
                     <img referrerpolicy ="no-referrer" alt="网络错误" src="<s:property value="#mybook.bookPicture"/>"
                          class="card-img-top" style="width: 300px;height: 300px">

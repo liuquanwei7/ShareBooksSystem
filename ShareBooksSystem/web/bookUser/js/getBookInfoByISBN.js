@@ -16,11 +16,29 @@ function getBookInfo() {
                 if (msg.translator.length > 0) {
                     author = author.substring(3);
                 }
+                var endIndex = msg.price.lastIndexOf("元");
+                if(endIndex>0){
+                    msg.price = msg.price.substring(0, endIndex);
+                }
                 if(msg.subtitle.length>0) {
                     msg.title = msg.title + " "+msg.subtitle;
                 }else{
                     msg.title=msg.title;
                 }
+                // msg.price= msg.price.replace(/[^0-9]/ig,"");
+                // msg.price= msg.price.replace(/^\d+\.\d\d$/ig,"");
+                // msg.price= msg.price.replace(/^[\d+\.?\d*]/ig,"");
+                msg.price= msg.price.replace(/[^\d.]/g,"");
+
+                debugger
+                var book = {
+                    "book.bookName": msg.title,
+                    "book.bookAuthor": msg.author[0],
+                    "book.bookPicture": msg.image,
+                    "book.bookPublish": msg.publisher,
+                    "book.bookPrice": msg.price,
+                    "book.bookCategory": msg.tags[0].name,
+                };
                 // var book={
                 //     'bookName':msg.title,
                 // 'bookAuthor':author,
@@ -32,14 +50,14 @@ function getBookInfo() {
                 // mybook=mybook.toString();
                 // mybook=JSON.stringify(mybook);
                 // console.log(typeof mybook+"aa");
-                var a = "大鹏";
-                var b = ['大鹏1', 'b', 'c'];
-                // var c=new Array(msg.title,author,msg.image,msg.publisher,msg.price,msg.tags[7].name);
-                var c = msg.title + "," + author + "," + msg.image + "," + msg.publisher
-                    + "," + msg.price + "," + msg.tags[0].name;
+                // var a = "大鹏";
+                // var b = ['大鹏1', 'b', 'c'];
+                // // var c=new Array(msg.title,author,msg.image,msg.publisher,msg.price,msg.tags[7].name);
+                // var c = msg.title + "," + author + "," + msg.image + "," + msg.publisher
+                //     + "," + msg.price + "," + msg.tags[0].name;
                 // c=JSON.stringify(c);
-                console.log(c);
-                console.log(typeof c);
+                // console.log(c);
+                // console.log(typeof c);
                 console.log(typeof msg);
                 console.log(msg);
                 console.log(msg.author[0]);
@@ -47,15 +65,47 @@ function getBookInfo() {
                 console.log(msg.translator);
                 console.log(msg.title);
                 console.log(msg.publisher);
-                console.log(msg.tags[7].name);
+                // console.log(msg.tags[7].name);
                 console.log(msg.price);
-                debugger
+                // debugger
                 // document.getElementById("test").innerHTML=msg.catalog;
                 sessionStorage.isbn = ISBN;
                 // encodeURI(encodeURI(author));
                 console.log(typeof author);
                 console.log(author);
-                location.href = "addBookAction?mybook=" + c;
+                // location.href = "addBookAction?mybook=" + c;
+                console.log(book);
+                $.ajax({
+                    type: "POST",
+                    url: "addBookAction",
+                    data: book,
+                    async: false,
+                    // contentType:"application/json",
+                    // dataType:"json",
+                    success: function (msg) {
+                        // msg=eval("("+msg+")");
+                        // console.log()
+                        console.log(msg);
+                        // location.href="bookInfo.jsp";
+                        console.log(msg.result);
+                        sessionStorage.shareCode = msg.shareCode;
+                        console.log(sessionStorage.shareCode);
+                        // debugger
+                        if (msg.result == "YES") {
+                            location.href = "ensureBook.jsp"
+                        } else if (msg.result=="NO") {
+                            location.href = "addBook.jsp";
+                        }else if(msg.result=="not"){
+                            alert("书籍已存在！！！");
+                        }
+
+                    },
+                    error: function (errmsg) {
+                        console.log(errmsg);
+                    }
+
+                });
+
                 // mybook=JSON.stringify(mybook);
                 // targetForm=document.forms[0];
                 // console.log("test");

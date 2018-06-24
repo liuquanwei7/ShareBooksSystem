@@ -11,7 +11,7 @@
     <bean id="getCheckBookAction" class="com.sharebookssystem.bin.actions.GetCheckBookAction">
 
     </bean>
-    <bean id="addBookAction" class="com.sharebookssystem.bin.actions.AddBookAction">
+    <bean id="addBookAction" class="com.sharebookssystem.bin.actions.AddBookAction" scope="prototype">
 
     </bean>
     <bean id="ensureAddBookAction" class="com.sharebookssystem.bin.actions.EnsureAddBookAction" scope="prototype">

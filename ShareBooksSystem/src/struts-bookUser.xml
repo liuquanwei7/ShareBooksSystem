@@ -7,13 +7,13 @@
 <struts>
     <!--开发阶段用到的常量设置 ，开发阶段结束后必须注释 -->
     <!-- 重新加载struts.xml文件 -->
-    <constant name="struts.configuration.xml.reload" value="true" />
-    <!-- 打印更多的错误信息，便于查找错原因 -->
-    <constant name="strusts.devMode" value="true" />
-    <!-- 关闭静态态缓冲 -->
-    <constant name="strusts.serve.static.browserCache" value="false" />
-    <!-- 结束 -->
-    <constant name="struts.i18n.encoding" value="UTF-8"/>
+    <!--<constant name="struts.configuration.xml.reload" value="true" />-->
+    <!--&lt;!&ndash; 打印更多的错误信息，便于查找错原因 &ndash;&gt;-->
+    <!--<constant name="strusts.devMode" value="true" />-->
+    <!--&lt;!&ndash; 关闭静态态缓冲 &ndash;&gt;-->
+    <!--<constant name="strusts.serve.static.browserCache" value="false" />-->
+    <!--&lt;!&ndash; 结束 &ndash;&gt;-->
+    <!--<constant name="struts.i18n.encoding" value="UTF-8"/>-->
 
     <constant name="struts.objectFactory" value="spring" />
     <package name="BookUser" extends="json-default,struts-default" namespace="/bookUser">
@@ -36,15 +36,28 @@
             <result name="success">showBooks.jsp</result>
             <result name="input">checkBooks.jsp</result>
         </action>
+        <!--<action name="addBookAction" class="addBookAction">-->
+            <!--&lt;!&ndash;<interceptor-ref name="loginInterceptor"/>&ndash;&gt;-->
+            <!--<interceptor-ref name="defaultStack"/>-->
+            <!--<result name="success">ensureBook.jsp</result>-->
+            <!--<result name="input">addBook.jsp</result>-->
+        <!--</action>-->
         <action name="addBookAction" class="addBookAction">
             <!--<interceptor-ref name="loginInterceptor"/>-->
-            <interceptor-ref name="defaultStack"/>
-            <result name="success">ensureBook.jsp</result>
-            <result name="input">addBook.jsp</result>
+            <result name="success" type="json">
+                <param name="root">jsonMap</param>
+            </result>
+            <result name="input" type="json">
+                <param name="root">jsonMap</param>
+            </result>
+            <!--<result name="input">addBook.jsp</result>-->
         </action>
         <action name="ensureAddBookAction" class="ensureAddBookAction">
             <!--<interceptor-ref name="loginInterceptor"/>-->
             <result name="success" type="json">
+                <param name="root">jsonMap</param>
+            </result>
+            <result name="input" type="json">
                 <param name="root">jsonMap</param>
             </result>
             <!--<result name="input">addBook.jsp</result>-->
