@@ -51,11 +51,12 @@ public class BorrowHistoryItemDao {
                 bd=list.get(i);
 
                 if(bd.getBorrowStatus().equals("未还")) {
-                    a[i] = bd.getPersonalBook().getPersonalBookId();
-                    System.out.println(a[i]);
+                    a[mounts] = bd.getPersonalBook().getPersonalBookId();
+                    System.out.println("未还："+a[mounts]);
                     mounts++;
                 }
             }
+
             ss.put("a",a);
             ss.put("mounts",mounts);
             System.out.println("数量"+mounts);
