@@ -11,8 +11,18 @@
 <head>
     <title>管理员增加用户</title>
     <meta charset="UTF-8" content="text/html"/>
+    <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdn.bootcss.com/popper.js/1.12.5/umd/popper.min.js"></script>
+    <script src="https://cdn.bootcss.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
 </head>
 <body>
+<div id="top">
+    <jsp:include page="../bookManagement/manager_top.jsp" flush="true" />
+</div>
+<div id="left">
+    <jsp:include page="../bookManagement/manager_left.jsp" flush="true" />
+</div>
+<div id="pan_main" style="left:450px;top:100px;margin: 0 auto;width: 800px;height: 500px;position:absolute">
     <div><a href="nowUserPage.action"><--返回</a></div>
     <div><s:fielderror><s:param>managerAddUserFailError</s:param></s:fielderror></div>
     <div>
@@ -63,5 +73,6 @@
         </table>
         </form>
     </div>
+</div>
 </body>
 </html>
