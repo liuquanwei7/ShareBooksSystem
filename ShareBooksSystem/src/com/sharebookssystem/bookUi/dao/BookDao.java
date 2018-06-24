@@ -3,6 +3,7 @@ package com.sharebookssystem.bookUi.dao;
 import com.opensymphony.xwork2.ActionContext;
 import com.sharebookssystem.bookUi.utils.MailUitls;
 import com.sharebookssystem.model.Book;
+import com.sharebookssystem.model.BorrowHistoryItem;
 import com.sharebookssystem.model.PersonalBook;
 import com.sharebookssystem.model.User;
 import org.hibernate.Query;
@@ -61,8 +62,6 @@ public class BookDao {
                 ss.put("book",bd);
             }
               ss.put("books",list);
-
-
             return list;
 
         }catch(Exception ex){
@@ -110,14 +109,11 @@ public class BookDao {
             Map<String, Object> ss=ac.getSession();
 
 
-//            System.out.println(hql);
-            System.out.println("检查hql");
+
             session = sessionFactory.openSession();
 
-            transaction=session.beginTransaction();
-                System.out.println(userid);
-            System.out.println(bookid);
-            System.out.println(bookid);
+
+
             String hql="from PersonalBook where bookId=? and userId=?";
             //创建查询
             Query query=session.createQuery(hql);
@@ -129,8 +125,36 @@ public class BookDao {
             List<PersonalBook> list=query.list();
             pb= list.get(0);
             String rc=getStringRandom(8);
-            pb.setReturnCode(rc);
+
+
+            System.out.println("Person测试"+pb.getPersonalBookId());
+            System.out.println("user测试"+userid);
+
+            String queryString="from BorrowHistoryItem where borrowerId=? and personalBookId=?";
+            //创建查询
+            Query queryObject=session.createQuery(queryString);
+            queryObject.setParameter(0, userid);
+            queryObject.setParameter(1,pb.getPersonalBookId());
+            List<BorrowHistoryItem> listB=queryObject.list();
+            BorrowHistoryItem bd=listB.get(0);
+
+            for(int i=0;i<listB.size();i++) {
+                if (listB.get(i).getBorrowStatus().equals("未还")) {
+
+                    bd = listB.get(i);
+                    bd.setReturnCode(rc);
+                    bd.setBorrowStatus("请求归还");
+                    pb.setBookStatus("请求归还");
+                    break;
+                }
+
+            }
+            transaction=session.beginTransaction();
+
+            session.update(bd);
             session.update(pb);
+
+
             User user=(User) ss.get("user");
             transaction.commit(); //写入数据库，
             MailUitls.sendMail(user.getUserEmail(),"还书码"+rc);

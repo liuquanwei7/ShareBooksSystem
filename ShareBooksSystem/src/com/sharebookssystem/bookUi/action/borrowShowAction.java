@@ -118,14 +118,19 @@ public class borrowShowAction {
     }
 
     public String execute() throws Exception{
+
         ActionContext ac=ActionContext.getContext();
         //	Map map=ActionContext.getContext().getSession();
         //得到Strust对HttpServletRequest对象进行了封装，封装为了一个Map
         //拿到表示request对象 的map
         Map<String, Object> request=ac.getContextMap();
         Map<String, Object> session=ac.getSession();
+        session.remove("pdarray");
+        session.remove("books");
+        session.remove("mounts");
         user=(User)session.get("user");
         userid=(Integer) user.getUserId();
+
         if(bI.queryPersonalId(borrowHistoryItem,userid)==null){
            session.put("ReturnSuccess","没有借书记录");
             return INPUT;
@@ -133,7 +138,6 @@ public class borrowShowAction {
         if(pbd.queryBookId(pb)==null){
             session.put("ReturnSuccess","没有借书记录");
             return INPUT;
-
         }
 
         if(bd.queryBooks(book)==null){

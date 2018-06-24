@@ -49,6 +49,15 @@
         <%  session.removeAttribute("succcessRegister");%>
     }
 
+
+    var strSessions = "<%=session.getAttribute("ReturnSuccess") %>".toString();
+    if( strSessions == ""||strSessions=="null") {
+    }
+    else {
+        alert(strSessions);
+        <%  session.removeAttribute("ReturnSuccess");%>
+    }
+
     function showBookInfoAction(id){
             location.href="../bookUser/showBookInfoAction?personalBookId="+id;
     }
@@ -59,12 +68,13 @@
     <img src="img/logo.png"/>
     <div id="logo_text"><span>&nbsp;个人中心</span></div>
     <ul id="flex_naver">
-        <ul id="flex_naver">
+
             <li class="nr" onmouseover="nrselect(this)" onmouseleave="nrleave(this)"  ><a href="ChangePerson.jsp">管理个人信息</a></li>
             <li class="nr" onmouseover="nrselect(this)" onmouseleave="nrleave(this)"><a href="aheadhome.jsp">主页</a></li>
             <li class="nr" onmouseover="nrselect(this)" onmouseleave="nrleave(this)"><a href="borrows.jsp">查看已借书籍</a></li>
+            <li class="nr" onmouseover="nrselect(this)" onmouseleave="nrleave(this)"><a href="UserInfor.jsp">个人中心</a></li>
             <li class="nr" onmouseover="nrselect(this)" onmouseleave="nrleave(this)"><a  href="../bookUser/checkBooks.jsp">查询书籍</a></li>
-        </ul>
+
     </ul>
 </div>
 <div id="container">

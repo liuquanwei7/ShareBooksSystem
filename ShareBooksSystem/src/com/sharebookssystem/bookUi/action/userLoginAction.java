@@ -57,6 +57,10 @@ public class userLoginAction extends ActionSupport{
         Map<String, Object> session=ac.getSession();
         session.remove("error");
         ud.queryUserByAccount(user,user.getUserAccount(),user.getUserPassword());
+        if( ud.queryUserByAccount(user,user.getUserAccount(),user.getUserPassword())==null){
+            session.put("error","无此用户");
+            return INPUT;
+        }
         int userPermission=(int) session.get("userPermission");
         System.out.println(userPermission);
         if(ud.checkLogin(user)&&userPermission>0){
