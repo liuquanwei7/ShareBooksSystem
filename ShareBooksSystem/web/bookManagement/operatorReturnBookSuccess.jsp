@@ -1,8 +1,8 @@
 <%--
   Created by IntelliJ IDEA.
   User: LiuQuanwei
-  Date: 2018/6/21
-  Time: 21:35
+  Date: 2018/6/24
+  Time: 19:45
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8" %>
@@ -15,24 +15,21 @@
 
 <html>
 <head>
-    <title>导航栏</title>
+    <title>操作员成功归还图书</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/4.1.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/bookManagement/css/manager_left.css">
+    <link rel="stylesheet" href="css/operatorShareBookSuccess.css">
     <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdn.bootcss.com/popper.js/1.12.5/umd/popper.min.js"></script>
     <script src="https://cdn.bootcss.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
 </head>
 <body>
-    <div left>
-        <ul>
-            <li><a href="#home">主页</a></li>
-            <li><a href="queryBook.jsp">管理图书信息</a></li>
-            <li><a href="queryManagerInfo.jsp">管理管理员信息</a></li>
-            <li><a href="manager_register.jsp">注册管理员</a></li>
-            <li><a href="changeManagerPassword.jsp">修改管理员密码</a></li>
-        </ul>
+    <div id="main">
+        <div id="message">
+            <h1 class="display-4">归还成功</h1>
+            <a class="btn btn-success" href="operator_main.jsp" role="button" id="back">返回</a>
+        </div>
     </div>
 </body>
 </html>

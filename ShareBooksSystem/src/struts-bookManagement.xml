@@ -11,7 +11,7 @@
         <!-- 管理员登陆 -->
         <action name="managerLoginAction" class="bkLoginAction" method="login">
             <result name="success">/bookManagement/queryBook.jsp</result>
-            <result name="operator">/bookManagement/m</result>
+            <result name="operator">/bookManagement/operator_main.jsp</result>
             <result name="input">/bookManagement/manage_login.jsp</result>
         </action>
 
@@ -109,6 +109,30 @@
         <action name="managerExitLogin" class="managerExitLogin">
             <result name="success">/bookManagement/manage_login.jsp</result>
             <result name="input">/bookManagement/manage_login.jsp</result>
+        </action>
+
+        <!-- 管理员分享图书 -->
+        <action name="operatorShareBookAction" class="operatorShareBookAction" method="operatorShareBook">
+            <result name="success">/bookManagement/operatorShareBookSuccess.jsp</result>
+            <result name="input">/bookManagement/operatorShareBook.jsp</result>
+        </action>
+
+        <!-- 管理员借阅图书 -->
+        <action name="operatorBorrowBookAction" class="operatorBorrowBookAction" method="operatorBorrowBook">
+            <result name="success">/bookManagement/operatorBorrowBookSuccess.jsp</result>
+            <result name="input">/bookManagement/operatorBorrowBook.jsp</result>
+        </action>
+
+        <!-- 管理员归还图书 -->
+        <action name="operatorReturnBookAction" class="operatorReturnBookAction" method="operatorReturnBook">
+            <result name="success">/bookManagement/operatorReturnBookSuccess.jsp</result>
+            <result name="input">/bookManagement/operatorReturnBook.jsp</result>
+        </action>
+
+        <!-- 管理员索回图书 -->
+        <action name="operatorGetBookAction" class="operatorGetBookAction" method="operatorGetBook">
+            <result name="success">/bookManagement/operatorGetBookSuccess.jsp</result>
+            <result name="input">/bookManagement/operatorGetBook.jsp</result>
         </action>
 
     </package>

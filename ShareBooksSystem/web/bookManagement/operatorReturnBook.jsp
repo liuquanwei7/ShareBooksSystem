@@ -1,8 +1,8 @@
 <%--
   Created by IntelliJ IDEA.
   User: LiuQuanwei
-  Date: 2018/6/21
-  Time: 21:35
+  Date: 2018/6/24
+  Time: 19:43
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8" %>
@@ -15,24 +15,29 @@
 
 <html>
 <head>
-    <title>导航栏</title>
+    <title>操作员归还图书</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/4.1.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/bookManagement/css/manager_left.css">
+    <link rel="stylesheet" href="css/operatorShareBook.css">
     <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdn.bootcss.com/popper.js/1.12.5/umd/popper.min.js"></script>
     <script src="https://cdn.bootcss.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
 </head>
 <body>
-    <div left>
-        <ul>
-            <li><a href="#home">主页</a></li>
-            <li><a href="queryBook.jsp">管理图书信息</a></li>
-            <li><a href="queryManagerInfo.jsp">管理管理员信息</a></li>
-            <li><a href="manager_register.jsp">注册管理员</a></li>
-            <li><a href="changeManagerPassword.jsp">修改管理员密码</a></li>
-        </ul>
+    <div id="main">
+        <form action="operatorReturnBookAction" method="post" namespace="/bookManagement">
+            <div>
+                <label for="returnCode">归还码:</label>
+                <input type="text" class="form-control" id="returnCode" name="returnCode">
+            </div>
+            <span class="text-danger"><s:property value="#session.operatorReturnBookError"/></span>
+            <div id="submitButton">
+                <button type="submit" class="btn btn-primary" id="update">确定</button>
+                <a class="btn btn-primary" href="operator_main.jsp" role="button" id="back">返回</a>
+            </div>
+        </form>
     </div>
+    <% session.removeAttribute("operatorReturnBookError"); %>
 </body>
 </html>

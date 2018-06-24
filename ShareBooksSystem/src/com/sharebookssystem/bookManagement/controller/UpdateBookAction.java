@@ -38,10 +38,12 @@ public class UpdateBookAction extends ActionSupport {
     }
 
     public String updateBook(){
+        Map m = ActionContext.getContext().getSession();
+        book.setBookPicture(m.get("managerBooksPicture").toString());
         if(service.updateBook(book)){
             return SUCCESS;
         }else{
-            Map m = ActionContext.getContext().getSession();
+
             m.put("managerUpdateBookError","更新图书失败,请确认好信息后再更新");
             return INPUT;
         }
@@ -53,20 +55,20 @@ public class UpdateBookAction extends ActionSupport {
         if(book.getBookName().trim().equals("")){
             s.put("managerUpdateBookNameError","书名不能为空");
             this.addFieldError("managerError","addErrorMessage");
-        }else if(book.getBookName().trim().length()>20){
-            s.put("managerUpdateBookNameError","书名长度不能超过20个字符");
+        }else if(book.getBookName().trim().length()>50){
+            s.put("managerUpdateBookNameError","书名长度不能超过50个字符");
             this.addFieldError("managerError","addErrorMessage");
         }else if(book.getBookAuthor().trim().equals("")){
             s.put("managerUpdateBookAuthorError","作者不能为空");
             this.addFieldError("managerError","addErrorMessage");
-        }else if(book.getBookAuthor().trim().length()>20){
-            s.put("managerUpdateBookAuthorError","作者长度不能超过20个字符");
+        }else if(book.getBookAuthor().trim().length()>50){
+            s.put("managerUpdateBookAuthorError","作者长度不能超过50个字符");
             this.addFieldError("managerError","addErrorMessage");
         }else if(book.getBookPublish().trim().equals("")){
             s.put("managerUpdateBookPublishError","出版社不能为空");
             this.addFieldError("managerError","addErrorMessage");
-        }else if(book.getBookPublish().trim().length()>20){
-            s.put("managerUpdateBookPublishError","出版社长度不能超过20个字符");
+        }else if(book.getBookPublish().trim().length()>30){
+            s.put("managerUpdateBookPublishError","出版社长度不能超过30个字符");
             this.addFieldError("managerError","addErrorMessage");
         }else if(book.getBookPrice()<=0){
             s.put("managerUpdateBookPriceError","价格不能小于0元");

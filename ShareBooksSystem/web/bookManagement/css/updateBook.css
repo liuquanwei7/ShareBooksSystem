@@ -2,8 +2,8 @@
     position: fixed;
     width: 80%;
     height: 100%;
-    margin-top: 165px;
-    margin-left: 733px;
+    margin-top: 94px;
+    margin-left: 633px;
 }
 
 #left{
@@ -29,7 +29,7 @@
 }
 
 #queryBook_title{
-    margin-left: 67px;
+    margin-left: 121px;
     margin-bottom: 90px;
 }
 
@@ -45,4 +45,27 @@
 
 .queryError{
     margin-left: 119px;
+}
+
+#bookPicture{
+    margin-top: 4px;
+    margin-left: 10px;
+}
+
+#bookPicture img{
+    width: 291px;
+    height: 341px;
+}
+#updateBook_main{
+    display: flex;
+    flex-direction: row;
+}
+
+#submitButton{
+    margin-top: 35px;
+    margin-left: 10px;
+}
+
+#formDiv{
+
 }

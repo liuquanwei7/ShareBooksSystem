@@ -20,6 +20,9 @@ public interface BookManagementDao {
     //通过Object添加或更新
     public boolean updateByObject(Object object);
 
+    //同时更新两个object
+    public boolean updateByTwoObject(Object object1,Object object2);
+
     //查询全部
     public List queryByParam(String className);
 

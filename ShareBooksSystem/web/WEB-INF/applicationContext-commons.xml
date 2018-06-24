@@ -28,7 +28,7 @@
         <property name="password" value="Lqw621621."/>
 
         <!-- 最大连接数量 -->
-        <property name="maxTotal" value="70" />
+        <property name="maxTotal" value="250" />
         <!-- 最小空闲连接 -->
         <property name="minIdle" value="5" />
         <!-- 最大空闲连接 -->

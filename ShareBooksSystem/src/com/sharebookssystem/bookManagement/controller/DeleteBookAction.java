@@ -107,7 +107,7 @@ public class DeleteBookAction extends ActionSupport {
             }else{
                 personalBook = personalBookList.get(0);
                 personalBookId = personalBook.getPersonalBookId();
-                if(service.deleteCollectCarItem(personalBookId)&&service.deleteCommentItem(personalBookId)&&service.deleteBorrowHistotyItem(personalBookId)&&service.deletePersonalBook(personalBookId)){
+                if(service.deleteCollectCarItem(personalBookId)&&service.deleteCommentItem(personalBookId)&&service.deleteBorrowHistoryItem(personalBookId)&&service.deletePersonalBook(personalBookId)){
                     //删除关联表
                     if(service.deleteBook(bookId)){
                         return SUCCESS;

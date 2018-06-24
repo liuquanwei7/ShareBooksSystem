@@ -97,6 +97,24 @@ public class BookManagementDaoImpl implements BookManagementDao {
         }
     }
 
+    //同时更新两个object
+    public boolean updateByTwoObject(Object object1,Object object2){
+        Session session=null;
+        try{
+            session=sessionFactory.openSession();
+            Transaction trans=session.beginTransaction();
+            session.saveOrUpdate(object1);
+            session.saveOrUpdate(object2);
+            trans.commit();
+            return true;
+        }catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }finally{
+            session.close();
+        }
+    }
+
     //查询全部
     public List queryByParam(String className){
         Session session = null;
