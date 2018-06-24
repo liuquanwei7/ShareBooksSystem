@@ -34,19 +34,39 @@
                 <s:if test="#st1.count==#st2.count">
                 <div class="card oneBook" >
                     <%--<a href="javascript:showbookinfo('<s:property value="#mybook.bookId"/>')">--%>
-                    <a href="javascript:showbookinfo('<s:property value="#thebook.personalBookId"/>')">
+
+                    <a class="bookImg" href="javascript:showbookinfo('<s:property value="#thebook.personalBookId"/>')">
                             <%--<a href="ensureAddBookAction?book=+<s:property value='#mybook'/>">--%>
-                        <img referrerpolicy ="no-referrer" alt="网络错误" src="<s:property value="#mybook.bookPicture"/>" class="card-img-top">
-                        <div class="card-body">
+                        <%--<div class="bookImg">--%>
+                            <img referrerpolicy ="no-referrer" alt="网络错误" src="<s:property value="#mybook.bookPicture"/>" class="card-img-top">
+                        <%--</div>--%>
+                    </a>
+                        <div class="bookInfo">
                             <%--<s:property value="#mybook.bookPicture"/>--%>
-                            <p class="card-text"><s:property value="#mybook.bookName"/></p>
-                            <p class="card-text"><s:property value="#mybook.bookAuthor"/></p>
-                            <p class="card-text"><s:property value="#mybook.bookCategory"/></p>
-                            <p class="card-text"><s:property value="#mybook.bookPublish"/></p>
-                            <p class="card-text"><s:property value="#mybook.bookPrice"/>元</p>
+                                <a class="bookName" href="javascript:showbookinfo('<s:property value="#thebook.personalBookId"/>')">
+                                    <img class="bookNameLeft" src="image/bookNamePic.png">
+                                    <div class="bookNameRight">
+                                        <p class="realBookName"><s:property value="#mybook.bookName"/></p>
+                                        <p class="bookAuthor"><s:property value="#mybook.bookAuthor"/></p>
+                                    </div>
+                                </a>
+                                <p class="bookCategory">出版社：<s:property value="#mybook.bookCategory"/></p>
+                            <div class="bookBottom">
+                                <img src="image/eyeTimes.png" class="eyeTimes" alt="">
+                                <span>
+                                    <s:if test="#mybook.numberOfTimes">
+                                        <s:property value="#mybook.numberOfTimes"/>
+                                    </s:if>
+                                    <s:else>0</s:else>
+
+                                </span>
+                                <img src="image/comment.png" class="comment" alt="">
+                                <span>5</span>
+                            </div>
 
                         </div>
-                    </a>
+
+
                 </div>
                 </s:if>
                 </s:iterator>
