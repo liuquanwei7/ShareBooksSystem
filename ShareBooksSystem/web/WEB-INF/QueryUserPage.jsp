@@ -11,9 +11,20 @@
 <head>
     <title>管理用户信息</title>
     <meta content="text/html" charset="UTF-8"/>
+    <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdn.bootcss.com/popper.js/1.12.5/umd/popper.min.js"></script>
+    <script src="https://cdn.bootcss.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
 </head>
 <body>
-    <div>
+<div id="top">
+    <jsp:include page="../bookManagement/manager_top.jsp" flush="true" />
+</div>
+<div id="left">
+    <jsp:include page="../bookManagement/manager_left.jsp" flush="true" />
+</div>
+<div id="pan_main" style="left:450px;top:100px;margin: 0 auto;width: 800px;height: 500px;position:absolute">
+
+    <div style="">
         <form method="post" action="queryUserInUserPage.action">
             <table>
                 <tr>
@@ -122,5 +133,6 @@
         </table>
     </div>
     <% } %>
+</div>
 </body>
 </html>
