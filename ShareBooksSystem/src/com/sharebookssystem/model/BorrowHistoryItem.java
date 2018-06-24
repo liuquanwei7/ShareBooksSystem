@@ -11,6 +11,15 @@ public class BorrowHistoryItem {
     private String borrowStatus;
     private User borrower;
     private PersonalBook personalBook;
+    private int borrowCode;
+
+    public int getBorrowCode() {
+        return borrowCode;
+    }
+
+    public void setBorrowCode(int borrowCode) {
+        this.borrowCode = borrowCode;
+    }
 
     public int getBorrowHistoryItemId() {
         return borrowHistoryItemId;

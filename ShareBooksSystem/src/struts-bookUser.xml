@@ -44,8 +44,66 @@
         </action>
         <action name="ensureAddBookAction" class="ensureAddBookAction">
             <!--<interceptor-ref name="loginInterceptor"/>-->
-            <result name="success">ensureBookSuccess.jsp</result>
-            <result name="input">addBook.jsp</result>
+            <result name="success" type="json">
+                <param name="root">jsonMap</param>
+            </result>
+            <!--<result name="input">addBook.jsp</result>-->
+        </action>
+        <action name="showBookInfoAction" class="showBookInfoAction">
+            <!--<interceptor-ref name="loginInterceptor"/>-->
+            <interceptor-ref name="defaultStack"/>
+            <result name="success">bookInfo.jsp</result>
+            <result name="input">checkBooks.jsp</result>
+            <!--<result name="input">addBook.jsp</result>-->
+        </action>
+        <action name="borrowBookAction" class="borrowBookAction">
+            <!--<interceptor-ref name="loginInterceptor"/>-->
+            <interceptor-ref name="defaultStack"/>
+            <result name="success">borrowSuccess.jsp</result>
+            <result name="input">borrowFalse.jsp</result>
+            <!--<result name="input">addBook.jsp</result>-->
+        </action>
+        <action name="addBookToCarAction" class="addBookToCarAction">
+            <!--<interceptor-ref name="loginInterceptor"/>-->
+            <interceptor-ref name="defaultStack"/>
+            <result name="success">addInCarSuccess.jsp</result>
+            <result name="input">addInCarFalse.jsp</result>
+            <!--<result name="input">addBook.jsp</result>-->
+        </action>
+        <action name="showMyBorrowCarAction" class="showMyBorrowCarAction">
+            <!--<interceptor-ref name="loginInterceptor"/>-->
+            <interceptor-ref name="defaultStack"/>
+            <result name="success">myBorrowCar.jsp</result>
+            <result name="input">showMyBorrowCarFalse.jsp</result>
+            <!--<result name="input">addBook.jsp</result>-->
+        </action>
+        <action name="deleteBookFromCarAction" class="deleteBookFromCarAction">
+            <!--<interceptor-ref name="loginInterceptor"/>-->
+            <interceptor-ref name="defaultStack"/>
+            <result name="success">myBorrowCar.jsp</result>
+            <result name="input">deleteBookFromCarFalse.jsp</result>
+            <!--<result name="input">addBook.jsp</result>-->
+        </action>
+        <action name="showMyBookAction" class="showMyBookAction">
+            <!--<interceptor-ref name="loginInterceptor"/>-->
+            <interceptor-ref name="defaultStack"/>
+            <result name="success">myBook.jsp</result>
+            <result name="input">myBookFalse.jsp</result>
+            <!--<result name="input">addBook.jsp</result>-->
+        </action>
+        <action name="getMyBookAction" class="getMyBookAction">
+            <!--<interceptor-ref name="loginInterceptor"/>-->
+            <interceptor-ref name="defaultStack"/>
+            <result name="success">getMyBookSuccess.jsp</result>
+            <result name="input">getMyBookFalse.jsp</result>
+            <!--<result name="input">addBook.jsp</result>-->
+        </action>
+        <action name="beforeGetMyBookAction" class="beforeGetMyBookAction">
+            <!--<interceptor-ref name="loginInterceptor"/>-->
+            <interceptor-ref name="defaultStack"/>
+            <result name="success">getMyBookSuccess.jsp</result>
+            <result name="input">getMyBookFalse.jsp</result>
+            <!--<result name="input">addBook.jsp</result>-->
         </action>
     </package>
 </struts>

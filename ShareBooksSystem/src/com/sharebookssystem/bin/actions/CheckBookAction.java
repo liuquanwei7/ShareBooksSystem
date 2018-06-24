@@ -4,18 +4,46 @@ import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 import com.sharebookssystem.bin.dao.BookDao;
 import com.sharebookssystem.model.Book;
+import com.sharebookssystem.model.BookAllInfo;
+import com.sharebookssystem.model.PersonalBook;
 import com.sharebookssystem.model.User;
 import org.hibernate.cache.spi.CacheKey;
 
 //import java.awt.print.Book;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class CheckBookAction extends ActionSupport {
     BookDao bd;
     User user;
     List<Book> books;
+    List<PersonalBook> personalbooks;
+    List oj;
     String check_data;
+    BookAllInfo bookAllInfo;
+
+    public List<PersonalBook> getPersonalbooks() {
+        return personalbooks;
+    }
+
+    public void setPersonalbooks(List<PersonalBook> personalbooks) {
+        this.personalbooks = personalbooks;
+    }
+
+    public BookAllInfo getBookAllInfo() {
+        return bookAllInfo;
+    }
+
+    public void setBookAllInfo(BookAllInfo bookAllInfo) {
+        this.bookAllInfo = bookAllInfo;
+    }
+
+    public List<PersonalBook> getOwnbooks() {
+        return personalbooks;
+    }
+
+    public void setOwnbooks(List<PersonalBook> personalbooks) {
+        this.personalbooks = personalbooks;
+    }
 
     public CheckBookAction(){}
 
@@ -55,11 +83,42 @@ public class CheckBookAction extends ActionSupport {
         Map map=ActionContext.getContext().getSession();
         check_data=(String) map.get("check_data");
         map.put("check_data",null);
+//        check_data="java";
+        books=new ArrayList<Book>();
+        personalbooks=new ArrayList<PersonalBook>();
         user=(User) map.get("user");
-        books=bd.checkBook(check_data);
-        System.out.println(books.toString());
-        System.out.println(books.get(0).getBookName());
-        if (books!=null){
+//        books=bd.checkBook(check_data);
+//        System.out.println(books.toString());
+//        books.add((Book)bd.checkBook(check_data).get(0));
+//        books=bd.checkBook(check_data);
+        Collection result=new ArrayList();
+        books=null;
+        personalbooks=null;
+        result=bd.checkBook(check_data);//获取Collection对象
+        if(result!=null) {
+            books=new ArrayList<Book>();
+            personalbooks=new ArrayList<PersonalBook>();
+            ArrayList sList = (ArrayList) result;//转换类型
+            Iterator iterator1 = sList.iterator();
+            //遍历获取对应类的对象值
+            while (iterator1.hasNext()) {
+                Object[] o = (Object[]) iterator1.next();
+                books.add((Book) o[0]);//获取book对象
+                personalbooks.add((PersonalBook) o[1]);//获取personal Book对象
+                System.out.println("BookInfo-Title: " + books.get(0).getBookAuthor());
+                System.out.println("BookSelection-BookSelectionId: " + personalbooks.get(0).getBookStatus());
+            }
+            bookAllInfo = new BookAllInfo();
+            bookAllInfo.setBooks(books);
+            bookAllInfo.setPersonalbooks(personalbooks);
+            map.put("books", books);
+            map.put("personalbooks", personalbooks);
+
+//        books=(List<Book>)(Object[])a.get(0);
+//        System.out.println(books.get(0).getBookName());
+//        System.out.println(books);
+        }
+        if (books!=null&&personalbooks!=null){
             return SUCCESS;
         }else {
             return INPUT;

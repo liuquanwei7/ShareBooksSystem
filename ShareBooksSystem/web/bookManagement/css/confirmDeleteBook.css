@@ -1,0 +1,49 @@
+#main{
+    position: fixed;
+    width: 80%;
+    height: 100%;
+    margin-top: 165px;
+    margin-left: 733px;
+}
+
+#left{
+    width: 20%;
+    height: 100%;
+    margin-top: 49px;
+}
+
+#all{
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    top:0;
+    margin: 0;
+    height: 100%;
+    width: 100%;
+}
+
+#top{
+    position: fixed;
+    z-index: 11;
+}
+
+#deleteTitle{
+    margin-left: 15px;
+    margin-top: 10px;
+}
+
+#imContent{
+    margin-left: 21px;
+    margin-top: 77px;
+}
+
+#delete{
+    margin-left: 16px;
+    margin-top: 55px;
+}
+
+#back{
+    margin-left: 11px;
+    margin-top: 55px;
+}
