@@ -12,6 +12,15 @@ public class BorrowHistoryItem {
     private User borrower;
     private PersonalBook personalBook;
     private int borrowCode;
+    private  String returnCode;;
+
+    public String getReturnCode() {
+        return returnCode;
+    }
+
+    public void setReturnCode(String returnCode) {
+        this.returnCode = returnCode;
+    }
 
     public int getBorrowCode() {
         return borrowCode;
@@ -77,23 +86,7 @@ public class BorrowHistoryItem {
         this.personalBook = personalBook;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        BorrowHistoryItem that = (BorrowHistoryItem) o;
-        return borrowHistoryItemId == that.borrowHistoryItemId &&
-                Objects.equals(borrowDate, that.borrowDate) &&
-                Objects.equals(shouldReturnDate, that.shouldReturnDate) &&
-                Objects.equals(actualReturnDate, that.actualReturnDate) &&
-                Objects.equals(borrowStatus, that.borrowStatus);
-    }
 
-    @Override
-    public int hashCode() {
-
-        return Objects.hash(borrowHistoryItemId, borrowDate, shouldReturnDate, actualReturnDate, borrowStatus);
-    }
 
     public BorrowHistoryItem() {
     }

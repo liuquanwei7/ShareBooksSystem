@@ -31,7 +31,7 @@
 
         <action name="borrowShowAction" class="borrowShowAction">
             <result name="success">BorrowAleady.jsp</result>
-            <result name="input">BorrowAleady.jsp</result>
+            <result name="input">aheadhome.jsp</result>
         </action>
 
         <action name="queryReturnAction" class="queryReturnAction">
