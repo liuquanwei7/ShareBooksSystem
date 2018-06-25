@@ -17,73 +17,89 @@
     <script src="js/borrowBook.js"></script>
     <script src="js/addInCar.js"></script>
     <link href="css/mycss.css" rel="stylesheet">
-    <style>
-        #a_comment{
-            display: inline-block;
-            border: 1px solid #3f5a93;
-            color: #3f5a93;
-            text-align: center;
-            width: 120px;
-            height: 34px;
-            text-decoration: none;
-            vertical-align: middle;
-            font-size: 14px;
-            line-height: 28px;
-            margin-right: 20px;
-        }
-    </style>
+    <link href="css/bookInfo.css" rel="stylesheet">
+    <%--<style>--%>
+        <%--#a_comment{--%>
+            <%--display: inline-block;--%>
+            <%--border: 1px solid #3f5a93;--%>
+            <%--color: #3f5a93;--%>
+            <%--text-align: center;--%>
+            <%--width: 120px;--%>
+            <%--height: 34px;--%>
+            <%--text-decoration: none;--%>
+            <%--vertical-align: middle;--%>
+            <%--font-size: 14px;--%>
+            <%--line-height: 28px;--%>
+            <%--margin-right: 20px;--%>
+        <%--}--%>
+    <%--</style>--%>
 </head>
 <body>
     <header></header>
-    <div>
-        <div class="card mycard">
+    <div class="myBook">
+
             <s:iterator value="mybook" status="st" var="book">
                 <s:iterator value="personalBook" status="st" var="personalbook">
                 <%--<img src="<s:property value="#book.bookPicture">" class="card-img">--%>
-                <div class="bookImg">
-                    <%--<img referrerpolicy="no-referrer" src="https://img3.doubanio.com/view/subject/m/public/s5968156.jpg"--%>
-                     <%-->--%>
-                        <img referrerpolicy="no-referrer" src="<s:property value="#book.bookPicture"/>">
+                <div class="card mycard">
+                    <div class="bookImg">
+                        <%--<img referrerpolicy="no-referrer" src="https://img3.doubanio.com/view/subject/m/public/s5968156.jpg"--%>
+                         <%-->--%>
+                            <img referrerpolicy="no-referrer" src="<s:property value="#book.bookPicture"/>">
+                    </div>
+                    <div class="bookInfo">
+
+                        <h1 class="bookName">
+                            <em><s:property value="#book.bookName"/></em>
+                            <span><s:property value="#book.bookAuthor"/>&nbsp著</span>
+                        </h1>
+                        <p>计算机:<s:property value="#book.bookCategory"/></p>
+                        <p>出版社:<s:property value="#book.bookPublish"/></p>
+                        <p id="storeStatus">在库状态：<s:property value="#personalbook.bookStatus"/></p>
+                        <p class="bookTodo">
+
+                            <%--<a href="javascript:borrowBook('<s:property value="#personalbook.personalBookId"/>')" class="borrowBook">借阅</a>--%>
+                            <a href="javascript:borrowBook(<s:property value="#personalbook.personalBookId"/>,'<s:property value="#personalbook.bookStatus"/>')" class="borrowBook">借阅</a>
+
+                            <%--<a href="javascript:borrowBook('<s:property value="#personalbook.personalBookId"/>')" class="borrowBook">借阅</a>--%>
+                            <a href="javascript:addInCar('<s:property value="#personalbook.personalBookId"/>')" class="addInCar">加入借阅车</a>
+                            <%--<a href="" class="addInCar">加入借阅车</a>--%>
+
+
+
+
+                            <%--<a onclick="borrowBook(<s:property value="#personalbook.personalBookId"/>--%>
+                            <%--','<s:property value="#personalbook.bookStatus"/>)" class="borrowBook">借阅</a>--%>
+
+
+
+                        </p>
+
+                    </div>
+                    <div class="bookCommentSide">
+                        <p class="number"><s:property value="#personalbook.numberOfTimes"/></p>
+                        <p>借阅热度</p>
+                    </div>
                 </div>
-                <div class="bookInfo">
+                    <div class="bookSummary">
+                        <p class="bookSummaryLeft">书籍信息</p>
 
-                    <h1 class="bookName">
-                        <em><s:property value="#book.bookName"/></em>
-                        <span><s:property value="#book.bookAuthor"/>&nbsp著</span>
-                    </h1>
-                    <p>计算机:<s:property value="#book.bookCategory"/></p>
-                    <p>出版社:<s:property value="#book.bookPublish"/></p>
-                    <p id="storeStatus">在库状态：<s:property value="#personalbook.bookStatus"/></p>
-                    <p class="bookTodo">
+                            <p class="bookSummaryRight">
+                                <a href="../bookUi/aheadComment.jsp" id="a_comment">书籍评论</a>
+                            </p>
 
-                        <%--<a href="javascript:borrowBook('<s:property value="#personalbook.personalBookId"/>')" class="borrowBook">借阅</a>--%>
-                        <a href="javascript:borrowBook(<s:property value="#personalbook.personalBookId"/>,'<s:property value="#personalbook.bookStatus"/>')" class="borrowBook">借阅</a>
-
-                        <%--<a href="javascript:borrowBook('<s:property value="#personalbook.personalBookId"/>')" class="borrowBook">借阅</a>--%>
-                        <a href="javascript:addInCar('<s:property value="#personalbook.personalBookId"/>')" class="addInCar">加入借阅车</a>
-                        <%--<a href="" class="addInCar">加入借阅车</a>--%>
-
-                        <a href="../bookUi/aheadComment.jsp" id="a_comment">查看评论</a>
-
-
-                        <%--<a onclick="borrowBook(<s:property value="#personalbook.personalBookId"/>--%>
-                        <%--','<s:property value="#personalbook.bookStatus"/>)" class="borrowBook">借阅</a>--%>
-
-
-
-                    </p>
-
-                </div>
-                <div class="bookCommentSide">
-                    <p><s:property value="personalBook.numberOfTimes"/></p>
-                    <p>借阅热度</p>
-                </div>
+                    </div>
+                    <div class="bookSummaryInfo">
+                        <s:property value="#book.bookSummary"/>
+                    </div>
                 </s:iterator>
             </s:iterator>
-        </div>
+
 
     </div>
 
     <footer></footer>
+<%--<%session.removeAttribute("mybook");--%>
+<%--session.removeAttribute("personalBook");%>--%>
 </body>
 </html>
