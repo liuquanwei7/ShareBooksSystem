@@ -1,0 +1,71 @@
+#main{
+    position: fixed;
+    width: 80%;
+    height: 100%;
+    margin-top: 94px;
+    margin-left: 633px;
+}
+
+#left{
+    width: 20%;
+    height: 100%;
+    margin-top: 49px;
+}
+
+#all{
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    top:0;
+    margin: 0;
+    height: 100%;
+    width: 100%;
+}
+
+#top{
+    position: fixed;
+    z-index: 11;
+}
+
+#queryBook_title{
+    margin-left: 121px;
+    margin-bottom: 90px;
+}
+
+#update{
+    margin-left: 142px;
+    margin-top: 35px;
+}
+
+#back{
+    margin-left: 9px;
+    margin-top: 35px;
+}
+
+.queryError{
+    margin-left: 119px;
+}
+
+#bookPicture{
+    margin-top: 4px;
+    margin-left: 10px;
+}
+
+#bookPicture img{
+    width: 291px;
+    height: 341px;
+}
+#updateBook_main{
+    display: flex;
+    flex-direction: row;
+}
+
+#submitButton{
+    margin-top: 35px;
+    margin-left: 10px;
+}
+
+#formDiv{
+
+}

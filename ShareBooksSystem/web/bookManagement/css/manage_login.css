@@ -1,28 +1,64 @@
 #title{
-   margin: 0 auto;
-   text-align:center;
-   position: relative;
-   top: 100px;
+    margin: 0 auto;
+    text-align:center;
+    position: relative;
+    top: 100px;
 }
 
 #main{
-   position:relative;
-   top:200px;
-   left:410px;
+    position:relative;
+    top:200px;
+    left:410px;
 }
 
 #email{
-   width: 280px;
+    width: 280px;
+    display: inline-block;
 }
 
 #password{
-   width: 280px;
+    width: 280px;
+    display: inline-block;
 }
 
 #login{
-   position: relative;
-   left: 220px;
-   top: 20px;
+    position: relative;
+    left: 95px;
+    top: 20px;
 }
 
+#reset{
+    position: relative;
+    left: 59px;
+    top: 20px;
+}
 
+#managerLoginAccountError{
+    display: inline-block;
+    width: 20%;
+}
+
+#managerAccount{
+    width: 640px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+
+}
+
+#managerLoginPasswordError{
+    display: inline-block;
+    width: 20%;
+}
+
+#managerPassword{
+    width: 640px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+#managerPosition{
+    margin-left: 67px;
+    margin-top: 20px;
+}

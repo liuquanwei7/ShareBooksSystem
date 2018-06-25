@@ -17,15 +17,120 @@
         </property>
     </bean>
 
+    <!-- 管理员信息查询 -->
+    <bean id="queryManagerInfoAction" class="com.sharebookssystem.bookManagement.controller.QueryManagerInfoAction" scope="prototype">
+        <property name="service">
+            <ref bean="managerServiceImpl"></ref>
+        </property>
+    </bean>
+
+    <!-- 管理员信息修改查询 -->
+    <bean id="queryManagerInfoByIdAction" class="com.sharebookssystem.bookManagement.controller.QueryManagerInfoByIdAction" scope="prototype">
+        <property name="service">
+            <ref bean="managerServiceImpl"></ref>
+        </property>
+    </bean>
+
+    <!-- 分页查询 -->
+    <bean id="queryManagerInfoByPageAction" class="com.sharebookssystem.bookManagement.controller.QueryManagerInfoByPageAction" scope="prototype">
+        <property name="service">
+            <ref bean="managerServiceImpl"></ref>
+        </property>
+    </bean>
+
+    <!-- 分页查询 -->
+    <bean id="queryBookByPageAction" class="com.sharebookssystem.bookManagement.controller.QueryBookByPageAction" scope="prototype">
+        <property name="service">
+            <ref bean="managerServiceImpl"></ref>
+        </property>
+    </bean>
+
+    <!-- 查询所有图书 -->
+    <bean id="queryAllBookAction" class="com.sharebookssystem.bookManagement.controller.QueryAllBookAction" scope="prototype">
+        <property name="service">
+            <ref bean="managerServiceImpl"></ref>
+        </property>
+    </bean>
+
+    <!-- id查询 -->
+    <bean id="queryBookByIdAction" class="com.sharebookssystem.bookManagement.controller.QueryBookByIdAction" scope="prototype">
+        <property name="service">
+            <ref bean="managerServiceImpl"></ref>
+        </property>
+    </bean>
+
     <bean id="updateBookAction" class="com.sharebookssystem.bookManagement.controller.UpdateBookAction" scope="prototype">
         <property name="service">
             <ref bean = "managerServiceImpl"></ref>
         </property>
     </bean>
 
-    <bean id="deleteBookAction" class="com.sharebookssystem.bookManagement.controller.DeleteBook" scope="prototype">
+    <bean id="deleteBookAction" class="com.sharebookssystem.bookManagement.controller.DeleteBookAction" scope="prototype">
         <property name="service">
             <ref bean = "managerServiceImpl"></ref>
         </property>
     </bean>
+
+    <!-- 管理员注册 -->
+    <bean id="managerRegisterAction" class="com.sharebookssystem.bookManagement.controller.ManagerRegisterAction" scope="prototype">
+        <property name="service">
+            <ref bean="managerServiceImpl"></ref>
+        </property>
+    </bean>
+
+    <!-- 管理员修改 -->
+    <bean id="updateManagerInfoAction" class="com.sharebookssystem.bookManagement.controller.UpdateManagerInfoAction" scope="prototype">
+        <property name="service">
+            <ref bean="managerServiceImpl"></ref>
+        </property>
+    </bean>
+
+    <!-- 管理员删除 -->
+    <bean id="deleteManagerInfoAction" class="com.sharebookssystem.bookManagement.controller.DeleteManagerInfoAction" scope="prototype">
+        <property name="service">
+            <ref bean="managerServiceImpl"></ref>
+        </property>
+    </bean>
+
+    <!-- 管理员修改密码 -->
+    <bean id="changeManagerPassword" class="com.sharebookssystem.bookManagement.controller.ChangeManagerPassword" scope="prototype">
+        <property name="service">
+            <ref bean="managerServiceImpl"></ref>
+        </property>
+    </bean>
+
+    <!-- 管理员退出登陆 -->
+    <bean id="managerExitLogin" class="com.sharebookssystem.bookManagement.controller.ManagerExitLogin" scope="prototype">
+
+    </bean>
+
+    <!-- 管理员分享图书 -->
+    <bean id="operatorShareBookAction" class="com.sharebookssystem.bookManagement.controller.OperatorShareBookAction" scope="prototype">
+        <property name="service">
+            <ref bean="managerServiceImpl"></ref>
+        </property>
+    </bean>
+
+    <!-- 管理员借阅图书 -->
+    <bean id="operatorBorrowBookAction" class="com.sharebookssystem.bookManagement.controller.OperatorBorrowBookAction" scope="prototype">
+        <property name="service">
+            <ref bean="managerServiceImpl"></ref>
+        </property>
+    </bean>
+
+    <!-- 管理员归还图书 -->
+    <bean id="operatorReturnBookAction" class="com.sharebookssystem.bookManagement.controller.OperatorReturnBookAction" scope="prototype">
+        <property name="service">
+            <ref bean="managerServiceImpl"></ref>
+        </property>
+    </bean>
+
+    <!-- 管理员收回图书 -->
+    <bean id="operatorGetBookAction" class="com.sharebookssystem.bookManagement.controller.OperatorGetBookAction" scope="prototype">
+        <property name="service">
+            <ref bean="managerServiceImpl"></ref>
+        </property>
+    </bean>
+
+
 </beans>

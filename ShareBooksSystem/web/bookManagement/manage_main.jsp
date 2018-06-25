@@ -57,7 +57,7 @@
         </div>
 
         <div>
-            <%@ include file="/bookManagement/queryBook.jsp" %>
+            <jsp:include page="queryBook.jsp" flush="true" />
         </div>
 
 

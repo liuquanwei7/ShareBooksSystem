@@ -1,0 +1,17 @@
+body{
+    top: 0;
+    margin: 0;
+}
+
+#main{
+    width: 14%;
+    height: 20%;
+    position: relative;
+    margin: 0 auto;
+    margin-top: 20%;
+}
+
+#back{
+    margin-left: 252px;
+    margin-top: 12px;
+}

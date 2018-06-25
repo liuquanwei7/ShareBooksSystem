@@ -45,14 +45,13 @@ public class BookManagementDaoImpl implements BookManagementDao {
         }
     }
 
-    //通过Id删除
-    public boolean deleteById(Object object,int id){
+    //删除
+    public boolean deleteByObject(Object object){
         Session session=null;
         try{
             session=sessionFactory.openSession();
-            Object newObject=(Object) session.get(object.getClass(), id);
             Transaction trans=session.beginTransaction();
-            session.delete(newObject);
+            session.delete(object);
             trans.commit();
             return true;
 
@@ -61,6 +60,23 @@ public class BookManagementDaoImpl implements BookManagementDao {
             return false;
         }finally{
             session.close();
+        }
+    }
+
+    //通过hql删除
+    public boolean deleteByHql(String className,String param1,int value1){
+        Session session=null;
+        try{
+            session = sessionFactory.openSession();
+            Transaction trans=session.beginTransaction();
+            String hql = "Delete from "+className+" where "+param1+" = "+value1;
+            Query query = session.createQuery(hql);
+            query.executeUpdate();
+            trans.commit();
+            return true;
+        }catch (Exception e){
+            e.printStackTrace();
+            return false;
         }
     }
 
@@ -73,7 +89,6 @@ public class BookManagementDaoImpl implements BookManagementDao {
             session.saveOrUpdate(object);
             trans.commit();
             return true;
-
         }catch (Exception e) {
             e.printStackTrace();
             return false;
@@ -82,13 +97,51 @@ public class BookManagementDaoImpl implements BookManagementDao {
         }
     }
 
-    //一个参数查询
-    public List<Object> queryByParam(String className,String param1,String value1){
+    //同时更新两个object
+    public boolean updateByTwoObject(Object object1,Object object2){
+        Session session=null;
+        try{
+            session=sessionFactory.openSession();
+            Transaction trans=session.beginTransaction();
+            session.saveOrUpdate(object1);
+            session.saveOrUpdate(object2);
+            trans.commit();
+            return true;
+        }catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }finally{
+            session.close();
+        }
+    }
+
+    //查询全部
+    public List queryByParam(String className){
         Session session = null;
         try{
             session = sessionFactory.openSession();
-            String hql = "from "+className+" where "+param1+" = '"+value1+"'";
+            String hql = "from "+className;
             Query query = session.createQuery(hql);
+            Transaction transaction = session.beginTransaction();
+            List<Object> result = query.list();
+            transaction.commit();
+            return result;
+        }catch (Exception e){
+            e.printStackTrace();
+            return null;
+        }finally {
+            session.close();
+        }
+    }
+
+    //一个参数查询
+    public List<Object> queryByParam(String className,String param1,Object value1){
+        Session session = null;
+        try{
+            session = sessionFactory.openSession();
+            String hql = "from "+className+" where "+param1+" = ?";
+            Query query = session.createQuery(hql);
+            query.setParameter(0,value1);
             Transaction transaction = session.beginTransaction();
             List<Object> result = query.list();
             transaction.commit();
@@ -102,16 +155,16 @@ public class BookManagementDaoImpl implements BookManagementDao {
     }
 
     //两个参数查询
-    public List<Object> queryByParam(String className,String param1,String value1,String param2,String value2){
+    public List<Object> queryByParam(String className,String param1,Object value1,String param2,Object value2){
         Session session = null;
         try{
             session = sessionFactory.openSession();
-            String hql = "from "+className+" where "+param1+" = '"+value1+"' and "+param2+" = '"+value2+"'";
+            String hql = "from "+className+" where "+param1+" = ? and "+param2+" = ?";
             Query query = session.createQuery(hql);
-            System.out.println("hql="+hql);
+            query.setParameter(0,value1);
+            query.setParameter(1,value2);
             Transaction transaction = session.beginTransaction();
             List<Object> result = query.list();
-            System.out.println("1111"+result.size());
             transaction.commit();
             return result;
         }catch (Exception e){
@@ -123,12 +176,16 @@ public class BookManagementDaoImpl implements BookManagementDao {
     }
 
     //三个参数查询
-    public List<Object> queryByParam(String className,String param1,String value1,String param2,String value2,String param3,String value3){
+    public List<Object> queryByParam(String className,String param1,Object value1,String param2,Object value2,String param3,Object value3){
         Session session = null;
         try{
             session = sessionFactory.openSession();
-            String hql = "from "+className+" where "+param1+" = '"+value1+"' and "+param2+" = '"+value2+"' and "+param3+" = '"+value3+"'";
+            //String hql = "from "+className+" where "+param1+" = '"+value1+"' and "+param2+" = '"+value2+"' and "+param3+" = '"+value3+"'";
+            String hql = "from "+className+" where "+param1+" = ? and "+param2+" = ? and "+param3+" = ?";
             Query query = session.createQuery(hql);
+            query.setParameter(0,value1);
+            query.setParameter(1,value2);
+            query.setParameter(2,value3);
             Transaction transaction = session.beginTransaction();
             List<Object> result = query.list();
             transaction.commit();
@@ -142,12 +199,16 @@ public class BookManagementDaoImpl implements BookManagementDao {
     }
 
     //四个参数查询
-    public List<Object> queryByParam(String className,String param1,String value1,String param2,String value2,String param3,String value3,String param4,String value4){
+    public List<Object> queryByParam(String className,String param1,Object value1,String param2,Object value2,String param3,Object value3,String param4,Object value4){
         Session session = null;
         try{
             session = sessionFactory.openSession();
-            String hql = "from "+className+" where "+param1+" = '"+value1+"' and "+param2+" = '"+value2+"' and "+param3+" = '"+value3+"' and "+param4+" = '"+value4+"'";
+            String hql = "from "+className+" where "+param1+" = ? and "+param2+" = ? and "+param3+" = ? and "+param4+" = ?";
             Query query = session.createQuery(hql);
+            query.setParameter(0,value1);
+            query.setParameter(1,value2);
+            query.setParameter(2,value3);
+            query.setParameter(3,value4);
             Transaction transaction = session.beginTransaction();
             List<Object> result = query.list();
             transaction.commit();
@@ -161,12 +222,17 @@ public class BookManagementDaoImpl implements BookManagementDao {
     }
 
     //五个参数查询
-    public List<Object> queryByParam(String className,String param1,String value1,String param2,String value2,String param3,String value3,String param4,String value4,String param5,String value5){
+    public List<Object> queryByParam(String className,String param1,Object value1,String param2,Object value2,String param3,Object value3,String param4,Object value4,String param5,Object value5){
         Session session = null;
         try{
             session = sessionFactory.openSession();
-            String hql = "from "+className+" where "+param1+" = '"+value1+"' and "+param2+" = '"+value2+"' and "+param3+" = '"+value3+"' and "+param4+" = '"+value4+"' and "+param5+" = '"+value5+"'";
+            String hql = "from "+className+" where "+param1+" = ? and "+param2+" = ? and "+param3+" = ? and "+param4+" = ? and "+param5+" = ?";
             Query query = session.createQuery(hql);
+            query.setParameter(0,value1);
+            query.setParameter(1,value2);
+            query.setParameter(2,value3);
+            query.setParameter(3,value4);
+            query.setParameter(4,value5);
             Transaction transaction = session.beginTransaction();
             List<Object> result = query.list();
             transaction.commit();

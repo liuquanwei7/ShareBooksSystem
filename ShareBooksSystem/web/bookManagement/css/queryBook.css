@@ -1,0 +1,70 @@
+#show{
+    display: none;
+    margin-top: 61px;
+}
+
+#queryButton{
+    position: relative;
+    top:31px;
+}
+
+#main{
+    position: fixed;
+    width: 80%;
+    height: 100%;
+    margin-top: 117px;
+    margin-left: 317px;
+}
+
+#left{
+    width: 20%;
+    height: 100%;
+    margin-top: 49px;
+}
+
+#all{
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    top:0;
+    margin: 0;
+    height: 100%;
+    width: 100%;
+}
+
+#top{
+    position: fixed;
+    z-index: 11;
+}
+
+#queryBook_title{
+    width: 200px;
+    height: 50px;
+    margin-left: 630px;
+}
+
+ul{
+    background-color: #FFFFFF;
+}
+
+#byPage{
+    margin-top: 26px;
+    margin-left: 405px;
+}
+
+#spanError{
+    display: block;
+    margin: 17px 475px;
+}
+
+#queryError{
+    display: block;
+    margin: 17px 475px;
+    width: 35%;
+}
+
+#queryAll{
+    margin-top: -39px;
+    margin-left: 1122px;
+}

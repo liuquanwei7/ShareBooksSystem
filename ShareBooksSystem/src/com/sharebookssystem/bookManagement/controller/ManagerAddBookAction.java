@@ -5,25 +5,25 @@ import com.sharebookssystem.bookManagement.service.impl.BookManagementServiceImp
 import com.sharebookssystem.model.Book;
 
 /**
- * 删除图书
- * 2018/6/10
+ * 管理员添加图书
+ * 2018/6/21
  */
 
 
-public class DeleteBook extends ActionSupport {
-    private Book book;
+public class ManagerAddBookAction extends ActionSupport {
+    private Book managerBook;
     private BookManagementServiceImpl service;
 
-    public DeleteBook(){
+    public ManagerAddBookAction(){
 
     }
 
-    public Book getBook() {
-        return book;
+    public Book getManagerBook() {
+        return managerBook;
     }
 
-    public void setBook(Book book) {
-        this.book = book;
+    public void setManagerBook(Book managerBook) {
+        this.managerBook = managerBook;
     }
 
     public BookManagementServiceImpl getService() {
@@ -34,11 +34,8 @@ public class DeleteBook extends ActionSupport {
         this.service = service;
     }
 
-    public String deleteBook(){
-        if(service.deleteBook(book,book.getBookId())){
-            return SUCCESS;
-        }else{
-            return INPUT;
-        }
+    public String managerAddBook(){
+        service.addBook(managerBook);
+        return SUCCESS;
     }
 }
