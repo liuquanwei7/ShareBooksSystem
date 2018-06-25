@@ -19,7 +19,7 @@
 <div id="top">
     <jsp:include page="../bookManagement/manager_top.jsp" flush="true" />
 </div>
-<div id="left">
+<div id="left" style="top:50px; position:absolute">
     <jsp:include page="../bookManagement/manager_left.jsp" flush="true" />
 </div>
 <div id="pan_main" style="left:450px;top:100px;margin: 0 auto;width: 800px;height: 500px;position:absolute">
