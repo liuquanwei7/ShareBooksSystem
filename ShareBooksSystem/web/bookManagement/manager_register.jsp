@@ -30,7 +30,7 @@
 </div>
 <div id="all">
     <div id="left">
-        <jsp:include page="manager_left.jsp" flush="true" />
+        <jsp:include page="admin_left.jsp" flush="true" />
     </div>
     <div id="main">
         <div class="container" id="registerTitle">

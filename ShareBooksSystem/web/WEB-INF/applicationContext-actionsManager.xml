@@ -132,5 +132,12 @@
         </property>
     </bean>
 
+    <!-- 管理员主页查询信息 -->
+    <bean id="loginMainPageAction" class="com.sharebookssystem.bookManagement.controller.LoginMainPageAction" scope="prototype">
+        <property name="service">
+            <ref bean="managerServiceImpl"></ref>
+        </property>
+    </bean>
+
 
 </beans>

@@ -8,17 +8,32 @@
     <constant name="struts.objectFactory" value="spring" />
     <package name="bookManagement" extends="struts-default">
 
+        <!-- 管理员登录拦截 -->
+        <interceptors>
+            <interceptor name="managerLoginInterceptor" class="managerLoginInterceptor">
+            </interceptor>
+        </interceptors>
+
         <!-- 管理员登陆 -->
         <action name="managerLoginAction" class="bkLoginAction" method="login">
-            <result name="success">/bookManagement/queryBook.jsp</result>
+            <result name="manager" type="redirectAction">
+                <param name="actionName">managerLoginMainPageAction</param>
+            </result>
+            <result name="admin" type="redirectAction">
+                <param name="actionName">adminLoginMainPageAction</param>
+            </result>
             <result name="operator">/bookManagement/operator_main.jsp</result>
             <result name="input">/bookManagement/manage_login.jsp</result>
         </action>
 
         <!-- 管理员注册 -->
         <action name="managerRegisterAction" class="managerRegisterAction" method="managerRegister">
+            <interceptor-ref name="defaultStack"/>
+            <interceptor-ref name="managerLoginInterceptor"/>
+            <result name="managerLogin">/bookManagement/manage_login.jsp</result>
             <result name="success">/bookManagement/managerRegisterSuccess.jsp</result>
             <result name="input">/bookManagement/manager_register.jsp</result>
+
         </action>
 
         <!-- 管理员信息查询 -->
@@ -113,26 +128,63 @@
 
         <!-- 管理员分享图书 -->
         <action name="operatorShareBookAction" class="operatorShareBookAction" method="operatorShareBook">
-            <result name="success">/bookManagement/operatorShareBookSuccess.jsp</result>
+            <result name="confirm">/bookManagement/operatorConfirmShareBook.jsp</result>
             <result name="input">/bookManagement/operatorShareBook.jsp</result>
+        </action>
+
+        <!-- 管理员确认分享图书 -->
+        <action name="operatorConfirmShareBookAction" class="operatorShareBookAction" method="operatorConfirmShareBook">
+            <result name="success">/bookManagement/operatorShareBookSuccess.jsp</result>
+            <result name="input">/bookManagement/operatorConfirmShareBook.jsp</result>
         </action>
 
         <!-- 管理员借阅图书 -->
         <action name="operatorBorrowBookAction" class="operatorBorrowBookAction" method="operatorBorrowBook">
-            <result name="success">/bookManagement/operatorBorrowBookSuccess.jsp</result>
+            <result name="confirm">/bookManagement/operatorConfirmBorrowBook.jsp</result>
             <result name="input">/bookManagement/operatorBorrowBook.jsp</result>
+        </action>
+
+        <!-- 管理员确认借阅图书 -->
+        <action name="operatorConfirmBorrowBookAction" class="operatorBorrowBookAction" method="operatorConfirmBorrowBook">
+            <result name="success">/bookManagement/operatorBorrowBookSuccess.jsp</result>
+            <result name="input">/bookManagement/operatorConfirmBorrowBook.jsp</result>
         </action>
 
         <!-- 管理员归还图书 -->
         <action name="operatorReturnBookAction" class="operatorReturnBookAction" method="operatorReturnBook">
-            <result name="success">/bookManagement/operatorReturnBookSuccess.jsp</result>
+            <result name="confirm">/bookManagement/operatorConfirmReturnBook.jsp</result>
             <result name="input">/bookManagement/operatorReturnBook.jsp</result>
+        </action>
+
+        <!-- 管理员确认归还图书 -->
+        <action name="operatorConfirmReturnBookAction" class="operatorReturnBookAction" method="operatorConfirmReturnBook">
+            <result name="success">/bookManagement/operatorReturnBookSuccess.jsp</result>
+            <result name="input">/bookManagement/operatorConfirmReturnBook.jsp</result>
         </action>
 
         <!-- 管理员索回图书 -->
         <action name="operatorGetBookAction" class="operatorGetBookAction" method="operatorGetBook">
-            <result name="success">/bookManagement/operatorGetBookSuccess.jsp</result>
+            <result name="confirm">/bookManagement/operatorConfirmGetBook.jsp</result>
             <result name="input">/bookManagement/operatorGetBook.jsp</result>
+        </action>
+
+        <!-- 管理员确认索回图书 -->
+        <action name="operatorConfirmGetBookAction" class="operatorGetBookAction" method="operatorConfirmGetBook">
+            <result name="success">/bookManagement/operatorGetBookSuccess.jsp</result>
+            <result name="input">/bookManagement/operatorConfirmGetBook.jsp</result>
+        </action>
+
+
+        <!-- 管理员登录主页查询 -->
+        <action name="managerLoginMainPageAction" class="loginMainPageAction" method="loginMainPage">
+            <result name="success">/bookManagement/manage_main.jsp</result>
+            <result name="input">/bookManagement/manage_main.jsp</result>
+        </action>
+
+        <!-- admin登录主页查询 -->
+        <action name="adminLoginMainPageAction" class="loginMainPageAction" method="loginMainPage">
+            <result name="success">/bookManagement/admin_main.jsp</result>
+            <result name="input">/bookManagement/admin_main.jsp</result>
         </action>
 
     </package>

@@ -35,7 +35,7 @@
         <div id="main">
             <div id="message">
                 <h1 class="display-4">删除成功</h1>
-                <a class="btn btn-success" href="queryManagerInfo.jsp" role="button" id="back">返回</a>
+                <a class="btn btn-success" href="queryBook.jsp" role="button" id="back">返回</a>
             </div>
         </div>
     </div>

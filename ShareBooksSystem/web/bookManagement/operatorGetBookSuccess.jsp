@@ -27,7 +27,7 @@
 <body>
     <div id="main">
         <div id="message">
-            <h1 class="display-4">收回成功</h1>
+            <h1 class="display-4">索回成功</h1>
             <a class="btn btn-success" href="operator_main.jsp" role="button" id="back">返回</a>
         </div>
     </div>

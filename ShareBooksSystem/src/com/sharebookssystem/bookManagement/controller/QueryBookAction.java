@@ -115,7 +115,6 @@ public class QueryBookAction extends ActionSupport {
 
 
         if(book.getBookId()!=0){    //如果有bookId直接查询
-            System.out.println("1111111111");
             temp=service.queryBookById(book.getBookId());
             if(temp==null||temp.size()==0){
                 if(m.get("managerQueryNoBookError")==null&&m.get("managerQueryLowPriceError")==null){
@@ -154,7 +153,10 @@ public class QueryBookAction extends ActionSupport {
 
     public void validateQueryBook(){
         Map s = ActionContext.getContext().getSession();
-        if(book.getBookId()<1&&book.getBookName().trim().equals("")&&book.getBookAuthor().trim().equals("")&&book.getBookPublish().trim().equals("")&&book.getBookPrice()==0&&book.getBookCategory().trim().equals("")){
+        if(book.getBookId()<0){
+            s.put("managerQueryNoBookError","请输入正确的图书编号！");
+            this.addFieldError("managerError","addErrorMessage");
+        } else if(book.getBookId()<1&&book.getBookName().trim().equals("")&&book.getBookAuthor().trim().equals("")&&book.getBookPublish().trim().equals("")&&book.getBookPrice()==0&&book.getBookCategory().trim().equals("")){
             s.put("managerQueryNoBookError","不能为空，至少填一项！");
             this.addFieldError("managerError","addErrorMessage");
         }else{
