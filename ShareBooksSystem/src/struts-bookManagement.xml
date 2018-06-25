@@ -28,6 +28,7 @@
 
         <!-- 管理员注册 -->
         <action name="managerRegisterAction" class="managerRegisterAction" method="managerRegister">
+            <!-- 管理员登录拦截 -->
             <interceptor-ref name="defaultStack"/>
             <interceptor-ref name="managerLoginInterceptor"/>
             <result name="managerLogin">/bookManagement/manage_login.jsp</result>
@@ -38,84 +39,140 @@
 
         <!-- 管理员信息查询 -->
         <action name="queryManagerInfoAction" class="queryManagerInfoAction" method="queryManagerInfo">
+            <!-- 管理员登录拦截 -->
+            <interceptor-ref name="defaultStack"/>
+            <interceptor-ref name="managerLoginInterceptor"/>
+            <result name="managerLogin">/bookManagement/manage_login.jsp</result>
             <result name="success">/bookManagement/queryManagerInfo.jsp</result>
             <result name="input">/bookManagement/queryManagerInfo.jsp</result>
         </action>
 
         <!-- 分页查询管理员 -->
         <action name="queryManagerInfoByPageAction" class="queryManagerInfoByPageAction" method="queryManagerInfoByPage">
+            <!-- 管理员登录拦截 -->
+            <interceptor-ref name="defaultStack"/>
+            <interceptor-ref name="managerLoginInterceptor"/>
+            <result name="managerLogin">/bookManagement/manage_login.jsp</result>
             <result name="success">/bookManagement/queryManagerInfo.jsp</result>
             <result name="input">/bookManagement/queryManagerInfo.jsp</result>
         </action>
 
         <!-- 修改查询管理员 -->
         <action name="queryManagerInfoByIdAction" class="queryManagerInfoByIdAction" method="queryManagerInfoById">
+            <!-- 管理员登录拦截 -->
+            <interceptor-ref name="defaultStack"/>
+            <interceptor-ref name="managerLoginInterceptor"/>
+            <result name="managerLogin">/bookManagement/manage_login.jsp</result>
             <result name="success">/bookManagement/updateManagerInfo.jsp</result>
             <result name="input">/bookManagement/queryManagerInfo.jsp</result>
         </action>
 
         <!-- 管理员修改 -->
         <action name="updateManagerInfoAction" class="updateManagerInfoAction" method="updateManagerInfo">
+            <!-- 管理员登录拦截 -->
+            <interceptor-ref name="defaultStack"/>
+            <interceptor-ref name="managerLoginInterceptor"/>
+            <result name="managerLogin">/bookManagement/manage_login.jsp</result>
             <result name="success">/bookManagement/updateManagerInfoSuccess.jsp</result>
             <result name="input">/bookManagement/updateManagerInfo.jsp</result>
         </action>
 
         <!-- 查询书籍 -->
         <action name="queryBookAction" class="queryBookAction" method="queryBook">
+            <!-- 管理员登录拦截 -->
+            <interceptor-ref name="defaultStack"/>
+            <interceptor-ref name="managerLoginInterceptor"/>
+            <result name="managerLogin">/bookManagement/manage_login.jsp</result>
             <result name="success">/bookManagement/queryBook.jsp</result>
             <result name="input">/bookManagement/queryBook.jsp</result>
         </action>
 
         <!-- 查询书籍 -->
         <action name="queryAllBookAction" class="queryAllBookAction" method="queryAllBook">
+            <!-- 管理员登录拦截 -->
+            <interceptor-ref name="defaultStack"/>
+            <interceptor-ref name="managerLoginInterceptor"/>
+            <result name="managerLogin">/bookManagement/manage_login.jsp</result>
             <result name="success">/bookManagement/queryBook.jsp</result>
             <result name="input">/bookManagement/queryBook.jsp</result>
         </action>
 
         <!-- 分页查询书籍 -->
         <action name="queryBookByPageAction" class="queryBookByPageAction" method="queryBookByPage">
+            <!-- 管理员登录拦截 -->
+            <interceptor-ref name="defaultStack"/>
+            <interceptor-ref name="managerLoginInterceptor"/>
+            <result name="managerLogin">/bookManagement/manage_login.jsp</result>
             <result name="success">/bookManagement/queryBook.jsp</result>
             <result name="input">/bookManagement/queryBook.jsp</result>
         </action>
 
         <!-- id查询书籍 -->
         <action name="queryBookByIdAction" class="queryBookByIdAction" method="queryBookById">
+            <!-- 管理员登录拦截 -->
+            <interceptor-ref name="defaultStack"/>
+            <interceptor-ref name="managerLoginInterceptor"/>
+            <result name="managerLogin">/bookManagement/manage_login.jsp</result>
             <result name="success">/bookManagement/updateBook.jsp</result>
             <result name="input">/bookManagement/queryError.jsp</result>
         </action>
 
         <!-- 更新书籍 -->
         <action name="updateBookAction" class="updateBookAction" method="updateBook">
+            <!-- 管理员登录拦截 -->
+            <interceptor-ref name="defaultStack"/>
+            <interceptor-ref name="managerLoginInterceptor"/>
+            <result name="managerLogin">/bookManagement/manage_login.jsp</result>
             <result name="success">/bookManagement/updateBookSuccess.jsp</result>
             <result name="input">/bookManagement/updateBook.jsp</result>
         </action>
 
         <!-- 删除书籍 -->
         <action name="deleteBookAction" class="deleteBookAction" method="deleteBook">
+            <!-- 管理员登录拦截 -->
+            <interceptor-ref name="defaultStack"/>
+            <interceptor-ref name="managerLoginInterceptor"/>
+            <result name="managerLogin">/bookManagement/manage_login.jsp</result>
             <result name="confirm">/bookManagement/confirmDeleteBook.jsp</result>
             <result name="input">/bookManagement/confirmDeleteBook.jsp</result>
         </action>
 
         <!-- 确认删除书籍 -->
         <action name="confirmDeleteBookAction" class="deleteBookAction" method="confirmDeleteBook">
+            <!-- 管理员登录拦截 -->
+            <interceptor-ref name="defaultStack"/>
+            <interceptor-ref name="managerLoginInterceptor"/>
+            <result name="managerLogin">/bookManagement/manage_login.jsp</result>
             <result name="success">/bookManagement/deleteBookSuccess.jsp</result>
             <result name="input">/bookManagement/confirmDeleteBook.jsp</result>
         </action>
 
         <!-- 删除管理员信息 -->
         <action name="deleteManagerInfoAction" class="deleteManagerInfoAction" method="deleteManagerInfo">
+            <!-- 管理员登录拦截 -->
+            <interceptor-ref name="defaultStack"/>
+            <interceptor-ref name="managerLoginInterceptor"/>
+            <result name="managerLogin">/bookManagement/manage_login.jsp</result>
             <result name="confirm">/bookManagement/confirmDeleteManagerInfo.jsp</result>
             <result name="input">/bookManagement/confirmDeleteBook.jsp</result>
         </action>
 
         <!-- 确认删除管理员信息 -->
         <action name="confirmDeleteManagerInfoAction" class="deleteManagerInfoAction" method="confirmDeleteManagerInfo">
+            <!-- 管理员登录拦截 -->
+            <interceptor-ref name="defaultStack"/>
+            <interceptor-ref name="managerLoginInterceptor"/>
+            <result name="managerLogin">/bookManagement/manage_login.jsp</result>
             <result name="success">/bookManagement/deleteBookSuccess.jsp</result>
             <result name="input">/bookManagement/confirmDeleteBook.jsp</result>
         </action>
 
         <!-- 修改管理员密码 -->
         <action name="changeManagerPassword" class="changeManagerPassword" method="changeManagerPassword">
+            <!-- 管理员登录拦截 -->
+            <interceptor-ref name="defaultStack"/>
+            <interceptor-ref name="managerLoginInterceptor"/>
+            <result name="managerLogin">/bookManagement/manage_login.jsp</result>
             <result name="success">/bookManagement/changeManagerPasswordSuccess.jsp</result>
             <result name="input">/bookManagement/changeManagerPassword.jsp</result>
         </action>
@@ -128,48 +185,80 @@
 
         <!-- 管理员分享图书 -->
         <action name="operatorShareBookAction" class="operatorShareBookAction" method="operatorShareBook">
+            <!-- 管理员登录拦截 -->
+            <interceptor-ref name="defaultStack"/>
+            <interceptor-ref name="managerLoginInterceptor"/>
+            <result name="managerLogin">/bookManagement/manage_login.jsp</result>
             <result name="confirm">/bookManagement/operatorConfirmShareBook.jsp</result>
             <result name="input">/bookManagement/operatorShareBook.jsp</result>
         </action>
 
         <!-- 管理员确认分享图书 -->
         <action name="operatorConfirmShareBookAction" class="operatorShareBookAction" method="operatorConfirmShareBook">
+            <!-- 管理员登录拦截 -->
+            <interceptor-ref name="defaultStack"/>
+            <interceptor-ref name="managerLoginInterceptor"/>
+            <result name="managerLogin">/bookManagement/manage_login.jsp</result>
             <result name="success">/bookManagement/operatorShareBookSuccess.jsp</result>
             <result name="input">/bookManagement/operatorConfirmShareBook.jsp</result>
         </action>
 
         <!-- 管理员借阅图书 -->
         <action name="operatorBorrowBookAction" class="operatorBorrowBookAction" method="operatorBorrowBook">
+            <!-- 管理员登录拦截 -->
+            <interceptor-ref name="defaultStack"/>
+            <interceptor-ref name="managerLoginInterceptor"/>
+            <result name="managerLogin">/bookManagement/manage_login.jsp</result>
             <result name="confirm">/bookManagement/operatorConfirmBorrowBook.jsp</result>
             <result name="input">/bookManagement/operatorBorrowBook.jsp</result>
         </action>
 
         <!-- 管理员确认借阅图书 -->
         <action name="operatorConfirmBorrowBookAction" class="operatorBorrowBookAction" method="operatorConfirmBorrowBook">
+            <!-- 管理员登录拦截 -->
+            <interceptor-ref name="defaultStack"/>
+            <interceptor-ref name="managerLoginInterceptor"/>
+            <result name="managerLogin">/bookManagement/manage_login.jsp</result>
             <result name="success">/bookManagement/operatorBorrowBookSuccess.jsp</result>
             <result name="input">/bookManagement/operatorConfirmBorrowBook.jsp</result>
         </action>
 
         <!-- 管理员归还图书 -->
         <action name="operatorReturnBookAction" class="operatorReturnBookAction" method="operatorReturnBook">
+            <!-- 管理员登录拦截 -->
+            <interceptor-ref name="defaultStack"/>
+            <interceptor-ref name="managerLoginInterceptor"/>
+            <result name="managerLogin">/bookManagement/manage_login.jsp</result>
             <result name="confirm">/bookManagement/operatorConfirmReturnBook.jsp</result>
             <result name="input">/bookManagement/operatorReturnBook.jsp</result>
         </action>
 
         <!-- 管理员确认归还图书 -->
         <action name="operatorConfirmReturnBookAction" class="operatorReturnBookAction" method="operatorConfirmReturnBook">
+            <!-- 管理员登录拦截 -->
+            <interceptor-ref name="defaultStack"/>
+            <interceptor-ref name="managerLoginInterceptor"/>
+            <result name="managerLogin">/bookManagement/manage_login.jsp</result>
             <result name="success">/bookManagement/operatorReturnBookSuccess.jsp</result>
             <result name="input">/bookManagement/operatorConfirmReturnBook.jsp</result>
         </action>
 
         <!-- 管理员索回图书 -->
         <action name="operatorGetBookAction" class="operatorGetBookAction" method="operatorGetBook">
+            <!-- 管理员登录拦截 -->
+            <interceptor-ref name="defaultStack"/>
+            <interceptor-ref name="managerLoginInterceptor"/>
+            <result name="managerLogin">/bookManagement/manage_login.jsp</result>
             <result name="confirm">/bookManagement/operatorConfirmGetBook.jsp</result>
             <result name="input">/bookManagement/operatorGetBook.jsp</result>
         </action>
 
         <!-- 管理员确认索回图书 -->
         <action name="operatorConfirmGetBookAction" class="operatorGetBookAction" method="operatorConfirmGetBook">
+            <!-- 管理员登录拦截 -->
+            <interceptor-ref name="defaultStack"/>
+            <interceptor-ref name="managerLoginInterceptor"/>
+            <result name="managerLogin">/bookManagement/manage_login.jsp</result>
             <result name="success">/bookManagement/operatorGetBookSuccess.jsp</result>
             <result name="input">/bookManagement/operatorConfirmGetBook.jsp</result>
         </action>

@@ -138,6 +138,4 @@
             <ref bean="managerServiceImpl"></ref>
         </property>
     </bean>
-
-
 </beans>
