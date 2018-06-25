@@ -3,8 +3,10 @@ package com.sharebookssystem.bookManagement.controller;
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 import com.sharebookssystem.bookManagement.service.impl.BookManagementServiceImpl;
+import com.sharebookssystem.model.Book;
 import com.sharebookssystem.model.BorrowHistoryItem;
 import com.sharebookssystem.model.PersonalBook;
+import com.sharebookssystem.model.User;
 
 import java.text.SimpleDateFormat;
 import java.util.*;
@@ -26,6 +28,11 @@ public class OperatorBorrowBookAction extends ActionSupport {
     private Date shouldReturnDate; //应归还日期
     private String borrowStatus;  //借阅状态
     private int personalBookId;
+    private int bookId;
+    private int userId;
+    private List<Book> bookList = new ArrayList<>();
+    private List<User> userList = new ArrayList<>();
+
 
     public OperatorBorrowBookAction(){
 
@@ -95,7 +102,7 @@ public class OperatorBorrowBookAction extends ActionSupport {
         this.borrowStatus = borrowStatus;
     }
 
-    public String operatorBorrowBook() throws Exception{
+    public String operatorBorrowBook(){
         Map m = ActionContext.getContext().getSession();
         borrowHistoryItemList = service.queryBorrowHistoryItemByBorrowCode(borrowCode);
         if(borrowHistoryItemList==null || borrowHistoryItemList.size()==0){
@@ -110,26 +117,18 @@ public class OperatorBorrowBookAction extends ActionSupport {
                 return INPUT;
             }else{
                 if(personalBookList.get(0).getBookStatus().trim().equals("在库")){
-                    bookStatus = "借出";
-                    numberOfTimes = personalBookList.get(0).getNumberOfTimes()+1;  //借出次数
-                    SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");//设置日期格式
-                    String nowDate = df.format(new Date());
-                    borrowDate = df.parse(nowDate); //借出日期
-                    Calendar rightNow = Calendar.getInstance();
-                    rightNow.setTime(borrowDate);
-                    rightNow.add(Calendar.DAY_OF_YEAR,14); //日期加14天
-                    shouldReturnDate=rightNow.getTime();
-                    borrowStatus = "未还";
-                    personalBookList.get(0).setBookStatus(bookStatus);
-                    personalBookList.get(0).setNumberOfTimes(numberOfTimes);
-                    borrowHistoryItemList.get(0).setBorrowDate(borrowDate);
-                    borrowHistoryItemList.get(0).setShouldReturnDate(shouldReturnDate);
-                    borrowHistoryItemList.get(0).setBorrowStatus(borrowStatus);
-                    if(service.updatePersonalBookAndBorrowHistoryItem(borrowHistoryItemList.get(0),personalBookList.get(0))){
-                        return SUCCESS;
-                    }else{
-                        m.put("operatorBorrowBookError","借阅失败");
+                    bookId = personalBookList.get(0).getBook().getBookId();
+                    userId = borrowHistoryItemList.get(0).getBorrower().getUserId();
+                    bookList = service.queryBookById(bookId);
+                    userList = service.queryUserInfoByUserId(userId);
+                    if(bookList == null || userList == null || bookList.size() == 0 || userList.size() == 0){
+                        m.put("operatorBorrowBookError","借阅失败,该用户不存在或该书本信息不存在");
                         return INPUT;
+                    }else {
+                        m.put("operatorBorrowBook", bookList);
+                        m.put("operatorBorrowUser", userList);
+                        m.put("operatorBorrowCode", borrowCode);
+                        return "confirm";
                     }
                 }else{
                     m.put("operatorBorrowBookError","借阅失败,借阅码无效");
@@ -139,6 +138,35 @@ public class OperatorBorrowBookAction extends ActionSupport {
 
         }else{
             m.put("operatorBorrowBookError","借阅失败,借阅码已失效");
+            return INPUT;
+        }
+    }
+
+    public String operatorConfirmBorrowBook() throws Exception{
+        Map m = ActionContext.getContext().getSession();
+        borrowHistoryItemList = service.queryBorrowHistoryItemByBorrowCode(borrowCode);
+        //通过personalBookId查找PersonalBookList
+        personalBookId = borrowHistoryItemList.get(0).getPersonalBook().getPersonalBookId();
+        personalBookList = service.queryPersonalBookByPersonalBookId(personalBookId);
+        bookStatus = "借出";
+        numberOfTimes = personalBookList.get(0).getNumberOfTimes()+1;  //借出次数
+        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");//设置日期格式
+        String nowDate = df.format(new Date());
+        borrowDate = df.parse(nowDate); //借出日期
+        Calendar rightNow = Calendar.getInstance();
+        rightNow.setTime(borrowDate);
+        rightNow.add(Calendar.DAY_OF_YEAR,14); //日期加14天
+        shouldReturnDate=rightNow.getTime();
+        borrowStatus = "未还";
+        personalBookList.get(0).setBookStatus(bookStatus);
+        personalBookList.get(0).setNumberOfTimes(numberOfTimes);
+        borrowHistoryItemList.get(0).setBorrowDate(borrowDate);
+        borrowHistoryItemList.get(0).setShouldReturnDate(shouldReturnDate);
+        borrowHistoryItemList.get(0).setBorrowStatus(borrowStatus);
+        if(service.updatePersonalBookAndBorrowHistoryItem(borrowHistoryItemList.get(0),personalBookList.get(0))){
+            return SUCCESS;
+        }else{
+            m.put("operatorConfirmBorrowBookError","借阅失败");
             return INPUT;
         }
     }

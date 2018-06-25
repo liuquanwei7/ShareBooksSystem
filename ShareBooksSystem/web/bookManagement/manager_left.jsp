@@ -27,11 +27,12 @@
 <body>
     <div left>
         <ul>
-            <li><a href="#home">主页</a></li>
+            <li><a href="manage_main.jsp">主页</a></li>
             <li><a href="queryBook.jsp">管理图书信息</a></li>
-            <li><a href="queryManagerInfo.jsp">管理管理员信息</a></li>
-            <li><a href="manager_register.jsp">注册管理员</a></li>
-            <li><a href="changeManagerPassword.jsp">修改管理员密码</a></li>
+            <li><a href="changeManagerPassword.jsp">修改密码</a></li>
+            <li><a href="nowUserPage.action">管理用户信息</a></li>
+            <li><a href="nowTopFtBPage.action">查看图书借阅排行</a></li>
+            <li><a href="nowTopCategoryPage.action">查看同类书籍借阅排行</a></li>
         </ul>
     </div>
 </body>

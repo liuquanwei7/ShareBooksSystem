@@ -77,12 +77,7 @@
 
                                 <div class="form-inline">
                                     <label for="bookCategory">图书类型:</label>
-                                    <select class="form-control" id="bookCategory" name="book.bookCategory" value= '<s:property value="#managerBooks.bookCategory"/>' >
-                                        <option>教材</option>
-                                        <option>教材</option>
-                                        <option>教材</option>
-                                        <option>教材</option>
-                                    </select>
+                                    <input type="text" class="form-control" id="bookCategory" name="book.bookCategory" value= '<s:property value="#managerBooks.bookCategory"/>'>
                                 </div>
                             </s:iterator>
                             <div id="submitButton">

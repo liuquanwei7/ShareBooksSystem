@@ -56,10 +56,16 @@
                                 <input type="radio" name="manager.managerPermission" id="manager" value=0 checked>管理员
                             </label>
                         </div>
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        &nbsp;&nbsp;
                         <div class="radio">
                             <label>
                                 <input type="radio" name="manager.managerPermission" id="operator" value=1 >操作员
+                            </label>
+                        </div>
+                        &nbsp;&nbsp;&nbsp;
+                        <div class="radio">
+                            <label>
+                                <input type="radio" name="manager.managerPermission" id="admin" value=2 >admin
                             </label>
                         </div>
                     </div>
@@ -67,7 +73,7 @@
                     <br/>
                     <div class="form-inline" id="button2">
                         <button type="reset" class="btn btn-primary" id="reset">重置</button>
-                        <button type="submit" class="btn btn-primary" id="login">登陆</button>
+                        <button type="submit" class="btn btn-primary" id="login">登录</button>
                     </div>
                     <% session.removeAttribute("managerLoginAccountError"); %>
                     <% session.removeAttribute("managerLoginPasswordError"); %>

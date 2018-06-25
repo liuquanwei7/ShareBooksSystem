@@ -2,8 +2,8 @@
     position: fixed;
     width: 80%;
     height: 100%;
-    margin-top: 165px;
-    margin-left: 733px;
+    margin-top: 117px;
+    margin-left: 317px;
 }
 
 #left{
@@ -28,16 +28,18 @@
     z-index: 11;
 }
 
-#message{
-    margin-top: 163px;
-    margin-left: 220px;
+#main_title{
+    width: 290px;
+    height: 50px;
+    margin-left: 630px;
 }
 
-#back{
-    margin-top: 30px;
-    margin-left: 200px;
+#queryBook_main{
+    margin-top: 91px;
+    margin-left: 670px;
 }
 
-.queryError{
-
+#re{
+    margin-left: 25px;
+    margin-top: 19px;
 }

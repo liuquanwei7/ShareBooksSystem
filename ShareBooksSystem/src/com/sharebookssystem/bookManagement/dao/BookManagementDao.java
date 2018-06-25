@@ -8,12 +8,6 @@ import java.util.List;
 
 public interface BookManagementDao {
 
-    //通过Id查询实例
-    public Object queryById(Object object,int id);
-
-    //删除
-    public boolean deleteByObject(Object object);
-
     //通过hql删除
     public boolean deleteByHql(String className,String param1,int value1);
 
@@ -22,6 +16,9 @@ public interface BookManagementDao {
 
     //同时更新两个object
     public boolean updateByTwoObject(Object object1,Object object2);
+
+    //通过hql语句查询总数
+    public List queryCountByHql(String className);
 
     //查询全部
     public List queryByParam(String className);
