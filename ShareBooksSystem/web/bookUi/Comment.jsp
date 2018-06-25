@@ -32,7 +32,7 @@
         <%  session.removeAttribute("succcessComment");%>
     }
     function deleteCommentAction(id){
-        if(confirm("你确定删除该用户吗?")){
+        if(confirm("你确定删除该评论吗?")){
             location.href="deleteCommentAction?id="+id;
         }
     }

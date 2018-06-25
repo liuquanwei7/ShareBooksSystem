@@ -36,7 +36,6 @@ public class CommentsDao {
             int userid=user.getUserId();
             int personalbookid=(int)ss.get("myPersonalBookid");
 
-
             int length=0;
             String hql="";
             int pageNo;
