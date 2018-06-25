@@ -1,3 +1,6 @@
+.toBook{
+    color: #000;
+}
 .mycard{
     width: 990px;
     height: 232px;
@@ -67,7 +70,7 @@
     /*flex-direction: row;*/
     /*justify-content: flex-start;*/
     /*align-items: center;*/
-    width: 600px;
+    width: 641px;
     height: 38px;
     /* padding-bottom: 5; */
 }
@@ -90,17 +93,17 @@
     /*margin : 20px;*/
 }
 /*.bookName h2{*/
-    /*!*display: inline-block;*!*/
-    /*!*height:30px ;*!*/
-    /*float: left;*/
-    /*text-align: center;*/
+/*!*display: inline-block;*!*/
+/*!*height:30px ;*!*/
+/*float: left;*/
+/*text-align: center;*/
 
 /*}*/
 /*.bookName p{*/
-    /*float: left;*/
-    /*text-align: center;*/
-    /*line-height: 20px;*/
- /*}*/
+/*float: left;*/
+/*text-align: center;*/
+/*line-height: 20px;*/
+/*}*/
 
 .borrowBook{
     display: inline-block;
@@ -150,8 +153,8 @@
     text-align: center;
 }
 /*.myPage{*/
-    /*border: 0px;*/
+/*border: 0px;*/
 /*}*/
 /*.myPage li{*/
-    /*border: 0px;*/
+/*border: 0px;*/
 /*}*/

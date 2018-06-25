@@ -1,0 +1,115 @@
+.allBook{
+    flex-wrap: wrap;
+    display: flex;
+}
+.oneBook{
+
+    width: 300px;
+    height: 346px;
+    border: 1px solid white;
+    /*border-top: 0px;*/
+    /*border-right: 0px;*/
+    /*border-left: 0px;*/
+}
+.oneBook:hover{
+    border: 1px solid #313131;
+}
+.toBook{
+    width: 300px;
+    height: 346px;
+}
+.bookImg img{
+    width: 280px;
+    height:232px;
+    transition: all 0.7s;
+}
+.bookImg img:hover{
+    transform: scale(1.1);
+
+}
+.bookImg{
+    width: 280px;
+    height:232px;
+    margin: 10px 10px;
+    overflow: hidden;
+}
+.bookInfo{
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    width: 274px;
+
+ }
+.bookName{
+    width: 274px;
+    height: 42px;
+    display: block;
+}
+.bookName img{
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    border: 0;
+}
+.bookAuthor{
+    font-size: 12px;
+    line-height: 16px;
+    margin: 0;
+    color: #707070;
+    margin-top: 3px;
+    margin-left: 5px;
+    height: 16px;
+}
+.realBookName{
+    color: #424034;
+    height: 16px;
+    line-height: 16px;
+    overflow: hidden;
+    font-size: 14px;
+    margin: 0;
+    margin-left: 5px;
+}
+.bookNameLeft{
+    float: left;
+}
+.bookNameRight{
+    float: left;
+}
+.bookCategory{
+    color: #434341;
+    font-size: 12px;
+    line-height: 21px;
+    width: 274px;
+    height: 21px;
+    margin: 0;
+}
+.bookBottom{
+    display: flex;
+    flex-direction: row;
+    border-bottom: 1px solid #e5e5e5;
+    height: 31px;
+}
+.bookBottom span{
+    color: #b2b1b1;
+    font-size: 12px;
+    margin-right: 26px;
+    text-align: center;
+    line-height: 22px;
+}
+/*.bookBottom img{*/
+    /*width: 25px;*/
+    /*height: 25px;*/
+/*}*/
+.eyeTimes{
+    width: 25px;
+    height: 25px;
+    margin-right: 5px;
+
+}
+.comment{
+    width: 25px;
+    height: 25px;
+    position: relative;
+    /*left: 10px;*/
+    margin-right: 5px;
+}

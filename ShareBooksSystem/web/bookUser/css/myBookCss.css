@@ -1,27 +1,29 @@
 .mycard{
-    width: 990px;
-    height: 232px;
+    width: 954px;
+    height: 188px;
     padding-top: 20px;
-    padding-left: 20px;
-    margin-bottom: 20px;
-    padding-bottom: 20px;
+    /*padding-left: 20px;*/
+    /*margin-bottom: 20px;*/
+    /*padding-bottom: 20px;*/
     position: relative;
     flex-direction: row;
     display: flex;
-    border: 1px solid transparent;
-    border-image: linear-gradient(to bottom, #a6a6a6, white);
-    border-image-slice: 10;
-    /* border: 1px solid #a6a6a6; */
-    border-bottom: white;
+    margin: 0 auto;
+    border-top: 0;
+    border-left: 0;
+    border-right: 0;
+    border-bottom: 1px solid;
+
 
 }
 .bookImg{
-    width: 144px;
-    height: 192px;
+    width: 102px;
+    height: 136px;
     display: inline;
     float: left;
-    /*position: relative;*/
     overflow: hidden;
+    /*position: relative;*/
+    /*overflow: hidden;*/
 
 }
 .bookImg img{
@@ -36,26 +38,30 @@
     transition: all 0.5s;
 }
 .bookImg img:hover{
-    transform: scale(1.1);
+    /*width: 110%;*/
+    /*height: 110%;*/
     overflow: hidden;
-}
+    /* margin: 0 auto; */
+    /*left: -5%;*/
+    /*top: -5%;*/
+    transform: scale(1.1);
 
+}
 .bookInfo{
     position: relative;
     /*float: left;*/
     width: 560px;
     display: flex;
     flex-direction: column;
+    padding-top: 0;
     left:20px;
     align-content: center;
     /*margin-top: 20px;*/
 }
-.bookInfo p{
-    margin-bottom: 13px;
-}
 .bookTodo{
-    width: 560px;
-    /*height:36px;*/
+    width: 224px;
+    height: 167px;
+    margin-left: 67px;
 
 }
 .bookName{
@@ -67,60 +73,70 @@
     /*flex-direction: row;*/
     /*justify-content: flex-start;*/
     /*align-items: center;*/
-    width: 600px;
-    height: 38px;
+    width: 560px;
+    padding-top: 0;
+    height: 30px;
     /* padding-bottom: 5; */
+}
+.toBook{
+    color: #000;
 }
 .bookName em{
     display: block;
-    /* height: 37px; */
-    /* float: left; */
-    font: 700 28px/38px PingFangSC-Regular,HelveticaNeue-Light,'Helvetica Neue Light','Microsoft YaHei',sans-serif;
+    margin-top: 0;
     float: left;
+    font-style: normal;
+    /* height:37px; */
+    /*float: left;*/
+    font-size: 18px;
+    line-height: 30px;
 }
 .bookName span{
-    display: inline-block;
-    margin-left: 17px;
-    margin-top: 15px;
+    display: block;
     text-align: center;
     font-size: 16px;
+    /* line-height: 19; */
     /* position: relative; */
-    /* margin: 20px; */
+    margin-top: 10px;
+    margin-left: 10px;
+    float: left;
+
     /*position: relative;*/
     /*margin : 20px;*/
 }
 /*.bookName h2{*/
-    /*!*display: inline-block;*!*/
-    /*!*height:30px ;*!*/
-    /*float: left;*/
-    /*text-align: center;*/
+/*!*display: inline-block;*!*/
+/*!*height:30px ;*!*/
+/*float: left;*/
+/*text-align: center;*/
 
 /*}*/
 /*.bookName p{*/
-    /*float: left;*/
-    /*text-align: center;*/
-    /*line-height: 20px;*/
- /*}*/
+/*float: left;*/
+/*text-align: center;*/
+/*line-height: 20px;*/
+/*}*/
 
 .borrowBook{
     display: inline-block;
     border: 1px solid #bf2c24;
     text-align: center;
-    background:#bf2c24;
+    background: #bf2c24;
     width: 120px;
     height: 34px;
     color: #fff;
     vertical-align: middle;
     font-size: 14px;
-    /*text-align: center;*/
+    /* text-align: center; */
     line-height: 28px;
-    margin-right:20px;
+    /* margin-right: 20px; */
+    float: right;
+    margin-top: 105px;
 }
 .borrowBook:hover{
     color: #fff;
     border-color: #ed4259;
     background:#ed4259;
-    text-decoration: none;
 }
 .addInCar{
     display: inline-block;
@@ -139,19 +155,18 @@
     color: #2972cc;
     border-color: #2972cc;
     background:#f0f5ff;
-    text-decoration: none;
 }
-.bookCommentSide{
-    margin-left: 139px;
-    margin-top: 30px;
+.myPage{
+    border: 0px;
 }
-.number{
-    font: 400 32px/38px FZZCYSK;
-    text-align: center;
+.book-content{
+    margin: 0 auto;
+    width: 954px;
 }
-/*.myPage{*/
-    /*border: 0px;*/
-/*}*/
+.myNavPage{
+    float: right;
+    margin-top: 10px;
+}
 /*.myPage li{*/
-    /*border: 0px;*/
+/*border: 0px;*/
 /*}*/
