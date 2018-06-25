@@ -104,5 +104,33 @@
 
     </bean>
 
+    <!-- 管理员分享图书 -->
+    <bean id="operatorShareBookAction" class="com.sharebookssystem.bookManagement.controller.OperatorShareBookAction" scope="prototype">
+        <property name="service">
+            <ref bean="managerServiceImpl"></ref>
+        </property>
+    </bean>
+
+    <!-- 管理员借阅图书 -->
+    <bean id="operatorBorrowBookAction" class="com.sharebookssystem.bookManagement.controller.OperatorBorrowBookAction" scope="prototype">
+        <property name="service">
+            <ref bean="managerServiceImpl"></ref>
+        </property>
+    </bean>
+
+    <!-- 管理员归还图书 -->
+    <bean id="operatorReturnBookAction" class="com.sharebookssystem.bookManagement.controller.OperatorReturnBookAction" scope="prototype">
+        <property name="service">
+            <ref bean="managerServiceImpl"></ref>
+        </property>
+    </bean>
+
+    <!-- 管理员收回图书 -->
+    <bean id="operatorGetBookAction" class="com.sharebookssystem.bookManagement.controller.OperatorGetBookAction" scope="prototype">
+        <property name="service">
+            <ref bean="managerServiceImpl"></ref>
+        </property>
+    </bean>
+
 
 </beans>

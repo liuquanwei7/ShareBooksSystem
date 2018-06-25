@@ -115,6 +115,7 @@ public class QueryBookAction extends ActionSupport {
 
 
         if(book.getBookId()!=0){    //如果有bookId直接查询
+            System.out.println("1111111111");
             temp=service.queryBookById(book.getBookId());
             if(temp==null||temp.size()==0){
                 if(m.get("managerQueryNoBookError")==null&&m.get("managerQueryLowPriceError")==null){

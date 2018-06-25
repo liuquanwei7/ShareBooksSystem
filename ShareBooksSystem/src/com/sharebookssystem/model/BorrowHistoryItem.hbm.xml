@@ -13,6 +13,7 @@
         <property name="actualReturnDate" column="actualReturnDate" />
         <property name="borrowStatus" column="borrowStatus" not-null="true" length="20"/>
         <property name="borrowCode" column="borrowCode" not-null="true" length="20"/>
+        <property name="returnCode" column="returnCode"/>
         <many-to-one name="borrower" class="com.sharebookssystem.model.User">
             <column name="borrowerID" not-null="true"/>
         </many-to-one>

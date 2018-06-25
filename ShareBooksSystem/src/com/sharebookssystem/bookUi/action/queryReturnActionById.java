@@ -65,10 +65,10 @@ public class queryReturnActionById {
         Map<String, Object> request=ac.getContextMap();
         Map<String, Object> session=ac.getSession();
 
-       user=(User)session.get("user");
-       int userid=user.getUserId();
-       System.out.println("userid::"+userid);
-       if(bd.queryReturnActionById(pb,userid,id)){
+           user=(User)session.get("user");
+           int userid=user.getUserId();
+           System.out.println("userid::"+userid);
+           if(bd.queryReturnActionById(pb,userid,id)){
 
 
             return SUCCESS;
