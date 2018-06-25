@@ -50,17 +50,17 @@
 
 </script>
 <div id="container">
-    <div id="container_re_left" style="width: 40%">
+    <div id="container_re_left" style="width: 35%">
         <img src="img/bg_demo3.jpg">
     </div>
-    <div id="container_re_right" style="width: 60%;">
+    <div id="container_re_right" style="width: 65%;">
         <div id="main_books" >
             <s:iterator value="books" status="st" var="book">
                 <div class="main_center" >
                     <div class="center_left"   align="center" >
                         <img referrerpolicy="no-referrer" src="<s:property value="#book.bookPicture"/>" width="150px" height="200px/">
                         <div><s:property value="#book.bookName"/></div>
-                        <div style="display: flex;flex-direction: row">
+                        <div align="center" style="display: flex;flex-direction: row;justify-content: center">
                             <div><s:property value="#book.bookAuthor"/></div>
                             <div> <s:property value="#book.bookPublish"/></div>
                         </div>
