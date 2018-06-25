@@ -208,6 +208,9 @@ public class ShowBookByPersonalBookIdAction extends ActionSupport {
         if (books!=null&&personalbooks!=null){
             personalBook=personalbooks.get(0);
             mybook=books.get(0);
+            map.put("myPersonalBookid",personalBook.getPersonalBookId());
+            map.put("comPersonnalbook",personalBook);
+            map.put("myBookName",mybook.getBookName());
             return SUCCESS;
         }else {
             return INPUT;

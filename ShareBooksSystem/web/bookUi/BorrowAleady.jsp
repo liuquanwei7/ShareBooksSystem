@@ -21,18 +21,19 @@
 <script src="js/jquery-3.2.1.js"></script>
 <script type="text/javascript" src="js/bootstrap.min.js" ></script>
 <script src="js/homepage.js"></script>
-<div id="naver">
+<s:include value="newNav.jsp"></s:include>
+<%--<div id="naver">--%>
 
-    <img src="img/logo.png"/>
-    <div id="logo_text"><span>HIMB</span></div>
-    <ul id="flex_naver">
-        <li class="nr" onmouseover="nrselect(this)" onmouseleave="nrleave(this)"  ><a href="ChangePerson.jsp">管理个人信息</a></li>
-        <li class="nr" onmouseover="nrselect(this)" onmouseleave="nrleave(this)"><a href="aheadhome.jsp">主页</a></li>
-        <li class="nr" onmouseover="nrselect(this)" onmouseleave="nrleave(this)"><a href="borrows.jsp">查看已借书籍</a></li>
-        <li class="nr" onmouseover="nrselect(this)" onmouseleave="nrleave(this)"><a href="UserInfor.jsp">个人中心</a></li>
-        <li class="nr" onmouseover="nrselect(this)" onmouseleave="nrleave(this)"><a  href="../bookUser/checkBooks.jsp">查询书籍</a></li>
-    </ul>
-</div>
+    <%--<img src="img/logo.png"/>--%>
+    <%--<div id="logo_text"><span>HIMB</span></div>--%>
+    <%--<ul id="flex_naver">--%>
+        <%--<li class="nr" onmouseover="nrselect(this)" onmouseleave="nrleave(this)"  ><a href="ChangePerson.jsp">管理个人信息</a></li>--%>
+        <%--<li class="nr" onmouseover="nrselect(this)" onmouseleave="nrleave(this)"><a href="aheadhome.jsp">主页</a></li>--%>
+        <%--<li class="nr" onmouseover="nrselect(this)" onmouseleave="nrleave(this)"><a href="borrows.jsp">查看已借书籍</a></li>--%>
+        <%--<li class="nr" onmouseover="nrselect(this)" onmouseleave="nrleave(this)"><a href="UserInfor.jsp">个人中心</a></li>--%>
+        <%--<li class="nr" onmouseover="nrselect(this)" onmouseleave="nrleave(this)"><a  href="../bookUser/checkBooks.jsp">查询书籍</a></li>--%>
+    <%--</ul>--%>
+<%--</div>--%>
 <script>
     function queryReturn(id){
         alert(id);

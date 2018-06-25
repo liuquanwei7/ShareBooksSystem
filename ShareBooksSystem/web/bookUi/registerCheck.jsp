@@ -32,6 +32,64 @@
         <li class="nr" onmouseover="nrselect(this)" onmouseleave="nrleave(this)"><a data-toggle="modal" data-target="#myModal" href="#">登陆注册</a></li>
     </ul>
 </div>
+
+
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-backdrop="true">
+    <div class="modal-dialog" style="margin:10% auto;width: 35%">
+        <div class="modal-content">
+            <!--登陆框头部-->
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                    ×
+                </button>
+                <h4 class="modal-title" >
+                    欢迎登陆！
+                </h4>
+            </div>
+            <!--登陆框中间部分(from表单)-->
+            <div class="modal-body">
+                <form class="form-horizontal" action="userLoginAction"  namespace="/bookUi" method="post" role="form">
+                    <!--用户框-->
+                    <div class="form-group">
+                        <label for="username" class="col-sm-2 control-label">用户名</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" name="user.userAccount"  id="username" placeholder="username"  required="required">
+                        </div>
+                    </div>
+                    <!--密码框-->
+                    <div class="form-group">
+                        <label for="password" class="col-sm-2 control-label" >密码</label>
+                        <div class="col-sm-10">
+                            <input type="password" class="form-control"  name="user.userPassword" id="password" placeholder="password" required="required">
+                        </div>
+                    </div>
+                    <!--记住密码-->
+                    <div class="form-group">
+                        <div class="col-sm-offset-2 col-sm-10">
+                            <div class="checkbox">
+                                <label>
+                                    <input type="checkbox"> 记住密码
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <!--登陆按钮-->
+                    <!--登陆按钮-->
+                    <div class="modal-footer" >
+                        <button type="submit" class="btn btn-default">登录</button>
+
+                        <button type="button" class="btn btn-default" onclick="window.location.href='register.jsp'">注册</button>
+
+
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
 <div id="container">
     <div id="container_re_left">
         <img src="img/bg_re.jpg">
