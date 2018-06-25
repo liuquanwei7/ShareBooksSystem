@@ -1,3 +1,4 @@
+<%@ taglib prefix="s" uri="/struts-tags" %>
 <%--
   Created by IntelliJ IDEA.
   User: 10537
@@ -11,6 +12,8 @@
     <title>AddInCarSuccess</title>
 </head>
 <body>
-加入购物车成功！！！
+<s:include value="newNav.jsp"/>
+<p style="margin: 0 auto;width: 500px;height: 100px;text-align: center;font-size: 20px;">
+    加入购物车成功！！！</p>
 </body>
 </html>

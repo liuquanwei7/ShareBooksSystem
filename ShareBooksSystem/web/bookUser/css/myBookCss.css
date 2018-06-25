@@ -58,6 +58,10 @@
     align-content: center;
     /*margin-top: 20px;*/
 }
+.bookInfo p{
+    margin-top: 13px;
+    font-size: 15px;
+}
 .bookTodo{
     width: 224px;
     height: 167px;

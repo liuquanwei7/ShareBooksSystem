@@ -82,24 +82,24 @@ public class EnsureAddBookAction extends ActionSupport {
 
     public String execute() throws Exception{
 //        book=(Book)JSONObject.toBean(theBook,Book.class);
-//        Map map=ActionContext.getContext().getSession();
+        Map map=ActionContext.getContext().getSession();
         System.out.println("24323423");
         //查询bookinfo是否已有该书籍，有则不添加书籍，只添加个人图书表
-//        user=(User)map.get("user");
+        user=(User)map.get("user");
         System.out.println("this is personaltest22244");
-        user = new User();
-        System.out.println("this is personaltest1554");
-        //        mybook=new PersonalBook();
-        user.setUserName("徒步浪");
-        user.setUserPermission(2);
-        user.setUserIdentity("15020225");
-        user.setUserAccount("1239");
-        user.setUserAge(24);
-        user.setUserGender("男");
-        user.setUserId(6);
-        user.setUserPassword("1239");
-        user.setUserEmail("1053736438@qq.com");
-        System.out.println("this is personaltest144");
+//        user = new User();
+//        System.out.println("this is personaltest1554");
+//        //        mybook=new PersonalBook();
+//        user.setUserName("徒步浪");
+//        user.setUserPermission(2);
+//        user.setUserIdentity("15020225");
+//        user.setUserAccount("1239");
+//        user.setUserAge(24);
+//        user.setUserGender("男");
+//        user.setUserId(6);
+//        user.setUserPassword("1239");
+//        user.setUserEmail("1053736438@qq.com");
+//        System.out.println("this is personaltest144");
         //如果book info没有
         if(bd.checkBookin(book.getBookName())==null) {
             System.out.println(book.getBookPrice()+"ttttttt");

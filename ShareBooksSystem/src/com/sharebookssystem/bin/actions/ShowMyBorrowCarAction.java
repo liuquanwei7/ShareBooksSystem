@@ -98,9 +98,9 @@ public class ShowMyBorrowCarAction extends ActionSupport {
 //        check_data="java";
         books=new ArrayList<Book>();
         personalbooks=new ArrayList<PersonalBook>();
-//        user=(User) map.get("user");
+        user=(User) map.get("user");
         user=new User();
-
+//
         user.setUserName("徒步浪");
         user.setUserPermission(2);
         user.setUserIdentity("15020225");

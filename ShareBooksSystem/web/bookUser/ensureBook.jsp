@@ -11,31 +11,45 @@
 <html>
 <head>
     <title>ensureBook</title>
-    <script src="//unpkg.com/vue/dist/vue.js"></script>
-    <script src="//unpkg.com/iview/dist/iview.min.js"></script>
+
+    <%--<style rel="stylesheet">--%>
+
+        <%--/*#app{padding: 32px;}*/--%>
+    <%--</style>--%>
+    <%--<script src="js/homepage.js"></script>--%>
+    <%--<script src="//unpkg.com/vue/dist/vue.js"></script>--%>
+    <%--<script src="js/vue.js"></script>--%>
+    <%--<script src="//unpkg.com/iview/dist/iview.min.js"></script>--%>
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <script src="js/jquery-3.3.1.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="js/bootstrap.min.js"></script>
     <script src="js/chooseBook.js"></script>
 
-
-    <link href="//unpkg.com/iview/dist/styles/iview.css" rel="stylesheet">
+    <script src="js/getBookInfoByISBN.js"></script>
+    <%--<link href="//unpkg.com/iview/dist/styles/iview.css" rel="stylesheet">--%>
     <link href="css/ensureBook.css" rel="stylesheet" >
-    <%--<style rel="stylesheet">--%>
-
-        <%--/*#app{padding: 32px;}*/--%>
-    <%--</style>--%>
-
 </head>
 <body>
 <header>
+    <%--<s:include value="addBook.jsp"/>--%>
+    <s:include value="newNav.jsp"/>
+    <%--<s:include value="addBookNoNav.jsp"/>--%>
 
 </header>
 <div>
-    <aside>
+    <%--<aside>--%>
 
-    </aside>
+    <%--</aside>--%>
+        <div class="searchIsbn">
+            <form class="form-inline my-2 my-lg-0" >
+                <input id="isbndata" class="form-control mr-sm-2" type="search" placeholder="输入书籍条形码上ISBN码（纯数字）"
+                       aria-label="Search" name="check_data">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="button" onclick="getBookInfo()">
+                    搜索
+                </button>
+            </form>
+        </div>
     <div class="book-content">
         <s:iterator value="#session.book" status="st" var="mybook">
             <div class="card mycard" >
@@ -53,7 +67,7 @@
                             <p>类别:<s:property value="#mybook.bookCategory"/></p>
                             <p>出版社:<s:property value="#mybook.bookPublish"/></p>
 
-                            <div id="app">
+                            <div id="app1">
                                 <tooltip placement="top">
                                     <p class="bookSummary">简介：
                                         <s:property value="#mybook.bookSummary"/>
@@ -109,7 +123,7 @@
     }
 
     var Component = Vue.extend(Main)
-    new Component().$mount('#app')
+    new Component().$mount('#app1')
 </script>
 </body>
 </html>

@@ -1,0 +1,40 @@
+#logo_text a{
+    text-decoration: none;
+    color: black;
+}
+#flex_naver{
+    float: right;
+}
+#serch_nav{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+#naver{
+    z-index: 11;
+    opacity: 2;
+    position: absolute;
+    box-shadow: 0 1px 6px rgba(0,0,0,.35), 0 0 5px #f9f2e9 inset;
+}
+
+.nav_form{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+}
+.nav_ss{
+    display: inline-block;
+    height: 32px;
+    width: 32px;
+    background: url("../image/nav_serch.png") no-repeat center center ;
+    background-size:28px 28px;
+    background-position-x:center;
+    background-position-y:center;
+    border: none;
+}
+/*.dropdown-toggle{*/
+    /*display: flex;*/
+    /*flex-direction: row;*/
+/*}*/

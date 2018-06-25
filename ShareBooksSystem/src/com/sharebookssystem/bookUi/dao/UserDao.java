@@ -88,7 +88,7 @@ public class UserDao {
             //	Map map=ActionContext.getContext().getSession();
             //得到Strust对HttpServletRequest对象进行了封装，封装为了一个Map
             //拿到表示request对象 的map
-            Map<String, Object> request=ac.getContextMap();
+//            Map<String, Object> request=ac.getContextMap();
             Map<String, Object> ss=ac.getSession();
             ss.put("userPermission",user.getUserPermission());
             ss.put("userId", user.getUserId());

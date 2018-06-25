@@ -21,9 +21,9 @@
 </head>
 <body>
     <header>
-
+<s:include value="newNav.jsp"/>
     </header>
-    <div>
+    <div style="margin-top: 30px;">
         <aside>
 
         </aside>

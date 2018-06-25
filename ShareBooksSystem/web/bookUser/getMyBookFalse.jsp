@@ -1,3 +1,4 @@
+<%@ taglib prefix="s" uri="/struts-tags" %>
 <%--
   Created by IntelliJ IDEA.
   User: 10537
@@ -11,6 +12,9 @@
     <title>GetMyBookFalse</title>
 </head>
 <body>
-申请索回书籍失败！！！
+<s:include value="newNav.jsp"/>
+<p style="margin: 0 auto;width: 500px;height: 100px;text-align: center;font-size: 20px;">
+    申请索回书籍失败！！！</p>
+
 </body>
 </html>

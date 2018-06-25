@@ -95,7 +95,8 @@ public class AddBookToCarAction extends ActionSupport {
         user.setUserGender("男");
         user.setUserId(6);
         user.setUserPassword("1239");
-        System.out.println("this is personaltest144");
+//        System.out.println("this is personaltest144");
+//        user=(User) map.get("user");
         collectCarItem.setPersonalBook(personalBook);
         collectCarItem.setUser(user);
 //        collectCarItem.setBorrowStatus("请求借阅");

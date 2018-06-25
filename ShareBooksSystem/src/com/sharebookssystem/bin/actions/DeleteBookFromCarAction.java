@@ -77,17 +77,17 @@ public class DeleteBookFromCarAction extends ActionSupport {
 //        check_data="java";
            books=new ArrayList<Book>();
            personalbooks=new ArrayList<PersonalBook>();
-//        user=(User) map.get("user");
-           user=new User();
-
-           user.setUserName("徒步浪");
-           user.setUserPermission(2);
-           user.setUserIdentity("15020225");
-           user.setUserAccount("1239");
-           user.setUserAge(24);
-           user.setUserGender("男");
-           user.setUserId(6);
-           user.setUserPassword("1239");
+           user=(User) map.get("user");
+//           user=new User();
+//
+//           user.setUserName("徒步浪");
+//           user.setUserPermission(2);
+//           user.setUserIdentity("15020225");
+//           user.setUserAccount("1239");
+//           user.setUserAge(24);
+//           user.setUserGender("男");
+//           user.setUserId(6);
+//           user.setUserPassword("1239");
 //        books=bd.checkBook(check_data);
 //        System.out.println(books.toString());
 //        books.add((Book)bd.checkBook(check_data).get(0));

@@ -22,7 +22,7 @@ public class CheckBookAction extends ActionSupport {
     BookAllInfo bookAllInfo;
 
     int pageNo=1;
-    final int pageSize=1;
+    final int pageSize=16;
     int currentPage;
     int totalPage;
 

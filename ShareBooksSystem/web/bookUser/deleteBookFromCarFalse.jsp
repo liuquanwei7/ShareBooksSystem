@@ -1,3 +1,4 @@
+<%@ taglib prefix="s" uri="/struts-tags" %>
 <%--
   Created by IntelliJ IDEA.
   User: 10537
@@ -11,6 +12,9 @@
     <title>DeleteBookFromCarFalse</title>
 </head>
 <body>
-删除借阅车图书失败！！！
+<s:include value="newNav.jsp"/>
+<p style="margin: 0 auto;width: 500px;height: 100px;text-align: center;font-size: 20px;">
+    删除借阅车图书失败！！！</p>
+
 </body>
 </html>
