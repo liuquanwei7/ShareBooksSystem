@@ -1,0 +1,25 @@
+body{
+    top: 0;
+    margin: 0;
+}
+
+#main{
+    width: 18%;
+    height: 20%;
+    position: relative;
+    margin: 0 auto;
+    margin-top: 18%;
+}
+
+#submitButton{
+    margin-top: 16px;
+    margin-left: 85px;
+}
+
+#update{
+
+}
+
+#back{
+    margin-left: 14px;
+}

@@ -54,7 +54,7 @@ public interface BookManagementService {
     public boolean deletePersonalBook(int id);
 
     //通过personalBookId删除借书记录表
-    public boolean deleteBorrowHistotyItem(int id);
+    public boolean deleteBorrowHistoryItem(int id);
 
     //通过personalBookId删除收藏车
     public boolean deleteCollectCarItem(int id);
@@ -62,18 +62,30 @@ public interface BookManagementService {
     //通过personalBookId删除书籍评论
     public boolean deleteCommentItem(int id);
 
-    //确认从A收到A的书
-    public boolean confirmFromA(Object object,int id);
-
-    //确认借出A的书
-    public boolean confirmToB(Object object,int id);
-
-    //确认从B收到A的书
-    public boolean confirmFromB(Object object,int id);
-
-    //确认归还A的书
-    public boolean confirmToA(Object object,int id);
-
     //查询图书
     public List queryBook(List list,int pageNo);
+
+    //操作员更新PersonalBook
+    public boolean updatePersonalBook(Object object);
+
+    //通过shareCode查询PersonalBook
+    public List queryPersonalBookByShareCode(int id);
+
+    //通过borrowCode查询BorrowHistoryItem
+    public List queryBorrowHistoryItemByBorrowCode(int id);
+
+    //通过personalBookId查询PersonalBook表
+    public List queryPersonalBookByPersonalBookId(int id);
+
+    //操作员同时更新personalBook和borrowHistoryItem
+    public boolean updatePersonalBookAndBorrowHistoryItem(Object object1,Object object2);
+
+    //通过returnCode查询BorrowHistoryItem
+    public List queryBorrowHistoryItemByReturnCode(String returnCode);
+
+    //通过getBookCode查询PersonalBook
+    public List queryPersonalBookByGetBookCode(String getBookCode);
+
+    //通过userId查询UserInfo
+    public List queryUserInfoByUserId(int id);
 }

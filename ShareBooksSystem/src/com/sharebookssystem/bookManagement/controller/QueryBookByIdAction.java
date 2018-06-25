@@ -53,6 +53,7 @@ public class QueryBookByIdAction extends ActionSupport {
         temp=service.queryBookById(bookId);
         managerBooks = temp.get(0);
         Map m = ActionContext.getContext().getSession();
+        m.put("managerBooksPicture",managerBooks.getBookPicture());
         m.put("managerBooks",managerBooks); //修改图书页面显示
         if(managerBooks!=null){
             return SUCCESS;

@@ -1,0 +1,183 @@
+/*@import url("//unpkg.com/iview/dist/styles/iview.css");*/
+.mycard{
+    width: 954px;
+    height: 188px;
+    padding-top: 20px;
+    /*padding-left: 20px;*/
+    /*margin-bottom: 20px;*/
+    /*padding-bottom: 20px;*/
+    position: relative;
+    flex-direction: row;
+    display: flex;
+    margin: 0 auto;
+    border-top: 0;
+    border-left: 0;
+    border-right: 0;
+    border-bottom: 1px solid;
+
+}
+.bookImg{
+    width: 102px;
+    height: 136px;
+    display: inline;
+    float: left;
+    overflow: hidden;
+    /*position: relative;*/
+    /*overflow: hidden;*/
+
+}
+.bookImg img{
+    box-shadow: 0 1px 6px rgba(0,0,0,.35), 0 0 5px #f9f2e9 inset;
+    margin: 0;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: inline;
+    padding: 0;
+    overflow: hidden;
+    transition: all 0.5s;
+}
+.bookImg img:hover{
+    /*width: 110%;*/
+    /*height: 110%;*/
+    overflow: hidden;
+    /* margin: 0 auto; */
+    /*left: -5%;*/
+    /*top: -5%;*/
+    transform: scale(1.1);
+
+}
+.bookInfo{
+    position: relative;
+    /*float: left;*/
+    width: 560px;
+    display: flex;
+    flex-direction: column;
+    padding-top: 0;
+    left:20px;
+    align-content: center;
+    /*margin-top: 20px;*/
+}
+.bookInfo p{
+    margin-bottom: 10px;
+    font-size: 16px;
+}
+.bookTodo{
+    width: 224px;
+    height: 167px;
+    margin-left: 67px;
+
+}
+.bookName{
+    /* align-self: center; */
+    /*display: flex;*/
+    /*flex-direction: row;*/
+    /*float: left;*/
+    /*display: flex;*/
+    /*flex-direction: row;*/
+    /*justify-content: flex-start;*/
+    /*align-items: center;*/
+    width: 560px;
+    padding-top: 0;
+    height: 30px;
+    margin-bottom: 10px;
+    /* padding-bottom: 5; */
+}
+.bookName em{
+    display: block;
+    margin-top: 0;
+    float: left;
+    font-style: normal;
+    /* height:37px; */
+    /*float: left;*/
+    font-size: 18px;
+
+    line-height: 30px;
+    font: 700 28px/38px PingFangSC-Regular,HelveticaNeue-Light,'Helvetica Neue Light','Microsoft YaHei',sans-serif;
+}
+.bookName span{
+    display: block;
+    text-align: center;
+    font-size: 16px;
+    /* line-height: 19; */
+    /* position: relative; */
+    margin-top: 16px;
+    margin-left: 10px;
+    float: left;
+
+    /*position: relative;*/
+    /*margin : 20px;*/
+}
+/*.bookName h2{*/
+/*!*display: inline-block;*!*/
+/*!*height:30px ;*!*/
+/*float: left;*/
+/*text-align: center;*/
+
+/*}*/
+/*.bookName p{*/
+/*float: left;*/
+/*text-align: center;*/
+/*line-height: 20px;*/
+/*}*/
+
+.chooseBook{
+    display: inline-block;
+    border: 1px solid #bf2c24;
+    text-align: center;
+    background: #bf2c24;
+    width: 120px;
+    height: 34px;
+    color: #fff;
+    vertical-align: middle;
+    font-size: 14px;
+    /* text-align: center; */
+    line-height: 28px;
+    /* margin-right: 20px; */
+    float: right;
+    margin-top: 105px;
+}
+.borrowBook:hover{
+    color: #fff;
+    border-color: #ed4259;
+    background:#ed4259;
+}
+.addInCar{
+    display: inline-block;
+    border:1px solid #3f5a93;
+    color: #3f5a93;
+    text-align: center;
+    width: 120px;
+    height: 34px;
+    text-decoration: none;
+    vertical-align: middle;
+    font-size: 14px;
+    line-height: 28px;
+    margin-right: 20px;
+}
+.addInCar:hover{
+    color: #2972cc;
+    border-color: #2972cc;
+    background:#f0f5ff;
+}
+.myPage{
+    border: 0px;
+}
+.book-content{
+    margin: 0 auto;
+    width: 954px;
+}
+.myNavPage{
+    float: right;
+    margin-top: 10px;
+}
+.bookSummary{
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+}
+/*@import url("//unpkg.com/iview/dist/styles/iview.css");*/
+/*.myPage li{*/
+/*border: 0px;*/
+/*}*/

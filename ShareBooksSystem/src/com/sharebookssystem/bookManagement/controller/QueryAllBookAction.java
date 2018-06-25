@@ -19,7 +19,8 @@ public class QueryAllBookAction extends ActionSupport {
     private BookManagementServiceImpl service;
     private List<Book> books = new ArrayList<>();
     private int pageNo=1;
-    private int CurrentPage;
+    private int currentPage;
+    private int totalPage;
 
     public QueryAllBookAction(){
 
@@ -42,11 +43,19 @@ public class QueryAllBookAction extends ActionSupport {
     }
 
     public int getCurrentPage() {
-        return CurrentPage;
+        return currentPage;
     }
 
     public void setCurrentPage(int currentPage) {
-        CurrentPage = currentPage;
+        this.currentPage = currentPage;
+    }
+
+    public int getTotalPage() {
+        return totalPage;
+    }
+
+    public void setTotalPage(int totalPage) {
+        this.totalPage = totalPage;
     }
 
     public String queryAllBook(){
@@ -60,7 +69,8 @@ public class QueryAllBookAction extends ActionSupport {
             m.put("managerQueryNullError","抱歉,没有查到相关的图书,请输入正确的图书信息");
             return INPUT;
         }else{
-            CurrentPage = 1;
+            currentPage = 1;
+            totalPage = Integer.parseInt(m.get("managerTotalPage").toString().trim());
             m.put("managerBooks",books);     //jsp页面迭代显示
             m.put("managerBookShow","1");   //显示判断
             return SUCCESS;

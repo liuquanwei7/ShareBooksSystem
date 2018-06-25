@@ -85,7 +85,6 @@
                             <div id="queryButton">
                                 <button type="reset" class="btn btn-primary" id="reset">重置</button>&nbsp&nbsp
                                 <button type="submit" class="btn btn-primary" id="query">查询</button>
-
                             </div>
                         </div>
                     </div>

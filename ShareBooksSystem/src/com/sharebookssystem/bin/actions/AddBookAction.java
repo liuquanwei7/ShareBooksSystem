@@ -14,6 +14,7 @@ import org.apache.struts2.ServletActionContext;
 import javax.servlet.http.HttpServletRequest;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -25,6 +26,15 @@ public class AddBookAction extends ActionSupport{
     String check_ISBN;
     String mybook;
     Book book;
+    Map<String,Object>jsonMap;
+
+    public Map<String, Object> getJsonMap() {
+        return jsonMap;
+    }
+
+    public void setJsonMap(Map<String, Object> jsonMap) {
+        this.jsonMap = jsonMap;
+    }
 
     public Book getBook() {
         return book;
@@ -118,25 +128,31 @@ public class AddBookAction extends ActionSupport{
     public String execute(){
         System.out.println("this is test");
 //        System.out.println(mybook);
+
         //利用逗号分离字符串
-        String []mybookdata=mybook.split(",");
-        System.out.println(mybookdata[1]);
-        book=new Book();
-        book.setBookAuthor(mybookdata[1]);
-        book.setBookName(mybookdata[0]);
-        book.setBookPicture(mybookdata[2]);
-        book.setBookPublish(mybookdata[3]);
-        System.out.println(mybookdata[4]+"ggggsdfadsg");
-        int endIndex = mybookdata[4].lastIndexOf("元");
-        if(endIndex>0) {
-            book.setBookPrice(Float.parseFloat(mybookdata[4].substring(0, endIndex)));
-        }else{
-            book.setBookPrice(Float.parseFloat(mybookdata[4]));
-        }
-        System.out.println(mybookdata[4]+"ggggg");
-        book.setBookCategory(mybookdata[5]);
-        System.out.println(book.getBookPrice()+"fadsfadsggggg");
+//        String []mybookdata=mybook.split(",");
+//        System.out.println(mybookdata[1]);
+//        book=new Book();
+//        book.setBookAuthor(mybookdata[1]);
+//        book.setBookName(mybookdata[0]);
+//        book.setBookPicture(mybookdata[2]);
+//        book.setBookPublish(mybookdata[3]);
+//        System.out.println(mybookdata[4]+"ggggsdfadsg");
+//        int endIndex = mybookdata[4].lastIndexOf("元");
+//        if(endIndex>0) {
+//            book.setBookPrice(Float.parseFloat(mybookdata[4].substring(0, endIndex)));
+//        }else{
+//            book.setBookPrice(Float.parseFloat(mybookdata[4]));
+//        }
+//        System.out.println(mybookdata[4]+"ggggg");
+//        book.setBookCategory(mybookdata[5]);
+//        System.out.println(book.getBookPrice()+"fadsfadsggggg");
+
         System.out.println(book);
+        books=new ArrayList<Book>();
+        books.add(book);
+        Map map=ActionContext.getContext().getSession();
+        map.put("book",books);
 //        mybook=mybook.get(0).split(",");
 //        System.out.println(bookAuthor);
 //        String jsondata=Request
@@ -156,7 +172,9 @@ public class AddBookAction extends ActionSupport{
 //        System.out.println(books.toString());
 //        System.out.println(books.get(0).getBookName());
 //        books=(List<Book>)mybook;
-        if (book!=null){
+        if (books!=null){
+            jsonMap = new HashMap<String, Object>();
+            jsonMap.put("result", "YES");
             return SUCCESS;
         }else {
             return INPUT;

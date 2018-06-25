@@ -11,11 +11,21 @@
 <html>
 <head>
     <title>ensureBook</title>
+    <script src="//unpkg.com/vue/dist/vue.js"></script>
+    <script src="//unpkg.com/iview/dist/iview.min.js"></script>
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <script src="js/jquery-3.3.1.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="js/bootstrap.min.js"></script>
     <script src="js/chooseBook.js"></script>
+
+
+    <link href="//unpkg.com/iview/dist/styles/iview.css" rel="stylesheet">
+    <link href="css/ensureBook.css" rel="stylesheet" >
+    <%--<style rel="stylesheet">--%>
+
+        <%--/*#app{padding: 32px;}*/--%>
+    <%--</style>--%>
 
 </head>
 <body>
@@ -26,22 +36,55 @@
     <aside>
 
     </aside>
-    <div>
-        <s:iterator value="book" status="st" var="mybook">
-            <div class="card" style="width:300px;height: 600px" >
-                <a href="javascript:chooseBook('<s:property value="#mybook"/>')">
-                <%--<a href="ensureAddBookAction?book=+<s:property value='#mybook'/>">--%>
-                    <img referrerpolicy ="no-referrer" alt="网络错误" src="<s:property value="#mybook.bookPicture"/>"
-                         class="card-img-top" style="width: 300px;height: 300px">
-                    <div class="card-body">
-                        <p class="card-text"><s:property value="#mybook.bookName"/></p>
-                        <p class="card-text"><s:property value="#mybook.bookAuthor"/></p>
-                        <p class="card-text"><s:property value="#mybook.bookCategory"/></p>
-                        <p class="card-text"><s:property value="#mybook.bookPublish"/></p>
-                        <p class="card-text"><s:property value="#mybook.bookPrice"/>元</p>
+    <div class="book-content">
+        <s:iterator value="#session.book" status="st" var="mybook">
+            <div class="card mycard" >
 
-                    </div>
-                </a>
+                    <%--'<s:property value="#mybook"/>'--%>
+                <%--<a href="ensureAddBookAction?book=+<s:property value='#mybook'/>">--%>
+                        <div class="bookImg">
+                        <img referrerpolicy ="no-referrer" alt="网络错误" src="<s:property value="#mybook.bookPicture"/>">
+                        </div>
+                        <div class="bookInfo">
+                            <h1 class="bookName">
+                                <em><s:property value="#mybook.bookName"/></em>
+                                <span><s:property value="#mybook.bookAuthor"/>&nbsp著</span>
+                            </h1>
+                            <p>类别:<s:property value="#mybook.bookCategory"/></p>
+                            <p>出版社:<s:property value="#mybook.bookPublish"/></p>
+
+                            <div id="app">
+                                <tooltip placement="top">
+                                    <p class="bookSummary">简介：
+                                        <s:property value="#mybook.bookSummary"/>
+                                    </p>
+                                    <div slot="content" style="white-space: normal;" >
+                                        <p><s:property value="#mybook.bookSummary"/></p>
+                                        <%--<p><i>Can customize the style</i></p>--%>
+                                    </div>
+                                </tooltip>
+                            </div>
+                            <%--<p class="bookSummary"></p>--%>
+                            <%--<p class="storeStatus">在库状态：<s:property value="#personalbook.bookStatus"/></p>--%>
+                            <%--<p class="card-text"><s:property value="#mybook.bookName"/></p>--%>
+                            <%--<p class="card-text"><s:property value="#mybook.bookAuthor"/></p>--%>
+                            <%--<p class="card-text"><s:property value="#mybook.bookCategory"/></p>--%>
+                            <%--<p class="card-text"><s:property value="#mybook.bookPublish"/></p>--%>
+
+
+                        </div>
+                        <div class="bookCommentSide">
+                                <%--<p><s:property value="personalBook.numberOfTimes"/></p>--%>
+                                <%--<p>借阅热度</p>--%>
+                            <p class="bookTodo">
+                                    <%--<a href="javascript:getMyBook('<s:property value="#personalbook.personalBookId"/>')" class="borrowBook">索回</a>--%>
+                                        <a href="javascript:chooseBook()" class="chooseBook">选择
+                                        </a><%--<a href="javascript:getMyBook(<s:property value="#personalbook.personalBookId"/>,'<s:property value="#personalbook.bookStatus"/>')" class="borrowBook">索回</a>--%>
+                                    <%--<a href="javascript:addInCar('<s:property value="#personalbook.personalBookId"/>')" class="addInCar">加入借阅车</a>--%>
+                            </p>
+                        </div>
+
+                <%--</a>--%>
             </div>
         </s:iterator>
             <%--<div class="card" style="width:18rem;" >--%>
@@ -59,5 +102,14 @@
 <footer>
 
 </footer>
+<script>
+
+    var Main = {
+
+    }
+
+    var Component = Vue.extend(Main)
+    new Component().$mount('#app')
+</script>
 </body>
 </html>

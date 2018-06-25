@@ -33,6 +33,12 @@ public class BookManagementServiceImpl implements BookManagementService {
     private static final String personalBookParam1 = "personalBookId";
     private static final String collectCarItemClassName = "CollectCarItem";
     private static final String commentItemClassName = "CommentItem";
+    private static final String personalBookParam6 = "shareCode";
+    private static final String personalBookParam8 = "getBookCode";
+    private static final String borrowHistoryItemParam7 = "borrowCode";
+    private static final String getBorrowHistoryItemParam8 = "returnCode";
+    private static final String userClassName = "User";
+    private static final String userParam0 = "userId";
     private int totalPage; //总页数
     private List<Book> books;
     private List result = new ArrayList();  //返回查询图书的结果
@@ -145,7 +151,7 @@ public class BookManagementServiceImpl implements BookManagementService {
     }
 
     //通过personalBookId删除借书记录表
-    public boolean deleteBorrowHistotyItem(int id){
+    public boolean deleteBorrowHistoryItem(int id){
         return dao.deleteByHql(borrowHistoryItemClassName,personalBookParam1,id);
     }
 
@@ -157,26 +163,6 @@ public class BookManagementServiceImpl implements BookManagementService {
     //通过personalBookId删除书籍评论
     public boolean deleteCommentItem(int id){
         return dao.deleteByHql(commentItemClassName,personalBookParam1,id);
-    }
-
-    //确认从A收到A的书
-    public boolean confirmFromA(Object object,int id){
-        return dao.updateByObject(object);
-    }
-
-    //确认借出A的书
-    public boolean confirmToB(Object object,int id){
-        return dao.updateByObject(object);
-    }
-
-    //确认从B收到A的书
-    public boolean confirmFromB(Object object,int id){
-        return dao.updateByObject(object);
-    }
-
-    //确认归还A的书
-    public boolean confirmToA(Object object,int id){
-        return dao.updateByObject(object);
     }
 
     //查询管理员信息()
@@ -322,6 +308,54 @@ public class BookManagementServiceImpl implements BookManagementService {
         return result;
     }
 
+    //操作员更新PersonalBook
+    public boolean updatePersonalBook(Object object){
+        return dao.updateByObject(object);
+    }
 
+    //操作员更新借阅记录表
+    public boolean updateBorrowHistoryItem(Object object){
+        return dao.updateByObject(object);
+    }
+
+    //通过shareCode查询PersonalBook
+    public List queryPersonalBookByShareCode(int id){
+        List result = dao.queryByParam(personalBookClassName,personalBookParam6,id);
+        return result;
+    }
+
+    //通过borrowCode查询BorrowHistoryItem
+    public List queryBorrowHistoryItemByBorrowCode(int id){
+        List result = dao.queryByParam(borrowHistoryItemClassName,borrowHistoryItemParam7,id);
+        return result;
+    }
+    //通过personalBookId查询PersonalBook表
+    public List queryPersonalBookByPersonalBookId(int id){
+        List result = dao.queryByParam(personalBookClassName,personalBookParam1,id);
+        return result;
+    }
+
+    //操作员同时更新personalBook和borrowHistoryItem
+    public boolean updatePersonalBookAndBorrowHistoryItem(Object object1,Object object2){
+        return dao.updateByTwoObject(object1,object2);
+    }
+
+    //通过returnCode查询BorrowHistoryItem
+    public List queryBorrowHistoryItemByReturnCode(String returnCode){
+        List result = dao.queryByParam(borrowHistoryItemClassName,getBorrowHistoryItemParam8,returnCode);
+        return result;
+    }
+
+    //通过getBookCode查询PersonalBook
+    public List queryPersonalBookByGetBookCode(String getBookCode){
+        List result = dao.queryByParam(personalBookClassName,personalBookParam8,getBookCode);
+        return result;
+    }
+
+    //通过userId查询UserInfo
+    public List queryUserInfoByUserId(int id){
+        List result = dao.queryByParam(userClassName,userParam0,id);
+        return result;
+    }
 
 }
