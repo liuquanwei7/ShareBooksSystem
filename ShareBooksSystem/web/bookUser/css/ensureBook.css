@@ -1,3 +1,4 @@
+/*@import url("//unpkg.com/iview/dist/styles/iview.css");*/
 .mycard{
     width: 954px;
     height: 188px;
@@ -13,7 +14,6 @@
     border-left: 0;
     border-right: 0;
     border-bottom: 1px solid;
-
 
 }
 .bookImg{
@@ -58,6 +58,10 @@
     align-content: center;
     /*margin-top: 20px;*/
 }
+.bookInfo p{
+    margin-bottom: 10px;
+    font-size: 16px;
+}
 .bookTodo{
     width: 224px;
     height: 167px;
@@ -76,10 +80,8 @@
     width: 560px;
     padding-top: 0;
     height: 30px;
+    margin-bottom: 10px;
     /* padding-bottom: 5; */
-}
-.toBook{
-    color: #000;
 }
 .bookName em{
     display: block;
@@ -89,7 +91,9 @@
     /* height:37px; */
     /*float: left;*/
     font-size: 18px;
+
     line-height: 30px;
+    font: 700 28px/38px PingFangSC-Regular,HelveticaNeue-Light,'Helvetica Neue Light','Microsoft YaHei',sans-serif;
 }
 .bookName span{
     display: block;
@@ -97,7 +101,7 @@
     font-size: 16px;
     /* line-height: 19; */
     /* position: relative; */
-    margin-top: 10px;
+    margin-top: 16px;
     margin-left: 10px;
     float: left;
 
@@ -117,7 +121,7 @@
 /*line-height: 20px;*/
 /*}*/
 
-.borrowBook{
+.chooseBook{
     display: inline-block;
     border: 1px solid #bf2c24;
     text-align: center;
@@ -167,6 +171,13 @@
     float: right;
     margin-top: 10px;
 }
+.bookSummary{
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+}
+/*@import url("//unpkg.com/iview/dist/styles/iview.css");*/
 /*.myPage li{*/
 /*border: 0px;*/
 /*}*/

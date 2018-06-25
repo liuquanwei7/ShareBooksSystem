@@ -7,24 +7,49 @@ import com.sharebookssystem.model.Book;
 import com.sharebookssystem.model.BookAllInfo;
 import com.sharebookssystem.model.PersonalBook;
 import com.sharebookssystem.model.User;
-import org.hibernate.cache.spi.CacheKey;
 
-//import java.awt.print.Book;
 import java.util.*;
 
-public class CheckBookAction extends ActionSupport {
+public class ShowBookByPersonalBookIdAction extends ActionSupport {
     BookDao bd;
     User user;
     List<Book> books;
     List<PersonalBook> personalbooks;
     List oj;
     String check_data;
-    BookAllInfo bookAllInfo;
+//    BookAllInfo bookAllInfo;
+    int personalBookId;
+    Book mybook;//选中的图书
+    PersonalBook personalBook;
 
     int pageNo=1;
     final int pageSize=1;
     int currentPage;
     int totalPage;
+
+    public Book getMybook() {
+        return mybook;
+    }
+
+    public void setMybook(Book mybook) {
+        this.mybook = mybook;
+    }
+
+    public PersonalBook getPersonalBook() {
+        return personalBook;
+    }
+
+    public void setPersonalBook(PersonalBook personalBook) {
+        this.personalBook = personalBook;
+    }
+
+    public int getPersonalBookId() {
+        return personalBookId;
+    }
+
+    public void setPersonalBookId(int personalBookId) {
+        this.personalBookId = personalBookId;
+    }
 
     public List getOj() {
         return oj;
@@ -70,13 +95,13 @@ public class CheckBookAction extends ActionSupport {
         this.personalbooks = personalbooks;
     }
 
-    public BookAllInfo getBookAllInfo() {
-        return bookAllInfo;
-    }
-
-    public void setBookAllInfo(BookAllInfo bookAllInfo) {
-        this.bookAllInfo = bookAllInfo;
-    }
+//    public BookAllInfo getBookAllInfo() {
+//        return bookAllInfo;
+//    }
+//
+//    public void setBookAllInfo(BookAllInfo bookAllInfo) {
+//        this.bookAllInfo = bookAllInfo;
+//    }
 
     public List<PersonalBook> getOwnbooks() {
         return personalbooks;
@@ -86,7 +111,7 @@ public class CheckBookAction extends ActionSupport {
         this.personalbooks = personalbooks;
     }
 
-    public CheckBookAction(){}
+    public ShowBookByPersonalBookIdAction(){}
 
     public User getUser() {
         return user;
@@ -122,7 +147,7 @@ public class CheckBookAction extends ActionSupport {
 
     public String execute(){
         Map map=ActionContext.getContext().getSession();
-        check_data=(String) map.get("check_data");
+//        check_data=(String) map.get("check_data");
 //        map.put("check_data",null);
 //        check_data="java";
         books=new ArrayList<Book>();
@@ -135,27 +160,27 @@ public class CheckBookAction extends ActionSupport {
         Collection result=new ArrayList();
         books=null;
         personalbooks=null;
-        result=bd.checkBook(check_data);//获取Collection对象
+        result=bd.checkBookByPersonalId(personalBookId);//获取Collection对象
 
-        if(result.size()%pageSize==0){
-            totalPage=result.size()/pageSize;
-        }else{
-            totalPage=result.size()/pageSize+1;
-        }
-        //判断上一页下一页
-        if(pageNo<=0){
-            pageNo=1;
-        }else if (pageNo>totalPage){
-            pageNo=totalPage;
-        }
-        //设置当前页
-        currentPage=pageNo;
-        System.out.println(totalPage+"fsdfa33");
-        System.out.println(pageNo+"fsdfa11");
-        System.out.println(pageSize+"fsdfa55");
-//        air_tickets=td.queryTimeOrNameByPage(query_data,user.getId(),
-//                pageNo,pageSize);
-        result=bd.checkBookByPage(check_data,pageNo,pageSize);
+//        if(result.size()%pageSize==0){
+//            totalPage=result.size()/pageSize;
+//        }else{
+//            totalPage=result.size()/pageSize+1;
+//        }
+//        //判断上一页下一页
+//        if(pageNo<=0){
+//            pageNo=1;
+//        }else if (pageNo>totalPage){
+//            pageNo=totalPage;
+//        }
+//        //设置当前页
+//        currentPage=pageNo;
+//        System.out.println(totalPage+"fsdfa33");
+//        System.out.println(pageNo+"fsdfa11");
+//        System.out.println(pageSize+"fsdfa55");
+////        air_tickets=td.queryTimeOrNameByPage(query_data,user.getId(),
+////                pageNo,pageSize);
+//        result=bd.checkBookByPage(check_data,pageNo,pageSize);
 
         if(result!=null) {
             books=new ArrayList<Book>();
@@ -170,9 +195,9 @@ public class CheckBookAction extends ActionSupport {
                 System.out.println("BookInfo-Title: " + books.get(0).getBookAuthor());
                 System.out.println("BookSelection-BookSelectionId: " + personalbooks.get(0).getBookStatus());
             }
-            bookAllInfo = new BookAllInfo();
-            bookAllInfo.setBooks(books);
-            bookAllInfo.setPersonalbooks(personalbooks);
+//            bookAllInfo = new BookAllInfo();
+//            bookAllInfo.setBooks(books);
+//            bookAllInfo.setPersonalbooks(personalbooks);
             map.put("books", books);
             map.put("personalbooks", personalbooks);
 
@@ -181,6 +206,8 @@ public class CheckBookAction extends ActionSupport {
 //        System.out.println(books);
         }
         if (books!=null&&personalbooks!=null){
+            personalBook=personalbooks.get(0);
+            mybook=books.get(0);
             return SUCCESS;
         }else {
             return INPUT;

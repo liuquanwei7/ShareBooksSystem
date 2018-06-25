@@ -15,7 +15,7 @@
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="js/bootstrap.min.js"></script>
     <script src="js/getMyBook.js"></script>
-    <%--<script src="js/addInCar.js"></script>--%>
+    <script src="js/showInfo.js"></script>
     <%--<script src="js/deleteFromCar.js"></script>--%>
     <link href="css/myBookCss.css" rel="stylesheet">
 </head>
@@ -27,16 +27,19 @@
                     <s:if test="#st1.count==#st2.count">
                 <div class="card mycard">
                     <%--<img src="<s:property value="#book.bookPicture">" class="card-img">--%>
-                    <div class="bookImg">
+                        <a class="toBook" href="javascript:showbookinfobypersonalbookid('<s:property value="#personalbook.personalBookId"/>')">
+                            <div class="bookImg">
                             <%--<img referrerpolicy="no-referrer" src="https://img3.doubanio.com/view/subject/m/public/s5968156.jpg"--%>
                             <%-->--%>
                         <img referrerpolicy="no-referrer" src="<s:property value="#book.bookPicture"/>">
-                    </div>
+                        </div></a>
                     <div class="bookInfo">
 
                         <h1 class="bookName">
-                            <em><s:property value="#book.bookName"/></em>
+                            <a class="toBook" href="javascript:showbookinfobypersonalbookid('<s:property value="#personalbook.personalBookId"/>')">
+                            <em><s:property value="#book.bookName"/></em></a>
                             <span><s:property value="#book.bookAuthor"/>&nbsp著</span>
+
                         </h1>
                         <p>计算机:<s:property value="#book.bookCategory"/></p>
                         <p>出版社:<s:property value="#book.bookPublish"/></p>

@@ -38,6 +38,8 @@ function getBookInfo() {
                     "book.bookPublish": msg.publisher,
                     "book.bookPrice": msg.price,
                     "book.bookCategory": msg.tags[0].name,
+                    "book.bookSummary": msg.summary,
+
                 };
                 // var book={
                 //     'bookName':msg.title,
@@ -60,6 +62,7 @@ function getBookInfo() {
                 // console.log(typeof c);
                 console.log(typeof msg);
                 console.log(msg);
+                console.log(msg.summary);
                 console.log(msg.author[0]);
                 console.log(msg.image);
                 console.log(msg.translator);
@@ -67,7 +70,7 @@ function getBookInfo() {
                 console.log(msg.publisher);
                 // console.log(msg.tags[7].name);
                 console.log(msg.price);
-                // debugger
+                debugger
                 // document.getElementById("test").innerHTML=msg.catalog;
                 sessionStorage.isbn = ISBN;
                 // encodeURI(encodeURI(author));

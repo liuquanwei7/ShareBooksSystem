@@ -36,6 +36,8 @@ function chooseBook(){
                         "book.bookPublish": msg.publisher,
                         "book.bookPrice": msg.price,
                         "book.bookCategory": msg.tags[0].name,
+                        "book.bookSummary": msg.summary,
+
                     };
                     console.log(typeof msg);
                     console.log(msg);

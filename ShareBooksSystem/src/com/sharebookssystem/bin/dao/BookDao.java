@@ -133,6 +133,90 @@ public class BookDao {
         }finally {
             session.close();
         }
+    }public Collection checkBookByPersonalId(int PersonalId){
+        Session session=null;
+        Transaction transaction=null;
+        try {
+            session=sessionFactory.openSession();
+            String queryString="from Book bk,PersonalBook pk where bk.bookId=pk.book and pk.personalBookId="+PersonalId;
+            Query query=session.createQuery(queryString);
+            //设置获取的数据数量
+//            query.setFirstResult()
+            System.out.print("adsfasdfdas");
+            List res=query.list();
+            Collection books=res; //获取结果
+            System.out.print("adsfasdfdas");
+            if(res.size()>0){
+                books=res;
+            }else{
+                books=null;
+            }
+//            Collection books = query.list();//获取结果
+            System.out.print("adsfasdfdas");
+
+//            System.out.println(books);
+//            for (int i=0;i<books.size();i++){
+//                Object[] o = (Object[])books.get(i);
+//
+//                System.out.print(o[0] + ",");
+//                System.out.print(o[1] + ",");
+//                System.out.print(o[0].getClass() + ",");
+//                System.out.print(o[1] + ",");
+////                System.out.print(o[2] + ",");
+////                System.out.println(o[3]);
+//            }
+            return books;//返回Collection对象
+        }catch (Exception ex){
+            ex.printStackTrace();
+            return null;
+        }finally {
+            session.close();
+        }
+    }
+    public Collection checkBookByPage(String check_data,int pageNo,int pageSize){
+        Session session=null;
+        Transaction transaction=null;
+        try {
+            session=sessionFactory.openSession();
+            String queryString="from Book bk,PersonalBook pk where bk.bookId=pk.book and ( bk.bookName " +
+                    "like '%"+check_data+
+                    "%' or bk.bookAuthor like '%"+check_data+"%')";
+            Query query=session.createQuery(queryString);
+            //设置获取的数据数量
+            query.setFirstResult((pageNo-1)*pageSize); //设置这一页显示的第一条记录的索引
+            //这一页显示的记录个数
+            query.setMaxResults(pageSize);
+//            query.setFirstResult()
+            System.out.print("adsfasdfdas");
+            List res=query.list();
+            Collection books=res; //获取结果
+            System.out.print("adsfasdfdas");
+            if(res.size()>0){
+                books=res;
+            }else{
+                books=null;
+            }
+//            Collection books = query.list();//获取结果
+            System.out.print("adsfasdfdas");
+
+//            System.out.println(books);
+//            for (int i=0;i<books.size();i++){
+//                Object[] o = (Object[])books.get(i);
+//
+//                System.out.print(o[0] + ",");
+//                System.out.print(o[1] + ",");
+//                System.out.print(o[0].getClass() + ",");
+//                System.out.print(o[1] + ",");
+////                System.out.print(o[2] + ",");
+////                System.out.println(o[3]);
+//            }
+            return books;//返回Collection对象
+        }catch (Exception ex){
+            ex.printStackTrace();
+            return null;
+        }finally {
+            session.close();
+        }
     }
     // 查看个人图书
     public Collection checkMyBook(int userId){

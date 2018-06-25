@@ -59,4 +59,9 @@
             <ref bean="bookDao"></ref>
         </property>
     </bean>
+    <bean id="showBookByPersonalBookIdAction" class="com.sharebookssystem.bin.actions.ShowBookByPersonalBookIdAction" scope="prototype">
+        <property name="bd">
+            <ref bean="bookDao"></ref>
+        </property>
+    </bean>
 </beans>

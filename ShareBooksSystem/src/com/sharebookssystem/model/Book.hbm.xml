@@ -14,5 +14,6 @@
         <property name="bookPrice" column="bookPrice" />
         <property name="bookCategory" column="bookCategory" not-null="true" />
         <property name="bookPicture" column="bookPicture" not-null="true" length="50"/>
+        <property name="bookSummary" column="bookSummary"/>
     </class>
 </hibernate-mapping>
