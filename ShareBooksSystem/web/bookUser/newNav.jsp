@@ -30,6 +30,10 @@
             <%--<icon type="ios-people"></icon>--%>
             <%--用户管理--%>
         <%--</menu-item>--%>
+        <a href="showMyBorrowCarAction"><menu-item name="4" style="float: right;">
+        <icon type="settings"></icon>
+        退出登录
+        </menu-item></a>
         <a href="showMyBorrowCarAction"><menu-item name="3" style="float: right;">
         <icon type="settings"></icon>
         借阅车
@@ -39,7 +43,7 @@
         <submenu name="2" style="float: right;">
             <template slot="title">
                 <icon type="stats-bars"></icon>
-                统计分析
+                个人信息
             </template>
             <a href="addBook.jsp"><menu-item name="2-1">个人中心</menu-item></a>
             <a href="addBook.jsp"><menu-item name="2-2">管理信息</menu-item></a>
@@ -56,7 +60,7 @@
         <submenu name="1" style="float: right;">
         <template slot="title">
             <icon type="stats-bars"></icon>
-            统计分析
+            图书
         </template>
         <a href="addBook.jsp"><menu-item name="1-1">已借图书</menu-item></a>
         <a href="showMyBookAction"><menu-item name="1-2">个人图书</menu-item></a>

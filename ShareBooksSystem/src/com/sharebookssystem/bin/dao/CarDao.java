@@ -43,14 +43,14 @@ public class CarDao {
     }
 
     //删除借阅车图书
-    public int deleteBookFromCar(int personalBookId){
+    public int deleteBookFromCar(int personalBookId,int userId){
         int num=0;
         Session session=null;
         Transaction transaction=null;
         try{
             session=sessionFactory.openSession();
             transaction=session.beginTransaction();
-            String hql="delete from CollectCarItem where personalBookId="+personalBookId;
+            String hql="delete from CollectCarItem where personalBookId="+personalBookId+" and userId ="+userId;
             Query queryupdate=session.createQuery(hql);
             num=queryupdate.executeUpdate();
 //            transaction.commit();

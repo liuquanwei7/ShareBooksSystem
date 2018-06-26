@@ -70,14 +70,16 @@ public class DeleteBookFromCarAction extends ActionSupport {
 
     }
     public String execute(){
-       if(cd.deleteBookFromCar(personalBookId)>0){
-           Map map=ActionContext.getContext().getSession();
+        Map map=ActionContext.getContext().getSession();
+        user=(User) map.get("user");
+       if(cd.deleteBookFromCar(personalBookId,user.getUserId())>0){
+
 //        check_data=(String) map.get("check_data");
 //        map.put("check_data",null);
 //        check_data="java";
            books=new ArrayList<Book>();
            personalbooks=new ArrayList<PersonalBook>();
-           user=(User) map.get("user");
+
 //           user=new User();
 //
 //           user.setUserName("徒步浪");
