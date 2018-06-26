@@ -69,10 +69,8 @@ public class queryReturnActionById {
            int userid=user.getUserId();
            System.out.println("userid::"+userid);
            if(bd.queryReturnActionById(pb,userid,id)){
-
-
-            return SUCCESS;
-        }
+                return SUCCESS;
+             }
         session.put("ReturnSuccess","还书失败");
         return INPUT;
     }

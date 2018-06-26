@@ -31,7 +31,7 @@
     if( comSession == ""||comSession=="null") {
     }
     else {
-        alert(comSession);
+        // alert(comSession);
         <%  session.removeAttribute("succcessComment");%>
     }
     function deleteCommentAction(id){
