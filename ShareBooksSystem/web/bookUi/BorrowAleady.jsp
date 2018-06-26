@@ -36,7 +36,7 @@
 <%--</div>--%>
 <script>
     function queryReturn(id){
-        alert(id);
+        // alert(id);
         location.href="queryReturnAction?id="+id;
     }
 
