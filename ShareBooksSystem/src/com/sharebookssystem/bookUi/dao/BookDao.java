@@ -108,7 +108,7 @@ public class BookDao {
             Map<String, Object> request=ac.getContextMap();
             Map<String, Object> ss=ac.getSession();
             session = sessionFactory.openSession();
-
+            System.out.println("分界线");
 
 
             String rc=getStringRandom(8);
@@ -120,14 +120,18 @@ public class BookDao {
             List<BorrowHistoryItem> listB=queryObject.list();
             BorrowHistoryItem bd=listB.get(0);
             bd.setBorrowStatus("请求归还");
+            System.out.println("测试"+bd.getBorrowHistoryItemId());
+
+            System.out.println("测试"+bd.getBorrowStatus());
 
 
-            String hql="from PersonalBook where personalBookId=? and userId=?"; //查询personalbooks
+            String hql="from PersonalBook where personalBookId="+bd.getPersonalBook().getPersonalBookId(); //查询personalbooks
             //创建查询
             Query query=session.createQuery(hql);
+//            query.setParameter(0,bd.getPersonalBook().getPersonalBookId() );
+
             //设置参数,?的序号从0开始
-            query.setParameter(0,bd.getPersonalBook().getPersonalBookId() );
-            query.setParameter(1, userid);
+
             System.out.println("555555555544444444444444444444444444444444");
 //            List<Book> list=queryObject.list();
             List<PersonalBook> list=query.list();
@@ -154,7 +158,7 @@ public class BookDao {
             transaction.commit(); //写入数据库，
             MailUitls.sendMail(user.getUserEmail(),"还书码"+rc);
 //            ss.put("returnCode",rc);
-            ss.put("ReturnSuccess","获取还书码"+rc);
+            ss.put("ReturnMessage","获取还书码"+rc);
             return true;
 
         }catch(Exception ex){

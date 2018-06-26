@@ -152,6 +152,7 @@ public class borrowShowAction {
         }
 
         if(bd.queryBooks(book)==null){
+
             session.put("ReturnSuccess","没有借书记录");
             return INPUT;
         }
