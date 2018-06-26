@@ -30,7 +30,7 @@
             <%--<icon type="ios-people"></icon>--%>
             <%--用户管理--%>
         <%--</menu-item>--%>
-        <a href="showMyBorrowCarAction"><menu-item name="4" style="float: right;">
+        <a href="../bookUi/homepage.jsp"><menu-item name="4" style="float: right;">
         <icon type="settings"></icon>
         退出登录
         </menu-item></a>
@@ -45,8 +45,8 @@
                 <icon type="stats-bars"></icon>
                 个人信息
             </template>
-            <a href="addBook.jsp"><menu-item name="2-1">个人中心</menu-item></a>
-            <a href="addBook.jsp"><menu-item name="2-2">管理信息</menu-item></a>
+            <a href="../bookUi/UserInfor.jsp"><menu-item name="2-1">个人中心</menu-item></a>
+            <a href="../bookUi/ChangePerson.jsp"><menu-item name="2-2">管理信息</menu-item></a>
             <%--<menu-group title="使用">--%>
                 <%--<a href="addBook.jsp"><menu-item name="3-1">新增和启动</menu-item></a>--%>
                 <%--<menu-item name="3-2">活跃分析</menu-item>--%>
@@ -62,7 +62,7 @@
             <icon type="stats-bars"></icon>
             图书
         </template>
-        <a href="addBook.jsp"><menu-item name="1-1">已借图书</menu-item></a>
+            <a href="../bookUi/borrows.jsp"><menu-item name="1-1">已借图书</menu-item></a>
         <a href="showMyBookAction"><menu-item name="1-2">个人图书</menu-item></a>
         <a href="addBook.jsp"><menu-item name="1-3">添加图书</menu-item></a>
 

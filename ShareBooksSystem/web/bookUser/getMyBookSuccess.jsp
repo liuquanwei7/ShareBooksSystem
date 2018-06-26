@@ -14,7 +14,6 @@
 <body>
 <s:include value="newNav.jsp"/>
 <p style="margin: 0 auto;width: 500px;height: 100px;text-align: center;font-size: 20px;">
-    加入购物车成功！！！
 申请索回书籍成功！！
 <br>
 请持索回码找操作员拿回个人书籍

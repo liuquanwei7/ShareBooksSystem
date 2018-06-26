@@ -38,7 +38,7 @@
     <header>
         <s:include value="newNav.jsp"/>
     </header>
-    <div class="myBook">
+    <div class="myBook" style="margin-top: 30px;">
 
             <s:iterator value="mybook" status="st" var="book">
                 <s:iterator value="personalBook" status="st" var="personalbook">
@@ -80,7 +80,7 @@
                     </div>
                     <div class="bookCommentSide">
                         <p class="number"><s:property value="#personalbook.numberOfTimes"/></p>
-                        <p>借阅热度</p>
+                        <p style="font-size: 16px;margin-top: 10px;">借阅热度</p>
                     </div>
                 </div>
                     <div class="bookSummary">

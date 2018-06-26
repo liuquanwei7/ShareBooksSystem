@@ -85,7 +85,7 @@
     <%--</s:iterator>--%>
     </div>
 
-
+    <s:if test="%{totalPage!=0}">
     <nav aria-label="Page navigation example" class="myNavPage" >
         <ul class="pagination justify-content-end">
             <c:choose>
@@ -131,6 +131,9 @@
             </c:choose>
         </ul>
     </nav>
-
+    </s:if>
+<s:else>
+    <p style="margin: 0 auto;width: 500px;font-size: 22px;text-align: center;margin-top: 30px;">您的购物车是空的，快去借阅图书吧！！！</p>
+</s:else>
 </body>
 </html>

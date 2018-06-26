@@ -137,11 +137,11 @@
         <div id="main_comPosts">
             <s:form action="CommentPostAction" class="col-sm-12" method="POST">
                 <div id="com_textarea">
-                    <s:label value="发表评论"  style="color:black"></s:label>
-                     <s:textarea class="col-sm-10" style="height:100px" value="" name="commentItem.review" ></s:textarea>
-                </div>
+                <s:label value="发表评论"  style="color:black"></s:label>
+                <s:textarea class="col-sm-10" style="height:100px" value="" name="commentItem.review" ></s:textarea>
+            </div>
                 <div id="com_submit">
-                         <s:submit class=" col-sm-2 btn btn-default" value="提交"/>
+                    <s:submit class=" col-sm-2 btn btn-default" value="提交"/>
                 </div>
             </s:form>
          </div>

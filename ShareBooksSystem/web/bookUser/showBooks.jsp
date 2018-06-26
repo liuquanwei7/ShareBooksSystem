@@ -23,7 +23,7 @@
     <header>
 <s:include value="newNav.jsp"/>
     </header>
-    <div style="margin-top: 30px;">
+    <div style="margin-top: 30px;display: flex;margin-top: 30px;flex-direction: column;">
         <aside>
 
         </aside>
@@ -73,10 +73,13 @@
                 </s:if>
                 </s:iterator>
             </s:iterator>
+
+
         </div>
 
-        <nav aria-label="Page navigation example" class="myNavPage" >
-            <ul class="pagination justify-content-end">
+    <s:if test="%{totalPage!=0}">
+        <nav aria-label="Page navigation example" class="myNavPage" style="width: 150px;margin: 0 auto;">
+            <ul class="pagination justify-content-end" style="margin: 0 auto;">
                 <c:choose>
                     <c:when test="${currentPage>1}">
                         <li class="page-item myPage">
@@ -120,7 +123,10 @@
                 </c:choose>
             </ul>
         </nav>
-
+        </s:if>
+        <s:else>
+            <p style="margin: 0 auto;width: 500px;font-size: 22px;text-align: center;margin-top: 30px;">暂无您查找的图书，我们会追进本书的加入的，看看其他图书吧！！！</p>
+        </s:else>
 
 
     </div>
