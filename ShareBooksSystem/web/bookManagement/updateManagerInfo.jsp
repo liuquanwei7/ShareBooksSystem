@@ -30,7 +30,7 @@
     </div>
     <div id="all">
         <div id="left">
-            <jsp:include page="manager_left.jsp" flush="true" />
+            <jsp:include page="admin_left.jsp" flush="true" />
         </div>
         <div id="main">
             <div id="mainInfo">
@@ -67,31 +67,80 @@
                         <span class="text-danger queryError"><s:property value="#session.managerUpdateManagerAgeError"/></span>
 
                         <div class="form-inline" id="gender">
-                            <label>性别:</label>
-                            <div class="radio">
-                                <label>
-                                    <input type="radio" name="manager.managerGender" class="checkMale" id="male" value="男" checked/>男
-                                </label>
-                            </div>
-                            <div class="radio">
-                                <label>
-                                    <input type="radio" name="manager.managerGender" id="female" value='女'>女
-                                </label>
-                            </div>
+                            <%
+                                if(session.getAttribute("managerInfoGender").toString().trim().equals("男")){%>
+                                    <label>性别:</label>
+                                    <div class="radio">
+                                        <label>
+                                            <input type="radio" name="manager.managerGender" class="male" value="男" checked/>男
+                                        </label>
+                                    </div>
+                                    <div class="radio">
+                                        <label>
+                                            <input type="radio" name="manager.managerGender" class="female" value='女'>女
+                                        </label>
+                                    </div>
+                                <%}else{%>
+                                    <label>性别:</label>
+                                    <div class="radio">
+                                        <label>
+                                            <input type="radio" name="manager.managerGender" class="male" value="男" />男
+                                        </label>
+                                    </div>
+                                    <div class="radio">
+                                        <label>
+                                            <input type="radio" name="manager.managerGender" class="female" value='女' checked>女
+                                        </label>
+                                    </div>
+                                <%}
+                            %>
                         </div>
                     <br/>
                         <div class="form-inline" id="mPosition">
-                            <label>职位:</label>
-                            <div class="radio">
-                                <label>
-                                    <input type="radio" name="manager.managerPermission" id="manager" value=0 checked>管理员
-                                </label>
-                            </div>
-                            <div class="radio">
-                                <label>
-                                    <input type="radio" name="manager.managerPermission" id="operator" value=1>操作员
-                                </label>
-                            </div>
+                            <%
+                                if(session.getAttribute("managerInfoPermission").toString().trim().equals("0")){%>
+                                    <label>职位:</label>
+                                    <div class="radio">
+                                        <label>
+                                            <input type="radio" name="manager.managerPermission" class="manager" value=0 checked>管理员
+                                        </label>
+                                    </div>
+                                    <div class="radio">
+                                        <label>
+                                            <input type="radio" name="manager.managerPermission" class="operator" value=1>操作员
+                                        </label>
+                                    </div>
+                            <%}else if(session.getAttribute("managerInfoPermission").toString().trim().equals("1")){%>
+                                    <label>职位:</label>
+                                    <div class="radio">
+                                        <label>
+                                            <input type="radio" name="manager.managerPermission" class="manager" value=0 >管理员
+                                        </label>
+                                    </div>
+                                    <div class="radio">
+                                        <label>
+                                            <input type="radio" name="manager.managerPermission" class="operator" value=1 checked>操作员
+                                        </label>
+                                    </div>
+                            <%}else{%>
+                                    <label>职位:</label>
+                                    <div class="radio">
+                                        <label>
+                                            <input type="radio" name="manager.managerPermission" class="manager" value=0 >管理员
+                                        </label>
+                                    </div>
+                                    <div class="radio">
+                                        <label>
+                                            <input type="radio" name="manager.managerPermission" class="operator" value=1 checked>操作员
+                                        </label>
+                                    </div>
+                                    <div class="radio">
+                                        <label>
+                                            <input type="radio" name="manager.managerPermission" class="admin" value=2 checked>admin
+                                        </label>
+                                    </div>
+                            <%}
+                            %>
                         </div>
                     </s:iterator>
                         <br/>
@@ -111,6 +160,8 @@
     <% session.removeAttribute("managerUpdateManagerNameError"); %>
     <% session.removeAttribute("managerUpdateManagerAgeError"); %>
     <% session.removeAttribute("managerUpdateBookError"); %>
+    <% session.removeAttribute("managerInfoPermission"); %>
+    <% session.removeAttribute("managerInfoGender"); %>
 
 </body>
 </html>

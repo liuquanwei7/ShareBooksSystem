@@ -47,3 +47,15 @@
     margin-left: 11px;
     margin-top: 55px;
 }
+
+#bookPicture{
+    position: absolute;
+    margin-top: -376px;
+    margin-left: 267px;
+}
+
+#bookPicture img{
+    width: 291px;
+    height: 341px;
+}
+

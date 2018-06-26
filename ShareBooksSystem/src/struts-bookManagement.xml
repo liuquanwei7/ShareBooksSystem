@@ -154,7 +154,7 @@
             <interceptor-ref name="managerLoginInterceptor"/>
             <result name="managerLogin">/bookManagement/manage_login.jsp</result>
             <result name="confirm">/bookManagement/confirmDeleteManagerInfo.jsp</result>
-            <result name="input">/bookManagement/confirmDeleteBook.jsp</result>
+            <result name="input">/bookManagement/confirmDeleteManagerInfo.jsp</result>
         </action>
 
         <!-- 确认删除管理员信息 -->
@@ -163,8 +163,8 @@
             <interceptor-ref name="defaultStack"/>
             <interceptor-ref name="managerLoginInterceptor"/>
             <result name="managerLogin">/bookManagement/manage_login.jsp</result>
-            <result name="success">/bookManagement/deleteBookSuccess.jsp</result>
-            <result name="input">/bookManagement/confirmDeleteBook.jsp</result>
+            <result name="success">/bookManagement/deleteManagerInfoSuccess.jsp</result>
+            <result name="input">/bookManagement/confirmDeleteManagerInfo.jsp</result>
         </action>
 
         <!-- 修改管理员密码 -->
