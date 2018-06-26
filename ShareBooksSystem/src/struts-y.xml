@@ -10,7 +10,7 @@
     <package name="bookUi" namespace="/bookUi" extends="struts-default" >
         <action name="userLoginAction" class="userLoginAction">
             <result name="success">aheadhome.jsp</result>
-            <result name="input">introduce.jsp</result>
+            <result name="input">homepage.jsp</result>
         </action>
         <action name="userRegisterAction" class="userRegisterAction">
             <result name="success">registerCheck.jsp</result>
