@@ -23,6 +23,13 @@
     <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdn.bootcss.com/popper.js/1.12.5/umd/popper.min.js"></script>
     <script src="https://cdn.bootcss.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+    <script type="text/javascript">
+        function exit() {
+            if(confirm("你确定退出登录吗？")){
+                location.href="managerExitLogin";
+            }
+        }
+    </script>
 </head>
 <body>
     <div id="main" class="container">
@@ -40,6 +47,7 @@
                 <a class="btn btn-primary btn-lg" href="operatorGetBook.jsp" role="button" id="recover">收回图书</a>
             </div>
         </div>
+        <a class="btn btn-primary" href="javascript:exit()" role="button" id="back">退出登录</a>
     </div>
 </body>
 </html>

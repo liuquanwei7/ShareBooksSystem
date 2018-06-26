@@ -188,7 +188,12 @@ public class userRegisterAction extends ActionSupport {
 //        // 发送激活邮件;
 //        System.out.println("尝试发送");
 //        MailUitls.sendMail(user.getUserEmail(),code);
-        return INPUT;
+        else {
+            session.put("userAccountError","账号已存在");
+
+            return INPUT;
+        }
+
 
 
     }

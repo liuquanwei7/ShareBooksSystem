@@ -71,7 +71,6 @@
                                 <s:property value="#managers.managerAge"/>
                             </div>
                             <br/>
-
                             <div class="form-inline">
                                 <label>性别:</label>&nbsp
                                 <s:property value="#managers.managerGender"/>

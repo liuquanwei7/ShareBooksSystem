@@ -40,12 +40,10 @@ public class BookManagementServiceImpl implements BookManagementService {
     private static final String userClassName = "User";
     private static final String userParam0 = "userId";
     private int totalPage; //总页数
-    private List<Book> books;
     private List result = new ArrayList();  //返回查询图书的结果
     private List allBooks;  //查出来的所有书
     private List allManager; //查询出来的所有管理员
     private final int pageSize=5; //每页显示记录的个数
-    private int pageNo=1; //计数器,从第1页开始显示
     private int showItems; //要显示的条数
     private int lastSize; //最后一页的大小
     private int firstNo; //第一条数据的位置
@@ -358,4 +356,38 @@ public class BookManagementServiceImpl implements BookManagementService {
         return result;
     }
 
+    //查询分享的图书数量
+    public int queryCountOfBook(){
+        List temp = dao.queryCountByHql(bookClassName);
+        int result = Integer.parseInt(String.valueOf(temp.get(0)));
+        return result;
+    }
+
+    //查询借书记录数量
+    public int queryCountOfBorrowHistory(){
+        List temp = dao.queryCountByHql(borrowHistoryItemClassName);
+        int result = Integer.parseInt(String.valueOf(temp.get(0)));
+        return result;
+    }
+
+    //查询用户数量
+    public int queryCountOfUser(){
+        List temp = dao.queryCountByHql(userClassName);
+        int result = Integer.parseInt(String.valueOf(temp.get(0)));
+        return result;
+    }
+
+    //查询管理员数量
+    public int queryCountOfManager(){
+        List temp = dao.queryCountByHql(managerClassName);
+        int result = Integer.parseInt(String.valueOf(temp.get(0)));
+        return result;
+    }
+
+    //查询评论数量
+    public int queryCountOfComment(){
+        List temp = dao.queryCountByHql(commentItemClassName);
+        int result = Integer.parseInt(String.valueOf(temp.get(0)));
+        return result;
+    }
 }
