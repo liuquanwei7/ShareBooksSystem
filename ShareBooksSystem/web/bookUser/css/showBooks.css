@@ -1,6 +1,8 @@
 .allBook{
     flex-wrap: wrap;
     display: flex;
+    width: 1200px;
+    margin: 0 auto;
 }
 .oneBook{
 
@@ -112,4 +114,7 @@
     position: relative;
     /*left: 10px;*/
     margin-right: 5px;
+}
+.myNavPage{
+    margin-right: 100px;
 }

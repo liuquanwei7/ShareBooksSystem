@@ -54,8 +54,9 @@ public class GetMyBookAction extends ActionSupport {
 
     public String execute(){
         System.out.println("24323423");
-//        user=(User)map.get("user");
+//
         Map map=ActionContext.getContext().getSession();
+        user=(User)map.get("user");
 //        personalBooks=(List<PersonalBook>)map.get("personalbooks");
         personalBooks=(List<PersonalBook>)map.get("personalbooks");
         System.out.print(personalBooks.get(0).getPersonalBookId());
@@ -70,16 +71,16 @@ public class GetMyBookAction extends ActionSupport {
 //        user = new User();
 //        System.out.println("this is personaltest1554");
 //        //        mybook=new PersonalBook();
-        user=new User();
-        user.setUserName("徒步浪");
-        user.setUserPermission(2);
-        user.setUserIdentity("15020225");
-        user.setUserAccount("1239");
-        user.setUserAge(24);
-        user.setUserGender("男");
-        user.setUserId(6);
-        user.setUserPassword("1239");
-        user.setUserEmail("1053736438@qq.com");
+//        user=new User();
+//        user.setUserName("徒步浪");
+//        user.setUserPermission(2);
+//        user.setUserIdentity("15020225");
+//        user.setUserAccount("1239");
+//        user.setUserAge(24);
+//        user.setUserGender("男");
+//        user.setUserId(6);
+//        user.setUserPassword("1239");
+//        user.setUserEmail("1053736438@qq.com");
 //        System.out.println("this is personaltest144");
 //        borrowHistoryItem.setPersonalBook(personalbook);
 //        borrowHistoryItem.setBorrower(user);

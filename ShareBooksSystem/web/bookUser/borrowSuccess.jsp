@@ -1,3 +1,4 @@
+<%@ taglib prefix="s" uri="/struts-tags" %>
 <%--
   Created by IntelliJ IDEA.
   User: 10537
@@ -18,8 +19,12 @@
     <%--</script>--%>
 </head>
 <body>
+<s:include value="newNav.jsp"/>
+<p style="margin: 0 auto;width: 500px;height: 100px;text-align: center;font-size: 20px;">
+    <%--加入购物车成功！！！--%>
 <h3>请求借阅图书成功！！！</h3>
 <p id="borrowCode"><%=session.getAttribute("borrowCode")%></p>
 <p>请持借阅码找操作员分享您的图书。</p>
+</p>
 </body>
 </html>
