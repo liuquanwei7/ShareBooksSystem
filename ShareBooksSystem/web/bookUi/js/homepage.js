@@ -7,4 +7,5 @@ function nrselect(m) {
 function nrleave (m) {
 	m.style.border="";
 	m.style.borderRadius="";
+
 }
