@@ -53,24 +53,32 @@ public class CommentsDao {
 
 
             List<CommentItem> list=queryObject.list();
-            int pagelast=list.size()%5;//最后一页多少数据
-            int pageSize=list.size()/5;//多少页
-            int pages=0;
-            if(pagelast!=0){
-                pages=pageSize+1;
-            }
-            else {
-                pages=pageSize;
-            }
-            //存入总页数
-            ss.put("pages",pages);
 
-            System.out.println("userId:"+list.get(0).getReview());
+            if(list.size()>0){
+                list=list;
 
-            System.out.println("userId:"+list.get(0).getReviewer().getUserId());
-            //存入评论对象
-            ss.put("allComments",list);
-            return list;
+                int pagelast=list.size()%5;//最后一页多少数据
+                int pageSize=list.size()/5;//多少页
+                int pages=0;
+                if(pagelast!=0){
+                    pages=pageSize+1;
+                }
+                else {
+                    pages=pageSize;
+                }
+                //存入总页数
+                ss.put("pages",pages);
+
+                System.out.println("userId:"+list.get(0).getReview());
+
+                System.out.println("userId:"+list.get(0).getReviewer().getUserId());
+                //存入评论对象
+                ss.put("allComments",list);
+                return list;
+            }else{
+                list=null;
+                return list;
+            }
         }catch(Exception ex){
             System.out.println("888888888888444444444444444444");
 

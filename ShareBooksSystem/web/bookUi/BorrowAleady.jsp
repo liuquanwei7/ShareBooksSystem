@@ -39,6 +39,7 @@
         // alert(id);
         location.href="queryReturnAction?id="+id;
     }
+
     var strSession2 = "<%=session.getAttribute("ReturnMessage") %>".toString();
     if( strSession2 == ""||strSession2=="null") {
     }
@@ -47,13 +48,7 @@
         <%  session.removeAttribute("ReturnMessage");%>
     }
 
-    var strSession = "<%=session.getAttribute("ReturnSuccess") %>".toString();
-    if( strSession == ""||strSession=="null") {
-    }
-    else {
-        alert(strSession);
-        <%  session.removeAttribute("ReturnSuccess");%>
-    }
+
 
 </script>
 <div id="container">

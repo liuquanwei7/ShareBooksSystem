@@ -47,6 +47,11 @@ public class UserDao {
 
             //执行查询
             List list=query.list();
+            if(list.size()>0){
+                list=list;
+            }else{
+                list=null;
+            }
             System.out.println("666666666666444444444444444444444444444444444");
 
             if(list.size()>0){
@@ -78,8 +83,9 @@ public class UserDao {
             queryObject.setParameter(1, user.getUserPassword());
 
             List<User> list=queryObject.list();
+            if(list.size()>0){
 
-            user=list.get(0);
+                user=list.get(0);
 
 
             ActionContext ac=ActionContext.getContext();
@@ -92,6 +98,13 @@ public class UserDao {
             ss.put("userId", user.getUserId());
             ss.put("user",user);
             return user;
+
+            }else{
+                list=null;
+                user=null;
+                return user;
+            }
+
 
         }catch(Exception ex){
             System.out.println("888888888888444444444444444444");
@@ -157,32 +170,45 @@ public class UserDao {
             Map<String, Object> request=ac.getContextMap();
             Map<String, Object> ss=ac.getSession();
             List<CommentItem> cts=(List<CommentItem>) ss.get("allComments");
-            System.out.println("review:"+cts.get(0).getReview());
-            String hql="";
-            int length=cts.size();
-            System.out.println("UserName:"+cts.get(0).getReviewer().getUserId());
-            System.out.println("length"+length);
-            for(int i=0;i<length;i++){
-                hql=hql+cts.get(i).getReviewer().getUserId();
-                if((i+1)!=length){
-                    hql=hql+",";
+            if(cts.size()>0){
+                    cts=cts;
+
+                System.out.println("review:"+cts.get(0).getReview());
+                String hql="";
+                int length=cts.size();
+                System.out.println("UserName:"+cts.get(0).getReviewer().getUserId());
+                System.out.println("length"+length);
+                for(int i=0;i<length;i++){
+                    hql=hql+cts.get(i).getReviewer().getUserId();
+                    if((i+1)!=length){
+                        hql=hql+",";
+                    }
                 }
+
+                System.out.println("hql"+hql);
+
+                String queryString="from User where userId in("+hql+")";
+                //创建查询
+                Query queryObject=session.createQuery(queryString);
+
+
+                List<User> list=queryObject.list();
+                if(list.size()>0){
+                    list=list;
+                }else{
+                    list=null;
+                }
+    //            System.out.println("hql"+list.get(3).getUserName());
+                System.out.println("查询成功");
+                //存储评论的user
+                ss.put("CommentUsername", list);
+                return list;
             }
-
-            System.out.println("hql"+hql);
-
-            String queryString="from User where userId in("+hql+")";
-            //创建查询
-            Query queryObject=session.createQuery(queryString);
-
-
-            List<User> list=queryObject.list();
-
-//            System.out.println("hql"+list.get(3).getUserName());
-            System.out.println("查询成功");
-            //存储评论的user
-            ss.put("CommentUsername", list);
-            return list;
+            else{
+                cts=null;
+                List<User> list=null;
+                return list;
+            }
 
         }catch(Exception ex){
             System.out.println("888888888888444444444444444444");
@@ -228,29 +254,25 @@ public class UserDao {
             queryObject.setParameter(0, user.getUserAccount());
 
             List<User> list=queryObject.list();
+                //HQL语句, Users是持久化类
+                ActionContext ac=ActionContext.getContext();
+                //	Map map=ActionContext.getContext().getSession();
+                //得到Strust对HttpServletRequest对象进行了封装，封装为了一个Map
+                //拿到表示request对象 的map
+                Map<String, Object>  request=ac.getContextMap();
+                Map<String, Object> ss=ac.getSession();
+                ss.remove("checkPass");
 
-            if(list.size()>0){
-                return false;
-            }
+                String code=getStringRandom(5);
+
+                // 发送激活邮件;
+                System.out.println("尝试发送");
+                MailUitls.sendMail(user.getUserEmail(),code);
+                ss.put("code",code);
+                ss.put("user",user);
+               return true;
 
 
-            //HQL语句, Users是持久化类
-            ActionContext ac=ActionContext.getContext();
-            //	Map map=ActionContext.getContext().getSession();
-            //得到Strust对HttpServletRequest对象进行了封装，封装为了一个Map
-            //拿到表示request对象 的map
-            Map<String, Object>  request=ac.getContextMap();
-            Map<String, Object> ss=ac.getSession();
-            ss.remove("checkPass");
-
-            String code=getStringRandom(5);
-
-            // 发送激活邮件;
-            System.out.println("尝试发送");
-            MailUitls.sendMail(user.getUserEmail(),code);
-            ss.put("code",code);
-            ss.put("user",user);
-           return true;
         }catch(Exception ex){
             System.out.println("888888888888444444444444444444");
 

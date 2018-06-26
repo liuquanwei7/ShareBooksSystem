@@ -50,6 +50,14 @@
         <%  session.removeAttribute("succcessRegister");%>
     }
 
+    var strSession2 = "<%=session.getAttribute("ReturnMessage") %>".toString();
+    if( strSession2 == ""||strSession2=="null") {
+    }
+    else {
+        alert(strSession2);
+        <%  session.removeAttribute("ReturnMessage");%>
+    }
+
 
     var strSessions = "<%=session.getAttribute("ReturnSuccess") %>".toString();
     if( strSessions == ""||strSessions=="null") {

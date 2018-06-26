@@ -55,18 +55,26 @@ public class PersonalBookDao {
 
 
             List<PersonalBook> list=queryObject.list();
-            int[] pdarray=new int[list.size()];
-            for(int i=0;i<list.size();i++){
+            if(list.size()>0){
+                list=list;
 
-                pb=list.get(i);
+                int[] pdarray=new int[list.size()];
+                for(int i=0;i<list.size();i++){
 
-                pdarray[i] = pb.getBook().getBookId();
-                System.out.println(pdarray[i]);
+                    pb=list.get(i);
 
+                    pdarray[i] = pb.getBook().getBookId();
+                    System.out.println(pdarray[i]);
+
+                }
+
+                ss.put("pdarray",pdarray);//存入perosonbooks
+                return pb;
             }
-
-            ss.put("pdarray",pdarray);//存入perosonbooks
-            return pb;
+            else{
+                PersonalBook pbs=null;
+                return pbs;
+            }
 
         }catch(Exception ex){
             System.out.println("888888888888444444444444444444");

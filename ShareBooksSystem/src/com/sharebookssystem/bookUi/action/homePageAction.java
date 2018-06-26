@@ -98,9 +98,9 @@ public class homePageAction {
         Map<String, Object> session=ac.getSession();
         borrowHistoryItemDao.queryPages();
         books= (List<Book>)session.get("books");
-        System.out.println("检查books"+books.get(0).getBookName());
+//        System.out.println("检查books"+books.get(0).getBookName());
         personalBooks=(List<PersonalBook>) session.get("personalbooks");
-        System.out.println("检查Personalbooks"+personalBooks.get(0).getBookStatus());
+//        System.out.println("检查Personalbooks"+personalBooks.get(0).getBookStatus());
         return SUCCESS;
 
     }
