@@ -25,7 +25,7 @@ public class BorrowHistoryItemDao {
         this.sessionFactory = sessionFactory;
     }
 
-    public BorrowHistoryItem queryPersonalId(BorrowHistoryItem bd, int userid){
+    public List<BorrowHistoryItem> queryPersonalId(BorrowHistoryItem bd, int userid){
         Session session = null;
         try{
             //调用HibernateSessionFactory获得session
@@ -45,6 +45,7 @@ public class BorrowHistoryItemDao {
             List<BorrowHistoryItem> list=queryObject.list();
 
             int[] a=new int[list.size()];
+            int[] b=new int[list.size()];
             int mounts=0;
             for(int i=0;i<list.size();i++){
 
@@ -52,6 +53,7 @@ public class BorrowHistoryItemDao {
 
                 if(bd.getBorrowStatus().equals("未还")) {
                     a[mounts] = bd.getPersonalBook().getPersonalBookId();
+                    b[mounts]=bd.getBorrowHistoryItemId();
                     System.out.println("未还："+a[mounts]);
                     mounts++;
                 }
@@ -60,7 +62,22 @@ public class BorrowHistoryItemDao {
             ss.put("a",a);
             ss.put("mounts",mounts);
             System.out.println("数量"+mounts);
-            return bd;
+            String hqlsss="";
+            for(int j=0;j<mounts;j++){
+                hqlsss=hqlsss+b[j];
+                System.out.println("测试hqlss"+hqlsss);
+                if(j+1!=mounts){
+                   hqlsss=hqlsss +",";
+                    break;
+                }
+            }
+            System.out.println("测试hqlss"+hqlsss);
+            String queryStrings="from BorrowHistoryItem where BorrowHistoryItemId in("+hqlsss+")";
+            //创建查询
+            Query queryObjects=session.createQuery(queryStrings);
+            List<BorrowHistoryItem> lists=queryObjects.list();
+            System.out.println(lists.size());
+            return lists;
 
         }catch(Exception ex){
             System.out.println("888888888888444444444444444444");
@@ -107,7 +124,7 @@ public class BorrowHistoryItemDao {
                 }
                 if(pancou==0){
                     a[x]=list.get(co).getPersonalBook().getPersonalBookId();
-                    System.out.println("运行测试");
+                    //防止取多次
                     x++;
                 }
             }
