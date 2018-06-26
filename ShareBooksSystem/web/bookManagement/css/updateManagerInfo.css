@@ -41,18 +41,18 @@
     margin-top: 52px;
 }
 
-#male{
+.male{
     margin-left: 84px;
 }
 
-#female{
+.female{
     margin-left: 10px;
 }
 
-#operator{
+.operator{
     margin-left: 10px;
 }
-#manager{
+.manager{
     margin-left: 70px;
 }
 

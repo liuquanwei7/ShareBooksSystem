@@ -54,6 +54,8 @@ public class QueryManagerInfoByIdAction extends ActionSupport {
         manager = list.get(0);
         Map m = ActionContext.getContext().getSession();
         m.put("managerInfo",manager); //修改管理员信息页面显示
+        m.put("managerInfoGender",manager.getManagerGender());
+        m.put("managerInfoPermission",manager.getManagerPermission());
         m.put("managerInfoPassword",manager.getManagerPassword());
         if(manager!=null){
             return SUCCESS;
