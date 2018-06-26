@@ -25,7 +25,9 @@
 <body>
 <%--<a href="showMyBorrowCarAction" class="myCar">我的借阅车</a>--%>
 
-
+<header>
+    <s:include value="newNav.jsp"/>
+</header>
     <div>
         <%--aaadd--%>
         <%--<c:forEach items="bookAllInfo" var="bean">--%>

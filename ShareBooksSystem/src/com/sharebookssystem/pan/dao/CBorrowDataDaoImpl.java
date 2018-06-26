@@ -138,8 +138,10 @@ public class CBorrowDataDaoImpl implements CBorrowDataDao {
         String hql = "select b.bookCategory, count(b.bookCategory) " +
                 "from BorrowHistoryItem as bhi, PersonalBook as pb, Book as b "+
                 "where bhi.personalBook.personalBookId = pb.personalBookId and pb.book.bookId = b.bookId " +
-                "group by b.bookCategory " +
+                "and bhi.borrowDate between '" + startTime + "' and '" + endTime +
+                "' group by b.bookCategory " +
                 "order by count(b.bookCategory) desc";
+
 
         try{
             session = sessionFactory.openSession();

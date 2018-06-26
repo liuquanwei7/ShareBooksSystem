@@ -35,7 +35,9 @@
     <%--</style>--%>
 </head>
 <body>
-    <header></header>
+    <header>
+        <s:include value="newNav.jsp"/>
+    </header>
     <div class="myBook">
 
             <s:iterator value="mybook" status="st" var="book">

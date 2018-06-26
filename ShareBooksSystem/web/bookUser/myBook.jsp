@@ -10,6 +10,10 @@
 <html>
 <head>
     <title>MyBook</title>
+    <%--<script src="//unpkg.com/vue/dist/vue.js"></script>--%>
+    <%--<script src="//unpkg.com/iview/dist/iview.min.js"></script>--%>
+    <%--<link href="//unpkg.com/iview/dist/styles/iview.css" rel="stylesheet">--%>
+
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <script src="js/jquery-3.3.1.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
@@ -20,6 +24,10 @@
     <link href="css/myBookCss.css" rel="stylesheet">
 </head>
 <body>
+<header>
+    <s:include value="newNav.jsp"/>
+</header>
+<p style="text-align: center;font-size: 22px;margin-top: 20px;margin-bottom: 10px;">我的书籍</p>
     <div class="book-content">
 
             <s:iterator value="books" status="st1" var="book">

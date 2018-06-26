@@ -71,8 +71,9 @@ public class AddBookToCarAction extends ActionSupport {
 
     public String execute(){
         System.out.println("24323423");
-//        user=(User)map.get("user");
+//
         Map map=ActionContext.getContext().getSession();
+        user=(User)map.get("user");
 //        personalBooks=(List<PersonalBook>)map.get("personalbooks");
         personalBooks=(List<PersonalBook>)map.get("personalbooks");
         System.out.print(personalBooks.get(0).getPersonalBookId());
@@ -84,18 +85,19 @@ public class AddBookToCarAction extends ActionSupport {
         }
         System.out.print(personalBook);
         System.out.println("this is personaltest22244");
-        user = new User();
-        System.out.println("this is personaltest1554");
-        //        mybook=new PersonalBook();
-        user.setUserName("徒步浪");
-        user.setUserPermission(2);
-        user.setUserIdentity("15020225");
-        user.setUserAccount("1239");
-        user.setUserAge(24);
-        user.setUserGender("男");
-        user.setUserId(6);
-        user.setUserPassword("1239");
-        System.out.println("this is personaltest144");
+//        user = new User();
+//        System.out.println("this is personaltest1554");
+//        //        mybook=new PersonalBook();
+//        user.setUserName("徒步浪");
+//        user.setUserPermission(2);
+//        user.setUserIdentity("15020225");
+//        user.setUserAccount("1239");
+//        user.setUserAge(24);
+//        user.setUserGender("男");
+//        user.setUserId(6);
+//        user.setUserPassword("1239");
+//        System.out.println("this is personaltest144");
+//        user=(User) map.get("user");
         collectCarItem.setPersonalBook(personalBook);
         collectCarItem.setUser(user);
 //        collectCarItem.setBorrowStatus("请求借阅");

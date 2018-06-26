@@ -22,7 +22,7 @@ public class CheckBookAction extends ActionSupport {
     BookAllInfo bookAllInfo;
 
     int pageNo=1;
-    final int pageSize=1;
+    final int pageSize=16;
     int currentPage;
     int totalPage;
 
@@ -123,6 +123,7 @@ public class CheckBookAction extends ActionSupport {
     public String execute(){
         Map map=ActionContext.getContext().getSession();
         check_data=(String) map.get("check_data");
+        map.remove("check_data");
 //        map.put("check_data",null);
 //        check_data="java";
         books=new ArrayList<Book>();

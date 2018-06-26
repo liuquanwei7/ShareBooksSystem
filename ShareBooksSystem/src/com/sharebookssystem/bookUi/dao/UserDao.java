@@ -80,15 +80,13 @@ public class UserDao {
             List<User> list=queryObject.list();
 
             user=list.get(0);
-            System.out.println("查询成功");
-            System.out.println(user.getUserPermission());
-            System.out.println(user.getUserId());
+
 
             ActionContext ac=ActionContext.getContext();
             //	Map map=ActionContext.getContext().getSession();
             //得到Strust对HttpServletRequest对象进行了封装，封装为了一个Map
             //拿到表示request对象 的map
-            Map<String, Object> request=ac.getContextMap();
+//            Map<String, Object> request=ac.getContextMap();
             Map<String, Object> ss=ac.getSession();
             ss.put("userPermission",user.getUserPermission());
             ss.put("userId", user.getUserId());
@@ -197,7 +195,7 @@ public class UserDao {
         }
     }
 
-    //注册用户
+
     public boolean changeUser(User user){
         int num=0;
         Session session=null;
@@ -223,6 +221,19 @@ public class UserDao {
         try{
             //调用HibernateSessionFactory获得session
             session = sessionFactory.openSession();
+
+            String queryString="from User where userAccount=?";
+            //创建查询
+            Query queryObject=session.createQuery(queryString);
+            queryObject.setParameter(0, user.getUserAccount());
+
+            List<User> list=queryObject.list();
+
+            if(list.size()>0){
+                return false;
+            }
+
+
             //HQL语句, Users是持久化类
             ActionContext ac=ActionContext.getContext();
             //	Map map=ActionContext.getContext().getSession();

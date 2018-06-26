@@ -61,7 +61,7 @@ public class BookDao {
                 bd=list.get(i);
                 ss.put("book",bd);
             }
-              ss.put("books",list);
+              ss.put("books",list);//存入所有未还书籍
             return list;
 
         }catch(Exception ex){
@@ -96,7 +96,7 @@ public class BookDao {
         return val;
     }
 
-    public boolean queryReturnActionById(PersonalBook pb,int userid,int bookid){
+    public boolean queryReturnActionById(PersonalBook pb,int userid,int borrowHistoryItemId){
         Session session = null;
         Transaction transaction=null;
         try{
@@ -107,50 +107,49 @@ public class BookDao {
             //拿到表示request对象 的map
             Map<String, Object> request=ac.getContextMap();
             Map<String, Object> ss=ac.getSession();
-
-
-
             session = sessionFactory.openSession();
+            System.out.println("分界线");
 
 
+            String rc=getStringRandom(8);
+            String queryString="from BorrowHistoryItem where borrowHistoryItemId=?";
+            //创建查询
+            Query queryObject=session.createQuery(queryString);
+            queryObject.setParameter(0, borrowHistoryItemId);
+//            queryObject.setParameter(1,pb.getPersonalBookId());
+            List<BorrowHistoryItem> listB=queryObject.list();
+            BorrowHistoryItem bd=listB.get(0);
+            bd.setBorrowStatus("请求归还");
+            System.out.println("测试"+bd.getBorrowHistoryItemId());
 
-            String hql="from PersonalBook where bookId=? and userId=?";
+            System.out.println("测试"+bd.getBorrowStatus());
+
+
+            String hql="from PersonalBook where personalBookId="+bd.getPersonalBook().getPersonalBookId(); //查询personalbooks
             //创建查询
             Query query=session.createQuery(hql);
+//            query.setParameter(0,bd.getPersonalBook().getPersonalBookId() );
+
             //设置参数,?的序号从0开始
-            query.setParameter(0, bookid);
-            query.setParameter(1, userid);
+
             System.out.println("555555555544444444444444444444444444444444");
 //            List<Book> list=queryObject.list();
             List<PersonalBook> list=query.list();
-            pb= list.get(0);
-            String rc=getStringRandom(8);
-
-
-            System.out.println("Person测试"+pb.getPersonalBookId());
-            System.out.println("user测试"+userid);
-
-            String queryString="from BorrowHistoryItem where borrowerId=? and personalBookId=?";
-            //创建查询
-            Query queryObject=session.createQuery(queryString);
-            queryObject.setParameter(0, userid);
-            queryObject.setParameter(1,pb.getPersonalBookId());
-            List<BorrowHistoryItem> listB=queryObject.list();
-            BorrowHistoryItem bd=listB.get(0);
-
-            for(int i=0;i<listB.size();i++) {
-                if (listB.get(i).getBorrowStatus().equals("未还")) {
-
-                    bd = listB.get(i);
-                    bd.setReturnCode(rc);
-                    bd.setBorrowStatus("请求归还");
-                    pb.setBookStatus("请求归还");
-                    break;
-                }
-
-            }
+            pb=list.get(0);
+            pb.setBookStatus("请求归还");
+//            for(int i=0;i<listB.size();i++) {
+//                if (listB.get(i).getBorrowStatus().equals("未还")) {
+//
+//                    bd = listB.get(i);
+//
+//
+//                    pb.setBookStatus("请求归还");
+//                    break;
+//                }
+//
+//            }
             transaction=session.beginTransaction();
-
+            bd.setReturnCode(rc);
             session.update(bd);
             session.update(pb);
 
@@ -159,7 +158,7 @@ public class BookDao {
             transaction.commit(); //写入数据库，
             MailUitls.sendMail(user.getUserEmail(),"还书码"+rc);
 //            ss.put("returnCode",rc);
-            ss.put("ReturnSuccess","获取还书码"+rc);
+            ss.put("ReturnMessage","获取还书码"+rc);
             return true;
 
         }catch(Exception ex){

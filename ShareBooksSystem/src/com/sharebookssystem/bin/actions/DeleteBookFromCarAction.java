@@ -70,24 +70,26 @@ public class DeleteBookFromCarAction extends ActionSupport {
 
     }
     public String execute(){
-       if(cd.deleteBookFromCar(personalBookId)>0){
-           Map map=ActionContext.getContext().getSession();
+        Map map=ActionContext.getContext().getSession();
+        user=(User) map.get("user");
+       if(cd.deleteBookFromCar(personalBookId,user.getUserId())>0){
+
 //        check_data=(String) map.get("check_data");
 //        map.put("check_data",null);
 //        check_data="java";
            books=new ArrayList<Book>();
            personalbooks=new ArrayList<PersonalBook>();
-//        user=(User) map.get("user");
-           user=new User();
 
-           user.setUserName("徒步浪");
-           user.setUserPermission(2);
-           user.setUserIdentity("15020225");
-           user.setUserAccount("1239");
-           user.setUserAge(24);
-           user.setUserGender("男");
-           user.setUserId(6);
-           user.setUserPassword("1239");
+//           user=new User();
+//
+//           user.setUserName("徒步浪");
+//           user.setUserPermission(2);
+//           user.setUserIdentity("15020225");
+//           user.setUserAccount("1239");
+//           user.setUserAge(24);
+//           user.setUserGender("男");
+//           user.setUserId(6);
+//           user.setUserPassword("1239");
 //        books=bd.checkBook(check_data);
 //        System.out.println(books.toString());
 //        books.add((Book)bd.checkBook(check_data).get(0));

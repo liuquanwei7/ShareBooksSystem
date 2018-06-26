@@ -24,27 +24,27 @@
 </head>
 <body>
 <%--<div class="">--%>
-    <div>
-        <s:include value="newNav.jsp"/>
-        <%--&lt;%&ndash;<jsp:include page="nav.jsp"/>&ndash;%&gt;<script src="/bookUi/js/homepage.js"></script>--%>
-        <%--<s:include value="nav.jsp"/>--%>
-            <%--<link rel="stylesheet" href="css/nav.css">--%>
-            <%--<link rel="stylesheet" href="/bookUi/css/fixed.css" />--%>
+<%--<div>--%>
+    <%--&lt;%&ndash;<s:include value="newNav.jsp"/>&ndash;%&gt;--%>
+    <%--&lt;%&ndash;&lt;%&ndash;<jsp:include page="nav.jsp"/>&ndash;%&gt;<script src="/bookUi/js/homepage.js"></script>&ndash;%&gt;--%>
+    <%--&lt;%&ndash;<s:include value="nav.jsp"/>&ndash;%&gt;--%>
+    <%--&lt;%&ndash;<link rel="stylesheet" href="css/nav.css">&ndash;%&gt;--%>
+    <%--&lt;%&ndash;<link rel="stylesheet" href="/bookUi/css/fixed.css" />&ndash;%&gt;--%>
 
-            <%--<link href="css/bootstrap.min.css" rel="stylesheet">--%>
-            <%--<script src="js/jquery-3.3.1.min.js"></script>--%>
-            <%--&lt;%&ndash;<!-- Include all compiled plugins (below), or include individual files as needed -->&ndash;%&gt;--%>
-            <%--&lt;%&ndash;<script src="https://unpkg.com/popper.js/dist/umd/popper.min.js"></script>&ndash;%&gt;--%>
+    <%--&lt;%&ndash;<link href="css/bootstrap.min.css" rel="stylesheet">&ndash;%&gt;--%>
+    <%--&lt;%&ndash;<script src="js/jquery-3.3.1.min.js"></script>&ndash;%&gt;--%>
+    <%--&lt;%&ndash;&lt;%&ndash;<!-- Include all compiled plugins (below), or include individual files as needed -->&ndash;%&gt;&ndash;%&gt;--%>
+    <%--&lt;%&ndash;&lt;%&ndash;<script src="https://unpkg.com/popper.js/dist/umd/popper.min.js"></script>&ndash;%&gt;&ndash;%&gt;--%>
 
-            <%--<script src="https://cdn.bootcss.com/popper.js/1.12.5/umd/popper.min.js"></script>--%>
+    <%--&lt;%&ndash;<script src="https://cdn.bootcss.com/popper.js/1.12.5/umd/popper.min.js"></script>&ndash;%&gt;--%>
 
-            <%--<script src="js/popper.min.js"></script>--%>
-
-
+    <%--&lt;%&ndash;<script src="js/popper.min.js"></script>&ndash;%&gt;--%>
 
 
-    </div>
-    <div style="position: relative;width: 300px;margin: 0 auto;margin-top: 44px;">
+
+
+<%--</div>--%>
+<div>
     <form class="form-inline my-2 my-lg-0" >
         <input id="isbndata" class="form-control mr-sm-2" type="search" placeholder="输入书籍条形码上ISBN码（纯数字）"
                aria-label="Search" name="check_data">
@@ -52,7 +52,7 @@
             搜索
         </button>
     </form>
-    </div>
+</div>
 <%--</div>--%>
 </body>
 </html>

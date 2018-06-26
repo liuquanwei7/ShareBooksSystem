@@ -1,4 +1,10 @@
 /*@import url("//unpkg.com/iview/dist/styles/iview.css");*/
+.searchIsbn{
+    width: 300px;
+    margin: 0 auto;
+    margin-top: 44px;
+    margin-bottom: 20px;
+}
 .mycard{
     width: 954px;
     height: 188px;
