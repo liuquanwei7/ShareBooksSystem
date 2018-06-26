@@ -52,6 +52,7 @@
 }
 .bookInfo p{
     margin-bottom: 13px;
+    font-size: 16px;
 }
 .bookTodo{
     width: 560px;
@@ -75,7 +76,7 @@
     display: block;
     /* height: 37px; */
     /* float: left; */
-    font: 700 28px/38px PingFangSC-Regular,HelveticaNeue-Light,'Helvetica Neue Light','Microsoft YaHei',sans-serif;
+    font: 700 25px/38px PingFangSC-Regular,HelveticaNeue-Light,'Helvetica Neue Light','Microsoft YaHei',sans-serif;
     float: left;
 }
 .bookName span{
@@ -146,7 +147,7 @@
     margin-top: 30px;
 }
 .number{
-    font: 400 32px/38px FZZCYSK;
+    font: 400 45px/38px FZZCYSK;
     text-align: center;
 }
 /*.myPage{*/

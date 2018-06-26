@@ -20,11 +20,10 @@
 </head>
 <body>
 <s:include value="newNav.jsp"/>
-<p style="margin: 0 auto;width: 500px;height: 100px;text-align: center;font-size: 20px;">
-    加入购物车成功！！！
+<div style="margin: 0 auto;width: 500px;height: 100px;text-align: center;font-size: 20px;margin-top: 30px;">
 <h3>添加图书成功！！！</h3>
 <p id="showCode"></p>
 <p>请持分享码找操作员分享您的图书。</p>
-</p>
+</div>
 </body>
 </html>

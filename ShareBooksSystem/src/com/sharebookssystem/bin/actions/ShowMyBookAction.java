@@ -108,45 +108,48 @@ public class ShowMyBookAction extends ActionSupport {
 //        books=bd.checkBook(check_data);
         Collection result=new ArrayList();
         result=bd.checkMyBook(user.getUserId());//获取Collection对象
-
-        if(result.size()%pageSize==0){
-            totalPage=result.size()/pageSize;
-        }else{
-            totalPage=result.size()/pageSize+1;
-        }
-        //判断上一页下一页
-        if(pageNo<=0){
-            pageNo=1;
-        }else if (pageNo>totalPage){
-            pageNo=totalPage;
-        }
-        //设置当前页
-        currentPage=pageNo;
-        System.out.println(totalPage+"fsdfa33");
-        System.out.println(pageNo+"fsdfa11");
-        System.out.println(pageSize+"fsdfa55");
-//        air_tickets=td.queryTimeOrNameByPage(query_data,user.getId(),
-//                pageNo,pageSize);
-        result=bd.checkMyBookByPage(user.getUserId(),pageNo,pageSize);
-        if(result!=null) {
-            ArrayList sList = (ArrayList) result;//转换类型
-            Iterator iterator1 = sList.iterator();
-            //遍历获取对应类的对象值
-            while (iterator1.hasNext()) {
-                Object[] o = (Object[]) iterator1.next();
-                books.add((Book) o[0]);//获取book对象
-                personalbooks.add((PersonalBook) o[1]);//获取personal Book对象
-                System.out.println("BookInfo-Title: " + books.get(0).getBookAuthor());
-                System.out.println("BookSelection-BookSelectionId: " + personalbooks.get(0).getBookStatus());
+        if(result!=null){
+            if(result.size()%pageSize==0){
+                totalPage=result.size()/pageSize;
+            }else{
+                totalPage=result.size()/pageSize+1;
             }
-//            bookAllInfo = new BookAllInfo();
-//            bookAllInfo.setBooks(books);
-//            bookAllInfo.setPersonalbooks(personalbooks);
-            map.put("books", books);
-            map.put("personalbooks", personalbooks);
-//        books=(List<Book>)(Object[])a.get(0);
-//        System.out.println(books.get(0).getBookName());
-//        System.out.println(books);
+            //判断上一页下一页
+            if(pageNo<=0){
+                pageNo=1;
+            }else if (pageNo>totalPage){
+                pageNo=totalPage;
+            }
+            //设置当前页
+            currentPage=pageNo;
+            System.out.println(totalPage+"fsdfa33");
+            System.out.println(pageNo+"fsdfa11");
+            System.out.println(pageSize+"fsdfa55");
+    //        air_tickets=td.queryTimeOrNameByPage(query_data,user.getId(),
+    //                pageNo,pageSize);
+            result=bd.checkMyBookByPage(user.getUserId(),pageNo,pageSize);
+            if(result!=null) {
+                ArrayList sList = (ArrayList) result;//转换类型
+                Iterator iterator1 = sList.iterator();
+                //遍历获取对应类的对象值
+                while (iterator1.hasNext()) {
+                    Object[] o = (Object[]) iterator1.next();
+                    books.add((Book) o[0]);//获取book对象
+                    personalbooks.add((PersonalBook) o[1]);//获取personal Book对象
+                    System.out.println("BookInfo-Title: " + books.get(0).getBookAuthor());
+                    System.out.println("BookSelection-BookSelectionId: " + personalbooks.get(0).getBookStatus());
+                }
+    //            bookAllInfo = new BookAllInfo();
+    //            bookAllInfo.setBooks(books);
+    //            bookAllInfo.setPersonalbooks(personalbooks);
+                map.put("books", books);
+                map.put("personalbooks", personalbooks);
+    //        books=(List<Book>)(Object[])a.get(0);
+    //        System.out.println(books.get(0).getBookName());
+    //        System.out.println(books);
+            }
+        }else {
+
         }
 
 
