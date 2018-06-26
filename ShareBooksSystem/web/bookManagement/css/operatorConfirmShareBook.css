@@ -1,0 +1,30 @@
+#queryBook_title{
+    margin-bottom: 14px;
+    margin-left: 35px;
+}
+
+#main{
+    width: 21%;
+    height: 21%;
+    position: relative;
+    margin: 0 auto;
+    margin-top: 4%;
+}
+
+#bookPicture{
+
+}
+
+#bookPicture img{
+    width: 291px;
+    height: 341px;
+}
+
+#twoButton{
+    margin-left: 45px;
+    margin-top: 14px;
+}
+
+#back{
+    margin-left: 10px;
+}

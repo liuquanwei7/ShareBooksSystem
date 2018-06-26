@@ -54,7 +54,7 @@
                     <div class="row">
                         <div class="col">
                             <label for="bookId">图书编号:</label>
-                            <input type="text" class="form-control" id="bookId" name="book.bookId">
+                            <input type="number" class="form-control" id="bookId" name="book.bookId">
                         </div>
                         <div class="col">
                             <label for="bookName">书名:</label>
@@ -74,12 +74,7 @@
                         </div>
                         <div class="col">
                             <label for="bookCategory">图书类型:</label>
-                            <select class="form-control" id="bookCategory" name="book.bookCategory">
-                                <option></option>
-                                <option>计算机</option>
-                                <option></option>
-                                <option></option>
-                            </select>
+                            <input type="text" class="form-control" id="bookCategory" name="book.bookCategory">
                         </div>
                         <div class="col">
                             <div id="queryButton">

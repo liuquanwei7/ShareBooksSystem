@@ -28,41 +28,6 @@ public class BookManagementDaoImpl implements BookManagementDao {
         this.sessionFactory = sessionFactory;
     }
 
-    //通过Id查询实例
-    public Object queryById(Object object,int id){
-        Session session = null;
-        try{
-            session = sessionFactory.openSession();
-            Transaction transaction = session.beginTransaction();
-            Object newObject = (Object)session.get(object.getClass(),id);
-            transaction.commit();
-            return newObject;
-        }catch (Exception e){
-            e.printStackTrace();
-            return null;
-        }finally {
-            session.close();
-        }
-    }
-
-    //删除
-    public boolean deleteByObject(Object object){
-        Session session=null;
-        try{
-            session=sessionFactory.openSession();
-            Transaction trans=session.beginTransaction();
-            session.delete(object);
-            trans.commit();
-            return true;
-
-        }catch (Exception e) {
-            e.printStackTrace();
-            return false;
-        }finally{
-            session.close();
-        }
-    }
-
     //通过hql删除
     public boolean deleteByHql(String className,String param1,int value1){
         Session session=null;
@@ -115,6 +80,24 @@ public class BookManagementDaoImpl implements BookManagementDao {
         }
     }
 
+    //通过hql语句查询总数
+    public List queryCountByHql(String className){
+        Session session = null;
+        try{
+            session = sessionFactory.openSession();
+            String hql = "select count(*) from "+className;
+            Query query = session.createQuery(hql);
+            Transaction transaction = session.beginTransaction();
+            List result = query.list();
+            transaction.commit();
+            return result;
+        }catch (Exception e){
+            e.printStackTrace();
+            return null;
+        }finally {
+            session.close();
+        }
+    }
     //查询全部
     public List queryByParam(String className){
         Session session = null;
@@ -139,9 +122,9 @@ public class BookManagementDaoImpl implements BookManagementDao {
         Session session = null;
         try{
             session = sessionFactory.openSession();
-            String hql = "from "+className+" where "+param1+" = ?";
+            String hql = "from "+className+" where "+param1+" = :value1";
             Query query = session.createQuery(hql);
-            query.setParameter(0,value1);
+            query.setParameter("value1",value1);
             Transaction transaction = session.beginTransaction();
             List<Object> result = query.list();
             transaction.commit();
@@ -159,10 +142,10 @@ public class BookManagementDaoImpl implements BookManagementDao {
         Session session = null;
         try{
             session = sessionFactory.openSession();
-            String hql = "from "+className+" where "+param1+" = ? and "+param2+" = ?";
+            String hql = "from "+className+" where "+param1+" = :value1 and "+param2+" = :value2";
             Query query = session.createQuery(hql);
-            query.setParameter(0,value1);
-            query.setParameter(1,value2);
+            query.setParameter("value1",value1);
+            query.setParameter("value2",value2);
             Transaction transaction = session.beginTransaction();
             List<Object> result = query.list();
             transaction.commit();
@@ -180,12 +163,11 @@ public class BookManagementDaoImpl implements BookManagementDao {
         Session session = null;
         try{
             session = sessionFactory.openSession();
-            //String hql = "from "+className+" where "+param1+" = '"+value1+"' and "+param2+" = '"+value2+"' and "+param3+" = '"+value3+"'";
-            String hql = "from "+className+" where "+param1+" = ? and "+param2+" = ? and "+param3+" = ?";
+            String hql =  "from "+className+" where "+param1+" = :value1 and "+param2+" = :value2 and "+param3+" = :value3";
             Query query = session.createQuery(hql);
-            query.setParameter(0,value1);
-            query.setParameter(1,value2);
-            query.setParameter(2,value3);
+            query.setParameter("value1",value1);
+            query.setParameter("value2",value2);
+            query.setParameter("value3",value3);
             Transaction transaction = session.beginTransaction();
             List<Object> result = query.list();
             transaction.commit();
@@ -203,12 +185,12 @@ public class BookManagementDaoImpl implements BookManagementDao {
         Session session = null;
         try{
             session = sessionFactory.openSession();
-            String hql = "from "+className+" where "+param1+" = ? and "+param2+" = ? and "+param3+" = ? and "+param4+" = ?";
+            String hql = "from "+className+" where "+param1+" = :value1 and "+param2+" = :value2 and "+param3+" = :value3 and "+param4+" = :value4";
             Query query = session.createQuery(hql);
-            query.setParameter(0,value1);
-            query.setParameter(1,value2);
-            query.setParameter(2,value3);
-            query.setParameter(3,value4);
+            query.setParameter("value1",value1);
+            query.setParameter("value2",value2);
+            query.setParameter("value3",value3);
+            query.setParameter("value4",value4);
             Transaction transaction = session.beginTransaction();
             List<Object> result = query.list();
             transaction.commit();
@@ -226,13 +208,13 @@ public class BookManagementDaoImpl implements BookManagementDao {
         Session session = null;
         try{
             session = sessionFactory.openSession();
-            String hql = "from "+className+" where "+param1+" = ? and "+param2+" = ? and "+param3+" = ? and "+param4+" = ? and "+param5+" = ?";
+            String hql = "from "+className+" where "+param1+" = :value1 and "+param2+" = :value2 and "+param3+" = :value3 and "+param4+" = :value4 and "+param5+" = :value5";
             Query query = session.createQuery(hql);
-            query.setParameter(0,value1);
-            query.setParameter(1,value2);
-            query.setParameter(2,value3);
-            query.setParameter(3,value4);
-            query.setParameter(4,value5);
+            query.setParameter("value1",value1);
+            query.setParameter("value2",value2);
+            query.setParameter("value3",value3);
+            query.setParameter("value4",value4);
+            query.setParameter("value5",value5);
             Transaction transaction = session.beginTransaction();
             List<Object> result = query.list();
             transaction.commit();

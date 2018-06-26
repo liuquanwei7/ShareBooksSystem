@@ -28,7 +28,7 @@
     <div id="main">
         <form action="operatorGetBookAction" method="post" namespace="/bookManagement">
             <div>
-                <label for="getBookCode">收回图书码:</label>
+                <label for="getBookCode">索回码:</label>
                 <input type="text" class="form-control" id="getBookCode" name="getBookCode">
             </div>
             <span class="text-danger"><s:property value="#session.operatorGetBookError"/></span>

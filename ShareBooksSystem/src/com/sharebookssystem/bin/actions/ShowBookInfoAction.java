@@ -17,6 +17,7 @@ public class ShowBookInfoAction extends ActionSupport {
     PersonalBook personalBook;//选中的图书
     int personalBookId;
 
+
     public List<Book> getBooks() {
         return books;
     }
@@ -78,13 +79,14 @@ public class ShowBookInfoAction extends ActionSupport {
             if(personalBookId==personalBooks.get(i).getPersonalBookId()){
                 personalBook=personalBooks.get(i);
                 //               put 进session 里面bookid和personalbook
+//                map.put("personalBook",personalBook);
                 map.put("myPersonalBookid",personalBook.getPersonalBookId());
                 map.put("comPersonnalbook",personalBook);
             }
         }
         //找出对应个人图书信息
         for(int i=0;i<books.size();i++){
-            if(personalBooks.get(i).getBook().getBookId()==books.get(i).getBookId()){
+            if(personalBook.getBook().getBookId()==books.get(i).getBookId()){
                 mybook=books.get(i);
                 //                put入session里面bookName
                 map.put("myBookName",mybook.getBookName());

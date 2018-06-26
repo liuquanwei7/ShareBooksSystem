@@ -46,7 +46,7 @@ public class ManagerLoginAction extends ActionSupport {
         this.service = service;
     }
 
-    public String login() throws Exception{
+    public String login(){
         Map s = ActionContext.getContext().getSession();
         //验证登陆
         if(service.isExistManager(manager.getManagerAccount(),manager.getManagerPassword(),manager.getManagerPermission())){
@@ -60,15 +60,18 @@ public class ManagerLoginAction extends ActionSupport {
             s.put("managerLoginName",managers.get(0).getManagerName());
             //跳转到管理员页面
             if(manager.getManagerPermission()==0){
-                return SUCCESS;
+                return "manager";
+            }else if(manager.getManagerPermission()==1){
+                return "operator"; //跳转到操作员页面
+            }else if(manager.getManagerPermission()==2){
+                return "admin";
             }else{
-                return "operator";
+                return INPUT;
             }
         }else{
             if(s.get("managerLoginAccountError")==null &&s.get("managerLoginPasswordError")==null){
                 s.put("managerLoginNoAccountError","账户不存在或密码有误！");
             }
-
             return INPUT;
         }
 

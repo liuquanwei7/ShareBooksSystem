@@ -19,48 +19,36 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/4.1.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/bookManagement/css/manage_main.css">
     <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdn.bootcss.com/popper.js/1.12.5/umd/popper.min.js"></script>
     <script src="https://cdn.bootcss.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
 </head>
 <body>
-    <div class="container-fiuled">
-        <div class="row">
-            <div class="col" id="top">
-                <nav class="navbar navbar-expand-md bg-secondary navbar-dark">
-                    <ul class="navbar-nav">
-                        <li class="nav-item">
-                            <a class="nav-link" href="https://www.baidu.com">aaa</a>
-                        </li>
-                    </ul>
-                </nav>
+    <div id="top">
+        <jsp:include page="manager_top.jsp" flush="true" />
+    </div>
+    <div id="all">
+        <div id="left">
+            <jsp:include page="manager_left.jsp" flush="true" />
+        </div>
+        <div id="main">
+            <div class="container" id="main_title">
+                <h3 class="display-5">共享图书管理员系统</h3>
+            </div>
+            <div class="container" id="queryBook_main">
+                  截至当前本系统统计:
+                <br/>
+                <br/>
+                <br/>
+                <p>用户人数:<s:property value="#session.managerCountOfUser"/></p>
+                <p>分享书籍数量:<s:property value="#session.managerCountOfBooks"/></p>
+                <p>用户借阅次数:<s:property value="#session.managerCountOfBorrowHistory"/></p>
+                <p>用户评论数量:<s:property value="#session.managerCountOfComment"/></p>
+                <p>管理员人数:<s:property value="#session.managerCountOfManager"/></p>
+                <a class="btn btn-success" href="managerLoginMainPageAction" role="button" id="re">刷新</a>
             </div>
         </div>
-        <div class="row">
-            <div class="col-md-2" id="left">
-                <nav class="navbar bg-primary navbar-dark">
-                    <ul class="navbar-nav">
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Link 1</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Link 2</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Link 3</a>
-                        </li>
-                    </ul>
-
-                </nav>
-            </div>
-
-        </div>
-
-        <div>
-            <jsp:include page="queryBook.jsp" flush="true" />
-        </div>
-
-
     </div>
 </body>
 </html>

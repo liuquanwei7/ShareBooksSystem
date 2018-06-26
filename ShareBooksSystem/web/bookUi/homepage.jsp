@@ -19,14 +19,17 @@
     }
     else {
         alert(strSession);
-        <%  session.removeAttribute("error");     session.removeAttribute("user");
-        session.removeAttribute("personalbooks");        session.removeAttribute("books");
-         session.removeAttribute("myPersonalBookid"); session.removeAttribute("comPersonnalbook");
+        <%  session.removeAttribute("error");     %>
 
-         session.removeAttribute("myPersonalBookid"); session.removeAttribute("comPersonnalbook");
-        %>
     }
 </script>
+<%
+	session.removeAttribute("user");
+	session.removeAttribute("personalbooks");        session.removeAttribute("books");
+	session.removeAttribute("myPersonalBookid"); session.removeAttribute("comPersonnalbook");
+
+	session.removeAttribute("myPersonalBookid"); session.removeAttribute("comPersonnalbook");
+%>
 <div id="naver">
 
 	<img src="img/logo.png"/>

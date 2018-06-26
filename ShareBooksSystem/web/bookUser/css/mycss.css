@@ -8,7 +8,11 @@
     position: relative;
     flex-direction: row;
     display: flex;
-
+    border: 1px solid transparent;
+    border-image: linear-gradient(to bottom, #a6a6a6, white);
+    border-image-slice: 10;
+    /* border: 1px solid #a6a6a6; */
+    border-bottom: white;
 
 }
 .bookImg{
@@ -17,7 +21,7 @@
     display: inline;
     float: left;
     /*position: relative;*/
-    /*overflow: hidden;*/
+    overflow: hidden;
 
 }
 .bookImg img{
@@ -29,7 +33,13 @@
     display: inline;
     padding: 0;
     overflow: hidden;
+    transition: all 0.5s;
 }
+.bookImg img:hover{
+    transform: scale(1.1);
+    overflow: hidden;
+}
+
 .bookInfo{
     position: relative;
     /*float: left;*/
@@ -39,6 +49,9 @@
     left:20px;
     align-content: center;
     /*margin-top: 20px;*/
+}
+.bookInfo p{
+    margin-bottom: 13px;
 }
 .bookTodo{
     width: 560px;
@@ -54,21 +67,25 @@
     /*flex-direction: row;*/
     /*justify-content: flex-start;*/
     /*align-items: center;*/
-    width: 560px;
+    width: 600px;
     height: 38px;
     /* padding-bottom: 5; */
 }
 .bookName em{
-    display: inline-block;
-    /* height:37px; */
-    /*float: left;*/
-    line-height: 38px;
+    display: block;
+    /* height: 37px; */
+    /* float: left; */
+    font: 700 28px/38px PingFangSC-Regular,HelveticaNeue-Light,'Helvetica Neue Light','Microsoft YaHei',sans-serif;
+    float: left;
 }
 .bookName span{
     display: inline-block;
+    margin-left: 17px;
+    margin-top: 15px;
     text-align: center;
-    font-size: 18px;
-
+    font-size: 16px;
+    /* position: relative; */
+    /* margin: 20px; */
     /*position: relative;*/
     /*margin : 20px;*/
 }
@@ -103,6 +120,7 @@
     color: #fff;
     border-color: #ed4259;
     background:#ed4259;
+    text-decoration: none;
 }
 .addInCar{
     display: inline-block;
@@ -121,4 +139,19 @@
     color: #2972cc;
     border-color: #2972cc;
     background:#f0f5ff;
+    text-decoration: none;
 }
+.bookCommentSide{
+    margin-left: 139px;
+    margin-top: 30px;
+}
+.number{
+    font: 400 32px/38px FZZCYSK;
+    text-align: center;
+}
+/*.myPage{*/
+    /*border: 0px;*/
+/*}*/
+/*.myPage li{*/
+    /*border: 0px;*/
+/*}*/

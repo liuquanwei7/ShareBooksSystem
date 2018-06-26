@@ -67,7 +67,7 @@
                         <span class="text-danger"><s:property value="#session.managerChangePasswordError"/></span>
                         <div id="buttonTwo">
                             <button type="submit" class="btn btn-primary" id="update">修改</button>
-                            <a class="btn btn-primary" href="主页" role="button" id="back">返回</a>
+                            <a class="btn btn-primary" href="manage_main.jsp" role="button" id="back">返回</a>
                         </div>
 
                     </form>

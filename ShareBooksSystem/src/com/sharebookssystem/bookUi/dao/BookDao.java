@@ -112,8 +112,6 @@ public class BookDao {
 
             session = sessionFactory.openSession();
 
-
-
             String hql="from PersonalBook where bookId=? and userId=?";
             //创建查询
             Query query=session.createQuery(hql);

@@ -21,16 +21,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/4.1.0/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/fixed.css" />
+    <link rel="stylesheet" href="css/nav.css">
     <link rel="stylesheet" href="css/UserInfor.css"/>
-<style type="text/css">
-    #container{
-        background:url("img/UserBg.jpg") center center fixed no-repeat;
-        -webkit-background-size:cover;
-        background-attachment:fixed;
-        background-position: center center;
-    }
-</style>
+    <link rel="stylesheet" href="css/fixed.css"/>
+
+    <style type="text/css">
+        #container{
+            background:url("img/UserBg.jpg") center center fixed no-repeat;
+            -webkit-background-size:cover;
+            background-attachment:fixed;
+            background-position: center center;
+        }
+    </style>
     <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdn.bootcss.com/popper.js/1.12.5/umd/popper.min.js"></script>
     <script src="https://cdn.bootcss.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
@@ -49,18 +51,51 @@
     }
 </script>
 
-<div id="naver">
+<s:include value="newNav.jsp"></s:include>
 
-    <img src="img/logo.png"/>
-    <div id="logo_text"><span>&nbsp;个人中心</span></div>
-    <ul id="flex_naver">
-        <li class="nr" onmouseover="nrselect(this)" onmouseleave="nrleave(this)"  ><a href="ChangePerson.jsp">管理个人信息</a></li>
-        <li class="nr" onmouseover="nrselect(this)" onmouseleave="nrleave(this)"><a href="aheadhome.jsp">主页</a></li>
-        <li class="nr" onmouseover="nrselect(this)" onmouseleave="nrleave(this)"><a href="borrows.jsp">查看已借书籍</a></li>
-        <li class="nr" onmouseover="nrselect(this)" onmouseleave="nrleave(this)"><a href="UserInfor.jsp">个人中心</a></li>
-        <li class="nr" onmouseover="nrselect(this)" onmouseleave="nrleave(this)"><a  href="../bookUser/checkBooks.jsp">查询书籍</a></li>
-    </ul>
-</div>
+
+<%--<div id="naver" >--%>
+
+    <%--<img src="img/logo.png"/>--%>
+    <%--<div id="logo_text"><a href="aheadhome.jsp"><span>&nbsp;HIMB</span></a></div>--%>
+    <%--<ul id="flex_naver" class="navbar-nav ">--%>
+        <%--<li id="serch_nav">--%>
+            <%--<form class="form-inline my-2 my-lg-0 nav_form" action="../bookUser/getCheckBookAction.action"  method="post">--%>
+                <%--<input class="form-control mr-sm-2 " type="search" placeholder="书名/作者"--%>
+                       <%--aria-label="Search" name="check_data">--%>
+                <%--<button  class="nav_ss "  type="submit">--%>
+                    <%--&lt;%&ndash;<img  src="image/nav_serch.png" style="width:20px; height:20px;">&ndash;%&gt;--%>
+                    <%--&lt;%&ndash;</img>&ndash;%&gt;--%>
+                <%--</button>--%>
+            <%--</form>--%>
+        <%--</li>--%>
+        <%--<li class="nr dropdown"  onmouseover="nrselect(this)"  onmouseleave="nrleave(this)"><a class="dropdown-toggle" href="#" data-toggle="dropdown"><span>图书</span>--%>
+            <%--&lt;%&ndash;<img  style="width: 10px;height: 10px" src="img/bot_logo.png" />&ndash;%&gt;--%>
+        <%--</a>--%>
+            <%--<ul  class="dropdown-menu " role="menu">--%>
+                <%--<li><a href="borrows.jsp">已借图书</a></li>--%>
+                <%--<li class="divider"></li>--%>
+                <%--<li><a href="">个人图书</a></li>--%>
+                <%--<li class="divider"></li>--%>
+                <%--<li><a class="btn-group" href="">添加图书</a></li>--%>
+            <%--</ul>--%>
+        <%--</li>--%>
+        <%--<li class="nr dropdown" onmouseover="nrselect(this)"  data-toggle="dropdown" onmouseleave="nrleave(this)">--%>
+            <%--<a class="dropdown-toggle" href="#" data-toggle="dropdown"><span>个人信息</span>--%>
+            <%--&lt;%&ndash;<img  style="width: 10px;height: 10px" src="img/bot_logo.png" />&ndash;%&gt;--%>
+        <%--</a>--%>
+            <%--<ul class="dropdown-menu">--%>
+                <%--<li><a href="UserInfor.jsp">个人中心</a></li>--%>
+                <%--<li class="divider"></li>--%>
+
+                <%--<li><a href="ChangePerson.jsp">管理信息</a></li>--%>
+            <%--</ul>--%>
+        <%--</li>--%>
+        <%--<li class="nr" onmouseover="nrselect(this)" onmouseleave="nrleave(this)">--%>
+            <%--<a href="">借阅车</a>--%>
+        <%--</li>--%>
+    <%--</ul>--%>
+<%--</div>--%>
 <div id="container">
     <div id="container_main">
         <div id="container_main_head">

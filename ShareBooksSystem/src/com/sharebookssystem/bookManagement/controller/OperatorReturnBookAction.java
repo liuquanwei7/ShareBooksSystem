@@ -4,6 +4,7 @@ import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 import com.sharebookssystem.bookManagement.service.impl.BookManagementServiceImpl;
 import com.sharebookssystem.bookUi.utils.MailUitls;
+import com.sharebookssystem.model.Book;
 import com.sharebookssystem.model.BorrowHistoryItem;
 import com.sharebookssystem.model.PersonalBook;
 import com.sharebookssystem.model.User;
@@ -32,6 +33,8 @@ public class OperatorReturnBookAction extends ActionSupport {
     private int userId ;
     private List<User> userList;
     private String getBookMessage;
+    private int bookId;
+    private List<Book> bookList = new ArrayList<>();
 
     public OperatorReturnBookAction(){
 
@@ -109,7 +112,7 @@ public class OperatorReturnBookAction extends ActionSupport {
         this.userId = userId;
     }
 
-    public String operatorReturnBook() throws Exception{
+    public String operatorReturnBook(){
         Map m = ActionContext.getContext().getSession();
         borrowHistoryItemList = service.queryBorrowHistoryItemByReturnCode(returnCode);
         if(borrowHistoryItemList == null || borrowHistoryItemList.size()==0){
@@ -124,32 +127,18 @@ public class OperatorReturnBookAction extends ActionSupport {
                 return INPUT;
             }else{
                 if(personalBookList.get(0).getBookStatus().trim().equals("请求归还")){
-                    if(personalBookList.get(0).getGetBookCode().trim().equals("")){
-                        bookStatus = "在库";
-                    }else {
-                        bookStatus = "请求索回";
-                        userId = personalBookList.get(0).getUser().getUserId();
-                        userList = service.queryUserInfoByUserId(userId);
-                        if(userList == null || userList.size() == 0){
-                            m.put("operatorReturnBookError","归还失败");
-                            return INPUT;
-                        }else{
-                            getBookMessage = "你的书已经在库,请及时来拿";
-                            MailUitls.sendMail(userList.get(0).getUserEmail(),getBookMessage);
-                        }
-                    }
-                    SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");//设置日期格式
-                    String nowDate = df.format(new Date());
-                    actualReturnDate = df.parse(nowDate);
-                    borrowStatus = "已归还";
-                    borrowHistoryItemList.get(0).setBorrowStatus(borrowStatus);
-                    borrowHistoryItemList.get(0).setActualReturnDate(actualReturnDate);
-                    personalBookList.get(0).setBookStatus(bookStatus);
-                    if(service.updatePersonalBookAndBorrowHistoryItem(borrowHistoryItemList.get(0),personalBookList.get(0))){
-                        return SUCCESS;
-                    }else{
-                        m.put("operatorReturnBookError","归还失败");
+                    bookId = personalBookList.get(0).getBook().getBookId();
+                    userId = borrowHistoryItemList.get(0).getBorrower().getUserId();
+                    bookList = service.queryBookById(bookId);
+                    userList = service.queryUserInfoByUserId(userId);
+                    if(bookList == null || userList == null || bookList.size() == 0 || userList.size() == 0){
+                        m.put("operatorReturnBookError","归还失败,该用户不存在或该书本信息不存在");
                         return INPUT;
+                    }else {
+                        m.put("operatorReturnBook", bookList);
+                        m.put("operatorReturnUser", userList);
+                        m.put("operatorReturnCode", returnCode);
+                        return "confirm";
                     }
                 }else{
                     m.put("operatorReturnBookError","归还码无效");
@@ -158,6 +147,40 @@ public class OperatorReturnBookAction extends ActionSupport {
             }
         }else{
             m.put("operatorReturnBookError","归还码无效");
+            return INPUT;
+        }
+    }
+
+    public String operatorConfirmReturnBook() throws Exception{
+        borrowHistoryItemList = service.queryBorrowHistoryItemByReturnCode(returnCode);
+        personalBookId = borrowHistoryItemList.get(0).getPersonalBook().getPersonalBookId();
+        personalBookList = service.queryPersonalBookByPersonalBookId(personalBookId);
+        Map m = ActionContext.getContext().getSession();
+        if(personalBookList.get(0).getGetBookCode().trim().equals("")){
+            bookStatus = "在库";
+        }else {
+            bookStatus = "请求索回";
+            userId = personalBookList.get(0).getUser().getUserId();
+            userList = service.queryUserInfoByUserId(userId);
+            if(userList == null || userList.size() == 0){
+                m.put("operatorReturnBookError","归还失败");
+                return INPUT;
+            }else{
+                getBookMessage = "你的书已经在库,请及时来拿";
+                MailUitls.sendMail(userList.get(0).getUserEmail(),getBookMessage);
+            }
+        }
+        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");//设置日期格式
+        String nowDate = df.format(new Date());
+        actualReturnDate = df.parse(nowDate);
+        borrowStatus = "已归还";
+        borrowHistoryItemList.get(0).setBorrowStatus(borrowStatus);
+        borrowHistoryItemList.get(0).setActualReturnDate(actualReturnDate);
+        personalBookList.get(0).setBookStatus(bookStatus);
+        if(service.updatePersonalBookAndBorrowHistoryItem(borrowHistoryItemList.get(0),personalBookList.get(0))){
+            return SUCCESS;
+        }else{
+            m.put("operatorConfirmReturnBookError","归还失败");
             return INPUT;
         }
     }

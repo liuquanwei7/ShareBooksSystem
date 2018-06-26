@@ -5,8 +5,8 @@
         "http://struts.apache.org/dtds/struts-2.5.dtd">
 
 <struts>
-    <!--开发阶段用到的常量设置 ，开发阶段结束后必须注释 -->
-    <!-- 重新加载struts.xml文件 -->
+    <!--开发阶段用到的常量设置 ，开发阶段结束后必须注释-->
+     <!--重新加载struts.xml文件-->
     <constant name="struts.configuration.xml.reload" value="true" />
     <!-- 打印更多的错误信息，便于查找错原因 -->
     <constant name="strusts.devMode" value="true" />
@@ -36,20 +36,40 @@
             <result name="success">showBooks.jsp</result>
             <result name="input">checkBooks.jsp</result>
         </action>
+        <!--<action name="addBookAction" class="addBookAction">-->
+            <!--&lt;!&ndash;<interceptor-ref name="loginInterceptor"/>&ndash;&gt;-->
+            <!--<interceptor-ref name="defaultStack"/>-->
+            <!--<result name="success">ensureBook.jsp</result>-->
+            <!--<result name="input">addBook.jsp</result>-->
+        <!--</action>-->
         <action name="addBookAction" class="addBookAction">
             <!--<interceptor-ref name="loginInterceptor"/>-->
-            <interceptor-ref name="defaultStack"/>
-            <result name="success">ensureBook.jsp</result>
-            <result name="input">addBook.jsp</result>
+            <result name="success" type="json">
+                <param name="root">jsonMap</param>
+            </result>
+            <result name="input" type="json">
+                <param name="root">jsonMap</param>
+            </result>
+            <!--<result name="input">addBook.jsp</result>-->
         </action>
         <action name="ensureAddBookAction" class="ensureAddBookAction">
             <!--<interceptor-ref name="loginInterceptor"/>-->
             <result name="success" type="json">
                 <param name="root">jsonMap</param>
             </result>
+            <result name="input" type="json">
+                <param name="root">jsonMap</param>
+            </result>
             <!--<result name="input">addBook.jsp</result>-->
         </action>
         <action name="showBookInfoAction" class="showBookInfoAction">
+            <!--<interceptor-ref name="loginInterceptor"/>-->
+            <interceptor-ref name="defaultStack"/>
+            <result name="success">bookInfo.jsp</result>
+            <result name="input">checkBooks.jsp</result>
+            <!--<result name="input">addBook.jsp</result>-->
+        </action>
+        <action name="showBookByPersonalBookIdAction" class="showBookByPersonalBookIdAction">
             <!--<interceptor-ref name="loginInterceptor"/>-->
             <interceptor-ref name="defaultStack"/>
             <result name="success">bookInfo.jsp</result>

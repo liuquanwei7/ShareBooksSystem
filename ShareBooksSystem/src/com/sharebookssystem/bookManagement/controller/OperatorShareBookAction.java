@@ -3,7 +3,9 @@ package com.sharebookssystem.bookManagement.controller;
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 import com.sharebookssystem.bookManagement.service.impl.BookManagementServiceImpl;
+import com.sharebookssystem.model.Book;
 import com.sharebookssystem.model.PersonalBook;
+import com.sharebookssystem.model.User;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -21,6 +23,10 @@ public class OperatorShareBookAction extends ActionSupport {
     private int shareCode;
     private BookManagementServiceImpl service;
     private List<PersonalBook> personalBookList = new ArrayList<>();
+    private List<Book> bookList = new ArrayList<>();
+    private List<User> userList = new ArrayList<>();
+    private int bookId;
+    private int userId;
     private Date uploadDate;
 
     public OperatorShareBookAction(){
@@ -58,26 +64,44 @@ public class OperatorShareBookAction extends ActionSupport {
             m.put("operatorShareBookError","分享码不存在,请确认后再重新输入");
             return INPUT;
         }else if(personalBookList.get(0).getBookStatus().trim().equals("申请分享")){
-            try{
-                SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");//设置日期格式
-                String nowDate = df.format(new Date());
-                uploadDate = df.parse(nowDate); //上传日期
-                personalBookList.get(0).setUploadDate(uploadDate);
-                personalBookList.get(0).setBookStatus("在库");
-                if(service.updatePersonalBook(personalBookList.get(0))){
-                    return SUCCESS;
-                }else {
-                    m.put("operatorShareBookError","分享失败");
+            bookId = personalBookList.get(0).getBook().getBookId();
+            userId = personalBookList.get(0).getUser().getUserId();
+            bookList = service.queryBookById(bookId);
+            userList = service.queryUserInfoByUserId(userId);
+            if(bookList == null || userList == null || bookList.size() == 0 || userList.size() == 0){
+                    m.put("operatorShareBookError","分享失败,该用户不存在或该书本信息不存在");
                     return INPUT;
-                }
-            }catch (Exception e){
-                e.printStackTrace();
-                m.put("operatorShareBookError","分享失败");
-                return INPUT;
+                }else{
+                    m.put("operatorShareBook",bookList);
+                    m.put("operatorShareUser",userList);
+                    m.put("operatorShareCode",shareCode);
+                    return "confirm";
             }
-
         }else{  //书籍状态错误
             m.put("operatorShareBookError","分享失败,该分享码已过期");
+            return INPUT;
+        }
+    }
+
+    //确认分享图书
+    public String operatorConfirmShareBook(){
+        Map m = ActionContext.getContext().getSession();
+        personalBookList = service.queryPersonalBookByShareCode(shareCode);
+        try{
+            SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");//设置日期格式
+            String nowDate = df.format(new Date());
+            uploadDate = df.parse(nowDate); //上传日期
+            personalBookList.get(0).setUploadDate(uploadDate);
+            personalBookList.get(0).setBookStatus("在库");
+            if(service.updatePersonalBook(personalBookList.get(0))){
+                return SUCCESS;
+            }else {
+                m.put("operatorConfirmShareBookError","分享失败");
+                return INPUT;
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+            m.put("operatorConfirmShareBookError","分享失败");
             return INPUT;
         }
     }

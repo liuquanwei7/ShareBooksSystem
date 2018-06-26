@@ -86,7 +86,6 @@
                                     <a class="btn btn-primary" href="javascript:confirmDeleteBook('<s:property value="#managerBooks.bookId"/>')" role="button" id="delete">删除</a>
                                     <a class="btn btn-primary" href="queryBook.jsp" role="button" id="back">返回</a>
                                 </s:iterator>
-
                             </form>
                         </div>
                     </div>

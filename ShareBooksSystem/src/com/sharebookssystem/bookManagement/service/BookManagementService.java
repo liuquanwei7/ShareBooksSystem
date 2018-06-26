@@ -37,6 +37,7 @@ public interface BookManagementService {
     //通过bookId查询个人图书表
     public List queryPersonalBook(int Id);
 
+
     //通过personalBookId查询借阅表
     public List queryBorrowHistoryItem(int Id);
 
@@ -88,4 +89,19 @@ public interface BookManagementService {
 
     //通过userId查询UserInfo
     public List queryUserInfoByUserId(int id);
+
+    //查询分享的图书数量
+    public int queryCountOfBook();
+
+    //查询借书记录数量
+    public int queryCountOfBorrowHistory();
+
+    //查询用户数量
+    public int queryCountOfUser();
+
+    //查询管理员数量
+    public int queryCountOfManager();
+
+    //查询评论数量
+    public int queryCountOfComment();
 }
