@@ -100,7 +100,7 @@
         <action name="deleteBookFromCarAction" class="deleteBookFromCarAction">
             <!--<interceptor-ref name="loginInterceptor"/>-->
             <interceptor-ref name="defaultStack"/>
-            <result name="success">myBorrowCar.jsp</result>
+            <result name="success">deleteBookFromCarSuccess.jsp</result>
             <result name="input">deleteBookFromCarFalse.jsp</result>
             <!--<result name="input">addBook.jsp</result>-->
         </action>

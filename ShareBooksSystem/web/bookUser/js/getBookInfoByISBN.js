@@ -133,6 +133,8 @@ function getBookInfo() {
 
             },
             error: function (errmsg) {
+                // alert(msg.status);
+                alert("找不到此书信息");
                 console.log(errmsg);
             }
         });

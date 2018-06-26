@@ -92,7 +92,7 @@ public class GetMyBookAction extends ActionSupport {
         String getBookCode=getBookCode1+"";
         map.put("getBookCode",getBookCode);
         personalbook.setGetBookCode(getBookCode);
-//        personalbook.setBookStatus("请求索回");
+        personalbook.setBookStatus("请求索回");
 
         if(bd.getMyBook(personalbook)) {
             String code="您的索回码为："+personalbook.getGetBookCode()+";请持索回码找操作员拿回您的书籍";

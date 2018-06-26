@@ -126,7 +126,7 @@ public class OperatorReturnBookAction extends ActionSupport {
                 m.put("operatorReturnBookError","归还码无效");
                 return INPUT;
             }else{
-                if(personalBookList.get(0).getBookStatus().trim().equals("请求归还")){
+                if(personalBookList.get(0).getBookStatus().trim().equals("请求归还")||personalBookList.get(0).getBookStatus().trim().equals("请求索回")){
                     bookId = personalBookList.get(0).getBook().getBookId();
                     userId = borrowHistoryItemList.get(0).getBorrower().getUserId();
                     bookList = service.queryBookById(bookId);
@@ -156,7 +156,7 @@ public class OperatorReturnBookAction extends ActionSupport {
         personalBookId = borrowHistoryItemList.get(0).getPersonalBook().getPersonalBookId();
         personalBookList = service.queryPersonalBookByPersonalBookId(personalBookId);
         Map m = ActionContext.getContext().getSession();
-        if(personalBookList.get(0).getGetBookCode().trim().equals("")){
+        if(personalBookList.get(0).getGetBookCode()==null||personalBookList.get(0).getGetBookCode().trim().equals("")){
             bookStatus = "在库";
         }else {
             bookStatus = "请求索回";

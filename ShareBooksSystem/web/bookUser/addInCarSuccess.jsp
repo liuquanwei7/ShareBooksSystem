@@ -14,6 +14,7 @@
 <body>
 <s:include value="newNav.jsp"/>
 <p style="margin: 0 auto;width: 500px;height: 100px;text-align: center;font-size: 20px;">
-    加入购物车成功！！！</p>
+    加入借阅车成功！！！</p>
+<a style="margin: 0 auto;width: 500px;height: 100px;text-align: center;font-size: 17px;" href="showMyBorrowCarAction" class="myCar">返回我的借阅车</a>
 </body>
 </html>

@@ -24,7 +24,7 @@
     <%--加入购物车成功！！！--%>
 <h3>请求借阅图书成功！！！</h3>
 <p id="borrowCode"><%=session.getAttribute("borrowCode")%></p>
-<p>请持借阅码找操作员分享您的图书。</p>
+<p>请持借阅码找操作员借阅图书。</p>
 </div>
 </body>
 </html>

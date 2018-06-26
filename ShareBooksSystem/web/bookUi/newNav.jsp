@@ -203,11 +203,11 @@
         },
         methods:{
             getCheckData:function(){
-                if(this.myData!==''){
+                // if(this.myData!==''){
                     location.href="../bookUser/getCheckBookAction.action?check_data="+this.myData;
-                }else{
-                    this.$Message.warning('请输入搜索内容');
-                }
+                // }else{
+                //     this.$Message.warning('请输入搜索内容');
+                // }
             }
         }
     }
