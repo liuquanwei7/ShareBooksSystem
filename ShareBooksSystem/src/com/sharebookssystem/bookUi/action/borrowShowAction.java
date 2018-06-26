@@ -22,6 +22,16 @@ public class borrowShowAction {
     BookDao bd;
     BorrowHistoryItem borrowHistoryItem;
     BorrowHistoryItemDao bI;
+    List<BorrowHistoryItem> borrowHistoryItemList;
+
+    public List<BorrowHistoryItem> getBorrowHistoryItemList() {
+        return borrowHistoryItemList;
+    }
+
+    public void setBorrowHistoryItemList(List<BorrowHistoryItem> borrowHistoryItemList) {
+        this.borrowHistoryItemList = borrowHistoryItemList;
+    }
+
     PersonalBook pb;
     PersonalBookDao pbd;
     int userid;
@@ -131,11 +141,12 @@ public class borrowShowAction {
         user=(User)session.get("user");
         userid=(Integer) user.getUserId();
 
-        if(bI.queryPersonalId(borrowHistoryItem,userid)==null){
+        if(bI.queryPersonalId(borrowHistoryItem,userid)==null){//取出所有personids（未还）
            session.put("ReturnSuccess","没有借书记录");
             return INPUT;
         }
-        if(pbd.queryBookId(pb)==null){
+        borrowHistoryItemList=bI.queryPersonalId(borrowHistoryItem,userid);
+        if(pbd.queryBookId(pb)==null){//存入perosonbookids
             session.put("ReturnSuccess","没有借书记录");
             return INPUT;
         }
@@ -144,6 +155,7 @@ public class borrowShowAction {
             session.put("ReturnSuccess","没有借书记录");
             return INPUT;
         }
+
         books=bd.queryBooks(book);
 
         return SUCCESS;

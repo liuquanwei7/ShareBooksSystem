@@ -25,7 +25,7 @@ public class BorrowHistoryItemDao {
         this.sessionFactory = sessionFactory;
     }
 
-    public BorrowHistoryItem queryPersonalId(BorrowHistoryItem bd, int userid){
+    public List<BorrowHistoryItem> queryPersonalId(BorrowHistoryItem bd, int userid){
         Session session = null;
         try{
             //调用HibernateSessionFactory获得session
@@ -60,7 +60,7 @@ public class BorrowHistoryItemDao {
             ss.put("a",a);
             ss.put("mounts",mounts);
             System.out.println("数量"+mounts);
-            return bd;
+            return list;
 
         }catch(Exception ex){
             System.out.println("888888888888444444444444444444");
@@ -107,7 +107,7 @@ public class BorrowHistoryItemDao {
                 }
                 if(pancou==0){
                     a[x]=list.get(co).getPersonalBook().getPersonalBookId();
-                    System.out.println("运行测试");
+                    //防止取多次
                     x++;
                 }
             }

@@ -56,6 +56,8 @@
     <div id="container_re_right" style="width: 65%;">
         <div id="main_books" >
             <s:iterator value="books" status="st" var="book">
+                <s:iterator value="borrowHistoryItemList" status="st1" var="borrowHistoryItem">
+                <s:if test="#st1.count==#st.count">
                 <div class="main_center" >
                     <div class="center_left"   align="center" >
                         <img referrerpolicy="no-referrer" src="<s:property value="#book.bookPicture"/>" width="150px" height="200px/">
@@ -67,12 +69,13 @@
                     </div>
                     <div class="center_right" >
 
-                        <a href="javascript:queryReturn('<s:property value="#book.bookId"/>')">申请还书</a>
+                        <a href="javascript:queryReturn('<s:property value="#borrowHistoryItem.borrowHistoryItemId"/>')">申请还书</a>
                         <div><span>价格&nbsp;</span><s:property value="#book.bookPrice"/>元</div>
                     </div>
 
                 </div>
-
+                </s:if>
+                </s:iterator>
             </s:iterator>
         </div>
     </div>

@@ -65,7 +65,7 @@ public class PersonalBookDao {
 
             }
 
-            ss.put("pdarray",pdarray);
+            ss.put("pdarray",pdarray);//存入perosonbooks
             return pb;
 
         }catch(Exception ex){
