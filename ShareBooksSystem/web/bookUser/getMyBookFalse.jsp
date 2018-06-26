@@ -15,6 +15,7 @@
 <s:include value="newNav.jsp"/>
 <p style="margin: 0 auto;width: 500px;height: 100px;text-align: center;font-size: 20px;">
     申请索回书籍失败！！！</p>
+<a style="margin: 0 auto;width: 500px;height: 100px;text-align: center;font-size: 17px;" href="showMyBookAction" class="myCar">返回我的借阅车</a>
 
 </body>
 </html>
