@@ -82,7 +82,7 @@
             <tr>
                 <%--把每一列的值取出来并显示--%>
                 <td><a href="initUserBooks_DPageT.action?which=<%=i%>"><%= line.get(2) %></a></td>
-                <td><a href="initSameBook_BPage.action"><%= line.get(3) %></a></td>
+                <td><a href="initSameBook_BPage.action?which=<%=i%>"><%= line.get(3) %></a></td>
                 <td><%= line.get(4) %></td>
                 <td><%= line.get(5) %></td>
                 <td><%= line.get(6) %></td>

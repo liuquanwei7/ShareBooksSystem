@@ -56,7 +56,7 @@ public class BorrowHistoryItemDao {
                     if(bd.getBorrowStatus().equals("未还")) {
                         a[mounts] = bd.getPersonalBook().getPersonalBookId();
                         b[mounts]=bd.getBorrowHistoryItemId();
-                        System.out.println("未还："+a[mounts]);
+                        System.out.println("未还："+b[mounts]);
                         mounts++;
                     }
                 }
@@ -71,8 +71,11 @@ public class BorrowHistoryItemDao {
                 for(int j=0;j<mounts;j++){
                     hqlsss=hqlsss+b[j];
                     System.out.println("测试hqlss"+hqlsss);
-                    if(j+1!=mounts){
+                    if((j+1)<mounts){
                        hqlsss=hqlsss +",";
+
+                    }
+                    else{
                         break;
                     }
                 }
